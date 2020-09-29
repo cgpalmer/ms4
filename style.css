@@ -4,3 +4,8 @@
     color: white;
     text-align: center;
 }
+
+.jumbotron{
+    height: calc(100vh - 80px);
+    margin: 0
+}
