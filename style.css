@@ -8,6 +8,22 @@
     margin: 0;
 }
 
+.picture{
+    height: 200px;
+}
+
+#picture1{
+    background-color: blue;
+}
+
+#picture2{
+    background-color: green;
+}
+
+#picture3{
+    background-color: red;
+}
+
 /* Nav */
 
 .navbar{
