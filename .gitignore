@@ -3,3 +3,5 @@ env.py
 __pycache__/
 *.py[cod]
 .theia
+*.sqlite3
+*.pyc
