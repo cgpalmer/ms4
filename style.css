@@ -9,3 +9,11 @@
     height: calc(100vh - 80px);
     margin: 0;
 }
+
+/* Nav */
+
+/* Dark Blue */
+.navbar{
+    background-color: #2D3142
+
+}
