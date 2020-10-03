@@ -12,7 +12,7 @@ body, html {
 
 .parallax {
   /* The image used */
-  background-image: url('https://placekitten.com/g/900/700');
+  background-image: url('../images/landingImageRocks.jpg');
 
   /* Full height */
   height: 100%; 
