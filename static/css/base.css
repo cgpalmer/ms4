@@ -2,6 +2,8 @@ body, html {
   height: 100%;
 }
 
+/* Parallax Settings */
+
 .parallax {
   /* The image used */
   background-image: url('../images/landingImageRocks.jpg');
@@ -18,6 +20,11 @@ body, html {
 
 .parallaxImage{
     height: 100vh;
+}
+
+.parallaxImageTextWrapper {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
 }
 
 .static{
