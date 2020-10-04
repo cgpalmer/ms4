@@ -18,7 +18,7 @@
      <link rel="stylesheet" href="{% static 'css/base.css' %}">  
     {% endblock %}
     {% block additionCSS %}     
-   
+        <link rel="stylesheet" href="{% static 'css/colors.css' %}">  
     {% endblock %}
     <title>Hello, world!</title>
   </head>
@@ -43,10 +43,47 @@
                 </li>
             </ul>
         </div>
-           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search products" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+        <div>
+            <ul>
+                <li class="dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Search
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="allProducts">
+                    <!-- refactor this code? -->
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search products" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>                      
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Login
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="allProducts">
+                    <!-- refactor this code? -->
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search products" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>                      
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Basket
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="allProducts">
+                    <!-- refactor this code? -->
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search products" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>                      
+                    </div>
+                </li>
+            </ul>
+        </div>
+           
             <div class="login">Login</div>
             <div class="basket">Basket</div>
 
