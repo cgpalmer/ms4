@@ -1,0 +1,30 @@
+[
+    {
+        "pk": 1.0,
+        "model": "products.special",
+        "fields": {
+        "name": "multi-buy",
+        "friendly_name": "Multi-buy offers"
+    }},
+    {
+        "pk": 2.0,
+        "model": "products.special",
+        "fields": {
+        "name": "clearance",
+        "friendly_name": "Clearance"
+    }},
+    {
+        "pk": 3.0,
+        "model": "products.special",
+        "fields": {
+        "name": "new_photos",
+        "friendly_name": "New Photographs"
+    }},
+    {
+        "pk": 4.0,
+        "model": "products.special",
+        "fields": {
+        "name": "no_offer",
+        "friendly_name": "No Offer"
+    }}
+]

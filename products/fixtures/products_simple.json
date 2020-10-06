@@ -3,6 +3,7 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010101",
         "name": "grasshopper",
@@ -19,6 +20,7 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010102",
         "name": "bee",
@@ -35,6 +37,7 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010103",
         "name": "budapest",
@@ -51,6 +54,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010104",
         "name": "hungarian-parliament",
@@ -67,6 +71,7 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010105",
         "name": "hills-of-bratislava",
@@ -83,6 +88,7 @@
         "pk": 6,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010201",
         "name": "lan-ha-bay",
@@ -99,6 +105,7 @@
         "pk": 7,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010202",
         "name": "uni-of-york-campus",
@@ -115,6 +122,7 @@
         "pk": 8,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010203",
         "name": "blue-dragonfly",
@@ -131,6 +139,7 @@
         "pk": 9,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010204",
         "name": "butterfly",
@@ -147,6 +156,7 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010205",
         "name": "red-dragonfly",
@@ -163,6 +173,7 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010301",
         "name": "white-flower",
@@ -179,6 +190,7 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010302",
         "name": "purple-flowers",
@@ -195,6 +207,7 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010303",
         "name": "rows-of-pink-flowers",
@@ -211,6 +224,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010304",
         "name": "waterlilly",
@@ -227,6 +241,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010305",
         "name": "tulips",
@@ -243,6 +258,7 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010401",
         "name": "crabs",
@@ -259,6 +275,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010402",
         "name": "white-headed-langur",
@@ -275,6 +292,7 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010403",
         "name": "elephant",
@@ -291,6 +309,7 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010404",
         "name": "frog",
@@ -307,6 +326,7 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pg010405",
         "name": "gecko",
@@ -323,6 +343,7 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pf010101",
         "name": "Small frame - 7 x 5\"",
@@ -339,6 +360,7 @@
         "pk": 22,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pf010201",
         "name": "Medium frame - 8 x 6\"",
@@ -355,6 +377,7 @@
         "pk": 23,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "pf010301",
         "name": "Large frame - 10 x 8\"",
@@ -371,6 +394,7 @@
         "pk": 24,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cv010101",
         "name": "Canvas 16 x 16\"",
@@ -387,6 +411,7 @@
         "pk": 25,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cv010201",
         "name": "Cavnas 18 x 24\"",
@@ -403,6 +428,7 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cv010501",
         "name": "Cavnas 24 x 36\"",
@@ -419,6 +445,7 @@
         "pk": 28,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cl010101",
         "name": "A4 size Calendar",
@@ -435,6 +462,7 @@
         "pk": 29,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cl010201",
         "name": "A3 size Calendar",
@@ -451,6 +479,7 @@
         "pk": 30,
         "model": "products.product",
         "fields": {
+      "special_offer": "1",
       "blog": "1",
         "sku": "cl010301",
         "name": "A2 size Calendar",
