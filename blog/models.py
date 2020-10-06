@@ -2,9 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Blog(models.Model):
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    content = models.TextField()
+    title = models.CharField(max_length=254, null=True, blank=True)
+    story = models.TextField()
 
     def __str__(self):
         return self.name
