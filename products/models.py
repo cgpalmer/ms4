@@ -11,6 +11,7 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+
 class Special(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -22,6 +23,8 @@ class Special(models.Model):
         return self.friendly_name
 
 
+
+
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254)
@@ -29,11 +32,12 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     special_offer = models.ForeignKey('Special', null=True, blank=True, on_delete=models.SET_NULL)
-    ratingreviews = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url_mobile = models.URLField(max_length=1024, null=True, blank=True)
     image_url_desktop = models.URLField(max_length=1024, null=True, blank=True)
     image_mobile = models.ImageField(null=True, blank=True)
     image_desktop = models.ImageField(max_length=1024, null=True, blank=True)
+    blog = models.ForeignKey('Blog', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
