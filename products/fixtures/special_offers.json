@@ -4,27 +4,31 @@
         "model": "products.special",
         "fields": {
         "name": "multi-buy",
-        "friendly_name": "Multi-buy offers"
+        "friendly_name": "Multi-buy offers",
+        "discounts": 0.2
     }},
     {
         "pk": 2,
         "model": "products.special",
         "fields": {
         "name": "clearance",
-        "friendly_name": "Clearance"
+        "friendly_name": "Clearance",
+        "discounts": 0.4
     }},
     {
         "pk": 3,
         "model": "products.special",
         "fields": {
         "name": "new_photos",
-        "friendly_name": "New Photographs"
+        "friendly_name": "New Photographs",
+        "discounts": 0.1
     }},
     {
         "pk": 4,
         "model": "products.special",
         "fields": {
         "name": "no_offer",
-        "friendly_name": "No Offer"
+        "friendly_name": "No Offer",
+        "discounts": 0.0
     }}
 ]
