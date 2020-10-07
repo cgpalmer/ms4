@@ -5,12 +5,9 @@ class Blog(models.Model):
     title = models.CharField(max_length=254, null=True, blank=True)
     story = models.TextField()
 
-    def __str__(self):
-        return self.name
+    def get_title(self):
+        return self.title
 
-    def get_friendly_name(self):
-        return self.friendly_name
-
-    def get_content(self):
-        return self.content
+    def get_story(self):
+        return self.story
     
