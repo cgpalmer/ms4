@@ -1,0 +1,202 @@
+[
+    {
+        "pk": 1,
+         "model": "reviews.review",
+        "fields": {
+        "product": 1,
+        "review_rating": 3,
+        "review_content": "review1"
+    }},
+    {
+        "pk": 2,
+         "model": "reviews.review",
+        "fields": {
+        "product": 2,
+        "review_rating": 4,
+        "review_content": "review2"
+    }},
+    {
+        "pk": 3,
+         "model": "reviews.review",
+        "fields": {
+        "product": 3,
+        "review_rating": 2,
+        "review_content": "review3"
+    }},
+    {
+        "pk": 4,
+         "model": "reviews.review",
+        "fields": {
+        "product": 1,
+        "review_rating": 5,
+        "review_content": "review4"
+    }},
+    {
+        "pk": 5,
+         "model": "reviews.review",
+        "fields": {
+        "product": 5,
+        "review_rating": 4,
+        "review_content": "review5"
+    }},
+    {
+        "pk": 6,
+         "model": "reviews.review",
+        "fields": {
+        "product": 6,
+        "review_rating": 2,
+        "review_content": "review6"
+    }},
+    {
+        "pk": 7,
+         "model": "reviews.review",
+        "fields": {
+        "product": 7,
+        "review_rating": 4,
+        "review_content": "review7"
+    }},
+    {
+        "pk": 8,
+         "model": "reviews.review",
+        "fields": {
+        "product": 8,
+        "review_rating": 5,
+        "review_content": "review8"
+    }},
+    {
+        "pk": 9,
+         "model": "reviews.review",
+        "fields": {
+        "product": 9,
+        "review_rating": 3,
+        "review_content": "review9"
+    }},
+    {
+        "pk": 10,
+         "model": "reviews.review",
+        "fields": {
+        "product": 10,
+        "review_rating": 3,
+        "review_content": "review10"
+    }},
+    {
+        "pk": 11,
+         "model": "reviews.review",
+        "fields": {
+        "product": 11,
+        "review_rating": 1,
+        "review_content": "review11"
+    }},
+    {
+        "pk": 12,
+         "model": "reviews.review",
+        "fields": {
+        "product": 12,
+        "review_rating": 5,
+        "review_content": "review12"
+    }},
+    {
+        "pk": 13,
+         "model": "reviews.review",
+        "fields": {
+        "product": 13,
+        "review_rating": 4,
+        "review_content": "review13"
+    }},
+    {
+        "pk": 14,
+         "model": "reviews.review",
+        "fields": {
+        "product": 14,
+        "review_rating": 5,
+        "review_content": "review14"
+    }},
+    {
+        "pk": 15,
+         "model": "reviews.review",
+        "fields": {
+        "product": 15,
+        "review_rating": 3,
+        "review_content": "review15"
+    }},
+    {
+        "pk": 16,
+         "model": "reviews.review",
+        "fields": {
+        "product": 16,
+        "review_rating": 4,
+        "review_content": "review16"
+    }},
+    {
+        "pk": 17,
+         "model": "reviews.review",
+        "fields": {
+        "product": 17,
+        "review_rating": 5,
+        "review_content": "review17"
+    }},
+    {
+        "pk": 18,
+         "model": "reviews.review",
+        "fields": {
+        "product": 18,
+        "review_rating": 4,
+        "review_content": "review18"
+    }},
+    {
+        "pk": 19,
+         "model": "reviews.review",
+        "fields": {
+        "product": 19,
+        "review_rating": 3,
+        "review_content": "review19"
+    }},
+    {
+        "pk": 20,
+         "model": "reviews.review",
+        "fields": {
+        "product": 20,
+        "review_rating": 4,
+        "review_content": "review20"
+    }},
+    {
+        "pk": 21,
+         "model": "reviews.review",
+        "fields": {
+        "product": 21,
+        "review_rating": 4,
+        "review_content": "review21"
+    }},
+    {
+        "pk": 22,
+         "model": "reviews.review",
+        "fields": {
+        "product": 22,
+        "review_rating": 5,
+        "review_content": "review22"
+    }},
+    {
+        "pk": 23,
+         "model": "reviews.review",
+        "fields": {
+        "product": 23,
+        "review_rating": 5,
+        "review_content": "review23"
+    }},
+    {
+        "pk": 24,
+         "model": "reviews.review",
+        "fields": {
+        "product": 24,
+        "review_rating": 5,
+        "review_content": "review24"
+    }},
+    {
+        "pk": 25,
+         "model": "reviews.review",
+        "fields": {
+        "product": 25,
+        "review_rating": 5,
+        "review_content": "review25"
+    }}
+]

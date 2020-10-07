@@ -5,7 +5,7 @@ from products.models import Product
 class Review(models.Model):
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
     review_rating = models.IntegerField(null=False, blank=False)
-    review_content = models.CharField(max_length=254, null=True, blank=True)
+    review_content = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
