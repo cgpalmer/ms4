@@ -7,8 +7,6 @@ class Review(models.Model):
     review_rating = models.IntegerField(null=False, blank=False)
     review_content = models.TextField(null=True, blank=True)
 
-    def __str__(self):
-        return self.name
 
     def get_friendly_name(self):
         return self.review_rating
