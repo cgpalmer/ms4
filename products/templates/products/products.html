@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageContent %}
+    <section>
+        <div class="container products">
+            <div class="row">
+                {% for product in products %}
+                <div class="col-12">
+                     {{ product.name }}
+                </div>
+                <div class="col-12">
+                    <img src="{{ product.image_url_mobile }}" alt=""> 
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
