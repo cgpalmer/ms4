@@ -6,7 +6,7 @@ body, html {
 
 .parallax {
   /* The image used */
-  background-image: url('../images/landingImageRocks.jpg');
+  background-image: url('../media/product-images/bratislava.jpg');
 
   /* Full height */
   height: 100%; 
@@ -23,10 +23,18 @@ body, html {
 }
 
 .parallaxImageTextWrapper {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.7);
     opacity: 1;
+    color: black;
 }
 
 .static{
-    height: 100vh;
+    height: 75vh;
 }
+
+/* Products */
+
+.products {
+    height: 100px;
+}
+
