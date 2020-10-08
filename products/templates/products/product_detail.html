@@ -5,12 +5,12 @@
     <section>
     <div class="container product-container">
         <div class="row">
-            {% for product in products %}
+           
                 <div class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded">
-                    <a class="d-md-none" href="{% url 'product_detail' product.id %}">
+                    <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                         <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.name}}">
                     </a>
-                    <a class="d-md-block" href="{% url 'product_detail' product.id %}">
+                    <a class="d-md-block" href="{{product.image_url_desktop}}" target="_blank">
                         <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.name}}">
                     </a>
                     <div class="card-body">
@@ -20,7 +20,7 @@
                         <p class="card-text">{{product.rating}}/5</p>
                     </div>
                  </div>
-            {% endfor %}
+
        
         
         
