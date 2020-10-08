@@ -3,18 +3,28 @@
 
 {% block pageContent %}
     <section>
-        <div class="container products">
-            <div class="row">
-                {% for product in products %}
-                <div class="col-12">
-                     {{ product.name }}
-                </div>
-                <div class="col-12">
-                    <img src="{{ product.image_url_mobile }}" alt=""> 
-                </div>
-                {% endfor %}
-            </div>
+    <div class="container product-container">
+        <div class="row">
+            {% for product in products %}
+                <div class="card col-12 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                    <a href="{{product.image_url_mobile}}" target="_blank">
+                        <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.name}}">
+                    </a>
+                    <div class="card-body">
+                        <span class="badge badge-secondary">{{product.special_offer}}</span>
+                        <p class="card-text">{{product.name}}</p>
+                        <p class="card-text">£{{product.price}}</p>
+                        <p class="card-text">{{product.rating}}/5</p>
+                    </div>
+                 </div>
+            {% endfor %}
+       
+        
+        
+        
         </div>
+
+    </div>
     </section>
 
 {% endblock %}
