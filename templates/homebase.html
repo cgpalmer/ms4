@@ -106,7 +106,7 @@
                     <div class="dropdown-menu border-0 w-100" aria-labelledby="searchProducts">
                     <!-- refactor this code? -->
                         <form method="GET" action="{% url 'products' %}" class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search products" aria-label="Search">
+                            <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search products" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>                      
                     </div>
@@ -126,7 +126,7 @@
                     </div>
                 </li>
                 <li class="nav-item col-4">
-                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="allProducts">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'view_basket' %}" id="allProducts">
                        <i class="fas fa-shopping-basket"></i>
                     </a>
                 </li>
