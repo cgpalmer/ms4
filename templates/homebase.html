@@ -54,8 +54,8 @@
                     <div class="dropdown-menu border-0" aria-labelledby="allProducts">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}" class="dropdown-item">All products</a>
-                        <a href="" class="dropdown-item">Price</a>
-                        <a href="" class="dropdown-item">Rating</a>                        
+                        <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price</a>
+                        <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">Rating</a>                        
                     </div>
                 </li>
                 <li class="nav-item dropdown">
