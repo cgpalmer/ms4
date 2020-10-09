@@ -12,6 +12,15 @@
             {% endfor %}
         </div>
         <div class="row">
+            <div class="col-3">
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span><a href="{% url 'products' %">Products Home</a></span>
+                {% endif %}
+                {{products|length}} Products{% if search_term %} found for "{{search_term}}"{% endif %}
+
+            </div>
+        </div>
+        <div class="row">
             {% for product in products %}
                 <div class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded">
                     <a class="d-md-none" href="{% url 'product_detail' product.id %}">
