@@ -27,7 +27,7 @@
         
         </div>
         <div class="row">
-            <form method="POST">
+            <form method="POST" action="{% url 'add_to_basket' product.id %}">
             {% csrf_token%}
                 <input type="number" name="quantity" value="1" data-item_id="{{product_id}}" id="{{product_id}}">
                 <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
