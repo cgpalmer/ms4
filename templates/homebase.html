@@ -128,6 +128,7 @@
                 <li class="nav-item col-4">
                     <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'view_basket' %}" id="allProducts">
                        <i class="fas fa-shopping-basket"></i>
+                       <span>{{ grand_total|floatformat:2 }}</span>
                     </a>
                 </li>
                 </div>
