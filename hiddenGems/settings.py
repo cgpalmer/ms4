@@ -75,7 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
+                'basket.context.basket_contents',
             ],
         },
     },
@@ -152,3 +152,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+FREE_DELIVERY_AMOUNT = 50
+STANDARD_DELIVERY_AMOUNT = 4.99
+NEW_CUSTOMER_OFFER = 20
