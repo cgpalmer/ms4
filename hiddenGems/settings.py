@@ -47,10 +47,10 @@ INSTALLED_APPS = [
     'blog',
     'reviews',
     'basket',
-    'checkout'
+    'checkout',
 
     # External apps
-    'crispy-forms',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +166,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 FREE_DELIVERY_AMOUNT = 50
 STANDARD_DELIVERY_AMOUNT = 4.99
 NEW_CUSTOMER_OFFER = 20
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
