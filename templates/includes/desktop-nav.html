@@ -1,0 +1,80 @@
+
+       <nav>
+
+       <div class="container-fluid">
+            <div class="row">
+                <a class="nav-link col-2" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link col-2" href="#">Blog posts</a>
+
+        <a class="navbar-brand col-4" href="#">Hidden Gems</a>
+         <button class="btn btn-primary">
+            <span class="">Login</span>
+        </button>
+     
+                    <a class="nav-link col-2" href="{% url 'view_basket' %}" id="allProducts">
+                       <i class="fas fa-shopping-basket"></i>
+                       <span>{{ grand_total|floatformat:2 }}</span>
+                    </a>
+               
+                    <a class="nav-link" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Wishlist
+                    </a>
+            
+            
+            
+            </div>
+            <div id="desktopExtraNavWrapper">
+            <div class="row">
+               <a id="desktopNavAllProducts" class="col-sm text-center" href="#">All products</a>
+                <a id="desktopNavAllPhotographs" class="col-sm text-center" href="#">Photographs</a>
+                <a id="desktopNavAllSearch" class="col-sm text-center" href="#">Search</a>
+                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center" href="#">Frames and Canvas</a>
+                <a id="desktopNavAllSpecialOffers" class="col-sm text-center" href="#">Special Offers</a>  
+            </div>
+            <div id="desktopDropDownMenu" class="row">
+                <div class="col-sm text-center" aria-labelledby="allProducts">
+                    <!-- refactor this code? -->
+                        <a href="{% url 'products' %}?sort=price&direction=asc" class="">Price</a>
+                        <a href="{% url 'products' %}?sort=rating&direction=desc" class="">Rating</a>    
+                        <a href="{% url 'products' %}" class="">All products</a>                    
+                    </div>
+
+                     <div class="col-sm text-center" aria-labelledby="photographsDropdown">
+                    <!-- refactor this code? -->
+                        <a href="{% url 'products' %}?category=landscapes" class="">Landscapes</a>
+                        <a href="{% url 'products' %}?category=insects" class="">Insects</a>
+                        <a href="{% url 'products' %}?category=animals" class="">Animals</a>
+                        <a href="{% url 'products' %}?category=flowers" class="">Flowers</a>
+                    </div>
+
+                      <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
+                    <!-- refactor this code? -->
+                        <form method="GET" action="{% url 'products' %}" class="row">
+                            <input class="form-control col-8" name="q" type="search" placeholder="Search products" aria-label="Search">
+                            <button class="btn btn-outline-success col-4" type="submit">Search</button>
+                        </form>                 
+                </div>
+                    <div class="col-sm text-center" aria-labelledby="containersDropdown">
+                    <!-- refactor this code? -->
+                        <a href="{% url 'products' %}?category=canvas" class="">Canvases</a>
+                        <a href="{% url 'products' %}?category=photo_frame" class="">Photo frames</a>
+                        <a href="{% url 'products' %}?category=calendars" class="">Calendars</a>
+                    </div>
+
+
+              
+
+                <div class="col-sm text-center" aria-labelledby="photographsDropdown">
+                    <!-- refactor this code? -->
+                        <a href="" class="">New photographs!</a>
+                        <a href="" class="">Multi-buy</a>
+                        <a href="" class="">Clearance</a>
+                        <a href="" class="">All special offers</a>
+                    </div>
+                </div>            
+            </div>
+   
+        </div>
+    </nav>
+   
+
