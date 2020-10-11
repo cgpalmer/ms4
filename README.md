@@ -663,12 +663,16 @@ out of the experience.
 
 
 
-
-
+https://stackoverflow.com/questions/16080952/django-cannot-convert-float-to-decimal-first-convert-the-float-to-a-string
+https://www.frames.co.uk/picture-frames/popular-sizes
+https://blog.365canvas.com/canvas-sizes/
 ___
 
 
 
 
-
-
+https://djangocentral.com/uploading-images-with-django/?fbclid=IwAR3mB4I-krN5zkLP9fqCiiCro8N3JgtrOy_KWGEoV_KilRhJO3FxGn6vaR4#:~:text=The%20image%20column%20is%20an,as%20read%20and%20write%20them.&text=Setting%20dynamic%20paths%20for%20the%20pictures%20is%20also%20possible.&text=Now%2C%20Install%20Pillow%20by%20running%20the%20following%20command%20in%20your%20shell
+https://www.anchorprint.co.uk/printing-products/calendar-printing/
+https://www.pngitem.com/so/landscape-canvas-blank/
+https://frame-company.co.uk/black-20x16-frame-with-white-mount-cut-for-image-size-a3-165x1175_16.html?gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-B6_kFkSbISrgxkqcT4Gt0Jw3nnxoGkkXB5xVpLBntA_ngVFYX39caAvm_EALw_wcB
+http://www.carouselcalendars.co.uk/product/landscapes-of-britain-a4-calendar1
