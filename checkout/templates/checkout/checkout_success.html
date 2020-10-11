@@ -22,7 +22,7 @@
                 <hr>
                 <h2 class="logo-font mb-4">Thank you!</h2>
                 <hr>
-                <h2>You order had been submitted. You will receive a confirmation to the following email address: {{order.email}}</h2>
+                <h2>You order had been submitted. You will receive a confirmation to the following email address:</h2>
             </div>
         </div>
 
@@ -78,18 +78,18 @@
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.full_name  }}
+                        {{ order_form.email  }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                        {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.phone_number  }}
+                        {{ order_form.country  }}
+                        {{ order_form.postcode  }}
+                        {{ order_form.town_or_city  }}
+                        {{ order_form.street_address1  }}
+                        {{ order_form.street_address2  }}
+                        {{ order_form.county  }}
                         <div class="form-check form-check-inline float-right mr-0">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
