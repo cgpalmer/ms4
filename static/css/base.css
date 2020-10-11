@@ -2,6 +2,22 @@ body, html {
   height: 100%;
 }
 
+
+/* Nav */
+
+#extendedSearchBar{
+    display: none;
+}
+
+#desktopDropDownMenu{
+    display: none;
+}
+
+#desktopDropDownMenu a{
+    display: block;
+}
+
+
 /* Parallax Settings */
 
 .parallax {
@@ -37,4 +53,5 @@ body, html {
 .products {
     height: 100px;
 }
+
 
