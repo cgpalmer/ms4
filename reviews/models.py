@@ -5,7 +5,8 @@ from products.models import Product
 class Review(models.Model):
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
     review_rating = models.IntegerField(null=False, blank=False)
-    review_content = models.TextField(null=True, blank=True)
+    customer_username = models.CharField(max_length=254, default="Anonymous")
+    review_content = models.TextField(default="There hasn't been a review added yet.")
 
 
     def get_friendly_name(self):
