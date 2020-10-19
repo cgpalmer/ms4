@@ -676,3 +676,10 @@ https://www.anchorprint.co.uk/printing-products/calendar-printing/
 https://www.pngitem.com/so/landscape-canvas-blank/
 https://frame-company.co.uk/black-20x16-frame-with-white-mount-cut-for-image-size-a3-165x1175_16.html?gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-B6_kFkSbISrgxkqcT4Gt0Jw3nnxoGkkXB5xVpLBntA_ngVFYX39caAvm_EALw_wcB
 http://www.carouselcalendars.co.uk/product/landscapes-of-britain-a4-calendar1
+
+
+downloading files
+https://www.youtube.com/watch?v=qKAf5xF6nOE&t=112s
+
+pdf
+https://codeburst.io/django-render-html-to-pdf-41a2b9c41d16
