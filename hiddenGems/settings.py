@@ -27,7 +27,7 @@ SECRET_KEY = '12=i7xi5(iku%xfomiktdx+qwn=_9e=4qezc84@xkih*vwdykv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hidden-gems-cgpalmer91.herokuapp.com', 'localhost']
 
 
 # Application definition
