@@ -125,9 +125,20 @@ WSGI_APPLICATION = 'hiddenGems.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.parse('postgres://muxwortvspocco:855a6ad20745d353ecd5457c74bea9c8c06a31f7f6467dca1f19fd370c60c33f@ec2-54-246-115-40.eu-west-1.compute.amazonaws.com:5432/d2goaa64eaoupn')
-}
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
