@@ -2,43 +2,51 @@
     {
         "pk": 1.0,
         "model": "products.category",
-        "name": "landscapes",
+        "fields": {
+         "name": "landscapes",
         "friendly_name": "Landscape"
+        }
     },
     {
         "pk": 2.0,
         "model": "products.category",
+    "fields": {
         "name": "animals",
         "friendly_name": "Animals"
-    },
+    }},
     {
         "pk": 3.0,
         "model": "products.category",
+"fields": {
         "name": "insects",
         "friendly_name": "Insects"
-    },
+    }},
     {
         "pk": 4.0,
         "model": "products.category",
+        "fields": {
         "name": "flowers",
         "friendly_name": "Flowers"
-    },
+    }},
     {
         "pk": 5.0,
         "model": "products.category",
+        "fields": {
         "name": "canvas",
         "friendly_name": "Canvas"
-    },
+    }},
     {
         "pk": 6.0,
         "model": "products.category",
+        "fields": {
         "name": "photo_frame",
         "friendly_name": "Photo frames"
-    },
+    }},
     {
         "pk": 7.0,
         "model": "products.category",
+        "fields": {
         "name": "calendars",
         "friendly_name": "Calendars"
-    }
+    }}
 ]
