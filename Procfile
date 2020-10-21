@@ -1,1 +1,1 @@
-web: gunicorn hiddenGems.wsgi.application
+web: gunicorn hiddenGems.wsgi:application
