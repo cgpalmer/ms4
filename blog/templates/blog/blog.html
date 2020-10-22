@@ -9,24 +9,23 @@
     </div>
     <div class="row">
         <div class="col-12">
+            {% for blog in blogs %}
+             <div class="row">
+                <div class="col-12"><img src="" alt=""></div>
+            </div>
+             <div class="row">
+                <div class="col-4"><p>Title</p></div>
+                <div class="col-8"><p>{{blog.title}}</p></div>
+            </div>
             <div class="row">
                 <div class="col-4"><p>Location</p></div>
-                <div class="col-8"><p>Slovakia</p></div>
+                <div class="col-8"><p>{{ blog.location }}</p></div>
             </div>
             <div class="row">
-                <div class="col-4"><p>Camera</p></div>
-                <div class="col-8"><p>Canon</p></div>
+                <div class="col-12"><p>Story</p></div>
+                <div class="col-12"><p>{{blog.story}}</p></div>
             </div>
-            <div class="row">
-                <div class="col-4"><p>Date</p></div>
-                <div class="col-8"><p>20/4/2019</p></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-            <h5>The Story Behind the Picture</h5>
-            <p>This was one of the most difficult of photos to get right.</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 

@@ -5,6 +5,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=254, null=True, blank=True)
     story = models.TextField()
     url = models.URLField(blank=True)
+    location = models.CharField(max_length=254, null=True, blank=True)
+    date_taken = models.CharField(max_length=254, null=True, blank=True)
 
 
     def get_title(self):
