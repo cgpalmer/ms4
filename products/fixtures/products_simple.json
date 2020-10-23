@@ -4,7 +4,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010101",
         "name": "grasshopper",
         "category": 1,
@@ -21,7 +20,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010102",
         "name": "bee",
         "category": 1,
@@ -38,7 +36,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010103",
         "name": "budapest",
         "category": 1,
@@ -55,7 +52,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010104",
         "name": "hungarian-parliament",
         "category": 1,
@@ -72,7 +68,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010105",
         "name": "hills-of-bratislava",
         "category": 1,
@@ -89,7 +84,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010201",
         "name": "lan-ha-bay",
         "category": 2,
@@ -106,7 +100,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010202",
         "name": "uni-of-york-campus",
         "category": 2,
@@ -123,7 +116,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010203",
         "name": "blue-dragonfly",
         "category": 2,
@@ -140,7 +132,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010204",
         "name": "butterfly",
         "category": 2,
@@ -157,7 +148,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010205",
         "name": "red-dragonfly",
         "category": 2,
@@ -174,7 +164,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010301",
         "name": "white-flower",
         "category": 3,
@@ -191,7 +180,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010302",
         "name": "purple-flowers",
         "category": 3,
@@ -208,7 +196,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010303",
         "name": "rows-of-pink-flowers",
         "category": 3,
@@ -225,7 +212,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010304",
         "name": "waterlilly",
         "category": 3,
@@ -242,7 +228,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010305",
         "name": "tulips",
         "category": 3,
@@ -259,7 +244,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010401",
         "name": "crabs",
         "category": 4,
@@ -276,7 +260,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010402",
         "name": "white-headed-langur",
         "category": 4,
@@ -293,7 +276,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010403",
         "name": "elephant",
         "category": 4,
@@ -310,7 +292,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010404",
         "name": "frog",
         "category": 4,
@@ -327,7 +308,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pg010405",
         "name": "gecko",
         "category": 4,
@@ -344,7 +324,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pf010101",
         "name": "Small frame - 7 x 5\"",
         "category": 6,
@@ -361,7 +340,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pf010201",
         "name": "Medium frame - 8 x 6\"",
         "category": 6,
@@ -378,7 +356,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "pf010301",
         "name": "Large frame - 10 x 8\"",
         "category": 6,
@@ -395,7 +372,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "cv010101",
         "name": "Canvas 16 x 16\"",
         "category": 5,
@@ -412,7 +388,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "cv010201",
         "name": "Cavnas 18 x 24\"",
         "category": 5,
@@ -429,7 +404,6 @@
         "model": "products.product",
         "fields": {
       "special_offer": 1,
-      "blog": 1,
         "sku": "cv010501",
         "name": "Cavnas 24 x 36\"",
         "category": 5,
@@ -440,56 +414,5 @@
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
         "image_mobile": "landscape-canvas.jpg",
         "image_desktop": "landscape-canvas.jpg"
-    }},
-    {
-        "pk": 28,
-        "model": "products.product",
-        "fields": {
-      "special_offer": 1,
-      "blog": 1,
-        "sku": "cl010101",
-        "name": "A4 size Calendar",
-        "category": 7,
-        "price": 5,
-        "description": "This calendar is small enough to fit in your backpack. Take it anywhere you want to go and stay organised!",
-        "rating": 4,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_mobile": "calendar-a5.png",
-        "image_desktop": "calendar-a5.png"
-    }},
-    {
-        "pk": 29,
-        "model": "products.product",
-        "fields": {
-      "special_offer": 1,
-      "blog": 1,
-        "sku": "cl010201",
-        "name": "A3 size Calendar",
-        "category": 7,
-        "price": 8,
-        "description": "This calendar is the perfect desk-buddy. Kept it to one side or hang it next to your computer to stay organised!",
-        "rating": 4,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/Lll49q.png",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/Lll49q.png",
-        "image_mobile": "calendar-a4.jpg",
-        "image_desktop": "calendar-a4.jpg"
-    }},
-    {
-        "pk": 30,
-        "model": "products.product",
-        "fields": {
-      "special_offer": 1,
-      "blog": 1,
-        "sku": "cl010301",
-        "name": "A2 size Calendar",
-        "category": 7,
-        "price": 12,
-        "description": "This calendar is the perfect for family-sized organisation. Keep it on the wall and keep track of everyone's activities!",
-        "rating": 5,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/1PyYwm.jpg",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/1PyYwm.jpg",
-        "image_mobile": "calendar-a3.jpg",
-        "image_desktop": "calendar-a3.jpg"
     }}
 ]

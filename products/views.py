@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category
+from .models import Product, Category, Blog
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -64,11 +64,17 @@ def all_products(request):
 
 def product_detail(request, product_id):
     # Returning the details of a specific product.
-
+    print("this is the product id")
+    print(product_id)
     product = get_object_or_404(Product, pk=product_id)
+    print(product)
+    blog = get_object_or_404(Blog, sku=product.sku)
+
 
     context = {
         'product': product,
+        'blog': blog
+     
     }
     return render(request, 'products/product_detail.html', context)
 
