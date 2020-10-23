@@ -19,9 +19,10 @@ def blog_info(request):
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
-
+    product = get_object_or_404(Product, sku=blog.sku)
     context = {
         'blog': blog,
+        'product': product,
     }
     return render(request, 'blog/blog_detail.html', context)
 
@@ -31,5 +32,6 @@ def blog_detail_from_product(request, product_id):
 
     context = {
         'blog': blog,
+        'product': product
     }
     return render(request, 'blog/blog_detail.html', context)
