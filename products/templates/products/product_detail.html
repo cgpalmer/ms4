@@ -18,7 +18,10 @@
                         <p class="card-text">{{product.name}}</p>
                         <p class="card-text">£{{product.price}}</p>
                         <p class="card-text">{{product.rating}}/5</p>
-                        {{blog.title}}
+                        <a class="d-md-block" href="{% url 'blog_detail_from_product' product.id %}">
+                            {{blog.title}}
+                        </a>
+                        
 
 
                     </div>
