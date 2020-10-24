@@ -3,7 +3,8 @@
         "pk": 1,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010101",
+   "sku": "pg010101",
+    "product": 1,
         "title": "title1",
         "story": "story1",
         "url": "test"
@@ -13,7 +14,8 @@
         "pk": 2,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010102",
+   "sku": "pg010102",
+    "product": 1,
         "title": "title2",
         "story": "story2"
     }},
@@ -21,7 +23,8 @@
         "pk": 3,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010103",
+   "sku": "pg010103",
+    "product": 3,
         "title": "title3",
         "story": "story3",
          "url": "test",
@@ -31,7 +34,8 @@
         "pk": 4,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010104",
+   "sku": "pg010104",
+    "product": 4,
         "title": "pg010103",
         "story": "story4"
     }},
@@ -39,7 +43,8 @@
         "pk": 5,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010105",
+   "sku": "pg010105",
+    "product": 5,
         "title": "title5",
         "story": "story5"
     }},
@@ -47,7 +52,8 @@
         "pk": 6,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010201",
+   "sku": "pg010201",
+    "product": 6,
         "title": "title6",
         "story": "story6"
     }},
@@ -55,7 +61,8 @@
         "pk": 7,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010202",
+   "sku": "pg010202",
+    "product": 7,
         "title": "title7",
         "story": "story7"
     }},
@@ -63,7 +70,8 @@
         "pk": 8,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010203",
+   "sku": "pg010203",
+    "product": 8,
         "title": "title8",
         "story": "story8"
     }},
@@ -71,7 +79,8 @@
         "pk": 9,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010204",
+   "sku": "pg010204",
+    "product": 9,
         "title": "title9",
         "story": "story9"
     }},
@@ -79,7 +88,8 @@
         "pk": 10,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010205",
+   "sku": "pg010205",
+    "product": 10,
         "title": "title10",
         "story": "story10"
     }},
@@ -87,7 +97,8 @@
         "pk": 11,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010301",
+   "sku": "pg010301",
+    "product": 11,
         "title": "title11",
         "story": "story11"
     }},
@@ -95,7 +106,8 @@
         "pk": 12,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010302",
+   "sku": "pg010302",
+    "product": 12,
         "title": "title12",
         "story": "story12"
     }},
@@ -103,7 +115,8 @@
         "pk": 13,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010303",
+   "sku": "pg010303",
+    "product": 13,
         "title": "title13",
         "story": "story13"
     }},
@@ -111,7 +124,8 @@
         "pk": 14,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010304",
+   "sku": "pg010304",
+    "product": 14,
         "title": "title14",
         "story": "story14"
     }},
@@ -119,7 +133,8 @@
         "pk": 15,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010305",
+   "sku": "pg010305",
+    "product": 15,
         "title": "title15",
         "story": "story15"
     }},
@@ -127,7 +142,8 @@
         "pk": 16,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010401",
+   "sku": "pg010401",
+    "product": 16,
         "title": "title16",
         "story": "story16"
     }},
@@ -135,7 +151,8 @@
         "pk": 17,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010402",
+   "sku": "pg010402",
+    "product": 17,
         "title": "title17",
         "story": "story17"
     }},
@@ -143,7 +160,8 @@
         "pk": 18,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010403",
+   "sku": "pg010403",
+    "product": 18,
         "title": "title18",
         "story": "story18"
     }},
@@ -151,7 +169,8 @@
         "pk": 19,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010404",
+   "sku": "pg010404",
+    "product": 19,
         "title": "title19",
         "story": "story19"
     }},
@@ -159,7 +178,8 @@
         "pk": 20,
         "model": "blog.blog",
         "fields": {
-    "sku": "pg010405",
+   "sku": "pg010405",
+    "product": 20,
         "title": "title20",
         "story": "story20"
     }}

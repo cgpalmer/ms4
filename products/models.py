@@ -1,5 +1,4 @@
 from django.db import models
-from blog.models import Blog
 
 
 class Category(models.Model):
@@ -29,7 +28,7 @@ class Product(models.Model):
     image_desktop = models.ImageField(max_length=1024, null=True, blank=True)
   
     def __str__(self):
-        return self.name
+        return self.sku
 
 
 
