@@ -7,7 +7,6 @@ class Blog(models.Model):
     story = models.TextField()
     sku = models.CharField(max_length=254, null=True, blank=True)
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
-    url = models.URLField(blank=True)
     location = models.CharField(max_length=254, null=True, blank=True)
     date_taken = models.CharField(max_length=254, null=True, blank=True)
 

@@ -20,7 +20,7 @@
 /* Text colour */
 
 .navbar, .navbar-light .navbar-brand, p,  .footerHeader{
-    color: #EFEFD0;
+    color: black;
 }
 
 .parallaxImageTextWrapper h2, .parallaxImageTextWrapper p {

@@ -2,38 +2,34 @@
 {% load static %}
 
 {% block content %}
+<div class="col-12"><h5>Hidden Gem's Blog Space</h5></div>
 <div class="container">
     <div class="row">
-        <div class="col-12"> Hidden Gem's Blog Space</div>
+        
         <div class="col-12">Thank you for showing an interest in this product. Here is the story behind it.</div>
     </div>
+          
     <div class="row">
+        <div class="col-12">{{blog.title}}</div>
+        <div class="col-12"><img class="product-image" src="{{product.image_url_mobile}}" alt=""></div>
         <div class="col-12">
-        
-             <div class="row">
-                <div class="col-12"><img src="" alt=""></div>
-            </div>
-             <div class="row">
-                <div class="col-4"><p>Title</p></div>
-                <div class="col-8"><p>{{blog.title}}</p></div>
-                <p>{{blog.url}}</p>
-            </div>
-            <div class="row">
-                <div class="col-4"><p>Location</p></div>
-                <div class="col-8"><p>{{ blog.location }}</p></div>
-            </div>
-            <div class="row">
-                <div class="col-12"><p>Story</p></div>
-                <div class="col-12"><p>{{blog.story}}</p></div>
-            </div>
-            {{blog.product}}
-            <div class="row">
-                <a href="{% url 'product_detail' product.id %}"> Back to product details </a>
-            </div>
-     
-        </div>
-    </div>
+            <p>{{blog.story}}"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+                officia deserunt mollit anim id est laborum."
+            </p> 
+         </div>
 
+     </div>
+    
+        
+    <div class="row">
+        <a class="col-6 btn btn-primary" href="{% url 'blogs' %}"> All blogs </a>
+        <a class="col-6 btn btn-primary" href="{% url 'product_detail' product.id %}"> Product details </a>
+     </div>
+     
+    
 </div>
 
 {% endblock %}

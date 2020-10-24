@@ -10,24 +10,16 @@
     <div class="row">
         <div class="col-12">
             {% for blog in blogs %}
-             <div class="row">
-                <div class="col-12"><img src="" alt=""></div>
-            </div>
-             <div class="row">
-                <div class="col-4"><p>Title</p></div>
-                <div class="col-8"><p>{{blog.title}}</p></div>
-                <p>{{blog.url}}</p>
+            <div class="col-12"><img class="product-image" src="{{blog.product}}" alt=""></div>
+            <div class="row">
+                <div class="col-12"><p>{{blog.title}}</p></div>
+                
             </div>
             <div class="row">
-                <div class="col-4"><p>Location</p></div>
-                <div class="col-8"><p>{{ blog.location }}</p></div>
-            </div>
-            <div class="row">
-                <div class="col-12"><p>Story</p></div>
-                <div class="col-12"><p>{{blog.story}}</p></div>
+                <div class="col-12"><p>{{ blog.location }}</p></div>
             </div>
             <a class="d-md-block" href="{% url 'blog_detail' blog.id %}">
-                blog link
+                More details on the blog
             </a>
             {% endfor %}
         </div>

@@ -54,4 +54,8 @@ body, html {
     height: 100px;
 }
 
+.product-image{
+    width: 100%;
+    object-fit: contain;
 
+}
