@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Blog
 from products.models import Product
+from .forms import BlogForm
 # Create your views here.
 ''' A view to show the blog associated with the product.'''
 
@@ -60,3 +61,23 @@ def blog_detail_from_product(request, product_id):
         'product': product,
     }
     return render(request, 'blog/blog_detail.html', context)
+
+def add_blog(request):
+    """ Add a product to the store """
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('blogs'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = BlogForm()
+        
+    template = 'blog/add_blog.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
