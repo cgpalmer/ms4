@@ -8,6 +8,7 @@ class Blog(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
     image_mobile_url = models.ForeignKey('products.Product', related_name='image_mobile_from_url', null=True, blank=True, on_delete=models.SET_NULL)
+    image_desktop_url = models.ForeignKey('products.Product', related_name='image_mobile_from_desktop', null=True, blank=True, on_delete=models.SET_NULL)
     location = models.CharField(max_length=254, null=True, blank=True)
     date_taken = models.CharField(max_length=254, null=True, blank=True)
 
