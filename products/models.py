@@ -29,6 +29,9 @@ class Product(models.Model):
   
     def __str__(self):
         return self.sku
+    
+    def get_image_url(self):
+        return self.image_url_mobile
 
 
 

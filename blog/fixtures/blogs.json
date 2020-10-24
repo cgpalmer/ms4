@@ -3,17 +3,19 @@
         "pk": 1,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":1 ,
+
    "sku": "pg010101",
     "product": 1,
         "title": "title1",
-        "story": "story1",
-        "url": "test"
+        "story": "story1"
         
     }},
     {
         "pk": 2,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":2 ,
    "sku": "pg010102",
     "product": 1,
         "title": "title2",
@@ -23,17 +25,19 @@
         "pk": 3,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":3 ,
    "sku": "pg010103",
     "product": 3,
         "title": "title3",
         "story": "story3",
-         "url": "test",
+       
         "location": "budapest"
     }},
     {
         "pk": 4,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":4 ,
    "sku": "pg010104",
     "product": 4,
         "title": "pg010103",
@@ -43,6 +47,7 @@
         "pk": 5,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":5 ,
    "sku": "pg010105",
     "product": 5,
         "title": "title5",
@@ -52,6 +57,7 @@
         "pk": 6,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":6 ,
    "sku": "pg010201",
     "product": 6,
         "title": "title6",
@@ -61,6 +67,7 @@
         "pk": 7,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":7 ,
    "sku": "pg010202",
     "product": 7,
         "title": "title7",
@@ -70,6 +77,7 @@
         "pk": 8,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 8,
    "sku": "pg010203",
     "product": 8,
         "title": "title8",
@@ -79,6 +87,7 @@
         "pk": 9,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 9,
    "sku": "pg010204",
     "product": 9,
         "title": "title9",
@@ -88,6 +97,7 @@
         "pk": 10,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 10 ,
    "sku": "pg010205",
     "product": 10,
         "title": "title10",
@@ -97,6 +107,7 @@
         "pk": 11,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":11 ,
    "sku": "pg010301",
     "product": 11,
         "title": "title11",
@@ -106,6 +117,7 @@
         "pk": 12,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":12 ,
    "sku": "pg010302",
     "product": 12,
         "title": "title12",
@@ -115,6 +127,7 @@
         "pk": 13,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":13,
    "sku": "pg010303",
     "product": 13,
         "title": "title13",
@@ -124,6 +137,7 @@
         "pk": 14,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 14 ,
    "sku": "pg010304",
     "product": 14,
         "title": "title14",
@@ -133,6 +147,7 @@
         "pk": 15,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":15 ,
    "sku": "pg010305",
     "product": 15,
         "title": "title15",
@@ -142,6 +157,7 @@
         "pk": 16,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 16 ,
    "sku": "pg010401",
     "product": 16,
         "title": "title16",
@@ -151,6 +167,7 @@
         "pk": 17,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 17 ,
    "sku": "pg010402",
     "product": 17,
         "title": "title17",
@@ -160,6 +177,7 @@
         "pk": 18,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url": 18,
    "sku": "pg010403",
     "product": 18,
         "title": "title18",
@@ -169,6 +187,7 @@
         "pk": 19,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":19 ,
    "sku": "pg010404",
     "product": 19,
         "title": "title19",
@@ -178,6 +197,7 @@
         "pk": 20,
         "model": "blog.blog",
         "fields": {
+   "image_mobile_url":20 ,
    "sku": "pg010405",
     "product": 20,
         "title": "title20",

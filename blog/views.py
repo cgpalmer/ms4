@@ -9,8 +9,6 @@ def blog_info(request):
     # Returning the index page
 
     blogs = Blog.objects.all
-
-
     context = {
         'blogs': blogs,
     }
