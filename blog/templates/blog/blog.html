@@ -6,6 +6,31 @@
     <div class="row">
         <div class="col-12"> Hidden Gem's Blog Space</div>
         <div class="col-12">Thank you for showing an interest in this product. Here is the story behind it.</div>
+        <div>Amount of blogs: {{blogs|length}} 
+        {% if feedback %}
+        {{feedback}}
+        {% endif %}
+        
+        </div>
+        <div>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        </div>
+        
+        
+    </div>
+    <div class="row">
+    <div class="col-12">
+    <form method="GET" action="{% url 'blogs' %}" class="row">
+        <input class="form-control col-8" name="q" type="search" placeholder="Search blogs" aria-label="Search">
+        <button class="btn btn-outline-success col-4" type="submit">Search</button>
+    </form> 
+    
+    </div>
+    
     </div>
     <div class="row">
         {% for blog in blogs %}

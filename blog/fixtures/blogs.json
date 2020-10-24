@@ -3,6 +3,7 @@
         "pk": 1,
         "model": "blog.blog",
         "fields": {
+    "location": "Somewhere",
    "image_desktop_url":1 ,
    "image_mobile_url":1 ,
 
