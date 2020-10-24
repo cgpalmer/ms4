@@ -223,5 +223,30 @@
     "product": 20,
         "title": "title20",
         "story": "story20"
+    }},
+    {
+        "pk": 21,
+        "model": "blog.blog",
+        "fields": {
+   "image_desktop_url":21 ,
+            
+   "image_mobile_url":21 ,
+   "sku": "pg010405",
+    "product": 21,
+        "title": "title21",
+        "story": "story21"
+    }},
+    {
+        "pk": 22,
+        "model": "blog.blog",
+        "fields": {
+   "image_desktop_url":22 ,
+            
+   "image_mobile_url":22,
+   "sku": "pg010405",
+    "product": null,
+        "title": "title22",
+        "story": "story22"
     }}
+
 ]

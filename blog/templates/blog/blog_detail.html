@@ -24,11 +24,20 @@
 
      </div>
     
-        
+    {% if blog.product %}
     <div class="row">
         <a class="col-6 btn btn-primary" href="{% url 'blogs' %}"> All blogs </a>
         <a class="col-6 btn btn-primary" href="{% url 'product_detail' product.id %}"> Product details </a>
      </div>
+    {% else %}
+    <div>
+        <p>Sorry but this product is no longer available. Please browse our other products and blogs.</p>
+    </div>
+     <div class="row">
+        <a class="col-6 btn btn-primary" href="{% url 'blogs' %}"> All blogs </a>
+        <a class="col-6 btn btn-primary" href="{% url 'products' %}"> All products </a>
+     </div>
+     {% endif %}
      
     
 </div>
