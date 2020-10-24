@@ -12,6 +12,8 @@ class Blog(models.Model):
     location = models.CharField(max_length=254, null=True, blank=True)
     date_taken = models.CharField(max_length=254, null=True, blank=True)
 
+    
+
     def get_title(self):
         return self.title
 
