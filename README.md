@@ -683,3 +683,9 @@ https://www.youtube.com/watch?v=qKAf5xF6nOE&t=112s
 
 pdf
 https://codeburst.io/django-render-html-to-pdf-41a2b9c41d16
+
+Cyclic imports
+https://stackoverflow.com/questions/62100550/django-importerror-cannot-import-name-reporterprofile-from-partially-initiali
+
+How to display a backup image
+https://gist.github.com/oscarmorrison/52f9d4b3dfce386c7b11b3fcbdd74dd4
