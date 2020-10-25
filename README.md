@@ -689,3 +689,8 @@ https://stackoverflow.com/questions/62100550/django-importerror-cannot-import-na
 
 How to display a backup image
 https://gist.github.com/oscarmorrison/52f9d4b3dfce386c7b11b3fcbdd74dd4
+
+Help with a bug
+https://stackoverflow.com/questions/51380780/django-foreign-key-cannot-assign-must-be-a-instance
+Help updating a blog
+https://stackoverflow.com/questions/3681627/how-to-update-fields-in-a-model-without-creating-a-new-record-in-django
