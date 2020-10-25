@@ -19,6 +19,13 @@
                 {{products|length}} Products{% if search_term %} found for "{{search_term}}"{% endif %}
 
             </div>
+            <div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
         <div class="row">
             {% for product in products %}

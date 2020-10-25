@@ -3,8 +3,6 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 from blog.models import Blog
-
-from .models import Product, Category
 from .forms import ProductForm
 
 
@@ -52,7 +50,7 @@ def all_products(request):
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
-    
+   
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -86,8 +84,12 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            sku = form.cleaned_data.get("sku")
+            print("this is sku")
+            print(sku)
+            title = form.cleaned_data.get("name")
+            Blog.objects.create(title=title, sku=sku)
+            return redirect(reverse('products'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
