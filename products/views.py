@@ -84,11 +84,16 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
+            # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
             sku = form.cleaned_data.get("sku")
-            print("this is sku")
-            print(sku)
-            title = form.cleaned_data.get("name")
+            title = form.cleaned_data.get("name")          
             Blog.objects.create(title=title, sku=sku)
+            retreive_blog = get_object_or_404(Blog, sku=sku)
+            retreive_product = get_object_or_404(Product, sku=sku)
+            retreive_blog.product = retreive_product
+            retreive_blog.image_mobile_url = retreive_product
+            retreive_blog.image_desktop_url = retreive_product
+            retreive_blog.save()
             return redirect(reverse('products'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')

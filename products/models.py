@@ -28,7 +28,7 @@ class Product(models.Model):
     image_desktop = models.ImageField(max_length=1024, null=True, blank=True)
   
     def __str__(self):
-        return self.sku
+        return self.name
     
     def get_image_url(self):
         return self.image_url_mobile
