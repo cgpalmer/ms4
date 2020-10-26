@@ -44,6 +44,7 @@
                         
                         {% if product.special_offer.name == "no_offer" %}
                             <p class="card-text">£{{product.price}}</p>
+                            
                         {% elif product.special_offer.name != "no_offer" %}
                          {% with discount=1 %}
                             {% with calculated_percentage=discount|sub:product.special_offer.discounts %}
