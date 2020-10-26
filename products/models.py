@@ -20,6 +20,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    discount_price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     rating = models.IntegerField(null=True, blank=True)
     special_offer = models.ForeignKey('Special', null=True, blank=True, on_delete=models.SET_NULL)
     image_url_mobile = models.URLField(max_length=1024, null=True, blank=True)

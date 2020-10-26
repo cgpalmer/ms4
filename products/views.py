@@ -6,6 +6,7 @@ from blog.models import Blog
 from .forms import ProductForm
 
 
+
 # Create your views here.
 ''' A view to show all the products and somewhere to search and sort by.'''
 
@@ -17,6 +18,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+
 
     if request.GET:
         if 'sort' in request.GET:
@@ -84,16 +86,28 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
+            sku = form.cleaned_data.get("sku")
+            retrieve_product = get_object_or_404(Product, sku=sku)
+            product_price = retrieve_product.price
+            product_discount = 1 - retrieve_product.special_offer.discounts
+            discount_price = product_price * product_discount
+            retrieve_product.discount_price = discount_price
+            print(product_price)
+            print(product_discount)
+            print(discount_price)
+            print("end of the price stuff")
+
             # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
+            # Filling out the blog information
             sku = form.cleaned_data.get("sku")
             title = form.cleaned_data.get("name")          
             Blog.objects.create(title=title, sku=sku)
-            retreive_blog = get_object_or_404(Blog, sku=sku)
-            retreive_product = get_object_or_404(Product, sku=sku)
-            retreive_blog.product = retreive_product
-            retreive_blog.image_mobile_url = retreive_product
-            retreive_blog.image_desktop_url = retreive_product
-            retreive_blog.save()
+            retrieve_blog = get_object_or_404(Blog, sku=sku)
+            retrieve_blog.product = retrieve_product
+            retrieve_blog.image_mobile_url = retrieve_product
+            retrieve_blog.image_desktop_url = retrieve_product
+            retrieve_product.save()
+            retrieve_blog.save()
             return redirect(reverse('products'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
