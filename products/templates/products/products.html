@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mathfilters %}
 
 {% block content %}
     <section>
@@ -39,7 +40,20 @@
                     <div class="card-body">
                         <span class="badge badge-secondary">{{product.special_offer}}</span>
                         <p class="card-text">{{product.name}}</p>
-                        <p class="card-text">£{{product.price}}</p>
+
+                        
+                        {% if product.special_offer.name == "no_offer" %}
+                            <p class="card-text">£{{product.price}}</p>
+                        {% elif product.special_offer.name != "no_offer" %}
+                         {% with discount=1 %}
+                            {% with calculated_percentage=discount|sub:product.special_offer.discounts %}
+                            {{discount}}
+                            {{calculated_percentage}}
+                        
+                            <p class="card-text">£{{product.price}} cal = {{product.price|mul:calculated_percentage}}</p>
+                            {% endwith %}
+                        {% endwith %}
+                        {% endif %}
                         <p class="card-text">{{product.rating}}/5</p>
                         <p>
                             <a href="{% url 'products' %}?category={{product.category.name}}">{{product.category.friendly_name}}</a>
