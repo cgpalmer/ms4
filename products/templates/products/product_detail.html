@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <span class="badge badge-secondary">{{product.special_offer}}</span>
                         <p class="card-text">{{product.name}}</p>
-                        <p class="card-text">£{{product.price}}</p>
+                         <p class="card-text">{{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %} </p>
                         <p class="card-text">{{product.rating}}/5</p>
                         <!-- <a class="d-md-block" href="{% url 'blog_detail_from_product' product.id %}">
                             {{blog.title}}
