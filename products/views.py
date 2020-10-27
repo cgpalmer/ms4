@@ -86,6 +86,7 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
+            # Retrieving the product, calculating the price and updating the discount price. 
             sku = form.cleaned_data.get("sku")
             retrieve_product = get_object_or_404(Product, sku=sku)
             product_price = retrieve_product.price
@@ -129,6 +130,13 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            sku = form.cleaned_data.get("sku")
+            retrieve_product = get_object_or_404(Product, sku=sku)
+            product_price = retrieve_product.price
+            product_discount = 1 - retrieve_product.special_offer.discounts
+            discount_price = product_price * product_discount
+            retrieve_product.discount_price = discount_price
+            retrieve_product.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
