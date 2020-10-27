@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mathfilters %}
 
 {% block content %}
     <section>
@@ -37,9 +38,16 @@
                         <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.name}}">
                     </a>
                     <div class="card-body">
-                        <span class="badge badge-secondary">{{product.special_offer}}</span>
+                    
+                      
+                        <span class="badge badge-secondary">{{product.special_offer.friendly_name}}</span>
                         <p class="card-text">{{product.name}}</p>
-                        <p class="card-text">£{{product.price}}</p>
+                      
+                             
+                            
+                                             
+                            <p class="card-text">{{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %} </p>
+                         
                         <p class="card-text">{{product.rating}}/5</p>
                         <p>
                             <a href="{% url 'products' %}?category={{product.category.name}}">{{product.category.friendly_name}}</a>

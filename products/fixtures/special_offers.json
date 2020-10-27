@@ -4,7 +4,7 @@
         "model": "products.special",
         "fields": {
         "name": "multi-buy",
-        "friendly_name": "Multi-buy offers",
+        "friendly_name": "Multi-buy",
         "discounts": 0.2
     }},
     {
@@ -28,7 +28,7 @@
         "model": "products.special",
         "fields": {
         "name": "no_offer",
-        "friendly_name": "No Offer",
+        "friendly_name": "",
         "discounts": 0.0
     }}
 ]
