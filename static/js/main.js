@@ -13,4 +13,6 @@ $( document ).ready(function() {
     $("#desktopDropDownMenu").css('display', 'none');
     });
 
+    $("#id_discount_price").prop("disabled", true)
+
 });
