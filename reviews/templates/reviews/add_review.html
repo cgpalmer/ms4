@@ -2,5 +2,18 @@
 {% load static %}
 
 {% block content %}
+    
     <p>Add in the review template form here.</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" action="{% url 'add_review' %}" class="form mb-2" enctype="multipart/form-data">
+     {% csrf_token %}
+    {{ form }}
+
+    <button class="btn btn-black rounded-0" type="submit">Add Blog</button>
+    </form>
 {% endblock %}

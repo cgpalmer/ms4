@@ -694,3 +694,6 @@ Help with a bug
 https://stackoverflow.com/questions/51380780/django-foreign-key-cannot-assign-must-be-a-instance
 Help updating a blog
 https://stackoverflow.com/questions/3681627/how-to-update-fields-in-a-model-without-creating-a-new-record-in-django
+
+Max value on integer fields
+https://stackoverflow.com/questions/30849862/django-max-length-for-integerfield/30850101#30850101
