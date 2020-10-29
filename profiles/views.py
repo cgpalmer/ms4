@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
+from reviews.forms import ReviewForm
 from checkout.models import Order
+from reviews.models import Review
 
 def profile(request):
     """ Display the user's profile. """
@@ -42,3 +44,27 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def review_history(request):
+    # filter this to the user at a later time.
+    review = Review.objects.all()
+    template = 'profiles/edit_reviews.html'
+    context = {
+        'review': review,
+    }
+    return render(request, template, context)
+
+
+def edit_review(request, review_id):
+    review = get_object_or_404(request, pk=review_id)
+    form = ReviewForm(instance=review)
+  
+    template = 'profiles/edit_reviews.html'
+    context = {
+        'review': review,
+        'form': form,
+    }
+
+    return render(request, template, context)
+
