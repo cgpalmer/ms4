@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 from blog.models import Blog
+from reviews.models import Review
 from .forms import ProductForm
+
 
 
 
@@ -70,11 +72,13 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     print(product)
     blog = get_object_or_404(Blog, sku=product.sku)
-
+    review = Review.objects.filter(product=product_id)
+    
 
     context = {
         'product': product,
-        'blog': blog
+        'blog': blog,
+        'review': review
      
     }
     return render(request, 'products/product_detail.html', context)
