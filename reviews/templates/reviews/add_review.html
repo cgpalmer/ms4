@@ -5,11 +5,14 @@
     
     <p>Add in the review template form here.</p>
 
-    {% if messages %}
+    <!-- {% if messages %}
         {% for message in messages %}
             <p>{{ message }}</p>
         {% endfor %}
-    {% endif %}
+    {% endif %} -->
+
+
+    
     <form method="POST" action="{% url 'add_review' %}" class="form mb-2" enctype="multipart/form-data">
      {% csrf_token %}
     {{ form }}

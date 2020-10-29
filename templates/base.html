@@ -34,15 +34,22 @@
     <div class="offer-bar">{{new_customer_offer}}% Off for new customers!</div>
     
 
-    {% if messages %}
-    <div class="djangoMessageContainer"></div>
-    {% endif %}
+   
 
     {% block pageHeader %}
     {% endblock %}
 
+   
+    
     {% block content %}
     {% endblock %}
+
+        <h1>Message below</h1>
+      {% if messages %}
+        {% for message in messages %}
+            <div ><h1>{{ message }}</h1></div>
+        {% endfor %}
+    {% endif %}
 
   
     {% block frameworkJS %}
