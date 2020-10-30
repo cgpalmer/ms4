@@ -113,15 +113,15 @@ def delete_review(request, r_id):
     product.number_of_ratings = product.number_of_ratings - 1
     print("new number of ratings")
     print(product.number_of_ratings)
-
     print("new product rating total")
     product.rating_total = product.rating_total - review.review_rating
     print(product.rating_total)
-
-    product.rating = product.rating_total / product.number_of_ratings
-    print("product rating new")
-    print(product.rating)
-    
+    if product.number_of_ratings != 0:
+        product.rating = product.rating_total / product.number_of_ratings
+        print("product rating new")
+        print(product.rating)
+    else:
+        product.rating = 0
     review.delete()
     product.save()
     messages.success(request, 'Review deleted!')

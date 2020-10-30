@@ -59,7 +59,11 @@
             {{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %}
           </p>
 
-          <p class="card-text">{{product.rating}}/5</p>
+          {% if product.rating != 0.00 %}
+                        <p class="card-text">{{product.rating}}/5</p>
+                        {% else %}
+                        <p class="card-text">This product hasn't been rated yet.</p>
+                        {% endif %}
           <p>
             <a href="{% url 'products' %}?category={{product.category.name}}"
               >{{product.category.friendly_name}}</a
