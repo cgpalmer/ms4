@@ -7,4 +7,4 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = '__all__'
 
-    review_rating = forms.IntegerField(label='Rating', widget=forms.NumberInput(attrs={'min': 0}))
+    review_rating = forms.IntegerField(label='Rating', widget=forms.NumberInput(attrs={'min': 0, 'max': 5}))
