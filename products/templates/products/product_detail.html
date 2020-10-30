@@ -21,6 +21,9 @@
                         <a class="d-md-block" href="{% url 'blog_detail_from_product' product.id %}">
                             {{blog.title}}
                         </a>
+                        <p>Product id is {{ product.id }} </p>
+
+                        <a href="{% url 'add_review' %}">Add review</a>
                         
                         <p id="reveal_reviews">Read reviews</p>
                         <div id="productReview" class="review-wrapper">
@@ -32,7 +35,7 @@
                         </div>
                        
 
-                        <a href="{% url 'add_review' %}">Add review</a>
+                        
                         
                         <a href="{% url 'delete_product' product.id %}">Delete</a>
                         
