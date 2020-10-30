@@ -13,7 +13,7 @@ $( document ).ready(function() {
     $("#desktopDropDownMenu").css('display', 'none');
     });
 
-    $("#id_discount_price").prop("disabled", true)
+    $("#id_discount_price").addClass('hide');
 
 });
 
