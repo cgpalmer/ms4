@@ -93,3 +93,36 @@ def edit_review(request, r_id):
         }
 
         return render(request, template, context)
+
+def delete_review(request, r_id):
+
+    # Refactor the retrieving products code because there is unnecessary repetition.
+    """ Delete a product from the store """
+    # retrieve the review and product to manipulate both
+    review = get_object_or_404(Review, pk=r_id)
+    product = get_object_or_404(Product, name=review.product)
+    old_number_of_ratings = product.number_of_ratings
+    old_rating_total = product.rating_total
+    old_rating = product.rating
+
+    print(old_number_of_ratings)
+    print(old_rating_total)
+    print(old_rating)
+
+    # Calculating the new rating scores.
+    product.number_of_ratings = product.number_of_ratings - 1
+    print("new number of ratings")
+    print(product.number_of_ratings)
+
+    print("new product rating total")
+    product.rating_total = product.rating_total - review.review_rating
+    print(product.rating_total)
+
+    product.rating = product.rating_total / product.number_of_ratings
+    print("product rating new")
+    print(product.rating)
+    
+    review.delete()
+    product.save()
+    messages.success(request, 'Review deleted!')
+    return redirect(reverse('products'))
