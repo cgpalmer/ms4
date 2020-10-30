@@ -71,16 +71,12 @@
                 </div>
             </div>
         </div>
+        
         <div>
-           <h1>Reviews</h1>
-            {% for r in review %} 
-                <div style="border: solid 1px black">
-                    <p>  {{ r.product}}</p>
-                    <p>  {{ r.review_rating }}</p>
-                    <p>  {{ r.review_content }}</p>
-                </div>
-            {% endfor %}
+             {% include 'includes/review_history.html' %}
         </div>
+
+
         <a href="{% url 'edit_review' review.id %}"></a>
 
 

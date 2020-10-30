@@ -46,25 +46,5 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-def review_history(request):
-    # filter this to the user at a later time.
-    review = Review.objects.all()
-    template = 'profiles/edit_reviews.html'
-    context = {
-        'review': review,
-    }
-    return render(request, template, context)
 
-
-def edit_review(request, review_id):
-    review = get_object_or_404(request, pk=review_id)
-    form = ReviewForm(instance=review)
-  
-    template = 'profiles/edit_reviews.html'
-    context = {
-        'review': review,
-        'form': form,
-    }
-
-    return render(request, template, context)
 

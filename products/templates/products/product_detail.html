@@ -26,10 +26,13 @@
                         <div id="productReview" class="review-wrapper">
                             {% for r in review %}
                             <div style="border: solid 1px black">
+                                <p>review id {{r.id}}</p>
                                 <p>  {{ r.product}}</p>
                                 <p>  {{ r.review_rating }}</p>
                                 <p>  {{ r.review_content }}</p>
+                                <a href="{% url 'edit_review' r.id %}">Edit review</a>
                             </div>
+                            
                                 
                             {% endfor %}
                         </div>
@@ -40,6 +43,7 @@
                        
 
                         <a href="{% url 'add_review' %}">Add review</a>
+                        
                         <a href="{% url 'delete_product' product.id %}">Delete</a>
                         
 

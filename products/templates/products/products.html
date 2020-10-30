@@ -1,71 +1,76 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load mathfilters %}
-
+{% extends 'base.html' %} {% load static %} {% load mathfilters %} 
 {% block content %}
-    <section>
-    <div class="container product-container">
-        <div class="row">
-            {% for c in current_categories %}
-                <a class="btn" href="{% url 'products' %}?category={{c.name}}">
-                    <span class="">{{c.friendly_name}}</span>
-                </a>
-            {% endfor %}
-        </div>
-        <div class="row">
-            <div class="col-3">
-                {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span><a href="{% url 'products' %">Products Home</a></span>
-                {% endif %}
-                {{products|length}} Products{% if search_term %} found for "{{search_term}}"{% endif %}
-
-            </div>
-            <div>
-                {% if messages %}
-                    {% for message in messages %}
-                        <p>{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            {% for product in products %}
-                <div class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded">
-                    <a class="d-md-none" href="{% url 'product_detail' product.id %}">
-                        <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.name}}">
-                    </a>
-                    <a class="d-md-block" href="{% url 'product_detail' product.id %}">
-                        <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.name}}">
-                    </a>
-                    <div class="card-body">
-                    
-                      
-                        <span class="badge badge-secondary">{{product.special_offer.friendly_name}}</span>
-                        <p class="card-text">{{product.name}}</p>
-                      
-                             
-                            
-                                             
-                            <p class="card-text">{{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %} </p>
-                         
-                        <p class="card-text">{{product.rating}}/5</p>
-                        <p>
-                            <a href="{% url 'products' %}?category={{product.category.name}}">{{product.category.friendly_name}}</a>
-                        </p>
-                        
-                        
-                    </div>
-                 </div>
-            {% endfor %}
-
-
-        
-        
-        
-        </div>
-
+<section>
+  <div class="container product-container">
+    <div class="row">
+      {% for c in current_categories %}
+      <a class="btn" href="{% url 'products' %}?category={{c.name}}">
+        <span class="">{{c.friendly_name}}</span>
+      </a>
+      {% endfor %}
     </div>
-    </section>
-{% include 'includes/footer.html' %}
+    <div class="row">
+      <div class="col-3">
+        {% if search_term or current_categories or current_sorting != 'None_None' %}
+        <span><a href="{% url 'products' %">Products Home</a></span>
+        {% endif %} 
+        
+        {{products|length}} 
+        
+        Products{% if search_term %} found for
+        "{{search_term}}"
+        
+        {% endif %}
+      </div>
+      <div>
+        {% if messages %}
+         {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %} 
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      {% for product in products %}
+      <div
+        class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded"
+      >
+        <a class="d-md-none" href="{% url 'product_detail' product.id %}">
+          <img
+            src="{{product.image_url_mobile}}"
+            class="card-img-top"
+            alt="{{product.name}}"
+          />
+        </a>
+        <a class="d-md-block" href="{% url 'product_detail' product.id %}">
+          <img
+            src="{{product.image_url_desktop}}"
+            class="card-img-top"
+            alt="{{product.name}}"
+          />
+        </a>
+        <div class="card-body">
+          <span class="badge badge-secondary"
+            >{{product.special_offer.friendly_name}}</span
+          >
+          <p class="card-text">{{product.name}}</p>
 
-{% endblock %}
+          <p class="card-text">
+            {{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %}
+          </p>
+
+          <p class="card-text">{{product.rating}}/5</p>
+          <p>
+            <a href="{% url 'products' %}?category={{product.category.name}}"
+              >{{product.category.friendly_name}}</a
+            >
+          </p>
+          <p>product id {{ product.id}} </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% include 'includes/footer.html' %}
+ {% endblock %}
