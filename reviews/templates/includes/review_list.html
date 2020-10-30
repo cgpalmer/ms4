@@ -1,0 +1,11 @@
+{% for r in review %}
+    <div style="border: solid 1px black">
+        <p>review id {{r.id}}</p>
+        <p>  {{ r.product}}</p>
+        <p>  {{ r.review_rating }}</p>
+        <p>  {{ r.review_content }}</p>
+        <a href="{% url 'edit_review' r.id %}">Edit review</a>
+    </div>
+                            
+                                
+{% endfor %}

@@ -16,3 +16,6 @@ $( document ).ready(function() {
     $("#id_discount_price").prop("disabled", true)
 
 });
+
+
+
