@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
-from .models import UserProfile
+from .models import UserProfile, ContentReadyToDownload
 from .forms import UserProfileForm
 from reviews.forms import ReviewForm
 from checkout.models import Order
@@ -51,4 +51,18 @@ def new_profile(request):
 
     return render(request, template, context)
 
+
+def add_content_for_download(request, product_id):
+    if request.method == 'POST':
+        # in future can you use the order number to find any that are a certain type?
+        user = request.POST.get('user')
+        sku = request.POST.get('sku')
+        name = request.POST.get('product_name')
+        # Check what happens in the item line when someone orders two.
+        product_file_path = request.POST.get('product_file_path')
+        number_of_times_downloaded = 0
+        ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
+        return redirect(reverse('new_profile'))
+    else:
+        return redirect(reverse('products'))
 

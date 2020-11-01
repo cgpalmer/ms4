@@ -4,7 +4,13 @@
 {% block content %}
    <h1>My Profile</h1>
 
-
+<div id="availableDownloads">
+    <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
+    <div class="dowloadItem">
+        <p>Here is your {{product.friendly_name}}. Click download to download!</p>
+        <a href="" download="">Download {{product.friendly_name}}</a>
+    </div>
+</div>
 
 
 {% endblock %}
