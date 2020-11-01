@@ -43,6 +43,8 @@
                         
                         
                         <a href="{% url 'delete_product' product.id %}">Delete</a>
+
+                        <a href="{% url 'digital_product' product.id %}">Delete</a>
                         
 
                     </div>
@@ -60,6 +62,20 @@
                 <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
                 <button tpye="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
+            </form>
+        </div>
+
+        <div class="row">
+            <form method="POST" action="{% url 'add_content_for_download' product.id %}">
+            {% csrf_token%}
+                <!-- <input type="number" name="quantity" value="1" data-item_id="{{product_id}}" id="{{product_id_digital}}"> -->
+                <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
+                <button tpye="submit">Add digital copy</button>
+                <input type="hidden" name="user" value="anonymous">
+                <input type="hidden" name="sku" value="{{product.sku}}">
+                <input type="hidden" name="name" value="{{product.friendly_name}}">
+                <input type="hidden" name="product_file_path" value="{{download.jpg}}">
+
             </form>
         </div>
 
