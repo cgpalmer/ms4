@@ -45,6 +45,10 @@ def order_history(request, order_number):
 
     return render(request, template, context)
 
+def new_profile(request):
+    template = 'profiles/new_profile.html'
+    context = {}
 
+    return render(request, template, context)
 
 
