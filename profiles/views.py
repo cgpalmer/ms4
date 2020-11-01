@@ -46,8 +46,11 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 def new_profile(request):
+    digital_downloads = ContentReadyToDownload.objects.all()
     template = 'profiles/new_profile.html'
-    context = {}
+    context = {
+        'digital_downloads': digital_downloads
+    }
 
     return render(request, template, context)
 
@@ -57,7 +60,7 @@ def add_content_for_download(request, product_id):
         # in future can you use the order number to find any that are a certain type?
         user = request.POST.get('user')
         sku = request.POST.get('sku')
-        name = request.POST.get('product_name')
+        name = request.POST.get('name')
         # Check what happens in the item line when someone orders two.
         product_file_path = request.POST.get('product_file_path')
         number_of_times_downloaded = 0

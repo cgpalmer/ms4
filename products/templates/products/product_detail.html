@@ -50,6 +50,7 @@
                     </div>
                  </div>
 
+        {{product.name}}
        
         
         
@@ -73,8 +74,8 @@
                 <button tpye="submit">Add digital copy</button>
                 <input type="hidden" name="user" value="anonymous">
                 <input type="hidden" name="sku" value="{{product.sku}}">
-                <input type="hidden" name="name" value="{{product.friendly_name}}">
-                <input type="hidden" name="product_file_path" value="{{download.jpg}}">
+                <input type="hidden" name="name" value="{{product.name}}">
+                <input type="hidden" name="product_file_path" value="download.jpg">
 
             </form>
         </div>
