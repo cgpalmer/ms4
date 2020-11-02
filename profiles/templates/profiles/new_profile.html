@@ -7,16 +7,23 @@
 <div id="availableDownloads">
     <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
     {% for download in digital_downloads %}
+  
     <div class="dowloadItem">
         <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
         <p>Product file path is: {{download.product_file_path}}</p>
         <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
         
-        <a href="/static/images/{{download.product_file_path}}" download>
-            <p>Download here</p>
-        </a>
+            <p>download id {{download.id}}</p>
+        
+        <form method="POST" action="{% url 'counting_downloads'  %">
+        {% csrf_token %}
+            <input type="text" value="1">
+            <button type="submit">Click here </button>
+        </form>
     </div>
-
+    {% if number_of_downloads != '0' %}
+      Already downloaded!
+    {% endif %}
     {% endfor %}
 </div>
 

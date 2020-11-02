@@ -69,3 +69,13 @@ def add_content_for_download(request, product_id):
     else:
         return redirect(reverse('products'))
 
+
+def counting_downloads(request, download_id):
+    if request.method == 'POST':
+        print("reached counting")
+        download = 1
+        context = {
+            'number_of_downloads': download,
+        }
+        template = 'new_profile/products.html'
+        return render(request, template, context)
