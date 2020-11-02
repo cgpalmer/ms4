@@ -11,10 +11,16 @@
         <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
         <p>Product file path is: {{download.product_file_path}}</p>
         <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
-        <a href="" download="">Download {{download.name}}</a>
+        
+        <a href="/static/images/{{download.product_file_path}}" download>
+            <p>Download here</p>
+        </a>
     </div>
+
     {% endfor %}
 </div>
+
+
 
 
 {% endblock %}
