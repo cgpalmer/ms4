@@ -8,17 +8,17 @@
     <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
     {% for download in digital_downloads %}
   
-    <div class="dowloadItem">
+    <div class="downloadItem">
         <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
         <p>Product file path is: {{download.product_file_path}}</p>
         <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
         
             <p>download id {{download.id}}</p>
         
-        <form method="POST" action="{% url 'counting_downloads'  %">
-        {% csrf_token %}
-            <input type="text" value="1">
-            <button type="submit">Click here </button>
+        <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input name="test" type="text" value="1">
+            <button type="submit" value="click">Click</button>
         </form>
     </div>
     {% if number_of_downloads != '0' %}

@@ -71,11 +71,16 @@ def add_content_for_download(request, product_id):
 
 
 def counting_downloads(request, download_id):
-    if request.method == 'POST':
-        print("reached counting")
-        download = 1
+    if request.method == "POST":
+        download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
+        
+        template = "profiles/download_finished.html"
         context = {
-            'number_of_downloads': download,
+            'download_file': download_file
         }
-        template = 'new_profile/products.html'
         return render(request, template, context)
+    else:
+        return render(request, 'home/index.html')
+
+
+
