@@ -14,12 +14,13 @@
         <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
         
             <p>download id {{download.id}}</p>
-        {% if %}
+        {% if download.number_of_times_downloaded == False %}
         <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
             {% csrf_token %}
             <input name="test" type="text" value="1">
             <button type="submit" value="click">Click</button>
         </form>
+        {% endif %}
     </div>
     {% if number_of_downloads != '0' %}
       Already downloaded!
