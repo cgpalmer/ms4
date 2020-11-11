@@ -7,6 +7,7 @@
 <div id="availableDownloads">
     <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
     {% for download in digital_downloads %}
+    {% if download.number_of_times_downloaded == False %}
   
     <div class="downloadItem">
         <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
@@ -22,10 +23,25 @@
         </form>
         {% endif %}
     </div>
-    {% if number_of_downloads != '0' %}
+    {% if download.number_of_times_downloaded == True %}
       Already downloaded!
     {% endif %}
+    {% endif %}
     {% endfor %}
+
+    <h5> Previous downloads </h5>
+
+    {% for download in digital_downloads %}
+     {% if download.number_of_times_downloaded == True %}
+      <div class="downloadItem">
+        <p>{{download.name}}. Downloaded!</p>
+    </div>
+        
+     {% endif %}
+     {% endfor %}
+
+
+    
 </div>
 
 
