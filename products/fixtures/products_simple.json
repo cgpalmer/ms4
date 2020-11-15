@@ -3,6 +3,7 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -21,6 +22,7 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -39,6 +41,7 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -57,6 +60,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -75,6 +79,7 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -93,6 +98,7 @@
         "pk": 6,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -111,6 +117,7 @@
         "pk": 7,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -129,6 +136,7 @@
         "pk": 8,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -147,6 +155,7 @@
         "pk": 9,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -165,6 +174,7 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -183,6 +193,7 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -201,6 +212,7 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -219,6 +231,7 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -237,6 +250,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -255,6 +269,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -273,6 +288,7 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -291,6 +307,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -309,6 +326,7 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -327,6 +345,7 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -345,6 +364,7 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -363,6 +383,7 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -381,6 +402,7 @@
         "pk": 22,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -399,6 +421,7 @@
         "pk": 23,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -417,6 +440,7 @@
         "pk": 24,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -435,6 +459,7 @@
         "pk": 25,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -453,6 +478,7 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
+    "digital_download": "True",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
