@@ -10,15 +10,27 @@ def basket_contents(request):
     product_count = 0
     basket = request.session.get('basket', {})
 
-    for item_id, quantity in basket.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        basket_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
+    for item_id, item_data in basket.items():
+        if isinstance(item_data, int):
+            product = get_object_or_404(Product, pk=item_id)
+            total += item_data * product.price
+            product_count += item_data
+            basket_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'product': product,
+                })
+        else:
+            product = get_object_or_404(Product, pk=item_id)
+            for digital_download, quantity in item_data['items_by_download_choice'].items():
+                total += quantity * product.price
+                product_count += quantity
+                basket_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'product': product,
+                    'digital_download': digital_download
+                })
 
     if total < settings.FREE_DELIVERY_AMOUNT:
         delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
@@ -37,7 +49,8 @@ def basket_contents(request):
         'free_delivery_deficit': free_delivery_deficit,
         'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
         'grand_total': grand_total,
-        'new_customer_offer': settings.NEW_CUSTOMER_OFFER
+        'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
+      
     }
 
     return context
