@@ -65,7 +65,8 @@
             {% csrf_token%}
                 <input type="number" name="quantity" value="1" data-item_id="{{product_id}}" id="{{product_id}}">
                 <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
-                <input type="text" value="" name="digital_download">
+                <label for="digital_download">Digital download?</label>
+                <input type="checkbox" name="digital_download">
                  <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
