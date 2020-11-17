@@ -12,33 +12,45 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # change digital download to a boolean value
     digital_download = request.POST.get('digital_download')
-    
+    print("Item ID follows")
+    print(item_id)
+    print(type(item_id))
     test = request.session.get('test', {})
     print("this is the test from the bag so far")
     print(test)
     if test != {}:
-        ''' You need to work out how to next the boolean value. So how to nest a value within the item_id.
-            Eg item[item_id][boolean] = True or not?
-            Then you can check if the item id is there and if so is it true? 
+        print("bag exists")
+        matching_items = []
 
-        '''
-        test['item'].append({
-            'item':{
-                'item_id': item_id,
-                'digital_download': digital_download,
-                'quantity': quantity
-            }
-        })
+        for item in test['items']:
+            print(item)
+            if item_id == item['item_id'] and digital_download == item['digital_download']:
+                print("We have a match")
+                matching_items.append(item)
+        if matching_items:
+            print("matching items exist")
+            if matching_items[0]['item_id'] == item_id:
+                test['items'].append({
+                        'item_id': item_id,
+                        'digital_download': digital_download,
+                        'quantity': quantity
+                })
+        else:
+            print("bag exists but no matching item")
+            test['items'].append({
+                        'item_id': item_id,
+                        'digital_download': digital_download,
+                        'quantity': quantity
+                })
     else:
-        test['item'] = []
-        test['item'].append({
-            'item':{
-                'item_id': item_id,
-                'digital_download': digital_download,
-                'quantity': quantity
-            }
-        })
-        
+        print("bag doesnt exist yet.")
+        test['items'] = []
+        test['items'].append({
+                    'item_id': item_id,
+                    'digital_download': digital_download,
+                    'quantity': quantity
+            })
+            
 
     # print(test)
     # quantity = int(request.POST.get('quantity'))
