@@ -28,6 +28,7 @@ def basket_contents(request):
         if item['digital_download']:
             digital_download = "Yes"
 
+        total += subtotal
         basket_items.append({
             'item': item,
             'product': product,
@@ -68,14 +69,14 @@ def basket_contents(request):
     grand_total = delivery + total
     
     context = {
-        'basket_items': basket_items
-        # 'total': total,
-        # 'product_count': product_count,
-        # 'delivery': delivery,
-        # 'free_delivery_deficit': free_delivery_deficit,
-        # 'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
-        # 'grand_total': grand_total,
-        # 'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
+        'basket_items': basket_items,
+        'total': total,
+        'product_count': product_count,
+        'delivery': delivery,
+        'free_delivery_deficit': free_delivery_deficit,
+        'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
+        'grand_total': grand_total,
+        'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
       
     }
 
