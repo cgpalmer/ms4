@@ -23,12 +23,16 @@ def basket_contents(request):
         print(item['quantity'])
         print(type(item['quantity']))
 
-        subtotal = 4 * 3
+        subtotal = item['quantity'] * product.price
+        digital_download = "Delivery"
+        if item['digital_download']:
+            digital_download = "Yes"
 
         basket_items.append({
             'item': item,
             'product': product,
-            'subtotal': subtotal
+            'subtotal': subtotal,
+            'digital_download': digital_download
         })
     print("basket_items")
     print(basket_items)
