@@ -71,6 +71,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     print(product)
     print(product.linked_to_blog)
+    linked_product = Product.objects.all()
     
     if product.linked_to_blog == True:
         print("blog exists")
@@ -82,7 +83,8 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'blog': blog,
-        'review': review
+        'review': review,
+        'linked_product': linked_product
 
     }
     return render(request, 'products/product_detail.html', context)

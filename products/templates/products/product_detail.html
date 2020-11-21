@@ -86,20 +86,13 @@
             </form>
         </div>
 
-        <div class="row">
-            <form method="POST" action="{% url 'add_content_for_download' product.id %}">
-            {% csrf_token%}
-                <!-- <input type="number" name="quantity" value="1" data-item_id="{{product_id}}" id="{{product_id_digital}}"> -->
-                <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
-                <button type="submit">Add digital copy</button>
-                <input type="hidden" name="user" value="anonymous">
-                <input type="hidden" name="sku" value="{{product.sku}}">
-                <input type="hidden" name="name" value="{{product.name}}">
-                <input type="hidden" name="product_file_path" value="{{product.image_desktop}}">
-
-            </form>
-        </div>
-
+        <h4>Link with photo</h4>
+        <select name="" id="">
+            {% for link in linked_product %}
+                <option value="{{link.name}}">{{link.name}}</option>
+            {% endfor %}
+        </select>
+       
     </div>
     </section>
 

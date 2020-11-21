@@ -31,6 +31,7 @@ class Product(models.Model):
     image_desktop = models.ImageField(max_length=1024, null=True, blank=True)
     digital_download = models.BooleanField(default=False, null=True, blank=True)
     linked_to_blog = models.BooleanField(default=False)
+    product_type = models.CharField(max_length=254, null=True, blank=True)
   
     def __str__(self):
         return self.name
