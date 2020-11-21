@@ -41,8 +41,8 @@
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
+                                    {% if total %}
+                                        ${{ total|floatformat:2 }}
                                     {% else %}
                                         $0.00
                                     {% endif %}
@@ -54,7 +54,7 @@
             </div>
                     <a class="nav-link col-2" href="{% url 'view_basket' %}" id="allProducts">
                        <i class="fas fa-shopping-basket"></i>
-                       <span>{{ grand_total|floatformat:2 }}</span>
+                       <span>{{ total|floatformat:2 }}</span>
                     </a>
                
                     <a class="nav-link" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
