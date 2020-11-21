@@ -8,6 +8,7 @@ def basket_contents(request):
     basket_items = []
     total = 0
     product_count = 0
+    delivery_total = 0
     basket = request.session.get('basket', {})
     print(basket)
     print("this is the context page")
@@ -23,17 +24,22 @@ def basket_contents(request):
         print(item['quantity'])
         print(type(item['quantity']))
 
+        # You were dealing with the delivery
         subtotal = item['quantity'] * product.price
         digital_download = "Delivery"
         if item['digital_download']:
             digital_download = "Yes"
+        else:
+            digital_download = "Delivery"
+            delivery_total += subtotal
 
         total += subtotal
+
         basket_items.append({
             'item': item,
             'product': product,
             'subtotal': subtotal,
-            'digital_download': digital_download
+            'digital_download': digital_download,
         })
     print("basket_items")
     print(basket_items)
@@ -59,12 +65,15 @@ def basket_contents(request):
 
     #             })
 
-    if total < settings.FREE_DELIVERY_AMOUNT:
-        delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
-        free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - total
-    else:
+    if delivery_total == 0 or total > settings.FREE_DELIVERY_AMOUNT:
+        print(delivery_total)
+        print(total)
         delivery = 0
         free_delivery_deficit = 0
+    else:
+        delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
+        free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - total
+    
     
     grand_total = delivery + total
     
@@ -77,6 +86,7 @@ def basket_contents(request):
         'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
         'grand_total': grand_total,
         'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
+        'delivery_total': delivery_total
       
     }
 

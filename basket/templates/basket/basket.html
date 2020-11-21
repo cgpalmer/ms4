@@ -66,13 +66,14 @@
                                     <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_deficit > 0 %}
                                         <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                            You could get free delivery by spending just <strong>${{ free_delivery_deficit }}</strong> more!
                                         </p>
                                     {% endif %}
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
+                                <p>Delivery total: {{delivery_total}} </p>
                                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
@@ -90,6 +91,7 @@
                         </table>
                     </div>
                 {% else %}
+                      
                     <p class="lead mb-5">Your bag is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
