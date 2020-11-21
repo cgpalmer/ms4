@@ -5,7 +5,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from profiles.models import UserProfile
+from profiles.models import UserProfile, ContentReadyToDownload
 from profiles.forms import UserProfileForm
 from basket.context import basket_contents
 
@@ -62,7 +62,7 @@ def checkout(request):
                         order=order,
                         product=product,
                         quantity=item["quantity"],
-                        digital_download=item['digital_download']
+                        # digital_download=item['digital_download']
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
@@ -133,6 +133,9 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    
+    
+
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -158,6 +161,20 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
+
+    # This is where orders are stored for digital download
+    basket = request.session.get('basket', {})
+    if basket != {}:
+        for item in basket['items']:
+            if item['digital_download']:
+                user = "user"
+                product = product = get_object_or_404(Product, pk=item['item_id'])
+                sku = product.sku
+                name = product.name
+                product_file_path = product.image_desktop
+        # Check what happens in the item line when someone orders two.
+                number_of_times_downloaded = 0
+                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
 
     if 'basket' in request.session:
         del request.session['basket']
