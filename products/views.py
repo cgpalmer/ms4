@@ -71,7 +71,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     print(product)
     print(product.linked_to_blog)
-    linked_product = Product.objects.all()
+    linked_product = Product.objects.filter(product_type="photo")
     
     if product.linked_to_blog == True:
         print("blog exists")

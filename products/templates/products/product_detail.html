@@ -80,18 +80,19 @@
                                         <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                     </div>
                                 </div>
+                                <h4>Link with photo</h4>
+                                <select name="linked_product" id="">
+                                    {% for link in linked_product %}
+                                        <option value="{{link.name}}">{{link.name}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                 <button type="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>
         </div>
 
-        <h4>Link with photo</h4>
-        <select name="" id="">
-            {% for link in linked_product %}
-                <option value="{{link.name}}">{{link.name}}</option>
-            {% endfor %}
-        </select>
+        
        
     </div>
     </section>

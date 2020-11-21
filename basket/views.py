@@ -12,6 +12,8 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # change digital download to a boolean value
     digital_download = request.POST.get('digital_download')
+    linked_product = request.POST.get('linked_product')
+    print("linked:" + linked_product)
     print("Item ID follows")
     print(item_id)
     print(type(item_id))
@@ -24,6 +26,7 @@ def add_to_basket(request, item_id):
 
         for item in basket['items']:
             print(item)
+            # If the ID is in and the the digi-download is on OR off and matches it goes through here. 
             if item_id == item['item_id'] and digital_download == item['digital_download']:
                 print("We have a match")
                 matching_items.append(item)
@@ -36,7 +39,9 @@ def add_to_basket(request, item_id):
             basket['items'].append({
                         'item_id': item_id,
                         'digital_download': digital_download,
-                        'quantity': quantity
+                        'quantity': quantity,
+                        'linked_product': linked_product
+                        
                 })
     else:
         print("bag doesnt exist yet.")
@@ -44,7 +49,8 @@ def add_to_basket(request, item_id):
         basket['items'].append({
                     'item_id': item_id,
                     'digital_download': digital_download,
-                    'quantity': quantity
+                    'quantity': quantity,
+                    'linked_product': linked_product
             })
             
     redirect_url = request.POST.get('redirect_url')
