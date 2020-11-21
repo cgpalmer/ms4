@@ -70,7 +70,13 @@ def product_detail(request, product_id):
     print(product_id)
     product = get_object_or_404(Product, pk=product_id)
     print(product)
-    blog = get_object_or_404(Blog, sku=product.sku)
+    print(product.linked_to_blog)
+    
+    if product.linked_to_blog == True:
+        print("blog exists")
+        blog = get_object_or_404(Blog, sku=product.sku)
+    else:
+        blog = None
     review = Review.objects.filter(product=product_id)
 
     context = {

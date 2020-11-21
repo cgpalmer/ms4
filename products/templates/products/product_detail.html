@@ -27,9 +27,15 @@
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}
+                        
+                        {% if blog != None %}
+                        
                         <a class="d-md-block" href="{% url 'blog_detail_from_product' product.id %}">
                             {{blog.title}}
                         </a>
+                        {% endif %}
+                    
+                        
                         <p>Product id is {{ product.id }} </p>
 
                         <a href="{% url 'add_review' %}">Add review</a>

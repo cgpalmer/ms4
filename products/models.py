@@ -30,6 +30,7 @@ class Product(models.Model):
     image_mobile = models.ImageField(null=True, blank=True)
     image_desktop = models.ImageField(max_length=1024, null=True, blank=True)
     digital_download = models.BooleanField(default=False, null=True, blank=True)
+    linked_to_blog = models.BooleanField(default=False)
   
     def __str__(self):
         return self.name
