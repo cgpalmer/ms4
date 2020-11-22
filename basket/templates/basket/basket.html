@@ -32,7 +32,10 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
+                                    <th scope="col">Delivery Type</th>
+
                                 </tr>
+                               
                             </thead>
 
                             {% for item in basket_items %}
@@ -42,7 +45,6 @@
                                         <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item. }}</strong></p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
@@ -57,6 +59,21 @@
                                     <td class="py-3">
                                         <p class="my-0">Digital photo? {{ item.digital_download }}</p>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <th>Linked Products</th>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 w-25">
+                                        <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
+                                    </td>
+                                    <td class="p-3 w-25">
+                                        <p class="my-0">{{linked_product.friendly_name}}</p>
+                                    </td>
+                                    <td class="p-3 w-25">
+                                        <p class="my-0">{{linked_product.sku}}</p>
+                                    </td>
+                                    
                                 </tr>
                             {% endfor %}
                             <tr>
