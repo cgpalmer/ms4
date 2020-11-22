@@ -26,10 +26,15 @@ def add_to_basket(request, item_id):
 
         for item in basket['items']:
             print(item)
+            if linked_product == "Not linked":
             # If the ID is in and the the digi-download is on OR off and matches it goes through here. 
-            if item_id == item['item_id'] and digital_download == item['digital_download']:
-                print("We have a match")
-                matching_items.append(item)
+                if item_id == item['item_id'] and digital_download == item['digital_download']:
+                    print("We have a match")
+                    matching_items.append(item)
+            else:
+                print("this product is linked to a photo")
+                if item_id == item['item_id'] and linked_product == item['linked_product']:
+                    matching_items.append(item)
         if matching_items:
             print("matching items exist")
             if matching_items[0]['item_id'] == item_id:
