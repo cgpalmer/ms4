@@ -83,12 +83,17 @@
                                 {% if product_type_for_linking == "container" %}
                                 <h4>Link with photo</h4>
                                 <select name="linked_product" id="linkedProductChoice">
+                                    <option value="Not linked">Not linked</option>
+                                    <!-- Can you categorise these so they can have little headers? -->
                                     {% for link in linked_product %}
                                         <option value="{{link.image_url_mobile}}">{{link.name}}</option>
                                     {% endfor %}
+                                         <!-- Change this to user's name and give a bottom border-->
+                                        <option value="" disabled>User Photos</option>
+                                    {% for photo in user_photos %}
+                                        <option value="{{photo.title}}">{{photo.title}}</option>
+                                    {% endfor %}
                                 </select>
-                                {% else %}
-                                    <input type="text" name="linked_product" value="Not linked" hidden>
                                 {% endif %}
                             </div>
                             <img id="linkImageSelection" src="/static/images/landingImageRocks.jpg" class="card-img-top" alt="{{product.name}}">
@@ -96,11 +101,13 @@
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>
         </div>
+           {% if product_type_for_linking == "container" %}
         <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
   {% csrf_token %}
     {{ form.as_p }}
   <button type="submit">Upload</button>
 </form>
+{% endif %}
 
         
        

@@ -72,6 +72,7 @@ def product_detail(request, product_id):
     print(product)
     print(product.linked_to_blog)
     linked_product = Product.objects.filter(product_type="photo")
+    user_photos = Image_upload.objects.all()
     
     if product.linked_to_blog == True:
         print("blog exists")
@@ -91,7 +92,8 @@ def product_detail(request, product_id):
         'review': review,
         'linked_product': linked_product,
         'product_type_for_linking': product_type_for_linking,
-        'form': form
+        'form': form,
+        'user_photos': user_photos
 
     }
     return render(request, 'products/product_detail.html', context)

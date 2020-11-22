@@ -57,6 +57,7 @@ class Image_upload(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images')
     user_upload_image_file_path = models.CharField(max_length=200, default="not found")
+    # You don't need this download
     downloaded = models.BooleanField(default=False)
     
     def __str__(self):
