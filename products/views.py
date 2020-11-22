@@ -191,6 +191,6 @@ def image_upload(request):
         if form.is_valid():
             form.save()
             # Get the current instance object to display in the template
-            img_obj = form.instance
             return redirect(reverse('products'))
+        
     return redirect(reverse('home'))

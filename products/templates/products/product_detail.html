@@ -86,12 +86,12 @@
                                     <option value="Not linked">Not linked</option>
                                     <!-- Can you categorise these so they can have little headers? -->
                                     {% for link in linked_product %}
-                                        <option value="{{link.image_url_mobile}}">{{link.name}}</option>
+                                        <option value="{{link.image_url_mobile}}|inventory">{{link.name}}</option>
                                     {% endfor %}
                                          <!-- Change this to user's name and give a bottom border-->
                                         <option value="" disabled>User Photos</option>
                                     {% for photo in user_photos %}
-                                        <option value="{{photo.title}}">{{photo.title}}</option>
+                                        <option value="{{photo.image}}|upload">{{photo.title}}</option>
                                     {% endfor %}
                                 </select>
                                 {% endif %}
@@ -109,7 +109,10 @@
 </form>
 {% endif %}
 
-        
+    {% for photo in user_photos %}
+
+        {{photo.image}}
+    {% endfor %}
        
     </div>
     </section>

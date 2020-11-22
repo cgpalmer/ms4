@@ -20,7 +20,17 @@ $( document ).ready(function() {
 $("#linkedProductChoice").change(function() {
  console.log("function reached.");
  let val = $(this).val();
- let imagePath = `/static/media/product-images/${val}`;
-  $("#linkImageSelection").attr('src', val);
+ let splittingValues = val.split("|");
+ let imageType = splittingValues[1];
+ if (imageType == "inventory") {
+    let imagePath = splittingValues[0];
+    console.log(imagePath);
+  $("#linkImageSelection").attr('src', imagePath);
+ } else {
+     let imagePath = "/media/" + splittingValues[0];
+     console.log(imagePath);
+  $("#linkImageSelection").attr('src', imagePath);s
+ }
+ 
 });
 
