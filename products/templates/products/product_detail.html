@@ -82,15 +82,16 @@
                                 </div>
                                 {% if product_type_for_linking == "container" %}
                                 <h4>Link with photo</h4>
-                                <select name="linked_product" id="">
+                                <select name="linked_product" id="linkedProductChoice">
                                     {% for link in linked_product %}
-                                        <option value="{{link.id}}">{{link.name}}</option>
+                                        <option value="{{link.image_url_mobile}}">{{link.name}}</option>
                                     {% endfor %}
                                 </select>
                                 {% else %}
                                     <input type="text" name="linked_product" value="Not linked" hidden>
                                 {% endif %}
                             </div>
+                            <img id="linkImageSelection" src="/static/images/landingImageRocks.jpg" class="card-img-top" alt="{{product.name}}">
                 <button type="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>
