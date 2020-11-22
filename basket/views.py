@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from products.models import Product
 
 # Create your views here.
 
@@ -12,8 +13,15 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # change digital download to a boolean value
     digital_download = request.POST.get('digital_download')
-    linked_product = request.POST.get('linked_product')
-    print("linked:" + linked_product)
+    linked_product_id = request.POST.get('linked_product')
+    if linked_product_id != "Not linked":
+        linked_product =  get_object_or_404(Product, pk=linked_product_id)
+        linked_product_name = linked_product.name
+        linked_product_image = str(linked_product.image_mobile)
+        linked_product_sku = linked_product.sku
+
+
+    print("linked:" + linked_product_id)
     print("Item ID follows")
     print(item_id)
     print(type(item_id))
@@ -26,14 +34,14 @@ def add_to_basket(request, item_id):
 
         for item in basket['items']:
             print(item)
-            if linked_product == "Not linked":
+            if linked_product_id == "Not linked":
             # If the ID is in and the the digi-download is on OR off and matches it goes through here. 
                 if item_id == item['item_id'] and digital_download == item['digital_download']:
                     print("We have a match")
                     matching_items.append(item)
             else:
                 print("this product is linked to a photo")
-                if item_id == item['item_id'] and linked_product == item['linked_product']:
+                if item_id == item['item_id'] and linked_product_id == item['linked_product_id']:
                     matching_items.append(item)
         if matching_items:
             print("matching items exist")
@@ -41,22 +49,43 @@ def add_to_basket(request, item_id):
                 matching_items[0]['quantity'] += quantity
         else:
             print("bag exists but no matching item")
+            if linked_product_id == "Not linked":
+                basket['items'].append({
+                            'item_id': item_id,
+                            'digital_download': digital_download,
+                            'quantity': quantity,
+                            'linked_product_id': linked_product_id,
+                    })
+            else:
+                basket['items'].append({
+                            'item_id': item_id,
+                            'digital_download': digital_download,
+                            'quantity': quantity,
+                            'linked_product_id': linked_product_id,
+                            'linked_product_name': linked_product_name,
+                            'linked_product_image': linked_product_image,
+                            'linked_product_sku': linked_product_sku,
+                    })
+    else:
+        print("bag doesnt exist yet.")
+        basket['items'] = []
+        if linked_product_id == "Not linked":
             basket['items'].append({
                         'item_id': item_id,
                         'digital_download': digital_download,
                         'quantity': quantity,
-                        'linked_product': linked_product
-                        
+                        'linked_product_id': linked_product_id,
                 })
-    else:
-        print("bag doesnt exist yet.")
-        basket['items'] = []
-        basket['items'].append({
-                    'item_id': item_id,
-                    'digital_download': digital_download,
-                    'quantity': quantity,
-                    'linked_product': linked_product
-            })
+        else:
+            basket['items'].append({
+                        'item_id': item_id,
+                        'digital_download': digital_download,
+                        'quantity': quantity,
+                        'linked_product_id': linked_product_id,
+                        'linked_product_name': linked_product_name,
+                        'linked_product_image': linked_product_image,
+                        'linked_product_sku': linked_product_sku,
+                })
             
     redirect_url = request.POST.get('redirect_url')
     request.session['basket'] = basket

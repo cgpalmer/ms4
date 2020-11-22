@@ -84,7 +84,7 @@
                                 <h4>Link with photo</h4>
                                 <select name="linked_product" id="">
                                     {% for link in linked_product %}
-                                        <option value="{{link.name}}">{{link.name}}</option>
+                                        <option value="{{link.id}}">{{link.name}}</option>
                                     {% endfor %}
                                 </select>
                                 {% else %}

@@ -60,21 +60,23 @@
                                         <p class="my-0">Digital photo? {{ item.digital_download }}</p>
                                     </td>
                                 </tr>
+                                {% if item.item.linked_product_id != "Not linked" %}
                                 <tr>
                                     <th>Linked Products</th>
                                 </tr>
                                 <tr>
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
+                                        <img class="img-fluid rounded" src="/static/media/product-images/{{ item.item.linked_product_image }}">
                                     </td>
                                     <td class="p-3 w-25">
-                                        <p class="my-0">{{linked_product.friendly_name}}</p>
+                                        <p class="my-0">{{item.item.linked_product_name}}</p>
                                     </td>
                                     <td class="p-3 w-25">
-                                        <p class="my-0">{{linked_product.sku}}</p>
+                                        <p class="my-0">{{item.item.linked_product_sku}}</p>
                                     </td>
                                     
                                 </tr>
+                                {% endif %}
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
