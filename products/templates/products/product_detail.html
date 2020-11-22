@@ -82,6 +82,7 @@
                                 </div>
                                 {% if product_type_for_linking == "container" %}
                                 <h4>Link with photo</h4>
+                                {% for number in number_of_pictures_loop %}
                                 <select name="linked_product" id="linkedProductChoice">
                                     <option value="Not linked">Not linked</option>
                                     <!-- Can you categorise these so they can have little headers? -->
@@ -94,9 +95,17 @@
                                         <option value="{{photo.image}}|upload">{{photo.title}}</option>
                                     {% endfor %}
                                 </select>
+                                {% endfor %}
                                 {% endif %}
                             </div>
                             <img id="linkImageSelection" src="/static/images/landingImageRocks.jpg" class="card-img-top" alt="{{product.name}}">
+                
+                
+                
+                
+                
+                
+                
                 <button type="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>

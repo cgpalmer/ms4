@@ -32,6 +32,7 @@ class Product(models.Model):
     digital_download = models.BooleanField(default=False, null=True, blank=True)
     linked_to_blog = models.BooleanField(default=False)
     product_type = models.CharField(max_length=254, null=True, blank=True)
+    number_of_pictures = models.IntegerField(default=0)
   
     def __str__(self):
         return self.name

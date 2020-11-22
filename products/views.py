@@ -86,6 +86,14 @@ def product_detail(request, product_id):
     else:
         product_type_for_linking = "container"
     form = Image_uploadForm()
+
+    number_of_pictures = product.number_of_pictures
+    print("number of pics is" + str(number_of_pictures))
+    number_of_pictures_loop = []
+    for n in range(number_of_pictures):
+        number_of_pictures_loop.append("picture")
+        print(number_of_pictures_loop)
+
     context = {
         'product': product,
         'blog': blog,
@@ -93,7 +101,8 @@ def product_detail(request, product_id):
         'linked_product': linked_product,
         'product_type_for_linking': product_type_for_linking,
         'form': form,
-        'user_photos': user_photos
+        'user_photos': user_photos,
+        'number_of_pictures_loop': number_of_pictures_loop
 
     }
     return render(request, 'products/product_detail.html', context)

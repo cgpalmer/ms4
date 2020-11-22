@@ -3,6 +3,7 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -24,6 +25,7 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -45,6 +47,7 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -66,6 +69,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -87,6 +91,7 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -108,6 +113,7 @@
         "pk": 6,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -129,6 +135,7 @@
         "pk": 7,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -150,6 +157,7 @@
         "pk": 8,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -171,6 +179,7 @@
         "pk": 9,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -192,6 +201,7 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -213,6 +223,7 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -234,6 +245,7 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -255,6 +267,7 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -276,6 +289,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -297,6 +311,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -318,6 +333,7 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -339,6 +355,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -360,6 +377,7 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -381,6 +399,7 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -402,6 +421,7 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -423,9 +443,10 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -444,9 +465,10 @@
         "pk": 22,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -465,9 +487,10 @@
         "pk": 23,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -486,9 +509,10 @@
         "pk": 24,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -507,9 +531,10 @@
         "pk": 25,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -525,12 +550,13 @@
         "image_desktop": "landscape-canvas.jpg"
     }},
     {
-        "pk": 27,
+        "pk": 26,
         "model": "products.product",
         "fields": {
+    "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
-    "digital_download": "True",
+    "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
       "special_offer": 1,
@@ -542,6 +568,50 @@
         "rating": 5,
         "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
+        "image_mobile": "landscape-canvas.jpg",
+        "image_desktop": "landscape-canvas.jpg"
+    }},
+  {
+        "pk": 27,
+        "model": "products.product",
+        "fields": {
+    "number_of_pictures": 12,
+    "product_type": "container",
+    "linked_to_blog": "False",
+    "digital_download": "False",
+    "number_of_ratings": 0,
+    "rating_total": 0,
+      "special_offer": 1,
+        "sku": "cl010101",
+        "name": "12 Month Calendar A4",
+        "category": 5,
+        "price": 5.99,
+        "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
+        "rating": 5,
+        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
+        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
+        "image_mobile": "landscape-canvas.jpg",
+        "image_desktop": "landscape-canvas.jpg"
+    }},
+     {
+        "pk": 35,
+        "model": "products.product",
+        "fields": {
+    "number_of_pictures": 12,
+    "product_type": "container",
+    "linked_to_blog": "False",
+    "digital_download": "False",
+    "number_of_ratings": 0,
+    "rating_total": 0,
+      "special_offer": 1,
+        "sku": "cl010101",
+        "name": "12 Month Calendar A4",
+        "category": 5,
+        "price": 5.99,
+        "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
+        "rating": 5,
+        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
+        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
         "image_mobile": "landscape-canvas.jpg",
         "image_desktop": "landscape-canvas.jpg"
     }}
