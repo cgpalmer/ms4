@@ -17,7 +17,7 @@ $( document ).ready(function() {
 
 });
 
-$("#linkedProductChoice").change(function() {
+$(".linkingProductSelect").change(function() {
  console.log("function reached.");
  let val = $(this).val();
  let splittingValues = val.split("|");

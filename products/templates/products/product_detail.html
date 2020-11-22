@@ -83,7 +83,7 @@
                                 {% if product_type_for_linking == "container" %}
                                 <h4>Link with photo</h4>
                                 {% for number in number_of_pictures_loop %}
-                                <select name="linked_product" id="linkedProductChoice">
+                                <select name="linked_product{{number}}" class="linkingProductSelect">
                                     <option value="Not linked">Not linked</option>
                                     <!-- Can you categorise these so they can have little headers? -->
                                     {% for link in linked_product %}

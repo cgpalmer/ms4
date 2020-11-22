@@ -91,7 +91,7 @@ def product_detail(request, product_id):
     print("number of pics is" + str(number_of_pictures))
     number_of_pictures_loop = []
     for n in range(number_of_pictures):
-        number_of_pictures_loop.append("picture")
+        number_of_pictures_loop.append(n)
         print(number_of_pictures_loop)
 
     context = {
