@@ -40,7 +40,16 @@
      {% endif %}
      {% endfor %}
 
+    {% for photo in user_photos %}
+        <div>
+        {{photo.title}}
+        <img class="w-25" src="/media/{{photo.image}}" alt="">
+        <a href="{% url 'delete_user_photo' photo.id %}">Button to delete</a>
+        </div>
+       
+  
 
+    {% endfor %}
     
 </div>
 

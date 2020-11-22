@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
+from products.models import Image_upload
 from .forms import UserProfileForm
 from reviews.forms import ReviewForm
 from checkout.models import Order
@@ -47,9 +48,11 @@ def order_history(request, order_number):
 
 def new_profile(request):
     digital_downloads = ContentReadyToDownload.objects.all()
+    user_photos = Image_upload.objects.all()
     template = 'profiles/new_profile.html'
     context = {
-        'digital_downloads': digital_downloads
+        'digital_downloads': digital_downloads,
+        'user_photos': user_photos
     }
 
     return render(request, template, context)
@@ -85,5 +88,10 @@ def counting_downloads(request, download_id):
     else:
         return render(request, 'home/index.html')
 
+def delete_user_photo(request, photo_id):
+    # Use a filter here for user photos only
+    user_photo = get_object_or_404(Image_upload, pk=photo_id)
+    user_photo.delete()
+    return redirect(reverse('new_profile'))
 
 
