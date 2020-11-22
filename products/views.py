@@ -80,11 +80,16 @@ def product_detail(request, product_id):
         blog = None
     review = Review.objects.filter(product=product_id)
 
+    if product.product_type == "photo":
+        product_type_for_linking = "photo"
+    else:
+        product_type_for_linking = "container"
     context = {
         'product': product,
         'blog': blog,
         'review': review,
-        'linked_product': linked_product
+        'linked_product': linked_product,
+        'product_type_for_linking': product_type_for_linking
 
     }
     return render(request, 'products/product_detail.html', context)
