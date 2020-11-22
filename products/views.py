@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category
+from .models import Product, Category, Image_upload
 from blog.models import Blog
 from reviews.models import Review
-from .forms import ProductForm
+from .forms import ProductForm, Image_uploadForm
 
 
 # Create your views here.
@@ -84,12 +84,14 @@ def product_detail(request, product_id):
         product_type_for_linking = "photo"
     else:
         product_type_for_linking = "container"
+    form = Image_uploadForm()
     context = {
         'product': product,
         'blog': blog,
         'review': review,
         'linked_product': linked_product,
-        'product_type_for_linking': product_type_for_linking
+        'product_type_for_linking': product_type_for_linking,
+        'form': form
 
     }
     return render(request, 'products/product_detail.html', context)
@@ -179,3 +181,14 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+def image_upload(request):
+    """Process images uploaded by users"""
+    if request.method == 'POST':
+        form = Image_uploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Get the current instance object to display in the template
+            img_obj = form.instance
+            return redirect(reverse('products'))
+    return redirect(reverse('home'))

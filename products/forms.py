@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, Category, Image_upload
 
 
 class ProductForm(forms.ModelForm):
@@ -18,3 +18,9 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
     
     discount_price = forms.DecimalField(label='', widget=forms.NumberInput())
+
+class Image_uploadForm(forms.ModelForm):
+    """Form for the image model"""
+    class Meta:
+        model = Image_upload
+        fields = ('title', 'image')

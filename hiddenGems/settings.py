@@ -181,6 +181,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 FREE_DELIVERY_AMOUNT = 50
 STANDARD_DELIVERY_AMOUNT = 4.99
 NEW_CUSTOMER_OFFER = 20
