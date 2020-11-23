@@ -13,13 +13,34 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     # change digital download to a boolean value
     digital_download = request.POST.get('digital_download')
-    linked_product_image = request.POST.get('linked_product')
-    if linked_product_image != "Not linked":
-        linked_product_image = get_object_or_404(Product, image_url_mobile=linked_product_image)
-        linked_product_name = linked_product_image.name
-        linked_product_sku = linked_product_image.sku
-        linked_product_image_path = linked_product_image.image_url_mobile
-        linked_product_id = linked_product_image.id
+    
+    #find the product.
+    #find how many pictures there should be.
+    # create loop to fetch information for that amount of pictures
+    # create list of photos linked to that item
+
+    # This is finding out how many photos need to be linked with the item. 
+    product = get_object_or_404(Product, pk=item_id)
+    number_of_products_to_link = product.number_of_pictures
+    print("number of products " + str(number_of_products_to_link))
+    list_of_pictures_to_link_to_a_product = []
+    # Once it knows how many it will loop through and get the product from each field sent through the form. 
+    for i in range(number_of_products_to_link):
+        linked_product_form_id = 'linked_product'+str(i)
+        linked_product_image = request.POST.get(linked_product_form_id)
+        if linked_product_image != "Not linked":
+            linked_product_image = get_object_or_404(Product, image_url_mobile=linked_product_image)
+            linked_product_name = linked_product_image.name
+            linked_product_sku = linked_product_image.sku
+            linked_product_image_path = linked_product_image.image_url_mobile
+            linked_product_id = linked_product_image.id
+            list_of_pictures_to_link_to_a_product.append(linked_product_name)
+            list_of_pictures_to_link_to_a_product.append(linked_product_sku)
+            list_of_pictures_to_link_to_a_product.append(linked_product_image_path)
+            list_of_pictures_to_link_to_a_product.append(linked_product_id)
+
+        
+
 
 
 
@@ -55,17 +76,23 @@ def add_to_basket(request, item_id):
                             'item_id': item_id,
                             'digital_download': digital_download,
                             'quantity': quantity,
-                             'linked_product_id': linked_product_id,
+                            'linked_product_id': linked_product_id,
                     })
+                     
             else:
                 basket['items'].append({
                             'item_id': item_id,
                             'digital_download': digital_download,
                             'quantity': quantity,
                              'linked_product_id': linked_product_id,
+                             
+                    })
+                # loop through the id's and append them these values to them
+                for pic in linked_product_id:
+                    basket['items'].append({
                         'linked_product_image': linked_product_image_path,
-                            'linked_product_name': linked_product_name,
-                            'linked_product_sku': linked_product_sku,
+                        'linked_product_name': linked_product_name,
+                        'linked_product_sku': linked_product_sku,
                     })
     else:
         print("bag doesnt exist yet.")
