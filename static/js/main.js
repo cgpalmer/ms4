@@ -21,7 +21,8 @@ $(".linkingProductSelect").change(function() {
  console.log("function reached.");
  let val = $(this).val();
  let splittingValues = val.split("|");
- let imageType = splittingValues[1];
+ let imageType = splittingValues[2];
+ let imageId = splittingValues[1]
  if (imageType == "inventory") {
     let imagePath = splittingValues[0];
     console.log(imagePath);
