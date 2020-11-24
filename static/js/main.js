@@ -27,10 +27,13 @@ $(".linkingProductSelect").change(function() {
     let imagePath = splittingValues[0];
     console.log(imagePath);
   $("#linkImageSelection").attr('src', imagePath);
+  $("#linkedProductImagePreview").attr('href', imagePath);
  } else {
      let imagePath = "/media/" + splittingValues[0];
      console.log(imagePath);
-  $("#linkImageSelection").attr('src', imagePath);s
+  $("#linkImageSelection,  ").attr('src', imagePath);
+  $("#linkedProductImagePreview").attr('href', imagePath);
+
  }
  
 });
