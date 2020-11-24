@@ -3,7 +3,7 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -25,7 +25,7 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -47,7 +47,7 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -69,7 +69,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -91,7 +91,7 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -113,7 +113,7 @@
         "pk": 6,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -135,7 +135,7 @@
         "pk": 7,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -157,7 +157,7 @@
         "pk": 8,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -179,7 +179,7 @@
         "pk": 9,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -201,7 +201,7 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -223,7 +223,7 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -245,7 +245,7 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -267,7 +267,7 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -289,7 +289,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -311,7 +311,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -333,7 +333,7 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -355,7 +355,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -377,7 +377,7 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -399,7 +399,7 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
@@ -421,7 +421,7 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
-    "number_of_pictures": 1,
+    "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
     "digital_download": "True",
