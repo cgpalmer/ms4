@@ -38,3 +38,7 @@ $(".linkingProductSelect").change(function() {
  
 });
 
+
+$("#checkoutButton").click(function() {
+    $(".alert")alert()
+});
