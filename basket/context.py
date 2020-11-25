@@ -39,6 +39,7 @@ def basket_contents(request):
                 'product': product,
                 'subtotal': subtotal,
                 'digital_download': digital_download,
+                
             })
         print("basket_items")
         print(basket_items)
