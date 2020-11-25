@@ -13,16 +13,7 @@ def basket_contents(request):
     
     if basket != {}:
         for item in basket['items']:
-            print(item)
-            print(item['item_id'])
             product = get_object_or_404(Product, pk=item['item_id'])
-            print(product)
-            print("product price")
-            print(product.price)
-            print(type(product.price))
-            print(item['quantity'])
-            print(type(item['quantity']))
-
             # You were dealing with the delivery
             subtotal = item['quantity'] * product.price
             digital_download = "Delivery"
@@ -41,29 +32,11 @@ def basket_contents(request):
                 'digital_download': digital_download,
                 
             })
-        print("basket_items")
-        print(basket_items)
-        # for item_id, item_data in basket.items():
-        #     if isinstance(item_data, int):
-        #         product = get_object_or_404(Product, pk=item_id)
-        #         total += item_data * product.price
-        #         product_count += item_data
-        #         basket_items.append({
-        #             'item_id': item_id,
-        #             'quantity': item_data,
-        #             'product': product,
-        #             })
-        #     else:
-        #         product = get_object_or_404(Product, pk=item_id)
-        #         for digital_download, quantity in item_data['items_by_download_choice'].items():
-        #             total += quantity * product.price
-        #             product_count += quantity
-        #             basket_items.append({
-        #                 'item_id': item_id,
-        #                 'quantity': item_data,
-        #                 'product': product,
 
-        #             })
+            print("every item " + str(item['linked_products']))
+            print(item['linked_products'][0])
+            list_of_linked_product_info = item['linked_products']
+            
    
 
     if delivery_total == 0 or total > settings.FREE_DELIVERY_AMOUNT:
@@ -87,7 +60,8 @@ def basket_contents(request):
         'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
         'grand_total': grand_total,
         'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
-        'delivery_total': delivery_total
+        'delivery_total': delivery_total,
+        
       
     }
 

@@ -157,7 +157,7 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
     print("digi downl " + str(digital_download))
-    linked_products = ['Nothing to link']
+    linked_products = ['Not linked']
     # item id is passed through as parameter.
     #get the product
     product = get_object_or_404(Product, pk=item_id)
@@ -177,14 +177,14 @@ def add_to_basket(request, item_id):
                 # There are going to be issues with upload your own photos here
                 linked_products.append([linked_product_id, linked_product_image, linked_product.sku, linked_product.name])
             else:
-                linked_products.append([linked_product_id, linked_product_image, 'no sku', 'no name'])
+                linked_products.append(['Not linked'])
 
 
     # appending the items to the basket
 
     if basket != {}:
         matching_items = []
-        if linked_products[0] == "Nothing to link":
+        if linked_products[0] == "Not linked":
             print("nothing to link reached")
             for item in basket['items']:
                 # If the ID is in and the the digi-download is on OR off and matches it goes through here. 

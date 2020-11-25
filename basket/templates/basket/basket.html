@@ -69,13 +69,24 @@
                                 </tr>
                                 <tr>
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.item.linked_product_image }}">
+                                        <img class="img-fluid rounded" src="{{ item.item.linked_products }}">
                                     </td>
                                     <td class="p-3 w-25">
-                                        <p class="my-0">{{item.item.linked_product_name}}</p>
+                                        <!-- <p class="my-0">{{item.item.linked_products}}</p> -->
+                                        {%for g in item.item.linked_products%}
+                                        {% if g != 'Not linked' %}
+                                        <div>
+                                            {% for v in g%}
+                                                {% if v != 'Not linked'%}
+                                                <p>{{v}}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
                                     </td>
                                     <td class="p-3 w-25">
-                                        <p class="my-0">{{item.item.linked_product_sku}}</p>
+                                        <p class="my-0">{{linked_info_sku}}</p>
                                     </td>
                                     
                                 </tr>
