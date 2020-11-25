@@ -79,6 +79,8 @@
                                             {% for v in g%}
                                                 {% if v != 'Not linked'%}
                                                 <p>{{v}}</p>
+                                                {% else %}
+                                                <p class="text-danger">{{v}}</p>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
