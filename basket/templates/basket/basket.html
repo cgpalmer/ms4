@@ -115,12 +115,23 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
+                                    <p>all item are linked? {{are_all_items_linked}}</p>
+                                    {% if are_all_items_linked == False %}
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </button>
+                                    {% else %}
+                                    <a id="checkoutButton" href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+
+                                    {% endif %}
                                     
                                 </td>
                                 

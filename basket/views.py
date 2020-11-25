@@ -157,7 +157,7 @@ def add_to_basket(request, item_id):
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
     print("digi downl " + str(digital_download))
-    linked_products = ['Not linked']
+    linked_products = [['Not linked']]
     # item id is passed through as parameter.
     #get the product
     product = get_object_or_404(Product, pk=item_id)

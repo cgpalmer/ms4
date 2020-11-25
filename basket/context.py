@@ -10,6 +10,7 @@ def basket_contents(request):
     product_count = 0
     delivery_total = 0
     basket = request.session.get('basket', {})
+    are_all_items_linked = True
     
     if basket != {}:
         for item in basket['items']:
@@ -33,9 +34,17 @@ def basket_contents(request):
                 
             })
 
-            print("every item " + str(item['linked_products']))
-            print(item['linked_products'][0])
+          
+           
             list_of_linked_product_info = item['linked_products']
+            print("LIST " + str(list_of_linked_product_info))
+            for product_info in list_of_linked_product_info:
+                print(product_info[0])
+                if product_info == ['Not linked'] and product.number_of_pictures > 0:
+                    are_all_items_linked = False
+                    print(are_all_items_linked)
+
+
             
    
 
@@ -61,6 +70,7 @@ def basket_contents(request):
         'grand_total': grand_total,
         'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
         'delivery_total': delivery_total,
+        'are_all_items_linked': are_all_items_linked
         
       
     }
