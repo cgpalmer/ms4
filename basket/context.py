@@ -14,6 +14,7 @@ def basket_contents(request):
     
     if basket != {}:
         for item in basket['items']:
+            
             product = get_object_or_404(Product, pk=item['item_id'])
             # You were dealing with the delivery
             subtotal = item['quantity'] * product.price

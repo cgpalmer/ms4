@@ -93,7 +93,7 @@
                                          <!-- Change this to user's name and give a bottom border-->
                                         <option value="" disabled>User Photos</option>
                                     {% for photo in user_photos %}
-                                        <option value="{{photo.image}}|No id|upload">{{photo.title}}</option>
+                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
                                     {% endfor %}
                                 </select>
                                 {% endfor %}
