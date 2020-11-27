@@ -697,3 +697,6 @@ https://stackoverflow.com/questions/3681627/how-to-update-fields-in-a-model-with
 
 Max value on integer fields
 https://stackoverflow.com/questions/30849862/django-max-length-for-integerfield/30850101#30850101
+
+For loop counter
+https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template

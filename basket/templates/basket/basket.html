@@ -54,22 +54,53 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.item.quantity }}</p>
+                                        <p  class=" my-0">{{ item.item.quantity }}</p>
+                                        <div class="input-group">
+                                            <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control qty_input hide" type="number" name="quantity" value="1" min="0" max="99" data-item_id="" >
+                                        </div> 
+                                    </td>
+                                    <td class="py-3 w-25">
+                                       
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.subtotal }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">Digital photo? {{ item.digital_download }}</p>
+                                         <select id="basket-item-delivery{{ forloop.counter0}}" name="digital_download" class="extraClass hide">
+                                            {% if item.digital_download == "Yes" %}
+                                            <option value="None">Delivery</option>
+                                            <option selected value="True">Digital Download</option>
+                                            {% else %}
+                                            <option selected value="None">Delivery</option>
+                                            <option value="True">Digital Download</option>
+                                              {% endif %}
+                                        </select>
                                     </td>
                                     <td class="py-3">
-                                        <button onclick="startUpdate('edit-product-{{ forloop.counter0}}', 'update-product-{{ forloop.counter0}}', 'cancel-edit-product-{{ forloop.counter0}}')" id="edit-product-{{ forloop.counter0}}" class="edit-basket-product my-0">Edit</button>
+                                        <button 
+                                            onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
+                                                                'update-product-{{ forloop.counter0}}', 
+                                                                'cancel-edit-product-{{ forloop.counter0}}',
+                                                                'basket-item-quantity{{ forloop.counter0}}',
+                                                                'basket-item-delivery{{ forloop.counter0}}',
+                                                                'update'
+                                                                )" 
+                                                                id="edit-product-{{ forloop.counter0}}" 
+                                                                class="edit-basket-product my-0">
+                                                                Edit
+                                        </button>
                                     </td>
                                     <td class="py-3">
                                         <a id="update-product-{{ forloop.counter0}}" href="" class="update-basket-product hide my-0">Update</a>
                                     </td>
                                     <td class="py-3">
-                                        <button onclick="cancelUpdate('edit-product-{{ forloop.counter0}}', 'update-product-{{ forloop.counter0}}', 'cancel-edit-product-{{ forloop.counter0}}')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</button>
+                                        <button onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
+                                                                    'update-product-{{ forloop.counter0}}', 
+                                                                    'cancel-edit-product-{{ forloop.counter0}}',
+                                                                    'basket-item-quantity{{ forloop.counter0}}',
+                                                                    'basket-item-delivery{{ forloop.counter0}}',
+                                                                    'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</button>
                                     </td>
                                 </tr>
                                 {% if item.item.linked_product_image != "Not linked" %}

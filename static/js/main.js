@@ -40,21 +40,28 @@ $(".linkingProductSelect").change(function() {
 
 
 
-function startUpdate(editId, updateId, cancelId) {
+function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editMode) {
     let editButton = document.getElementById(editId);
     let updateButton = document.getElementById(updateId);
     let cancelButton = document.getElementById(cancelId);
-    editButton.classList.add('hide')
-    updateButton.classList.remove('hide')
-    cancelButton.classList.remove('hide')
+    let quantityEdit = document.getElementById(editQuantity);
+    let deliveryEdit = document.getElementById(editDelivery);
+    let editingMode = editMode
+    if (editingMode == 'update'){
+        editButton.classList.add('hide')
+        updateButton.classList.remove('hide')
+        cancelButton.classList.remove('hide')
+        quantityEdit.classList.remove('hide')
+        deliveryEdit.classList.remove('hide')
+    } else {
+        editButton.classList.remove('hide')
+        updateButton.classList.add('hide')
+        cancelButton.classList.add('hide')
+        quantityEdit.classList.add('hide')
+        deliveryEdit.classList.add('hide')
+    }
+    
 }
 
-function cancelUpdate(editId, updateId, cancelId) {
-    let editButton = document.getElementById(editId);
-    let updateButton = document.getElementById(updateId);
-    let cancelButton = document.getElementById(cancelId);
-    editButton.classList.remove('hide')
-    updateButton.classList.add('hide')
-    cancelButton.classList.add('hide')
-}
+
 
