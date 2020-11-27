@@ -40,3 +40,21 @@ $(".linkingProductSelect").change(function() {
 
 
 
+function startUpdate(editId, updateId, cancelId) {
+    let editButton = document.getElementById(editId);
+    let updateButton = document.getElementById(updateId);
+    let cancelButton = document.getElementById(cancelId);
+    editButton.classList.add('hide')
+    updateButton.classList.remove('hide')
+    cancelButton.classList.remove('hide')
+}
+
+function cancelUpdate(editId, updateId, cancelId) {
+    let editButton = document.getElementById(editId);
+    let updateButton = document.getElementById(updateId);
+    let cancelButton = document.getElementById(cancelId);
+    editButton.classList.remove('hide')
+    updateButton.classList.add('hide')
+    cancelButton.classList.add('hide')
+}
+

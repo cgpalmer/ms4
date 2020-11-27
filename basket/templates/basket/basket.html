@@ -34,18 +34,18 @@
                                     <th scope="col">Subtotal</th>
                                     <th scope="col">Delivery Type</th>
 
+
                                 </tr>
                                
                             </thead>
 
                             {% for item in basket_items %}
                             {{item}}
+                            This is item: {{item.product.id}}
+                            trial: {{ forloop.counter0 }}
                                 <tr>
                                     <td class="p-3 w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
-                                    </td>
-                                    <td class="p-3 w-25">
-                                        <p class="my-0 small text-muted">{{item.test}}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
@@ -61,6 +61,15 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">Digital photo? {{ item.digital_download }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <button onclick="startUpdate('edit-product-{{ forloop.counter0}}', 'update-product-{{ forloop.counter0}}', 'cancel-edit-product-{{ forloop.counter0}}')" id="edit-product-{{ forloop.counter0}}" class="edit-basket-product my-0">Edit</button>
+                                    </td>
+                                    <td class="py-3">
+                                        <a id="update-product-{{ forloop.counter0}}" href="" class="update-basket-product hide my-0">Update</a>
+                                    </td>
+                                    <td class="py-3">
+                                        <button onclick="cancelUpdate('edit-product-{{ forloop.counter0}}', 'update-product-{{ forloop.counter0}}', 'cancel-edit-product-{{ forloop.counter0}}')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</button>
                                     </td>
                                 </tr>
                                 {% if item.item.linked_product_image != "Not linked" %}
