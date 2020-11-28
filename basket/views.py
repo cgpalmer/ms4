@@ -111,19 +111,22 @@ def edit_basket(request):
     updated_item_id = request.POST.get('basket_item_id')
     
     print("important!" + str(updated_item_id))
+    item_number = -1
     for item in basket['items']:
+        item_number = item_number + 1
         print("basket item " + str(item['basket_item_id']))
         print(item)
         if int(updated_item_id) == item['basket_item_id']:
             print("match found")
-            if updated_quantity == 0:
-                print("Needs deleting!")
-
-            item['quantity'] = int(updated_quantity)
-            if updated_delivery == "True":
-                item['digital_download'] = True
+            if int(updated_quantity) == 0:
+                print("needs deleting.")
+                del basket['items'][item_number]
             else:
-                item['digital_download'] = None
+                item['quantity'] = int(updated_quantity)
+                if updated_delivery == "True":
+                    item['digital_download'] = True
+                else:
+                    item['digital_download'] = None
         else:
             print("else")
                 
