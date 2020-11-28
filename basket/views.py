@@ -90,7 +90,7 @@ def add_to_basket(request, item_id):
         basket['items'] = []
         request.session['basket_item_id'] = 1
         basket['items'].append({
-            'basket_item_id': '1',
+            'basket_item_id': 1,
             'item_id': item_id,
             'digital_download': digital_download,
             'quantity': quantity,
@@ -113,12 +113,19 @@ def edit_basket(request):
     print("important!" + str(updated_item_id))
     for item in basket['items']:
         print("basket item " + str(item['basket_item_id']))
-        if updated_item_id == item['basket_item_id']:
+        print(item)
+        if int(updated_item_id) == item['basket_item_id']:
+            print("match found")
+            if updated_quantity == 0:
+                print("Needs deleting!")
+
             item['quantity'] = int(updated_quantity)
             if updated_delivery == "True":
                 item['digital_download'] = True
             else:
                 item['digital_download'] = None
+        else:
+            print("else")
                 
-            request.session['basket'] = basket
+    request.session['basket'] = basket
     return redirect('view_basket')
