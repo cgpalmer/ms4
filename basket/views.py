@@ -140,11 +140,6 @@ def delete_basket_item(request, basket_item_id):
     basket_item_id = int(basket_item_id)
     print("basket id from url" + str(basket_item_id))
     print("basket id from url type" + str(type(basket_item_id)))
-
-
-
-
-
     item_number = -1
     for item in basket['items']:
         item_number = item_number + 1
@@ -153,4 +148,10 @@ def delete_basket_item(request, basket_item_id):
         if item['basket_item_id'] == basket_item_id:
             del basket['items'][item_number]
             request.session['basket'] = basket
+    return redirect('view_basket')
+
+def empty_basket(request):
+    basket = request.session.get('basket', {})
+    del basket['items']
+    request.session['basket'] = basket
     return redirect('view_basket')
