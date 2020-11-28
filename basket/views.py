@@ -104,10 +104,21 @@ def add_to_basket(request, item_id):
     return redirect(redirect_url)
 
 def edit_basket(request):
+    basket = request.session.get('basket', {})
     updated_quantity = request.POST.get('basket_quantity')
-    updated_delivery = request.POST.get('basket_delivery')
+    updated_delivery = request.POST.get('basket_digital_download')
+    print("digital download " + updated_delivery)
     updated_item_id = request.POST.get('basket_item_id')
     
     print("important!" + str(updated_item_id))
-
+    for item in basket['items']:
+        print("basket item " + str(item['basket_item_id']))
+        if updated_item_id == item['basket_item_id']:
+            item['quantity'] = int(updated_quantity)
+            if updated_delivery == "True":
+                item['digital_download'] = True
+            else:
+                item['digital_download'] = None
+                
+            request.session['basket'] = basket
     return redirect('view_basket')

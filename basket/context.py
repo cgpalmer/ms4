@@ -18,9 +18,8 @@ def basket_contents(request):
             product = get_object_or_404(Product, pk=item['item_id'])
             # You were dealing with the delivery
             subtotal = item['quantity'] * product.price
-            digital_download = "Delivery"
             if item['digital_download']:
-                digital_download = "Yes"
+                digital_download = "Digital"
             else:
                 digital_download = "Delivery"
                 delivery_total += subtotal
