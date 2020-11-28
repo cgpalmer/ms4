@@ -46,9 +46,10 @@
                             This is item: {{item.product.id}}
                             trial: {{ forloop.counter0 }}
                             item id: {{item.item.item_id}}
+                            <tr>
                             <form method="POST" action="{% url 'edit_basket'%}">
                             {% csrf_token%}
-                                <tr>
+                                
                                     <td class="p-3 w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
                                     </td>
@@ -109,9 +110,14 @@
                                                                     'basket-item-delivery{{ forloop.counter0}}',
                                                                     'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</div>
                                     </td>
-                                </tr>
-                                </form>
+                                    </form>
                                 {% if item.item.linked_product_image != "Not linked" %}
+                                    <td>
+                                        <a href="{% url 'delete_basket_item' item.item.basket_item_id %}">Remove</a>
+                                    </td>
+                                </tr>
+                                
+
                                 <tr>
                                 
                                     <th>Linked Products</th>
