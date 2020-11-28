@@ -15,6 +15,8 @@ def add_to_basket(request, item_id):
 
     #adding to a basket
     basket = request.session.get('basket', {})
+    basket_item_id = request.session.get('basket_item_id')
+    print("item id from session" + str(basket_item_id))
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
     print("digi downl " + str(digital_download))
@@ -56,6 +58,9 @@ def add_to_basket(request, item_id):
     # appending the items to the basket
 
     if basket != {}:
+        for item in basket['items']:
+            basket_item_id = basket_item_id + 1
+
         matching_items = []
         if linked_products[0] == "Not linked":
             print("nothing to link reached")
@@ -75,6 +80,7 @@ def add_to_basket(request, item_id):
                 matching_items[0]['quantity'] += quantity
         else:
             basket['items'].append({
+                'basket_item_id': basket_item_id,
                 'item_id': item_id,
                 'digital_download': digital_download,
                 'quantity': quantity,
@@ -82,7 +88,9 @@ def add_to_basket(request, item_id):
             })
     else:
         basket['items'] = []
+        request.session['basket_item_id'] = 1
         basket['items'].append({
+            'basket_item_id': '1',
             'item_id': item_id,
             'digital_download': digital_download,
             'quantity': quantity,
@@ -91,5 +99,15 @@ def add_to_basket(request, item_id):
 
     redirect_url = request.POST.get('redirect_url')
     request.session['basket'] = basket
+    
     print(basket)
     return redirect(redirect_url)
+
+def edit_basket(request):
+    updated_quantity = request.POST.get('basket_quantity')
+    updated_delivery = request.POST.get('basket_delivery')
+    updated_item_id = request.POST.get('basket_item_id')
+    
+    print("important!" + str(updated_item_id))
+
+    return redirect('view_basket')
