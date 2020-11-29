@@ -114,7 +114,7 @@
                                         <a href="{% url 'delete_basket_item' item.item.basket_item_id %}">Remove</a>
                                     </td>
                                 </tr>
-                                
+                                {% endif %}
 
                                 <tr>
                                 
@@ -125,11 +125,13 @@
                                     <td class="p-3 w-25">
                                          <img class="img-fluid rounded" src="{{image}}" alt="">
                                     </td>
+                                    
+                                    
                                       {% endfor %}
                                     <!--  -->
                                     
                                 </tr>
-                                {% endif %}
+                                
                                 <tr>
                                     
                                                                            
@@ -146,6 +148,22 @@
                                         {% endif %}
                                         {% endfor %}
                                 </tr>
+                                <tr>
+                                {% for image in item.item.linked_product_images_list %}
+                                     <td>
+                                         <select name="" id="">
+                                        {% for product in products %} 
+                                        <option value="">{{product.name}}</option>
+                                        {% endfor %}
+                                        <option value="" disabled>User Photos</option>
+                                        {% for photo in user_photos %} 
+                                        <option value="">{{photo.title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    </td>
+                                {% endfor %}
+                                </tr>
+                                
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">

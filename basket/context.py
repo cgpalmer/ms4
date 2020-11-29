@@ -1,12 +1,14 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, Image_upload
 
 def basket_contents(request):
 
     basket_items = []
     total = 0
+    products = Product.objects.filter(product_type="photo")
+    user_photos = Image_upload.objects.all()
     product_count = 0
     delivery_total = 0
     basket = request.session.get('basket', {})
@@ -71,8 +73,9 @@ def basket_contents(request):
         'grand_total': grand_total,
         'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
         'delivery_total': delivery_total,
-        'are_all_items_linked': are_all_items_linked
-        
+        'are_all_items_linked': are_all_items_linked,
+        'products': products,
+        'user_photos': user_photos
       
     }
 
