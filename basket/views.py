@@ -223,9 +223,25 @@ def edit_basket(request):
                 else:
                     item['digital_download'] = None
         else:
-            print("else")
-                
+            print("else")               
     request.session['basket'] = basket
+
+    print("Below is all of your duplicate things.")
+    array1 = ['a', 'b', 'c']
+    array2 = ['a', 'p', 'c']
+    newArray = []
+    for i in range(len(array1)):
+        newArray.insert(0, array1[i])
+        for j in range(len(array2)):
+            newArray.append(array2[j])
+            print(newArray)
+            if newArray[0] == newArray[1]:
+                print("found duplicate")
+            del newArray[1]
+        newArray = []
+    print("-------------------------------------")
+
+
     return redirect('view_basket')
 
 
