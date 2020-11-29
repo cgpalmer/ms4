@@ -40,7 +40,7 @@ def add_to_basket(request, item_id):
             print(linked_product_image)
             linked_product_type = split_linked_product_details[2]
             
-           
+            
             if linked_product_images_list != []:
                 if linked_product_type == "upload":
                     linked_product_image = "/media/" + linked_product_image 
@@ -79,6 +79,9 @@ def add_to_basket(request, item_id):
                     linked_products.append(linked_product.sku)
                 else:
                     linked_products.insert(0, linked_product.sku)
+    else:
+        linked_products = ['Not available']
+        linked_product_images_list = ['Not available']
 
 
     # appending the items to the basket
