@@ -81,6 +81,22 @@
                                               {% endif %}
                                         </select>
                                     </td>
+                                     <td id="linkedItemEdit">
+                                     {% for image in item.item.linked_products %}
+                                    
+                                        <select name="edit-linked-product{{ forloop.counter0}}" id="basket-linked-product{{ forloop.counter0}}">
+                                        <option value="" selected>{{image}}</option>
+                                        {% for product in products %} 
+                                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.name}}</option>
+                                        {% endfor %}
+                                        <option value="" disabled>User Photos</option>
+                                        {% for photo in user_photos %} 
+                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                   
+                                {% endfor %}
+                                 </td>
                                     <td class="py-3">
                                         <div 
                                             onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
@@ -88,6 +104,7 @@
                                                                 'cancel-edit-product-{{ forloop.counter0}}',
                                                                 'basket-item-quantity{{ forloop.counter0}}',
                                                                 'basket-item-delivery{{ forloop.counter0}}',
+                                                                'linkedItemEdit',
                                                                 'update'
                                                                 )" 
                                                                 id="edit-product-{{ forloop.counter0}}" 
@@ -98,6 +115,7 @@
                                     <td class="py-3">
                                     {{item.item.basket_item_id}}
                                         <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
                                         <input type="submit" id="update-product-{{ forloop.counter0}}" value="input" href="" class="update-basket-product hide my-0">
                                     </td>
                                     <td class="py-3">
@@ -106,6 +124,7 @@
                                                                     'cancel-edit-product-{{ forloop.counter0}}',
                                                                     'basket-item-quantity{{ forloop.counter0}}',
                                                                     'basket-item-delivery{{ forloop.counter0}}',
+                                                                    'linkedItemEdit',
                                                                     'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</div>
                                     </td>
                                     </form>
@@ -149,19 +168,7 @@
                                         {% endfor %}
                                 </tr>
                                 <tr>
-                                {% for image in item.item.linked_product_images_list %}
-                                     <td>
-                                         <select name="" id="">
-                                        {% for product in products %} 
-                                        <option value="">{{product.name}}</option>
-                                        {% endfor %}
-                                        <option value="" disabled>User Photos</option>
-                                        {% for photo in user_photos %} 
-                                        <option value="">{{photo.title}}</option>
-                                        {% endfor %}
-                                    </select>
-                                    </td>
-                                {% endfor %}
+                               
                                 </tr>
                                 
                             {% endfor %}

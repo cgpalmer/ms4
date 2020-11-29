@@ -138,19 +138,83 @@ def edit_basket(request):
     basket = request.session.get('basket', {})
     updated_quantity = request.POST.get('basket_quantity')
     updated_delivery = request.POST.get('basket_digital_download')
-    print("digital download " + updated_delivery)
     updated_item_id = request.POST.get('basket_item_id')
-    
+
+    # Getting variables to set up editing the linked photos
+    product_id = request.POST.get('product_id')
+    product = get_object_or_404(Product, pk=product_id)
+    print('product' + str(product))
     print("important!" + str(updated_item_id))
+
+
     item_number = -1
     for item in basket['items']:
         item_number = item_number + 1
-        print("basket item " + str(item['basket_item_id']))
-        print(item)
         if int(updated_item_id) == item['basket_item_id']:
-            print("match found")
+            # Pulling the number of expected linked items
+            linked_products_to_edit = product.number_of_pictures
+            print("linked products to edit" + str(linked_products_to_edit)) 
+
+            # refactor
+            item['linked_products'] = []
+            item['linked_product_images_list'] = []
+            updated_linked_product_images_list = []
+            updated_linked_products = []
+            if product.number_of_pictures > 0:
+                for i in range(linked_products_to_edit):
+                    linked_product_details = request.POST.get('edit-linked-product' + str(i))
+                    print(linked_product_details)
+                    split_linked_product_details = linked_product_details.split("|")
+                    linked_product_id = split_linked_product_details[1]
+                    linked_product_image = split_linked_product_details[0]
+                    print(linked_product_image)
+                    linked_product_type = split_linked_product_details[2]
+                    
+                    if updated_linked_product_images_list != []:
+                        if linked_product_type == "upload":
+                            linked_product_image = "/media/" + linked_product_image
+                            updated_linked_product_images_list.append(linked_product_image)
+                        else:
+                            updated_linked_product_images_list.append(linked_product_image)
+                    else:
+                        if linked_product_type == "upload":
+                            linked_product_image = "/media/" + linked_product_image
+                            updated_linked_product_images_list.insert(0, linked_product_image)
+                        else:
+                            updated_linked_product_images_list.insert(0, linked_product_image)
+                    
+                    if linked_product_id == "No id":
+                        if updated_linked_products != []:
+                            updated_linked_products.append('This is causing the calendars an issue')
+                        else:
+                            updated_linked_products.insert(0, 'This is causing the calendars an issue')
+                        
+                    
+                    # Put in an elif about being an upload and deal with it that way.
+                    elif linked_product_type == 'upload':
+                        print('upload function reached')
+                        linked_product_sku = str(uuid.uuid4())
+                        if updated_linked_products != []:
+                            updated_linked_products.append(linked_product_sku)
+                        else:
+                            updated_linked_products.insert(0, linked_product_sku)
+                        
+                    else:
+                        linked_product = get_object_or_404(Product, pk=linked_product_id)
+                        # There are going to be issues with upload your own photos here
+                        if updated_linked_products != []:
+                            updated_linked_products.append(linked_product.sku)
+                        else:
+                            updated_linked_products.insert(0, linked_product.sku)
+            else:
+                updated_linked_products = ['Not available']
+                updated_linked_product_images_list = ['Not available']
+
+            item['linked_products'] = updated_linked_products
+            item['linked_product_images_list'] = updated_linked_product_images_list
+
+            # number_of_linked_products = item['nu']
             if int(updated_quantity) == 0:
-                print("needs deleting.")
                 del basket['items'][item_number]
             else:
                 item['quantity'] = int(updated_quantity)
