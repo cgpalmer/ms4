@@ -29,6 +29,7 @@ def add_to_basket(request, item_id):
     #read each value from the form 
         number_of_products_to_link = product.number_of_pictures
         linked_products = []
+        linked_product_images_list = []
         print("This is what you are looking for")
         for i in range(number_of_products_to_link):
             linked_product_details = request.POST.get('linked_product' + str(i))
@@ -38,20 +39,29 @@ def add_to_basket(request, item_id):
             linked_product_image = split_linked_product_details[0]
             print(linked_product_image)
             linked_product_type = split_linked_product_details[2]
+
+            if linked_product_images_list != []:
+                linked_product_images_list.append(linked_product_image)
+            else:
+                linked_product_images_list.insert(0, linked_product_image)
+            
+                
             
             if linked_product_id == "No id":
-                linked_products.append(['Not linked'])
+                linked_products.append(['This is causing the calendars an issue'])
+                
+            
             # Put in an elif about being an upload and deal with it that way.
             elif linked_product_type == 'upload':
                 print('upload function reached')
-
                 linked_product_sku = str(uuid.uuid4())
                 linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
-                linked_products.append([linked_product_id, linked_product_image, linked_product_sku, linked_product.title])
+                linked_products.append([linked_product_id, linked_product_image, linked_product_sku, linked_product.title, linked_product_type])
+                
             else:
                 linked_product = get_object_or_404(Product, pk=linked_product_id)
                 # There are going to be issues with upload your own photos here
-                linked_products.append([linked_product_id, linked_product_image, linked_product.sku, linked_product.name])
+                linked_products.append([linked_product_id, linked_product_image, linked_product.sku, linked_product.name, linked_product_type])
                 
 
 
@@ -84,7 +94,8 @@ def add_to_basket(request, item_id):
                 'item_id': item_id,
                 'digital_download': digital_download,
                 'quantity': quantity,
-                'linked_products': linked_products
+                'linked_products': linked_products,
+                'linked_product_images_list': linked_product_images_list
             })
     else:
         basket['items'] = []
@@ -94,7 +105,8 @@ def add_to_basket(request, item_id):
             'item_id': item_id,
             'digital_download': digital_download,
             'quantity': quantity,
-            'linked_products': linked_products
+            'linked_products': linked_products,
+            'linked_product_images_list': linked_product_images_list
         })
 
     redirect_url = request.POST.get('redirect_url')
