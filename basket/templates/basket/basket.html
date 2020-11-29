@@ -131,7 +131,11 @@
                                 <tr>
                                     <td class="p-3 w-25">
                                         <img class="img-fluid rounded" src="{{ item.item.linked_products }}">
-                                        
+                                        {{item.item.linked_product_images_list}}
+                                        {% for image in item.item.linked_product_images_list %}
+        
+                                            <img src="{{image}}" alt="">
+                                        {% endfor %}
                                     </td>
                                     <td class="p-3 w-25">
                                         <!-- <p class="my-0">{{item.item.linked_products}}</p> -->
