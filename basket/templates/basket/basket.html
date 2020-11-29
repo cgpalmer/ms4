@@ -43,15 +43,7 @@
                             {% for item in basket_items %}
                             {{item}} 
 
-                            {{item.item.linked_product_images_list}}
-                                        {% for image in item.item.linked_product_images_list %}
-        
-                                            <img src="{{image}}" alt="">
-                                        {% endfor %}
-                        
-                            This is item: {{item.product.id}}
-                            trial: {{ forloop.counter0 }}
-                            item id: {{item.item.item_id}}
+                            
                             <tr>
                             <form method="POST" action="{% url 'edit_basket'%}">
                             {% csrf_token%}
@@ -129,22 +121,21 @@
                                     <th>Linked Products</th>
                                 </tr>
                                 <tr>
+                                {% for image in item.item.linked_product_images_list %}
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.item.linked_products }}">
-                                        {{item.item.linked_product_images_list}}
-                                        {% for image in item.item.linked_product_images_list %}
-        
-                                            <img src="{{image}}" alt="">
-                                        {% endfor %}
+                                         <img class="img-fluid rounded" src="{{image}}" alt="">
                                     </td>
-                                    <td class="p-3 w-25">
-                                        <!-- <p class="my-0">{{item.item.linked_products}}</p> -->
-
-                                        <!-- Make this so it shows the sku if product, individ id if upload and then wrap that in a reference that shows the 
-                                        image in a new window when clicked.  -->
-                                        
+                                      {% endfor %}
+                                    <!--  -->
+                                    
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    
+                                                                           
                                         {%for g in item.item.linked_products%}
                                         {% if g != 'Not linked' %}
+                                        <td class="p-3 w-25">
                                         <div>
                                             {% for v in g%}
                                                 {% if v != 'Not linked'%}
@@ -154,15 +145,10 @@
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
+                                         </td>
                                         {% endif %}
                                         {% endfor %}
-                                    </td>
-                                    <td class="p-3 w-25">
-                                        <p class="my-0">{{linked_info_sku}}</p>
-                                    </td>
-                                    
                                 </tr>
-                                {% endif %}
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
