@@ -39,11 +39,20 @@ def add_to_basket(request, item_id):
             linked_product_image = split_linked_product_details[0]
             print(linked_product_image)
             linked_product_type = split_linked_product_details[2]
-
+            
+           
             if linked_product_images_list != []:
-                linked_product_images_list.append(linked_product_image)
+                if linked_product_type == "upload":
+                    linked_product_image = "/media/" + linked_product_image 
+                    linked_product_images_list.append(linked_product_image)
+                else:
+                    linked_product_images_list.append(linked_product_image)
             else:
-                linked_product_images_list.insert(0, linked_product_image)
+                if linked_product_type == "upload":
+                    linked_product_image = "/media/" + linked_product_image
+                    linked_product_images_list.insert(0, linked_product_image)
+                else:
+                    linked_product_images_list.insert(0, linked_product_image)
             
                 
             
