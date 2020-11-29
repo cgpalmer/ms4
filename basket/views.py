@@ -48,21 +48,28 @@ def add_to_basket(request, item_id):
                 
             
             if linked_product_id == "No id":
-                linked_products.append(['This is causing the calendars an issue'])
+                if linked_products != []:
+                    linked_products.append('This is causing the calendars an issue')
+                else:
+                    linked_products.insert(0, 'This is causing the calendars an issue')
                 
             
             # Put in an elif about being an upload and deal with it that way.
             elif linked_product_type == 'upload':
                 print('upload function reached')
                 linked_product_sku = str(uuid.uuid4())
-                linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
-                linked_products.append([linked_product_id, linked_product_sku, linked_product.title, linked_product_type])
+                if linked_products != []:
+                    linked_products.append(linked_product_sku)
+                else:
+                    linked_products.insert(0, linked_product_sku)
                 
             else:
                 linked_product = get_object_or_404(Product, pk=linked_product_id)
                 # There are going to be issues with upload your own photos here
-                linked_products.append([linked_product_id, linked_product.sku, linked_product.name, linked_product_type])
-                
+                if linked_products != []:
+                    linked_products.append(linked_product.sku)
+                else:
+                    linked_products.insert(0, linked_product.sku)
 
 
     # appending the items to the basket
