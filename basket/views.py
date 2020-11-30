@@ -37,9 +37,23 @@ def add_to_basket(request, item_id):
             print(linked_product_details)
             split_linked_product_details = linked_product_details.split("|")
             linked_product_id = split_linked_product_details[1]
+
+            
+
+
+
             linked_product_image = split_linked_product_details[0]
             print(linked_product_image)
             linked_product_type = split_linked_product_details[2]
+
+            if linked_product_type == 'upload':
+                linked_product_object = get_object_or_404(Image_upload, pk=linked_product_id)
+                print("_D_D_D_D_D_D_D_D_D_D_D_D_D_D_D_D")
+                print(linked_product_object)
+                print(linked_product_object.sku)
+                print("***")
+                print(type(linked_product_object.sku))
+                print("***")
             
             
             if linked_product_images_list != []:
@@ -67,11 +81,10 @@ def add_to_basket(request, item_id):
             # Put in an elif about being an upload and deal with it that way.
             elif linked_product_type == 'upload':
                 print('upload function reached')
-                linked_product_sku = str(uuid.uuid4())
                 if linked_products != []:
-                    linked_products.append(linked_product_sku)
+                    linked_products.append(str(linked_product_object.sku))
                 else:
-                    linked_products.insert(0, linked_product_sku)
+                    linked_products.insert(0, str(linked_product_object.sku))
                 
             else:
                 linked_product = get_object_or_404(Product, pk=linked_product_id)
@@ -80,6 +93,8 @@ def add_to_basket(request, item_id):
                     linked_products.append(linked_product.sku)
                 else:
                     linked_products.insert(0, linked_product.sku)
+
+                
     else:
         linked_products = ['Not available']
         linked_product_images_list = ['Not available']

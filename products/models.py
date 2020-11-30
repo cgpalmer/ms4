@@ -1,5 +1,5 @@
 from django.db import models
-
+import uuid
 
 class Category(models.Model):
     class Meta:
@@ -62,6 +62,7 @@ class Image_upload(models.Model):
     user_upload_image_file_path = models.CharField(max_length=200, default="not found")
     # You don't need this download
     downloaded = models.BooleanField(default=False)
+    sku = models.CharField(max_length=254, default=str(uuid.uuid4()), null=False, blank=False)
     
     def __str__(self):
         return self.title

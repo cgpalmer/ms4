@@ -101,16 +101,10 @@
                                         {% endfor %}
                                         <option value="" disabled>User Photos</option>
                                         {% for photo in user_photos %}
-                                        <!-- {% if photo.title == image %}
-                                           <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found already chosen</option>
+                                        {% if photo.sku == image %}
+                                           <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
                                         {% endif%} 
-                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option> -->
-                                        <option value="" >{{photo.title}}</option>
-                                     
-                                        <option value="" >{{image}}</option>
-                                        
-                                        
-                                       
+                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>                                   
                                         {% endfor %}
                                     </select>
                                    
