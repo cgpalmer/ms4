@@ -10,15 +10,13 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     
-
-
-
     #adding to a basket
     basket = request.session.get('basket', {})
     basket_item_id = request.session.get('basket_item_id')
     print("item id from session" + str(basket_item_id))
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
+    print("---------------------")
     print("digi downl " + str(digital_download))
     linked_products = [['Not linked']]
     # item id is passed through as parameter.
@@ -120,7 +118,7 @@ def add_to_basket(request, item_id):
             basket_item_id = basket_item_id + 1
 
         matching_items = []
-        if linked_products[0] == "Not linked":
+        if linked_products[0] == "Not available":
             print("nothing to link reached")
             for item in basket['items']:
                 # If the ID is in and the the digi-download is on OR off and matches it goes through here. 

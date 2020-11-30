@@ -21,9 +21,9 @@ def basket_contents(request):
             # You were dealing with the delivery
             subtotal = item['quantity'] * product.price
             if item['digital_download']:
-                digital_download = "Digital"
+                digital_download = "on"
             else:
-                digital_download = "Delivery"
+                digital_download = None
                 delivery_total += subtotal
 
             total += subtotal
