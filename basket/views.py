@@ -26,7 +26,8 @@ def add_to_basket(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     #get the number of pictures for the product
     if product.number_of_pictures > 0:
-    #read each value from the form 
+
+    # read each value from the form
         number_of_products_to_link = product.number_of_pictures
         linked_products = []
         linked_product_images_list = []
@@ -58,9 +59,9 @@ def add_to_basket(request, item_id):
             
             if linked_product_id == "No id":
                 if linked_products != []:
-                    linked_products.append('This is causing the calendars an issue')
+                    linked_products.append('Not linked')
                 else:
-                    linked_products.insert(0, 'This is causing the calendars an issue')
+                    linked_products.insert(0, 'Not linked')
                 
             
             # Put in an elif about being an upload and deal with it that way.
@@ -82,6 +83,19 @@ def add_to_basket(request, item_id):
     else:
         linked_products = ['Not available']
         linked_product_images_list = ['Not available']
+
+    # checking to see if any of the linked products has repeated pictures to give the user a warning.
+    repeats_found = None
+    if product.number_of_pictures > 1:
+        print("------------------------------------------------------")
+        for i in range(0, len(linked_products)):    
+            for j in range(i+1, len(linked_products)):    
+                if linked_products[i] == linked_products[j]:
+                    if linked_products[i] != "Not linked":
+                        print("Duplicate found")  
+                        print(linked_products[j])
+                        print(linked_products[i])
+                        repeats_found = 'There are repeated pictures in your product.'
 
 
     # appending the items to the basket
@@ -114,7 +128,8 @@ def add_to_basket(request, item_id):
                 'digital_download': digital_download,
                 'quantity': quantity,
                 'linked_products': linked_products,
-                'linked_product_images_list': linked_product_images_list
+                'linked_product_images_list': linked_product_images_list,
+                'repeats_found': repeats_found
             })
     else:
         basket['items'] = []
@@ -125,7 +140,8 @@ def add_to_basket(request, item_id):
             'digital_download': digital_download,
             'quantity': quantity,
             'linked_products': linked_products,
-            'linked_product_images_list': linked_product_images_list
+            'linked_product_images_list': linked_product_images_list,
+            'repeats_found': repeats_found
         })
 
     redirect_url = request.POST.get('redirect_url')
@@ -185,9 +201,9 @@ def edit_basket(request):
                     
                     if linked_product_id == "No id":
                         if updated_linked_products != []:
-                            updated_linked_products.append('This is causing the calendars an issue')
+                            updated_linked_products.append('Not linked')
                         else:
-                            updated_linked_products.insert(0, 'This is causing the calendars an issue')
+                            updated_linked_products.insert(0, 'Not linked')
                         
                     
                     # Put in an elif about being an upload and deal with it that way.

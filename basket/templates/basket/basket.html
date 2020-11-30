@@ -53,6 +53,9 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        {% if item.item.repeats_found %}
+                                        <p>{{item.item.repeats_found}}</p>
+                                        {% endif %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>

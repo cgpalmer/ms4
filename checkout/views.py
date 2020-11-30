@@ -39,7 +39,7 @@ def condensing_basket(request):
     
     for i in range(0, len(list_of_items_to_check)):    
         for j in range(i+1, len(list_of_items_to_check)):    
-            if(list_of_items_to_check[i][1] == list_of_items_to_check[j][1]):    
+            if list_of_items_to_check[i][1] == list_of_items_to_check[j][1]:    
                 print(list_of_items_to_check[j])
                 print(list_of_items_to_check[i])
 
