@@ -85,7 +85,7 @@ def add_to_basket(request, item_id):
         linked_product_images_list = ['Not available']
 
     # checking to see if any of the linked products has repeated pictures to give the user a warning.
-    repeats_found = None
+    repeats_found = 'None'
     if product.number_of_pictures > 1:
         print("------------------------------------------------------")
         for i in range(0, len(linked_products)):    

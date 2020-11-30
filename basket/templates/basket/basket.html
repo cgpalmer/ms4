@@ -84,17 +84,33 @@
                                               {% endif %}
                                         </select>
                                     </td>
+                                    
+                              
                                      <td id="linkedItemEdit">
+                                      <!-- change this to sku as some point -->
                                      {% for image in item.item.linked_products %}
                                     
                                         <select name="edit-linked-product{{ forloop.counter0}}" id="basket-linked-product{{ forloop.counter0}}">
-                                        <option value="" selected>{{image}}</option>
+                                        
                                         {% for product in products %} 
+                                        {% if product.sku == image %}
+                                           <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>Found already chosen</option>
+                                        {% endif%}  
+
                                         <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.name}}</option>
                                         {% endfor %}
                                         <option value="" disabled>User Photos</option>
-                                        {% for photo in user_photos %} 
-                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                                        {% for photo in user_photos %}
+                                        <!-- {% if photo.title == image %}
+                                           <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found already chosen</option>
+                                        {% endif%} 
+                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option> -->
+                                        <option value="" >{{photo.title}}</option>
+                                     
+                                        <option value="" >{{image}}</option>
+                                        
+                                        
+                                       
                                         {% endfor %}
                                     </select>
                                    
@@ -232,6 +248,7 @@
             </div>
         </div>
     </div>
+    
 
     <div>
         <a href="{% url 'empty_basket' %}">Empty basket</a>
