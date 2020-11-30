@@ -40,7 +40,7 @@ $(".linkingProductSelect").change(function() {
 
 
 
-function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editMode) {
+function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {
     let editButton = document.getElementById(editId);
     let updateButton = document.getElementById(updateId);
     let cancelButton = document.getElementById(cancelId);

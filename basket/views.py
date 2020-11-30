@@ -213,7 +213,7 @@ def edit_basket(request):
             item['linked_products'] = updated_linked_products
             item['linked_product_images_list'] = updated_linked_product_images_list
 
-            # number_of_linked_products = item['nu']
+            # Removing an item if quantity is 0.
             if int(updated_quantity) == 0:
                 del basket['items'][item_number]
             else:
@@ -225,23 +225,6 @@ def edit_basket(request):
         else:
             print("else")               
     request.session['basket'] = basket
-
-    print("Below is all of your duplicate things.")
-    array1 = ['a', 'b', 'c']
-    array2 = ['a', 'p', 'c']
-    newArray = []
-    for i in range(len(array1)):
-        newArray.insert(0, array1[i])
-        for j in range(len(array2)):
-            newArray.append(array2[j])
-            print(newArray)
-            if newArray[0] == newArray[1]:
-                print("found duplicate")
-            del newArray[1]
-        newArray = []
-    print("-------------------------------------")
-
-
     return redirect('view_basket')
 
 

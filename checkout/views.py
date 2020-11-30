@@ -29,6 +29,38 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+def condensing_basket(request):
+    basket = request.session.get('basket', {})
+    print("Below is all of your duplicate things.")
+    list_of_items_to_check = []
+    for item in basket['items']:
+        list_of_items_to_check.append([item['basket_item_id'],[item['item_id'],item['digital_download'],item['linked_products']]])
+        print(list_of_items_to_check)
+    
+    for i in range(0, len(list_of_items_to_check)):    
+        for j in range(i+1, len(list_of_items_to_check)):    
+            if(list_of_items_to_check[i][1] == list_of_items_to_check[j][1]):    
+                print(list_of_items_to_check[j])
+                print(list_of_items_to_check[i])
+
+            # Increase basket item quantity
+            item_number = -1
+            for item in basket['items']:
+                if item['basket_item_id'] == list_of_items_to_check[i][0]:
+                    item['quantity'] = item['quantity'] + 1
+                if item['basket_item_id'] == list_of_items_to_check[j][0]:
+                    del basket['items'][item_number]
+                    
+
+                  
+    print("-------------------------------------")
+
+
+
+    request.session['basket'] = basket
+    return redirect(checkout)
+
+
 def checkout(request):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -36,6 +68,7 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
+
 
         form_data = {
             'full_name': request.POST['full_name'],

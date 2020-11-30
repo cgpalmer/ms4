@@ -700,3 +700,7 @@ https://stackoverflow.com/questions/30849862/django-max-length-for-integerfield/
 
 For loop counter
 https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template
+
+https://www.freecodecamp.org/news/python-empty-list-tutorial-how-to-create-an-empty-list-in-python/
+
+javatpoint.com/python-program-to-print-the-duplicate-elements-of-an-array
