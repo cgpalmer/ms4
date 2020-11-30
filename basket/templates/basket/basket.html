@@ -89,6 +89,7 @@
                                      <td id="linkedItemEdit">
                                       <!-- change this to sku as some point -->
                                      {% for image in item.item.linked_products %}
+                                     {{image}}
                                     
                                         <select name="edit-linked-product{{ forloop.counter0}}" id="basket-linked-product{{ forloop.counter0}}">
                                         

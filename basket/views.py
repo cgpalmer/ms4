@@ -224,11 +224,11 @@ def edit_basket(request):
                     # Put in an elif about being an upload and deal with it that way.
                     elif linked_product_type == 'upload':
                         print('upload function reached')
-                        linked_product_sku = str(uuid.uuid4())
+                        linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
                         if updated_linked_products != []:
-                            updated_linked_products.append(linked_product_sku)
+                            updated_linked_products.append(linked_product.sku)
                         else:
-                            updated_linked_products.insert(0, linked_product_sku)
+                            updated_linked_products.insert(0, linked_product.sku)
                         
                     else:
                         linked_product = get_object_or_404(Product, pk=linked_product_id)
