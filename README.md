@@ -704,3 +704,5 @@ https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-o
 https://www.freecodecamp.org/news/python-empty-list-tutorial-how-to-create-an-empty-list-in-python/
 
 javatpoint.com/python-program-to-print-the-duplicate-elements-of-an-array
+
+https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-in-a-django-queryset/

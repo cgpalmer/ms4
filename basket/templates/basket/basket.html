@@ -85,6 +85,7 @@
                                               {% endif %}
                                         </select>
                                         {% else %}
+                                            <!-- This is the same ID because only one will show at a time.  -->
                                             <div class="hide">
                                                 <select id="basket-item-delivery{{ forloop.counter0}}" name="" class="extraClass hide">
                                                     <option value="" class="hide"></option>

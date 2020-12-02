@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Image_upload
+from .models import Product, Category, Image_upload, Special
 from blog.models import Blog
 from reviews.models import Review
 from .forms import ProductForm, Image_uploadForm
@@ -17,6 +17,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = None
+    special_offer = None
     sort = None
     direction = None
 
@@ -40,6 +41,17 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+    
+    if request.GET:
+        if 'special_offer' in request.GET:
+            special_offer = request.GET['special_offer'].split(',')
+            print(special_offer)
+            if special_offer == ['no_offer']:
+                print("-------------------------------")
+                products = products.exclude(special_offer__name__in=special_offer)
+            else:               
+                products = products.filter(special_offer__name__in=special_offer)
+            special_offer = Special.objects.filter(name__in=special_offer)
 
     if request.GET:
         if 'q' in request.GET:
@@ -60,6 +72,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'special_offer': special_offer
     }
     return render(request, 'products/products.html', context)
 

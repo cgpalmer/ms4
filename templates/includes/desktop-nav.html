@@ -81,7 +81,8 @@
                     </div>
 
                      <div class="col-sm text-center" aria-labelledby="photographsDropdown">
-                    <!-- refactor this code? -->
+                    <!-- refactor this code?  Refactor all the menus with potential loops of names and then friendly name - would have to
+                    hide the no offer ones though. -->
                         <a href="{% url 'products' %}?category=landscapes" class="">Landscapes</a>
                         <a href="{% url 'products' %}?category=insects" class="">Insects</a>
                         <a href="{% url 'products' %}?category=animals" class="">Animals</a>
@@ -107,10 +108,12 @@
 
                 <div class="col-sm text-center" aria-labelledby="photographsDropdown">
                     <!-- refactor this code? -->
-                        <a href="" class="">New photographs!</a>
-                        <a href="" class="">Multi-buy</a>
-                        <a href="" class="">Clearance</a>
-                        <a href="" class="">All special offers</a>
+                        <!-- Are these okay as multi-buy with hyphen etc? Deinitely change the new photos
+                        and make them all consistent. -->
+                        <a href="{% url 'products' %}?special_offer=new_photos" class="">New photographs!</a>
+                        <a href="{% url 'products' %}?special_offer=multi-buy" class="">Multi-buy</a>
+                        <a href="{% url 'products' %}?special_offer=clearance" class="">Clearance</a>
+                        <a href="{% url 'products' %}?special_offer=no_offer" class=""> All special offers</a>
                     </div>
                 </div>            
             </div>
