@@ -46,19 +46,23 @@ function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, ed
     let cancelButton = document.getElementById(cancelId);
     let quantityEdit = document.getElementById(editQuantity);
     let deliveryEdit = document.getElementById(editDelivery);
-    let editingMode = editMode
+    let editItem = document.getElementById(editLinkedItem);
+    console.log(editItem)
+    let editingMode = editMode;
     if (editingMode == 'update'){
         editButton.classList.add('hide')
         updateButton.classList.remove('hide')
         cancelButton.classList.remove('hide')
         quantityEdit.classList.remove('hide')
         deliveryEdit.classList.remove('hide')
+        editItem.classList.remove('hide')
     } else {
         editButton.classList.remove('hide')
         updateButton.classList.add('hide')
         cancelButton.classList.add('hide')
         quantityEdit.classList.add('hide')
         deliveryEdit.classList.add('hide')
+        editItem.classList.add('hide')
     }
     
 }

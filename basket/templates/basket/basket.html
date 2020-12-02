@@ -74,24 +74,33 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">Digital photo? {{ item.digital_download }}</p>
+                                        {% if item.product.product_type == 'photo' %}
                                          <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="extraClass hide">
-                                            {% if item.digital_download == "Yes" %}
+                                            {% if item.digital_download == "on" %}
                                             <option value="None">Delivery</option>
-                                            <option selected value="True">Digital Download</option>
+                                            <option selected value="on">Digital Download</option>
                                             {% else %}
                                             <option selected value="None">Delivery</option>
                                             <option value="True">Digital Download</option>
                                               {% endif %}
                                         </select>
+                                        {% else %}
+                                            <div class="hide">
+                                                <select id="basket-item-delivery{{ forloop.counter0}}" name="" class="extraClass hide">
+                                                    <option value="" class="hide"></option>
+                                                </select>
+                                            </div>
+                                        {% endif%}
                                     </td>
                                     
                               
-                                     <td id="linkedItemEdit">
+                                     <td >
                                       <!-- change this to sku as some point -->
+                                    <div id="linkedItemEdit{{forloop.counter0}}" class="extra_class hide">This is what youre test
                                      {% for image in item.item.linked_products %}
-                                     {{image}}
-                                    
-                                        <select name="edit-linked-product{{ forloop.counter0}}" id="basket-linked-product{{ forloop.counter0}}">
+                                     {% if item.product.product_type == 'container' %}
+                                        
+                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product{{forloop.counter0}}" class=" py3">
                                         
                                         {% for product in products %} 
                                         {% if product.sku == image %}
@@ -108,8 +117,10 @@
                                         <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>                                   
                                         {% endfor %}
                                     </select>
-                                   
+                                     
+                                   {% endif %}
                                 {% endfor %}
+                               </div>
                                  </td>
                                     <td class="py-3">
                                         <div 
@@ -118,7 +129,7 @@
                                                                 'cancel-edit-product-{{ forloop.counter0}}',
                                                                 'basket-item-quantity{{ forloop.counter0}}',
                                                                 'basket-item-delivery{{ forloop.counter0}}',
-                                                                'linkedItemEdit',
+                                                                'linkedItemEdit{{forloop.counter0}}',
                                                                 'update'
                                                                 )" 
                                                                 id="edit-product-{{ forloop.counter0}}" 
@@ -138,7 +149,7 @@
                                                                     'cancel-edit-product-{{ forloop.counter0}}',
                                                                     'basket-item-quantity{{ forloop.counter0}}',
                                                                     'basket-item-delivery{{ forloop.counter0}}',
-                                                                    'linkedItemEdit',
+                                                                    'linkedItemEdit{{forloop.counter0}}',
                                                                     'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</div>
                                     </td>
                                     </form>
