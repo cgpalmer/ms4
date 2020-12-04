@@ -131,6 +131,8 @@ def add_product(request):
             sku = form.cleaned_data.get("sku")
             retrieve_product = get_object_or_404(Product, sku=sku)
             product_price = retrieve_product.price
+            
+            
             product_discount = 1 - retrieve_product.special_offer.discounts
             discount_price = product_price * product_discount
             retrieve_product.discount_price = discount_price

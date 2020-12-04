@@ -12,10 +12,12 @@ $( document ).ready(function() {
         ,function(){
     $("#desktopDropDownMenu").css('display', 'none');
     });
-
     $("#id_discount_price").addClass('hide');
-
+    
 });
+
+
+
 
 $(".linkingProductSelect").change(function() {
  console.log("function reached.");

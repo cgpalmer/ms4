@@ -56,7 +56,12 @@
           <p class="card-text">{{product.name}}</p>
 
           <p class="card-text">
-            {{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %}
+            
+            {% if product.price != product.discount_price %} 
+            <span> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+            {% else %}
+            <span> £{{product.price}} </span> 
+            {% endif %}
           </p>
 
           {% if product.rating != 0.00 %}

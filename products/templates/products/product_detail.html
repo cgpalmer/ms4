@@ -20,8 +20,14 @@
                         <p class="card-text">{{product.name}}</p>
                         <p>{{product.image_mobile}}</p>
 
-                         <p class="card-text">{{product.price}} {% if product.price != product.discount_price %}{{product.discount_price}}{% endif %} </p>
-                        
+                         <p class="card-text">
+            
+                            {% if product.price != product.discount_price %} 
+                            <span> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+                            {% else %}
+                            <span> £{{product.price}} </span> 
+                            {% endif %}
+                        </p>
                         {% if product.rating != 0.00 %}
                         <p class="card-text">{{product.rating}}/5</p>
                         {% else %}
