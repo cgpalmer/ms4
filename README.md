@@ -206,6 +206,12 @@ ___
 <span id="featuresLeftToImplement"></span>
 ### Features Left to Implement
 
+MS4
+- Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
+
+
+
+
 - The date will present itself the correct way round.
 - Automatic email will be sent to the website managers when a report is updated/added
 - Public can recommend categorise when adding a report rather than having to email separately.

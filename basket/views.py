@@ -22,6 +22,8 @@ def add_to_basket(request, item_id):
     # item id is passed through as parameter.
     #get the product
     product = get_object_or_404(Product, pk=item_id)
+
+    
     #get the number of pictures for the product
     if product.number_of_pictures > 0:
 
@@ -30,6 +32,9 @@ def add_to_basket(request, item_id):
         linked_products = []
         linked_product_images_list = []
         print("This is what you are looking for")
+
+
+
         for i in range(number_of_products_to_link):
             linked_product_details = request.POST.get('linked_product' + str(i))
             print(linked_product_details)
@@ -116,7 +121,7 @@ def add_to_basket(request, item_id):
     if basket != {}:
         for item in basket['items']:
             basket_item_id = basket_item_id + 1
-
+        
         matching_items = []
         if linked_products[0] == "Not available":
             print("nothing to link reached")
