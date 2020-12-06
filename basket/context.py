@@ -8,6 +8,7 @@ def basket_contents(request):
 
     basket_items = []
     total = 0
+    full_price_total = 0
     products = Product.objects.filter(product_type="photo")
     user_photos = Image_upload.objects.all()
     product_count = 0
@@ -24,6 +25,8 @@ def basket_contents(request):
             
             subtotal = product.discount_price * item['quantity']
 
+            full_price_sub_total = product.price * item['quantity']
+
             if item['digital_download']:
                 digital_download = "on"
             else:
@@ -31,6 +34,7 @@ def basket_contents(request):
                 delivery_total += subtotal
 
             total += subtotal
+            full_price_total += full_price_sub_total
 
             basket_items.append({
                 'item': item,
@@ -58,7 +62,7 @@ def basket_contents(request):
         delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
         free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - total
     
-    
+    money_saved = full_price_total - total
     grand_total = delivery + total
     
     context = {
@@ -74,7 +78,8 @@ def basket_contents(request):
         'are_all_items_linked': are_all_items_linked,
         'products': products,
         'user_photos': user_photos,
-        'multi_buy_message': multi_buy_message
+        'multi_buy_message': multi_buy_message,
+        'money_saved': money_saved
       
     }
 
