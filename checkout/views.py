@@ -88,13 +88,17 @@ def checkout(request):
             order.original_bag = json.dumps(basket)
             order.save()
             for item in basket['items']:
+                if item['digital_download'] == 'on':
+                    digital_download = True
+                else:
+                    digital_download = False
                 try:
                     product = get_object_or_404(Product, pk=item['item_id'])
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=item["quantity"],
-                        # digital_download=item['digital_download']
+                        digital_download=digital_download
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
