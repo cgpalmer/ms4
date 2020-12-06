@@ -16,6 +16,7 @@ def add_review(request):
             # retrieve data from current product
             product_name = form.cleaned_data.get("product")
             print(product_name)
+            # change this t product id.
             retrieve_product = get_object_or_404(Product, name=product_name)
             print(retrieve_product.name)
             number_of_ratings = retrieve_product.number_of_ratings
