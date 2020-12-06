@@ -18,7 +18,7 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-            'basket': json.dumps(request.session.get('basket', {})),
+            'basket': json.dumps(request.session.get('minified_basket', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
@@ -67,6 +67,7 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
+        
 
 
         form_data = {

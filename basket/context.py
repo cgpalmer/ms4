@@ -7,6 +7,7 @@ from products.models import Product, Image_upload
 def basket_contents(request):
 
     basket_items = []
+    minified_items = []
     total = 0
     full_price_total = 0
     products = Product.objects.filter(product_type="photo")
@@ -44,6 +45,15 @@ def basket_contents(request):
                 
             })
 
+            minified_items.append({
+                'product_id': product.id,
+                'quantity': item['quantity'],
+                'subtotal': subtotal,
+                'digital_download': digital_download,
+                
+            })
+
+
             list_of_linked_product_info = item['linked_products']
             print("LIST " + str(list_of_linked_product_info))
             for product_info in list_of_linked_product_info:
@@ -78,8 +88,8 @@ def basket_contents(request):
         'products': products,
         'user_photos': user_photos,
         'multi_buy_message': multi_buy_message,
-        'money_saved': money_saved
-      
+        'money_saved': money_saved,
+        'minified_items': minified_items
     }
 
     return context

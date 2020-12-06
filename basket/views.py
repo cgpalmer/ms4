@@ -12,6 +12,7 @@ def add_to_basket(request, item_id):
     
     #adding to a basket
     basket = request.session.get('basket', {})
+    # Question this next line-  it's working but why...
     basket_item_id = request.session.get('basket_item_id')
     print("item id from session" + str(basket_item_id))
     quantity = int(request.POST.get('quantity'))

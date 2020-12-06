@@ -40,9 +40,12 @@
                                
                             </thead>
                             
+                            
+
                             {% for item in basket_items %}
                             {{item}} 
-                            {{item.subtotal}}
+                            <p>######################################################</p>
+                            
                             
                             <tr>
                             <form method="POST" action="{% url 'edit_basket'%}">
@@ -261,7 +264,16 @@
 
     <div>
         <a href="{% url 'empty_basket' %}">Empty basket</a>
+        
     </div>
+    <div>
+        {% if minified_items %}
+            {% for item in minified_items%}
+                {{item}}
+            {% endfor %}
+        {% endif %}
+    </div>
+ 
 <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
