@@ -6,6 +6,12 @@ from .forms import UserProfileForm
 from reviews.forms import ReviewForm
 from checkout.models import Order
 from reviews.models import Review
+from django.contrib.auth.models import User
+
+from django.db import models
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 def profile(request):
     """ Display the user's profile. """

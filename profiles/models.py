@@ -43,4 +43,5 @@ class ContentReadyToDownload(models.Model):
 
     def __str__(self):
         return self.user
-    
+
+
