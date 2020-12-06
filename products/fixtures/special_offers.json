@@ -3,8 +3,8 @@
         "pk": 1,
         "model": "products.special",
         "fields": {
-        "name": "multi-buy",
-        "friendly_name": "Multi-buy",
+        "name": "editors_pick",
+        "friendly_name": "Editor's Pick!",
         "discounts": 0.2
     }},
     {

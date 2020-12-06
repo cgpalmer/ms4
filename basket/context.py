@@ -22,7 +22,8 @@ def basket_contents(request):
             
             product = get_object_or_404(Product, pk=item['item_id'])
             
-            subtotal = product.price * item['quantity']
+            subtotal = product.discount_price * item['quantity']
+
             if item['digital_download']:
                 digital_download = "on"
             else:
