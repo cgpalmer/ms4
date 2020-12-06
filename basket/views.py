@@ -151,7 +151,7 @@ def add_to_basket(request, item_id):
             })
     else:
         basket['items'] = []
-        request.session['basket_item_id'] = 1
+   #     request.session['basket_item_id'] = 1
         basket['items'].append({
             'basket_item_id': 1,
             'item_id': item_id,
