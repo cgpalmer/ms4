@@ -42,7 +42,7 @@
                             
                             {% for item in basket_items %}
                             {{item}} 
-
+                            {{item.subtotal}}
                             
                             <tr>
                             <form method="POST" action="{% url 'edit_basket'%}">
