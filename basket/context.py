@@ -20,7 +20,7 @@ def basket_contents(request):
    
     if basket != {}:
         for item in basket['items']:
-            
+            product_count += 1
             product = get_object_or_404(Product, pk=item['item_id'])
             
             subtotal = product.discount_price * item['quantity']
