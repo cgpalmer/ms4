@@ -9,7 +9,6 @@ from reviews.models import Review
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import models
-
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -56,10 +55,13 @@ def order_history(request, order_number):
 def new_profile(request):
     digital_downloads = ContentReadyToDownload.objects.all()
     user_photos = Image_upload.objects.all()
+    digital_downloads_user = ContentReadyToDownload.objects.filter(user="cpalmer.tutoring@gmail.com")
+    print(digital_downloads_user)
     template = 'profiles/new_profile.html'
     context = {
         'digital_downloads': digital_downloads,
-        'user_photos': user_photos
+        'user_photos': user_photos,
+        'digital_downloads_user': digital_downloads_user 
     }
 
     return render(request, template, context)
@@ -68,7 +70,7 @@ def new_profile(request):
 def add_content_for_download(request, product_id):
     if request.method == 'POST':
         # in future can you use the order number to find any that are a certain type?
-        user = request.POST.get('user')
+        user = get_object_or_404(UserProfile, user=request.user)
         sku = request.POST.get('sku')
         name = request.POST.get('name')
         # Check what happens in the item line when someone orders two.

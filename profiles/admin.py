@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import ContentReadyToDownload
 
-# Register your models here.
+class ContentReadyToDownloadAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'sku'
+    )
+
+admin.site.register(ContentReadyToDownload, ContentReadyToDownloadAdmin)
+

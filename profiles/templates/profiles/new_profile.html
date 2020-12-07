@@ -50,6 +50,19 @@
   
 
     {% endfor %}
+
+    {% for user_download in digital_downloads_user %}
+        <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
+        <p>Product file path is: {{download.product_file_path}}</p>
+        <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
+        
+            <p>download id {{download.id}}</p>
+        <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input name="test" type="text" value="1">
+            <button type="submit" value="click">Click</button>
+        </form>
+    {% endfor %}
     
 </div>
 

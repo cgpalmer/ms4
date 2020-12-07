@@ -121,7 +121,7 @@ def add_to_basket(request, item_id):
 
     if basket != {}:
         for item in basket['items']:
-            basket_item_id = basket_item_id + 1
+             basket_item_id = basket_item_id + 1
         
         matching_items = []
         if linked_products[0] == "Not available":
@@ -152,7 +152,7 @@ def add_to_basket(request, item_id):
             })
     else:
         basket['items'] = []
-   #     request.session['basket_item_id'] = 1
+        request.session['basket_item_id'] = 1
         basket['items'].append({
             'basket_item_id': 1,
             'item_id': item_id,
