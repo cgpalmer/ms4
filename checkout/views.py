@@ -204,7 +204,7 @@ def checkout_success(request, order_number):
     if basket != {}:
         for item in basket['items']:
             if item['digital_download']:
-                user = "user"
+                user = request.user
                 product = product = get_object_or_404(Product, pk=item['item_id'])
                 sku = product.sku
                 name = product.name

@@ -6,7 +6,7 @@
 
 <div id="availableDownloads">
     <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
-    {% for download in digital_downloads %}
+    {% for download in digital_downloads_user %}
     {% if download.number_of_times_downloaded == False %}
   
     <div class="downloadItem">
@@ -18,7 +18,7 @@
         {% if download.number_of_times_downloaded == False %}
         <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input name="test" type="text" value="1">
+           
             <button type="submit" value="click">Click</button>
         </form>
         {% endif %}
@@ -31,10 +31,10 @@
 
     <h5> Previous downloads </h5>
 
-    {% for download in digital_downloads %}
-     {% if download.number_of_times_downloaded == True %}
+    {% for accessed_download in digital_downloads_user %}
+     {% if accessed_download.number_of_times_downloaded == True %}
       <div class="downloadItem">
-        <p>{{download.name}}. Downloaded!</p>
+        <p>{{accessed_download.name}}. Downloaded!</p>
     </div>
         
      {% endif %}
@@ -51,18 +51,6 @@
 
     {% endfor %}
 
-    {% for user_download in digital_downloads_user %}
-        <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
-        <p>Product file path is: {{download.product_file_path}}</p>
-        <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
-        
-            <p>download id {{download.id}}</p>
-        <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input name="test" type="text" value="1">
-            <button type="submit" value="click">Click</button>
-        </form>
-    {% endfor %}
     
 </div>
 

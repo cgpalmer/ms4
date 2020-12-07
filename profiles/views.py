@@ -55,38 +55,24 @@ def order_history(request, order_number):
 def new_profile(request):
     digital_downloads = ContentReadyToDownload.objects.all()
     user_photos = Image_upload.objects.all()
-    digital_downloads_user = ContentReadyToDownload.objects.filter(user="cpalmer.tutoring@gmail.com")
+    digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
     print(digital_downloads_user)
     template = 'profiles/new_profile.html'
     context = {
         'digital_downloads': digital_downloads,
         'user_photos': user_photos,
-        'digital_downloads_user': digital_downloads_user 
+        'digital_downloads_user': digital_downloads_user
     }
 
     return render(request, template, context)
 
-
-def add_content_for_download(request, product_id):
-    if request.method == 'POST':
-        # in future can you use the order number to find any that are a certain type?
-        user = get_object_or_404(UserProfile, user=request.user)
-        sku = request.POST.get('sku')
-        name = request.POST.get('name')
-        # Check what happens in the item line when someone orders two.
-        product_file_path = request.POST.get('product_file_path')
-        number_of_times_downloaded = 0
-        ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
-        return redirect(reverse('new_profile'))
-    else:
-        return redirect(reverse('products'))
 
 
 def counting_downloads(request, download_id):
     if request.method == "POST":
         download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
         download_file.number_of_times_downloaded = True
-        download_file.save()
+        download_file.save()    
 
 
         template = "profiles/download_ready.html"
