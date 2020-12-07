@@ -1,5 +1,6 @@
+from django.shortcuts import get_object_or_404
 from django import forms
-from .models import Product, Category, Image_upload
+from .models import Product, Category, Image_upload, UserProfile
 
 
 class ProductForm(forms.ModelForm):
@@ -24,3 +25,4 @@ class Image_uploadForm(forms.ModelForm):
     class Meta:
         model = Image_upload
         fields = ('title', 'image')
+

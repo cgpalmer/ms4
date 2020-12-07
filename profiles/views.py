@@ -39,8 +39,7 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
-        'digital_downloads': digital_downloads,
-        'user_photos': user_photos,
+   
         'digital_downloads_user': digital_downloads_user
     }
 

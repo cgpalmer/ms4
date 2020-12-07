@@ -1,4 +1,5 @@
 from django.db import models
+from profiles.models import UserProfile
 import uuid
 
 class Category(models.Model):
@@ -57,6 +58,7 @@ class Special(models.Model):
 
 
 class Image_upload(models.Model):
+    user = models.CharField(max_length=254, null=True, blank=True)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images')
     user_upload_image_file_path = models.CharField(max_length=200, default="not found")

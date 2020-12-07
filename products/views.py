@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Image_upload, Special
+from .models import Product, Category, Image_upload, Special, UserProfile
 from blog.models import Blog
 from reviews.models import Review
 from .forms import ProductForm, Image_uploadForm
@@ -85,7 +85,8 @@ def product_detail(request, product_id):
     print(product)
     print(product.linked_to_blog)
     linked_product = Product.objects.filter(product_type="photo")
-    user_photos = Image_upload.objects.all()
+    user_photos = Image_upload.objects.filter(user=request.user)
+
     
     if product.linked_to_blog == True:
         print("blog exists")
@@ -213,9 +214,11 @@ def image_upload(request):
     if request.method == 'POST':
         form = Image_uploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            
-            # Get the current instance object to display in the template
+            user = get_object_or_404(UserProfile, user=request.user)
+            title = form.cleaned_data.get("title")
+            image = form.cleaned_data.get("image")
+            Image_upload.objects.create(title=title, user=user, image=image)
+
 
             return redirect(reverse('products'))
         
