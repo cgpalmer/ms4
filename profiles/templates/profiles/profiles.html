@@ -77,9 +77,10 @@
         </div>
 
 
-        <div id="availableDownloads">
+
+<div id="availableDownloads">
     <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
-    {% for download in digital_downloads %}
+    {% for download in digital_downloads_user %}
     {% if download.number_of_times_downloaded == False %}
   
     <div class="downloadItem">
@@ -91,7 +92,7 @@
         {% if download.number_of_times_downloaded == False %}
         <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <input name="test" type="text" value="1">
+           
             <button type="submit" value="click">Click</button>
         </form>
         {% endif %}
@@ -101,6 +102,41 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+
+    <h5> Previous downloads </h5>
+
+    {% for accessed_download in digital_downloads_user %}
+     {% if accessed_download.number_of_times_downloaded == True %}
+      <div class="downloadItem">
+        <p>{{accessed_download.name}}. Downloaded!</p>
+    </div>
+        
+     {% endif %}
+     {% endfor %}
+
+    {% for photo in user_photos %}
+        <div>
+        {{photo.title}}
+        <img class="w-25" src="/media/{{photo.image}}" alt="">
+        <a href="{% url 'delete_user_photo' photo.id %}">Button to delete</a>
+        </div>
+       
+  
+
+    {% endfor %}
+    {% for photo in user_photos %}
+        <div>
+        {{photo.title}}
+        <img class="w-25" src="/media/{{photo.image}}" alt="">
+        <a href="{% url 'delete_user_photo' photo.id %}">Button to delete</a>
+        </div>
+       
+  
+
+    {% endfor %}
+    
+</div>
+
 
 
 

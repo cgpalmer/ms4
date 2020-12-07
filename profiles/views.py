@@ -26,12 +26,22 @@ def profile(request):
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
+ 
+
+    # Downloading digital content
+    digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
+   
+
+
     template = 'profiles/profiles.html'
     context = {
         'current_user': profile,
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'digital_downloads': digital_downloads,
+        'user_photos': user_photos,
+        'digital_downloads_user': digital_downloads_user
     }
 
     return render(request, template, context)
@@ -48,20 +58,6 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
-    }
-
-    return render(request, template, context)
-
-def new_profile(request):
-    digital_downloads = ContentReadyToDownload.objects.all()
-    user_photos = Image_upload.objects.all()
-    digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
-    print(digital_downloads_user)
-    template = 'profiles/new_profile.html'
-    context = {
-        'digital_downloads': digital_downloads,
-        'user_photos': user_photos,
-        'digital_downloads_user': digital_downloads_user
     }
 
     return render(request, template, context)
