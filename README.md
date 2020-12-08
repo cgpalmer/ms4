@@ -712,3 +712,5 @@ https://www.freecodecamp.org/news/python-empty-list-tutorial-how-to-create-an-em
 javatpoint.com/python-program-to-print-the-duplicate-elements-of-an-array
 
 https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-in-a-django-queryset/
+
+https://stackoverflow.com/questions/13422689/django-how-to-limit-number-of-objects-returned-from-a-model

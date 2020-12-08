@@ -16,9 +16,11 @@ from django.dispatch import receiver
 def admin_profile(request):
     products = Product.objects.all()
     categories = Category.objects.all()
+    orders = Order.objects.order_by("-date")[:5]
     context = {
         'products': products,
-        'categories': categories
+        'categories': categories,
+        'orders': orders
     }
     return render(request, 'profiles/admin_profile_page.html', context)
 

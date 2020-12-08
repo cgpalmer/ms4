@@ -95,11 +95,15 @@ def checkout(request):
                     digital_download = False
                 try:
                     product = get_object_or_404(Product, pk=item['item_id'])
+                    
+                    order_linked_products = item['linked_products']
+                    
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=item["quantity"],
-                        digital_download=digital_download
+                        digital_download=digital_download,
+                        order_linked_products=order_linked_products
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
