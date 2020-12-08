@@ -83,4 +83,11 @@ function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, ed
 }
 
 
-
+$("#adminProductManage").change(function() {
+    console.log("triggered")
+    $('.allProducts').addClass('hide');
+    let val = $(this).val();
+    $(`.adminCategory${val}`).toggleClass(' hide');
+  
+    
+});

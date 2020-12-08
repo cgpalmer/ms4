@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
-from products.models import Image_upload
+from products.models import Image_upload, Product, Category
 from .forms import UserProfileForm
 from reviews.forms import ReviewForm
 from checkout.models import Order
@@ -11,6 +11,16 @@ from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
+@login_required
+def admin_profile(request):
+    products = Product.objects.all()
+    categories = Category.objects.all()
+    context = {
+        'products': products,
+        'categories': categories
+    }
+    return render(request, 'profiles/admin_profile_page.html', context)
 
 @login_required
 def profile(request):

@@ -27,6 +27,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
+                                <a href="{% url 'admin_profile_page' %}" class="dropdown-item">Admin</a>
                                     
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
@@ -37,20 +38,7 @@
                             {% endif %}
                         </div>
                     </li>
-                    <li class="list-inline-item">
-                       
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if total %}
-                                        ${{ total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+                 
                 </ul>
             </div>
                     <a class="nav-link col-2" href="{% url 'view_basket' %}" id="allProducts">
@@ -58,9 +46,7 @@
                        <span>{{ total|floatformat:2 }}</span>
                     </a>
                
-                    <a class="nav-link" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Wishlist
-                    </a>
+                  
             
             
             
@@ -76,7 +62,7 @@
             <div id="desktopDropDownMenu" class="row">
                 <div class="col-sm text-center" aria-labelledby="allProducts">
                     <!-- refactor this code? -->
-                        <a href="{% url 'products' %}?sort=price&direction=asc" class="">Price</a>
+                        <a href="{% url 'products' %}?sort=price&direction=desc" class="">Price</a>
                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="">Rating</a>    
                         <a href="{% url 'products' %}" class="">All products</a>                    
                     </div>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+   <h1>Admin Profile</h1>
+
+    <a href="{% url 'add_product' %}">Add product</a>
+
+
+    <div>
+    <h2>Manage Products</h2>
+    
+    
+   
+    
+    <div class="adminCategoryWrapper">
+    <select name="" id="adminProductManage">
+    <option value="" selected disabled>Choose a category</option>
+       {% for cat in categories %}
+        <option value="{{cat.name}}">{{cat.name}}</option>
+       {% endfor %}
+    </select>
+    
+    {% for product in products %}  
+
+    <p class="adminCategory{{product.category}} allProducts hide">{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>   <a href="{% url 'delete_product' product.id %}">Delete</a></p> 
+  
+    {% endfor %}
+   
+    </div>
+   
+
+ 
+
+
+
+
+{% endblock %}
