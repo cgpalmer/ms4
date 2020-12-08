@@ -40,7 +40,20 @@ $(".linkingProductSelect").change(function() {
  
 });
 
+let digital_counter = 0
+$("#deliveryTypeCheckbox").change(function() {
+    digital_counter++;
+    
+    if (digital_counter % 2 == 0){
+        console.log(digital_counter);
+        $("#productQuantity").removeClass('hide');
 
+    } else {
+        console.log("odd");
+        $("#productQuantity").addClass('hide');
+    }
+   
+});
 
 function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {
     let editButton = document.getElementById(editId);
