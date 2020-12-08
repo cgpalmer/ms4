@@ -30,6 +30,7 @@ def profile(request):
 
     # Downloading digital content
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
+    user_photos = Image_upload.objects.filter(user=request.user)
    
 
 
@@ -39,7 +40,7 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
-   
+        'user_photos': user_photos,
         'digital_downloads_user': digital_downloads_user
     }
 
@@ -82,6 +83,6 @@ def delete_user_photo(request, photo_id):
     # Use a filter here for user photos only
     user_photo = get_object_or_404(Image_upload, pk=photo_id)
     user_photo.delete()
-    return redirect(reverse('new_profile'))
+    return redirect(reverse('profile'))
 
 

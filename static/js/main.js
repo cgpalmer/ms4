@@ -33,7 +33,7 @@ $(".linkingProductSelect").change(function() {
  } else {
      let imagePath = "/media/" + splittingValues[0];
      console.log(imagePath);
-  $("#linkImageSelection,  ").attr('src', imagePath);
+  $("#linkImageSelection").attr('src', imagePath);
   $("#linkedProductImagePreview").attr('href', imagePath);
 
  }
