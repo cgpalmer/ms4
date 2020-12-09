@@ -7,6 +7,7 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile, ContentReadyToDownload
 from profiles.forms import UserProfileForm
+from checkout.models import Linked_Product
 from basket.context import basket_contents
 
 import stripe
@@ -180,10 +181,7 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
    
-    
-    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -215,24 +213,26 @@ def checkout_success(request, order_number):
     basket = request.session.get('basket', {})
     if basket != {}:
         for item in basket['items']:
+            product = get_object_or_404(Product, pk=item['item_id'])
+            sku = product.sku
+            name = product.name
             if item['digital_download']:
                 user = request.user
-                product = product = get_object_or_404(Product, pk=item['item_id'])
-                sku = product.sku
-                name = product.name
                 product_file_path = product.image_desktop
         # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
                 ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
-            
+            for link in item['linked_products']:
+                Linked_Product.objects.create(order_id=order, linked_product=link, product=product)
 
     if 'basket' in request.session:
         del request.session['basket']
 
+    linked_product = Linked_Product.objects.filter(order_id=order.id)
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'y':y
+        'linked_product': linked_product
         
         
         

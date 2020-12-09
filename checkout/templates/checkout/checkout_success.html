@@ -23,6 +23,15 @@
                 <h2 class="logo-font mb-4">Thank you!</h2>
                 <hr>
                 <h2>You order had been submitted. You will receive a confirmation to the following email address:</h2>
+            
+            {% for product in linked_product %}
+            <div>
+                {{product.product.name}}
+                {{product.order_id.order_number}}
+                {{product.linked_product}}
+            </div>
+            {% endfor %}
+            
             </div>
         </div>
  <div class="row">

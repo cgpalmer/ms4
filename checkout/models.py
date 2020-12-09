@@ -83,3 +83,9 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+
+class Linked_Product(models.Model):
+    order_id = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='linked_product') 
+    linked_product = models.CharField(max_length=254, null=True, blank=True)
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name='linked_product') 
