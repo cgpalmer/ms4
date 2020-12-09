@@ -281,6 +281,9 @@ def delete_basket_item(request, basket_item_id):
 
 def empty_basket(request):
     basket = request.session.get('basket', {})
-    del basket['items']
-    request.session['basket'] = basket
-    return redirect('view_basket')
+    if basket != {}:
+        del basket['items']
+        request.session['basket'] = basket
+        return redirect('view_basket')
+    else:
+        return redirect('view_basket')
