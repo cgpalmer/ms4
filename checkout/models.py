@@ -70,7 +70,7 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, default=0, decimal_places=2, null=False, blank=False, editable=False)
     digital_download = models.BooleanField(default=False)
-    order_linked_products = models.CharField(max_length=1000, default="", null=True, blank=False)
+    
 
 
     def save(self, *args, **kwargs):

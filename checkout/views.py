@@ -86,24 +86,30 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag = json.dumps(basket)
+            order.original_basket = json.dumps(basket['items'])
             order.save()
+           
             for item in basket['items']:
                 if item['digital_download'] == 'on':
                     digital_download = True
                 else:
                     digital_download = False
+                
+                    
+                
+                
+            
+                
                 try:
                     product = get_object_or_404(Product, pk=item['item_id'])
                     
-                    order_linked_products = item['linked_products']
-                    
+                                       
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=item["quantity"],
                         digital_download=digital_download,
-                        order_linked_products=order_linked_products
+                        
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
@@ -175,8 +181,9 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     
+   
     
-
+    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -204,6 +211,7 @@ def checkout_success(request, order_number):
         email will be sent to {order.email}.')
 
     # This is where orders are stored for digital download
+ 
     basket = request.session.get('basket', {})
     if basket != {}:
         for item in basket['items']:
@@ -216,6 +224,7 @@ def checkout_success(request, order_number):
         # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
                 ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
+            
 
     if 'basket' in request.session:
         del request.session['basket']
@@ -223,6 +232,10 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'y':y
+        
+        
+        
     }
 
     return render(request, template, context)
