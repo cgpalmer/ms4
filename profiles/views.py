@@ -44,6 +44,7 @@ def profile(request):
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
     user_photos = Image_upload.objects.filter(user=request.user)
    
+    user_reviews = Review.objects.filter(user=request.user)
 
 
     template = 'profiles/profiles.html'
@@ -53,7 +54,8 @@ def profile(request):
         'orders': orders,
         'on_profile_page': True,
         'user_photos': user_photos,
-        'digital_downloads_user': digital_downloads_user
+        'digital_downloads_user': digital_downloads_user,
+        'review': user_reviews
     }
 
     return render(request, template, context)

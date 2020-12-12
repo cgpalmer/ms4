@@ -11,7 +11,12 @@ def add_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
-            review = form.save()
+            user = request.user
+            review_rating = form.cleaned_data.get("review_rating")
+            product = form.cleaned_data.get("product")
+            review_content = form.cleaned_data.get("review_content")
+
+            Review.objects.create(user=user, review_rating=review_rating, product=product, review_content=review_content)
 
             # retrieve data from current product
             product_name = form.cleaned_data.get("product")
@@ -65,12 +70,14 @@ def add_review(request):
 
 def review_history(request):
     # filter this to the user at a later time.
-    review = Review.objects.all()
-    template = 'profiles/edit_reviews.html'
+    review = Review.objects.filter(user=request.user)
+    template = 'reviews/includes/review_history.html'
     context = {
         'review': review,
     }
     return render(request, template, context)
+
+    
 
 def edit_review(request, r_id):
     """ Edit a product in the store """
