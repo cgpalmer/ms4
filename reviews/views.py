@@ -7,22 +7,20 @@ from django.contrib import messages
 # Create your views here.
 
 
-def add_review(request):
+def add_review(request, product_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
             user = request.user
             review_rating = form.cleaned_data.get("review_rating")
-            product = form.cleaned_data.get("product")
+  
             review_content = form.cleaned_data.get("review_content")
 
-            Review.objects.create(user=user, review_rating=review_rating, product=product, review_content=review_content)
+            Review.objects.create(user=user, review_rating=review_rating, product=get_object_or_404(Product, pk=product_id), review_content=review_content)
 
             # retrieve data from current product
-            product_name = form.cleaned_data.get("product")
-            print(product_name)
-            # change this t product id.
-            retrieve_product = get_object_or_404(Product, name=product_name)
+                     
+            retrieve_product = get_object_or_404(Product, pk=product_id)
             print(retrieve_product.name)
             number_of_ratings = retrieve_product.number_of_ratings
             ratings_total = retrieve_product.rating_total
@@ -60,10 +58,11 @@ def add_review(request):
             return redirect(reverse('add_review'))
     else:
         form = ReviewForm()
-        template = "reviews/add_review.html"
-
+        product = get_object_or_404(Product, pk=product_id)
+        template = 'reviews/add_review.html'
         context = {
-                'form': form
+                'form': form,
+                'product': product,
         }
         return render(request, template, context)
 

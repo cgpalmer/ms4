@@ -44,7 +44,7 @@
                         
                         <p>Product id is {{ product.id }} </p>
 
-                        <a href="{% url 'add_review' %}">Add review</a>
+                        <a href="{% url 'add_review' product.id %}">Add review</a>
                         
                         <p id="reveal_reviews">Read reviews</p>
                         <div id="productReview" class="review-wrapper">
