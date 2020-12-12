@@ -68,15 +68,6 @@ def add_review(request):
         return render(request, template, context)
 
 
-def review_history(request):
-    # filter this to the user at a later time.
-    review = Review.objects.filter(user=request.user)
-    template = 'reviews/includes/review_history.html'
-    context = {
-        'review': review,
-    }
-    return render(request, template, context)
-
     
 
 def edit_review(request, r_id):

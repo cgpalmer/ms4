@@ -93,6 +93,7 @@ def product_detail(request, product_id):
         blog = get_object_or_404(Blog, sku=product.sku)
     else:
         blog = None
+        
     review = Review.objects.filter(product=product_id)
 
     if product.product_type == "photo":
