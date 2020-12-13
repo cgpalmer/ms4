@@ -5,4 +5,6 @@
                     <p>  {{ r.review_rating }}</p>
                     <p>  {{ r.review_content }}</p>
                 </div>
+                <a href="{% url 'edit_review' r.id %}">Edit review</a>
+                <a href="{% url 'delete_review' r.id %}">Delete review</a>
             {% endfor %}

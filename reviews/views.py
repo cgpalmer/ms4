@@ -13,9 +13,7 @@ def add_review(request, product_id):
         if form.is_valid():
             user = request.user
             review_rating = form.cleaned_data.get("review_rating")
-  
             review_content = form.cleaned_data.get("review_content")
-
             Review.objects.create(user=user, review_rating=review_rating, product=get_object_or_404(Product, pk=product_id), review_content=review_content)
 
             # retrieve data from current product
@@ -71,12 +69,33 @@ def add_review(request, product_id):
 
 def edit_review(request, r_id):
     """ Edit a product in the store """
+
+    ''' open review, get number, find rating, find difference, - difference from current total rating, save'''
+
     review = get_object_or_404(Review, pk=r_id)
+    previous_review_rating = review.review_rating
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES, instance=review)
         if form.is_valid():
-            form.save()
+            # Get the product
+            product_id = review.product.id
+            retrieve_product = get_object_or_404(Product, pk=product_id)
+
+            new_review_rating = previous_review_rating - form.cleaned_data.get("review_rating")
+            print(new_review_rating)
+            retrieve_product.rating_total = retrieve_product.rating_total - new_review_rating
+            print(retrieve_product.rating_total)
+            retrieve_product.rating = retrieve_product.rating_total / retrieve_product.number_of_ratings
+            retrieve_product.save()
+
+
             messages.success(request, 'Successfully updated product!')
+            review.review_content = form.cleaned_data.get("review_content")
+            review.review_rating = form.cleaned_data.get("review_rating")
+            print("review" + str(review.review_rating))
+            review.save()
+            
+
             return redirect(reverse('products'))
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
