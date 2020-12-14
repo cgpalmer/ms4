@@ -5,6 +5,7 @@
    <h1>Admin Profile</h1>
 
     <a href="{% url 'add_product' %}">Add product</a>
+    <a href="{% url 'add_blog' %}">Add blog</a>
 
 
     <div>
@@ -27,7 +28,7 @@
     <p></p>
     {% for blog in blogs %}
     {% if blog.product == product %}
-        <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a>   <a href="">Delete</a></p>
+        <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a>   <a href="{% url 'delete_blog' blog.id %}">Delete</a></p>
     
     {% endif %}
     

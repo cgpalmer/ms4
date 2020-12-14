@@ -104,3 +104,11 @@ def edit_blog(request, blog_id):
     }
 
     return render(request, template, context)
+
+def delete_blog(request, blog_id):
+    """ Delete a product from the store """
+    blog = get_object_or_404(Blog, pk=blog_id)
+    blog.delete()
+    
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('admin_profile_page'))
