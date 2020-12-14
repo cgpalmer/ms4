@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
+from blog.models import Blog
 from products.models import Image_upload, Product, Category
 from .forms import UserProfileForm
 from reviews.forms import ReviewForm
@@ -17,10 +18,12 @@ def admin_profile(request):
     products = Product.objects.all()
     categories = Category.objects.all()
     orders = Order.objects.order_by("-date")[:5]
+    blogs = Blog.objects.all()
     context = {
         'products': products,
         'categories': categories,
-        'orders': orders
+        'orders': orders,
+        'blogs': blogs
     }
     return render(request, 'profiles/admin_profile_page.html', context)
 
@@ -38,7 +41,9 @@ def profile(request):
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
- 
+    # Loading all blogs
+
+    blogs = Blog.objects.all()
 
     # Downloading digital content
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
@@ -55,7 +60,8 @@ def profile(request):
         'on_profile_page': True,
         'user_photos': user_photos,
         'digital_downloads_user': digital_downloads_user,
-        'review': user_reviews
+        'review': user_reviews,
+        
     }
 
     return render(request, template, context)

@@ -22,10 +22,20 @@
     </select>
     
     {% for product in products %}  
-
-    <p class="adminCategory{{product.category}} allProducts hide">{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>   <a href="{% url 'delete_product' product.id %}">Delete</a></p> 
-  
+  <div  class="adminCategory{{product.category}} allProducts hide">
+    <p>{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>   <a href="{% url 'delete_product' product.id %}">Delete</a></p> 
+    <p></p>
+    {% for blog in blogs %}
+    {% if blog.product == product %}
+        <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a>   <a href="">Delete</a></p>
+    
+    {% endif %}
+    
     {% endfor %}
+    </div>
+    {% endfor %}
+
+    
    
    {% for order in orders %}
  
