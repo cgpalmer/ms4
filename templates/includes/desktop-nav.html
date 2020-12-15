@@ -3,13 +3,11 @@
 
        <div class="container-fluid">
             <div class="row">
-                <a class="nav-link col-2" href="#">Home <span class="sr-only">(current)</span></a>
+               
         <a class="nav-link col-2" href="{% url 'blogs' %}">Blog posts</a>
 
-        <a class="navbar-brand col-4" href="#">Hidden Gems</a>
-         <button class="btn btn-primary">
-            <span class="">Login</span>
-        </button>
+        <a class="navbar-brand col-4" href="{% url 'home' %}">Hidden Gems</a>
+        
 
         
          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -50,19 +48,26 @@
             </div>
             <div id="desktopExtraNavWrapper">
             <div class="row">
-               <a id="desktopNavAllProducts" class="col-sm text-center desktop-nav-link" href="#">All products</a>
-                <a id="desktopNavAllPhotographs" class="col-sm text-center desktop-nav-link" href="#">Photographs</a>
-                <a id="desktopNavAllSearch" class="col-sm text-center desktop-nav-link" href="#">Search</a>
-                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="#">Frames and Canvas</a>
-                <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="#">Special Offers</a>  
+               <a id="desktopNavAllProducts" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}">All products</a>
+                <a id="desktopNavAllPhotographs" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?product_type=photo">Photographs</a>
+               <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
+                    <!-- refactor this code? -->
+                        <form method="GET" action="{% url 'products' %}" class="row">
+                            <input class="form-control col-8" name="q" type="search" placeholder="Search products" aria-label="Search">
+                            <button class="btn btn-outline-success col-4" type="submit">Search</button>
+                        </form>                 
+                </div>
+                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?product_type=container">Frames and Canvas</a>
+                <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
             </div>
             <div id="desktopDropDownMenu" class="row">
                 <div class="col-sm text-center" aria-labelledby="allProducts">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}?sort=price&direction=desc" class="">Price</a>
                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="">Rating</a>    
-                        <a href="{% url 'products' %}" class="">All products</a>                    
+                                    
                     </div>
+                  
 
                      <div class="col-sm text-center" aria-labelledby="photographsDropdown">
                     <!-- refactor this code?  Refactor all the menus with potential loops of names and then friendly name - would have to
@@ -73,13 +78,9 @@
                         <a href="{% url 'products' %}?category=flowers" class="">Flowers</a>
                     </div>
 
-                      <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
-                    <!-- refactor this code? -->
-                        <form method="GET" action="{% url 'products' %}" class="row">
-                            <input class="form-control col-8" name="q" type="search" placeholder="Search products" aria-label="Search">
-                            <button class="btn btn-outline-success col-4" type="submit">Search</button>
-                        </form>                 
-                </div>
+                        <div class="col-sm text-center" aria-labelledby="">
+
+                    </div>
                     <div class="col-sm text-center" aria-labelledby="containersDropdown">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}?category=canvas" class="">Canvases</a>
@@ -97,7 +98,7 @@
                         <a href="{% url 'products' %}?special_offer=editors_pick" class="">Editor's Pick!</a>
                         <a href="{% url 'products' %}?special_offer=new_photos" class="">New photographs!</a>
                         <a href="{% url 'products' %}?special_offer=clearance" class="">Clearance</a>
-                        <a href="{% url 'products' %}?special_offer=no_offer" class=""> All special offers</a>
+         
                     </div>
                 </div>            
             </div>

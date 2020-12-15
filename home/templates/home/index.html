@@ -7,7 +7,7 @@
             <div class="parallaxImage">
                 <div class="parallaxImageTextWrapper">
                     <p class="">Sometimes you find a hidden gem that just <em>needs</em> to be framed.</p>
-                    <a class="btn orangeButton btn-lg" href="#" role="button">Shop now</a>
+                    <a class="btn orangeButton btn-lg" href="{% url 'products' %}" role="button">Shop now</a>
                 </div>
             </div>
         </section>
@@ -41,7 +41,7 @@
                 <div class="row text-center">
                     <h2 class="col-12">Want to leave a review?</h2>
                     <p class="col-12">If you have bought with us before, please leave a review!</p> 
-                    <button class="btn btn-group-lg orangeButton col-4 offset-4">Reviews</button>  
+                    <a href="{% url 'products' %}" class="btn btn-group-lg orangeButton col-4 offset-4">Reviews</a>  
                 </div>
 
             <hr>
