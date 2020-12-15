@@ -23,7 +23,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount_price = models.DecimalField(max_digits=6, decimal_places=2, default=0, blank=True)
-    rating = models.DecimalField(max_digits=6, decimal_places=1, default=0)
+    rating = models.IntegerField(default=0)
     number_of_ratings = models.IntegerField(null=True, blank=True, default=0)
     rating_total = models.IntegerField(null=True, blank=True, default=0)
     special_offer = models.ForeignKey('Special', null=True, blank=False, on_delete=models.SET_NULL)

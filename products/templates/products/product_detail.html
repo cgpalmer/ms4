@@ -42,25 +42,18 @@
                         {% endif %}
                     
                         
-                        <p>Product id is {{ product.id }} </p>
-
+             
+                            {% if request.user.is_authenticated %}     
                         <a href="{% url 'add_review' product.id %}">Add review</a>
+                        {% endif %}
                         
-                        <p id="reveal_reviews">Read reviews</p>
                         <div id="productReview" class="review-wrapper">
                             {% include 'reviews/includes/product_review_list.html' %}
                         </div>
                         
                         
                         
-                        </div>
-                       
-
-                        
-                        
-                        <a href="{% url 'delete_product' product.id %}">Delete</a>
-
-                      
+                        </div>                 
                  
 
                     </div>
