@@ -28,7 +28,7 @@
         "model": "products.special",
         "fields": {
         "name": "no_offer",
-        "friendly_name": "",
+        "friendly_name": null,
         "discounts": 0.0
     }}
 ]

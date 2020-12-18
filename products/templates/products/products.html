@@ -50,9 +50,11 @@
           />
         </a>
         <div class="card-body">
-          <span class="badge badge-secondary"
-            >{{product.special_offer.friendly_name}}</span
-          >
+             {% if product.special_offer.friendly_name != None %}
+          <span class="badge badge-secondary">
+             
+              {{product.special_offer.friendly_name}}</span>
+              {% endif %}
           <p class="card-text">{{product.name}}</p>
 
           <p class="card-text">

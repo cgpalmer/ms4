@@ -28,8 +28,9 @@
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
+                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                               
                             {% endif %}
                         </div>
                     </li>
@@ -57,7 +58,7 @@
                             <button class="btn btn-outline-success col-4" type="submit">Search</button>
                         </form>                 
                 </div>
-                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvas</a>
+                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvases</a>
                 <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
             </div>
             <div id="desktopDropDownMenu" class="row">
