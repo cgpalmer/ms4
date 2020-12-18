@@ -49,7 +49,7 @@
             <div id="desktopExtraNavWrapper">
             <div class="row">
                <a id="desktopNavAllProducts" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}">All products</a>
-                <a id="desktopNavAllPhotographs" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?product_type=photo">Photographs</a>
+                <a id="desktopNavAllPhotographs" class="col-sm text-center desktop-nav-link" href="{% url 'photo_products' %}?">Photographs</a>
                <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
                     <!-- refactor this code? -->
                         <form method="GET" action="{% url 'products' %}" class="row">
@@ -57,7 +57,7 @@
                             <button class="btn btn-outline-success col-4" type="submit">Search</button>
                         </form>                 
                 </div>
-                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?product_type=container">Frames and Canvas</a>
+                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvas</a>
                 <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
             </div>
             <div id="desktopDropDownMenu" class="row">

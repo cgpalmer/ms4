@@ -10,6 +10,19 @@ from .forms import ProductForm, Image_uploadForm
 # Create your views here.
 ''' A view to show all the products and somewhere to search and sort by.'''
 
+def photo_products(request):
+    products = Product.objects.filter(product_type="photo")
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/products.html', context)
+
+def container_products(request):
+    products = Product.objects.filter(product_type="container")
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/products.html', context)
 
 def all_products(request):
     # Returning the products page
@@ -41,7 +54,8 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-    
+
+     
     if request.GET:
         if 'special_offer' in request.GET:
             special_offer = request.GET['special_offer'].split(',')
