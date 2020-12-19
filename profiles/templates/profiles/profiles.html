@@ -22,114 +22,25 @@
                     <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
-                <div class="table-responsive">
-                    <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                Order Number
-                            </th>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                Items
-                            </th>
-                            <th>
-                                Order Total
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>${{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
+                    {% include 'profiles/includes/user_order_history.html' %}
         <div>
               
             {% include 'reviews/includes/user_review_history.html' %}
+       
+         
        
         </div>
           
          
 
 
-<div id="availableDownloads">
-    <!-- This will be a for loop going through all the products that have are eligble for download for that user.-->
-    {% for download in digital_downloads_user %}
-    {% if download.number_of_times_downloaded == False %}
-  
-    <div class="downloadItem">
-        <p>Here is your {{download.name}}, {{download.sku}} . Click download to download!</p>
-        <p>Product file path is: {{download.product_file_path}}</p>
-        <p>It has been downloaded: {{download.number_of_times_downloaded}} times</p>
-        
-            <p>download id {{download.id}}</p>
-        {% if download.number_of_times_downloaded == False %}
-        <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
-            {% csrf_token %}
-           
-            <button type="submit" value="click">Click</button>
-        </form>
-        {% endif %}
-    </div>
-    {% if download.number_of_times_downloaded == True %}
-      Already downloaded!
-    {% endif %}
-    {% endif %}
-    {% endfor %}
 
-    <h5> Previous downloads </h5>
+ 
 
-    {% for accessed_download in digital_downloads_user %}
-     {% if accessed_download.number_of_times_downloaded == True %}
-      <div class="downloadItem">
-        <p>{{accessed_download.name}}. Downloaded!</p>
-    </div>
-        
-     {% endif %}
-     {% endfor %}
-
-    {% for photo in user_photos %}
-        <div>
-        {{photo.title}}
-        <img class="w-25" src="/media/{{photo.image}}" alt="">
-        <a href="{% url 'delete_user_photo' photo.id %}">Button to delete</a>
-        </div>
-       
-  
-
-    {% endfor %}
-
+   
+{% include 'profiles/includes/user_photos_list.html' %}
     
-
+   {% include 'profiles/includes/user_available_downloads.html' %}
 
 
 
