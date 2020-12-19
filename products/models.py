@@ -51,10 +51,10 @@ class Special(models.Model):
     discounts = models.DecimalField(max_digits=4, decimal_places=3, default=0.0, null=False, blank=False)
 
     def __str__(self):
-        return self.friendly_name
+        return self.name
 
-    # def get_friendly_name(self):
-    #     return self.friendly_name
+    def get_friendly_name(self):
+        return self.friendly_name
 
 
 class Image_upload(models.Model):
