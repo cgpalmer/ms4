@@ -24,19 +24,67 @@
     
     {% for product in products %}  
   <div  class="adminCategory{{product.category}} allProducts hide">
-    <p>{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>   <a href="{% url 'delete_product' product.id %}">Delete</a></p> 
-    <p></p>
-    {% for blog in blogs %}
-    {% if blog.product == product %}
-        <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a>   <a href="{% url 'delete_blog' blog.id %}">Delete</a></p>
-    
-    {% endif %}
-    
-    {% endfor %}
+      <div>
+    <div>{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>  
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
+                        <span>Delete</span>
+                    </button>
+                 <!-- Modal -->
+            <div class="modal fade" id="deleteProductNumber{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteProductNumber{{product.id}}ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteProductNumber{{product.id}}Label">Are you sure you want to remove this?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn btn-black rounded-0 btn-lg">
+                            <span class="text-uppercase">Delete review</span>                      
+                        </a>
+                    </div>
+                </div>
+            </div>
     </div>
-    {% endfor %}
+        
+   
+            <div>  
+                  {% for blog in blogs %}
+                        {% if blog.product == product %}
+                            <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a> 
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
+                        <span>Delete</span>
+                    </button>
+                 <!-- Modal -->
+                    <div class="modal fade" id="deleteBlogNumber{{blog.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteBlogNumber{{blog.id}}}ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteBlogNumber{{blog.id}}Label">Are you sure you want to remove this?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                        
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-black rounded-0 btn-lg">
+                                    <span class="text-uppercase">Delete review</span>                      
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                        {% endif %}
+                     {% endfor %}
+            </div>
 
     
+    {% endfor %}
+
+        </div>
    
    {% for order in orders %}
  
@@ -51,12 +99,6 @@
 
 
 {% endfor %}
-
-
-    </div>
-   
-
- 
 
 
 
