@@ -5,8 +5,9 @@ $( document ).ready(function() {
         $("#extendedSearchBar").toggle();
     });
 
+ 
 
-
+  
      $("#desktopExtraNavWrapper").hover(function(){
         $("#desktopDropDownMenu").css('display', 'flex');}
         ,function(){
