@@ -3,22 +3,29 @@
 
 {% block content %}
     <section>
-
-    {{ request.session.basket}}
     <div class="container product-container">
         <div class="row">
            
                 <div class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded">
                     <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
-                        <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.name}}">
+                        <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
                     </a>
                     <a class="d-md-block" href="{{product.image_url_desktop}}" target="_blank">
-                        <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.name}}">
+                        <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.friendly_name}}">
                     </a>
                     <div class="card-body">
-                        <span class="badge badge-secondary">{{product.special_offer}}</span>
-                        <p class="card-text">{{product.name}}</p>
-                        <p>{{product.image_mobile}}</p>
+                        <div class="card-body">
+             {% if product.special_offer.friendly_name != None %}
+          <span class="badge badge-secondary">
+             
+              {{product.special_offer.friendly_name}}</span>
+
+              {% else %}
+               <span class="badge "></span>
+              {% endif %}
+           
+                        <p class="card-text">{{product.friendly_name}}</p>
+                        
 
                          <p class="card-text">
             
@@ -27,7 +34,7 @@
                             {% else %}
                             <span> £{{product.price}} </span> 
                             {% endif %}
-                        </p>
+                        </>
                         {% if product.rating != 0.00 %}
                         <p class="card-text">{{product.rating}}/5</p>
                         {% else %}
@@ -43,9 +50,6 @@
                     
                         
              
-                            {% if request.user.is_authenticated %}     
-                        <a href="{% url 'add_review' product.id %}">Add review</a>
-                        {% endif %}
                         
                         <div id="productReview" class="review-wrapper">
                             {% include 'reviews/includes/product_review_list.html' %}
@@ -59,17 +63,17 @@
                     </div>
                  </div>
 
-        {{product.name}}
+
        
         
         
         
         </div>
+           
         <div class="row">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
             {% csrf_token%}
-                <input type="number" name="quantity" value="1" data-item_id="{{product_id}}" id="{{product_id}}">
-                <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
+            
                 {% if product.digital_download %}
                 <label for="digital_download">Digital download?</label>
                 {% endif %}
@@ -109,23 +113,24 @@
                 
                 
                 
-                
+                  {% if product_type_for_linking == "container" %}
+                            <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                    </form>
+                    {% endif %}
                 
                 
                 <button type="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>
         </div>
-           {% if product_type_for_linking == "container" %}
-        <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
-  {% csrf_token %}
-    {{ form.as_p }}
-  <button type="submit">Upload</button>
-</form>
-{% endif %}
+         
 
     
     </div>
+     <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
     </section>
 
 {% endblock %}

@@ -39,14 +39,14 @@
           <img
             src="{{product.image_url_mobile}}"
             class="card-img-top"
-            alt="{{product.name}}"
+            alt="{{product.friendly_name}}"
           />
         </a>
         <a class="d-md-block" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_desktop}}"
             class="card-img-top"
-            alt="{{product.name}}"
+            alt="{{product.friendly_name}}"
           />
         </a>
         <div class="card-body">
@@ -54,20 +54,26 @@
           <span class="badge badge-secondary">
              
               {{product.special_offer.friendly_name}}</span>
+
+              {% else %}
+               <span class="badge ">
+             
+           </span>
               {% endif %}
-          <p class="card-text">{{product.name}}</p>
+              
+          <p class="card-text">{{product.friendly_name}}</p>
 
           <p class="card-text">
             
             {% if product.price != product.discount_price %} 
-            <span> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+            <span> <s> £{{product.price}}  </s></span> <span>  £{{product.discount_price}} </span>
             {% else %}
             <span> £{{product.price}} </span> 
             {% endif %}
           </p>
 
-          {% if product.rating != 0.00 %}
-                        <p class="card-text">{{product.rating}}/5</p>
+          {% if product.number_of_ratings != 0 %}
+                        <p class="card-text">Rating: {{product.rating}}/5</p>
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}
