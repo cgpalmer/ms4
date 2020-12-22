@@ -20,7 +20,7 @@
    "image_desktop_url":2 ,
    "image_mobile_url":2 ,
    "sku": "pg010102",
-    "product": 1,
+    "product": 2,
         "title": "title2",
         "story": "story2"
     }},
@@ -35,7 +35,7 @@
         "title": "title3",
         "story": "story3",
        
-        "location": "budapest"
+        "location": "Budapest"
     }},
     {
         "pk": 4,
