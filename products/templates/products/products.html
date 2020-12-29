@@ -2,23 +2,17 @@
 {% block content %}
 <section>
   <div class="container product-container">
-    <div class="row">
+    <div class="row search-information">
       {% for c in current_categories %}
-      <a class="btn" href="{% url 'products' %}?category={{c.name}}">
+      <a class="col-6" href="{% url 'products' %}?category={{c.name}}">
         <span class="">{{c.friendly_name}}</span>
       </a>
       {% endfor %}
-    </div>
-    <div class="row">
-      <div class="col-3">
-        {% if search_term or current_categories or current_sorting != 'None_None' %}
-        <span><a href="{% url 'products' %">Products Home</a></span>
-        {% endif %} 
-        
-        {{products|length}} 
-        
-        Products{% if search_term %} found for
-        "{{search_term}}"
+    
+
+      <div class="col-6">
+          
+        <p>{{products|length}} product(s){% if search_term %} found for "{{search_term}}"</p>
         
         {% endif %}
       </div>
@@ -51,15 +45,15 @@
         </a>
         <div class="card-body">
              {% if product.special_offer.friendly_name != None %}
-          <span class="badge badge-secondary">
-             
-              {{product.special_offer.friendly_name}}</span>
+          
+          <div class="badge badge-secondary special-offer-badge">{{product.special_offer.friendly_name}}</div>
 
-              {% else %}
-               <span class="badge ">
              
-           </span>
+             
+         
+        
               {% endif %}
+            <div>
             <a class="d-md-block card-text" href="{% url 'product_detail' product.id %}">{{product.friendly_name}}</a>
 
           <p class="card-text">
@@ -81,7 +75,7 @@
               >{{product.category.friendly_name}}</a
             >
           </p>
-        
+        </div>
         </div>
       </div>
       {% endfor %}

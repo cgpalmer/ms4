@@ -3,6 +3,14 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Tag settings */
+a {
+    color: #495057;
+}
+
+a:hover{
+    text-decoration: none;
+}
 
 /* Nav */
 
@@ -29,7 +37,21 @@ body, html {
     display: block;
 }
 
+.input-group-search {
+    width: 92%;
+    float: right;
+}
 
+/* Footer */
+
+footer{
+    text-align: center;
+}
+
+.footer-hr{
+    width: 65%;
+    border-top: 1px solid blue;
+}
 /* Parallax Settings */
 
 .parallax {
@@ -72,6 +94,13 @@ body, html {
 
 }
 
+.special-offer-badge{
+    margin-bottom: 0.5rem;
+}
+
+.search-information{
+    margin-top: 0.5rem;
+}
 /* Django Fields */
 
 .hide {
