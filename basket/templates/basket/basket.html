@@ -43,10 +43,7 @@
                             
 
                             {% for item in basket_items %}
-                            {{item}} 
-                            <p>######################################################</p>
-                            
-                            
+                                               
                             <tr>
                             <form method="POST" action="{% url 'edit_basket'%}">
                             {% csrf_token%}
@@ -224,7 +221,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <p>all item are linked? {{are_all_items_linked}}</p>
+                              
                                     {% if are_all_items_linked == False %}
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     <span class="text-uppercase">Secure Checkout</span>
@@ -266,13 +263,7 @@
         <a href="{% url 'empty_basket' %}">Empty basket</a>
         
     </div>
-    <div>
-        {% if minified_items %}
-            {% for item in minified_items%}
-                {{item}}
-            {% endfor %}
-        {% endif %}
-    </div>
+
  
 <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -94,7 +94,7 @@
                                     <!-- Can you categorise these so they can have little headers? -->
                                     {% for link in linked_product %}
                                     <!-- This should be based on screen size -->
-                                        <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.name}}</option>
+                                        <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.friendly_name}}</option>
                                     {% endfor %}
                                          <!-- Change this to user's name and give a bottom border-->
                                         <option value="" disabled>User Photos</option>
