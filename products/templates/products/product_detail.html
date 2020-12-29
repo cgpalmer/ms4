@@ -10,7 +10,7 @@
                     <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                         <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
                     </a>
-                    <a class="d-md-block" href="{{product.image_url_desktop}}" target="_blank">
+                    <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
                         <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.friendly_name}}">
                     </a>
                     <div class="card-body">
@@ -34,9 +34,10 @@
                             {% else %}
                             <span> £{{product.price}} </span> 
                             {% endif %}
-                        </>
+                         </p>
                         {% if product.rating != 0.00 %}
                         <p class="card-text">{{product.rating}}/5</p>
+                       
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}
@@ -113,18 +114,19 @@
                 
                 
                 
-                  {% if product_type_for_linking == "container" %}
-                            <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                        {{ form.as_p }}
-                    <button type="submit">Upload</button>
-                    </form>
-                    {% endif %}
+                 
                 
                 
                 <button type="submit">Add bag</button>
                 <input type="hidden" name="redirect_url" value="{{request.path}}">
             </form>
+             {% if product_type_for_linking == "container" %}
+                    <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                    </form>
+                    {% endif %}
         </div>
          
 

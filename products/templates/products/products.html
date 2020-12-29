@@ -38,14 +38,14 @@
         <a class="d-md-none" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_mobile}}"
-            class="card-img-top"
+            class="card-img-top images"
             alt="{{product.friendly_name}}"
           />
         </a>
-        <a class="d-md-block" href="{% url 'product_detail' product.id %}">
+        <a class="d-md-block d-none" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_desktop}}"
-            class="card-img-top"
+            class="card-img-top images"
             alt="{{product.friendly_name}}"
           />
         </a>
@@ -60,8 +60,7 @@
              
            </span>
               {% endif %}
-              
-          <p class="card-text">{{product.friendly_name}}</p>
+            <a class="d-md-block card-text" href="{% url 'product_detail' product.id %}">{{product.friendly_name}}</a>
 
           <p class="card-text">
             
