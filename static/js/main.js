@@ -15,6 +15,14 @@ $( document ).ready(function() {
     
 });
 
+// Hiding the photo upload function
+
+$('#imageUploadWrapperTrigger').click(function(){
+    $('#imageUploadWrapper').toggleClass('hide');
+});
+
+// Increasing product quantity
+
 $('#increaseProductDetailQuantity').click(function(e){
     e.preventDefault();
     var quantity = parseInt($('#productDetailQty').val());

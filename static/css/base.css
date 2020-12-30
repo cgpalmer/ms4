@@ -113,8 +113,21 @@ footer{
     margin-top: 0.5rem;
 }
 
+#linkedProductImagePreview, #linkedPhotoLabel{
+    margin-top: 2rem;
+}
 
+#linkedPhotoLabel{
+    margin-bottom: 0.75rem;
+}
 
+.linkingProductSelect{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.imageUploadingForm{
+    text-align: center;
+}
 
 .category-link{
     margin: 0;
