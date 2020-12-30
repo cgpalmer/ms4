@@ -100,8 +100,13 @@ footer{
 
 }
 
+.product-name {
+    display: block;
+    margin-bottom: 1rem;
+}
+
 .special-offer-badge{
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .search-information{

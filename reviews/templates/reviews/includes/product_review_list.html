@@ -1,22 +1,24 @@
 
 
 <div>
-<h5>Reviews</h5>
+
 
 
 
 <p id="reviewTrigger">Read reviews <i class="fas fa-chevron-down"></i></p>
 
 <div id="reviewsWrapper" class="hide">
-<p>hello</p>
-            {% for r in review %} 
-            
-                <div style="border: solid 1px black">
-                    <p>  {{ r.product}}</p>
-                    <p>  {{ r.review_rating }}</p>
+               {% for r in review %} 
+                               
+                <hr>
+              
+                <div>
+                    <p>@{{r.user}} - <i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
                     <p>  {{ r.review_content }}</p>
+                    
                 </div>
+                
             {% endfor %}
+        <hr>
 </div>
 
-<a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a> </div>

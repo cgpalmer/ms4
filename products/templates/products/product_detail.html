@@ -24,7 +24,7 @@
                <span class="badge "></span>
               {% endif %}
            
-                        <p class="card-text">{{product.friendly_name}}</p>
+                        <p class="card-text product-name">{{product.friendly_name}}</p>
                         
 
                          <p class="card-text">
@@ -35,12 +35,20 @@
                             <span> £{{product.price}} </span> 
                             {% endif %}
                          </p>
-                        {% if product.rating != 0.00 %}
+                        
+
+                        <h5>Reviews</h5>
+                        {% if product.number_of_ratings != 0 %}
                         <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
-                       
+
+                        
+                          <div id="productReview" class="review-wrapper">
+                            {% include 'reviews/includes/product_review_list.html' %}
+                        </div>
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}
+                         <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a> </div>
                         
                         {% if blog != None %}
                         
@@ -52,9 +60,7 @@
                         
              
                         
-                        <div id="productReview" class="review-wrapper">
-                            {% include 'reviews/includes/product_review_list.html' %}
-                        </div>
+                      
                         
                         
                         
