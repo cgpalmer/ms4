@@ -16,7 +16,7 @@
                     <div class="card-body">
                     
              {% if product.special_offer.friendly_name != None %}
-          <span class="badge badge-secondary">
+          <span class="badge badge-secondary special-offer-badge">
              
               {{product.special_offer.friendly_name}}</span>
 
@@ -30,13 +30,13 @@
                          <p class="card-text">
             
                             {% if product.price != product.discount_price %} 
-                            <span> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+                            <span class="strikethrough-price"> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
                             {% else %}
                             <span> £{{product.price}} </span> 
                             {% endif %}
                          </p>
                         {% if product.rating != 0.00 %}
-                        <p class="card-text">{{product.rating}}/5</p>
+                        <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
                        
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>

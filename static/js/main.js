@@ -65,6 +65,13 @@ $('#addToBasket').click(function(){
 });
 
 
+// Review reveal
+
+$('#reviewTrigger').click(function(){
+    console.log("triggered");
+    $("#reviewsWrapper").toggleClass('hide');
+});
+
 
 $(".linkingProductSelect").change(function() {
  console.log("function reached.");

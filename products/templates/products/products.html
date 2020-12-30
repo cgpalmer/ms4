@@ -53,14 +53,14 @@
           <p class="card-text">
             
             {% if product.price != product.discount_price %} 
-            <span> <s> £{{product.price}}  </s></span> <span>  £{{product.discount_price}} </span>
+            <span class="strikethrough-price"> <s> £{{product.price}}  </s></span> <span>  £{{product.discount_price}} </span>
             {% else %}
             <span> £{{product.price}} </span> 
             {% endif %}
           </p>
 
           {% if product.number_of_ratings != 0 %}
-                        <p class="card-text">Rating: {{product.rating}}/5</p>
+                        <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}

@@ -114,6 +114,10 @@ footer{
 .category-link{
     margin: 0;
 }
+
+.strikethrough-price{
+    margin-right: 0.5rem;
+}
 /* Django Fields */
 
 .hide {
