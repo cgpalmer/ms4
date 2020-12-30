@@ -4,64 +4,33 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12"> Hidden Gem's Blog Space</div>
-        <div class="col-12">Thank you for showing an interest in this product. Here is the story behind it.</div>
-        <div>Amount of blogs: {{blogs|length}} 
-        {% if feedback %}
-        {{feedback}}
-        {% endif %}
-        
+        <div class="col-12 blog-space-heading"> 
+           <h3> Hidden Gem's</h3> 
+           <h3>Blog Space</h3>
         </div>
-        <div>
-        {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-        </div>
-        
+    
         
     </div>
+  
     <div class="row">
+      
+        <h4 class="blog-space-text" >We do not have any blogs ready at this point. This feature will be coming soon!</h4>
+     
+        
+           <div class="col-12 blog-space-text">Thank you for showing an interest in our products! Here you will find
+            all the stories behind the photographs!</div> 
+
+
+      <div class="row">
     <div class="col-12">
     <form method="GET" action="{% url 'blogs' %}" class="row">
-        <input class="form-control col-8" name="q" type="search" placeholder="Search blogs" aria-label="Search">
-        <button class="btn btn-outline-success col-4" type="submit">Search</button>
+        <input class="form-control col-9" name="q" type="search" placeholder="Search blogs" aria-label="Search" disabled>
+        <button class="btn btn-outline-success col-3" type="submit" disabled><i class="fas fa-search"></i></button>
     </form> 
     
     </div>
     
     </div>
-    <div class="row">
-        {% for blog in blogs %}
-        {% if blog.story %}
-        <div class="col-12 col-md-6 col-lg-4">
-            
-            <div class="col-12 d-block d-sm-block d-md-none"><img class="product-image" src="{{blog.image_mobile_url.image_url_mobile}}" alt=""></div>
-            <div class="col-12 d-none d-sm-none d-lg-block"><img class="product-image" src="{{blog.image_desktop_url.image_url_desktop}}" alt=""></div>
-            <div class="row">
-                <div class="col-12"><p>{{blog.title}}</p></div>
-    
-                <p>{{blog.image_mobile_url.image_url_mobile}}</p>
-            </div>
-            <div class="row">
-                {{blog.product}}
-                <div class="col-12"><p>{{ blog.location }}</p></div>
-            </div>
-            <div class="row">
-                <div class="col-12"><p>{{ blog.sku }}</p></div>
-            </div>
-            
-            <a class="d-md-block" href="{% url 'blog_detail' blog.id %}">
-                More details on the blog
-            </a>
-            
-            
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-
 </div>
 
 {% endblock %}

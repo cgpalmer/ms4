@@ -128,3 +128,16 @@ footer{
     max-height: 200px;
     overflow: hidden;
 }
+
+
+/* Blog space */
+
+.blog-space-heading {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.blog-space-text{
+    text-align: center;
+    margin-bottom: 1rem;
+}
