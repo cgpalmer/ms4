@@ -42,6 +42,29 @@ $('#decreaseProductDetailQuantity').click(function(e){
     }
 });
 
+let digital_counter = 0
+$("#deliveryTypeCheckbox").change(function() {
+    digital_counter++;
+    
+    if (digital_counter % 2 == 0){
+        console.log(digital_counter);
+         $("#productDetailQty, #decreaseProductDetailQuantity, #increaseProductDetailQuantity").prop('disabled', false);
+        var quantity = 1;
+         $('#productDetailQty').val(quantity);
+    } else {
+        console.log("odd");
+        $("#productDetailQty, #decreaseProductDetailQuantity, #increaseProductDetailQuantity").prop('disabled', true);
+      var quantity = 1;
+        $('#productDetailQty').val(quantity);
+    }
+   
+});
+
+$('#addToBasket').click(function(){
+    $("#productDetailQty").prop('disabled', false);
+});
+
+
 
 $(".linkingProductSelect").change(function() {
  console.log("function reached.");
@@ -64,20 +87,7 @@ $(".linkingProductSelect").change(function() {
  
 });
 
-let digital_counter = 0
-$("#deliveryTypeCheckbox").change(function() {
-    digital_counter++;
-    
-    if (digital_counter % 2 == 0){
-        console.log(digital_counter);
-        $("#productQuantity").removeClass('hide');
 
-    } else {
-        console.log("odd");
-        $("#productQuantity").addClass('hide');
-    }
-   
-});
 
 function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {
     let editButton = document.getElementById(editId);
