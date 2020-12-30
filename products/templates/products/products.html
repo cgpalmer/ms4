@@ -27,12 +27,12 @@
     <div class="row">
       {% for product in products %}
       <div
-        class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded"
+        class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-4 rounded"
       >
         <a class="d-md-none" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_mobile}}"
-            class="card-img-top images"
+            class="card-img-top product-card-image "
             alt="{{product.friendly_name}}"
           />
         </a>
@@ -70,7 +70,7 @@
                         {% else %}
                         <p class="card-text">This product hasn't been rated yet.</p>
                         {% endif %}
-          <p>
+          <p class="category-link" >
             <a href="{% url 'products' %}?category={{product.category.name}}"
               >{{product.category.friendly_name}}</a
             >

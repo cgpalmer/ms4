@@ -12,6 +12,11 @@ a:hover{
     text-decoration: none;
 }
 
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 /* Nav */
 
 .form-control-search{
@@ -88,6 +93,7 @@ footer{
     height: 100px;
 }
 
+
 .product-image{
     width: 100%;
     object-fit: cover;   
@@ -101,6 +107,13 @@ footer{
 .search-information{
     margin-top: 0.5rem;
 }
+
+
+
+
+.category-link{
+    margin: 0;
+}
 /* Django Fields */
 
 .hide {
@@ -110,3 +123,8 @@ footer{
 
 /* Images */
 
+.product-card-image {
+    max-width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+}

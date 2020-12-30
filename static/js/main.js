@@ -6,16 +6,41 @@ $( document ).ready(function() {
  
 
   
-     $("#desktopExtraNavWrapper").hover(function(){
-        $("#desktopDropDownMenu").css('display', 'flex');}
-        ,function(){
-    $("#desktopDropDownMenu").css('display', 'none');
-    });
-    $("#id_discount_price").addClass('hide');
+    //  $("#desktopExtraNavWrapper").hover(function(){
+    //     $("#desktopDropDownMenu").css('display', 'flex');}
+    //     ,function(){
+    // $("#desktopDropDownMenu").css('display', 'none');
+    // });
+    // $("#id_discount_price").addClass('hide');
     
 });
 
+$('#increaseProductDetailQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#productDetailQty').val());
+        
+        // If is not undefined
+            
+            $('#productDetailQty').val(quantity + 1);
+       
+            $('#addToBasket').prop('disabled', false);
+        
+});
 
+$('#decreaseProductDetailQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#productDetailQty').val());
+        
+        // If is not undefined
+    if (quantity > 1){         
+        $('#productDetailQty').val(quantity - 1);
+    } else {
+        quantity = 0;
+         $('#productDetailQty').val(quantity);
+
+        $('#addToBasket').prop('disabled', true);
+    }
+});
 
 
 $(".linkingProductSelect").change(function() {
