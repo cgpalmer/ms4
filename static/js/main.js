@@ -102,6 +102,18 @@ $(".linkingProductSelect").change(function() {
  
 });
 
+// Update basket
+
+$('.editBasketBodyTrigger').click(function(){
+    console.log("triggered!!")
+    $('.editBasketBody').toggleClass('hide');
+});
+
+$('.reset-modal-body').click(function(){
+    console.log("triggered reset")
+    $('.editBasketBody').addClass('hide');
+});
+
 
 
 function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {

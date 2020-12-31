@@ -187,3 +187,13 @@ footer{
 .linked-products-div{
     padding: 0;
 }
+
+.basket-summary-wrapper{
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+.checkout-button-wrapper{
+    margin-bottom: 1rem;
+    text-align: center;
+}

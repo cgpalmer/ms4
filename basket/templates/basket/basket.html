@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
+
+
+                <hr>
+                <h2 class="logo-font mb-4">Shopping Bag</h2>
+                <hr>
+     
+{% if basket_items %}      
      {% for item in basket_items %}
+
     <div class="container basket-container">
+
+    
      <div class="row">
             <div class="col-12">
                 <p>{{ item.product.friendly_name}}</p>
@@ -21,8 +23,11 @@
             <div class="col-10">
                 <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}">
             </div>
-            <div class="col-2">
-            <i class="fas fa-ellipsis-v"></i>
+            <div class="col-2" >
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+   <i class="fas fa-ellipsis-v"></i>
+</button>
+           
             </div>
         </div>
        
@@ -44,7 +49,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <p class="basket-info">Delivery Type</p>
+                        <p class="basket-info">Digital photo? {{ item.digital_download }}</p>
                     </div>
                    
                     <div class="col-6">
@@ -74,74 +79,40 @@
                 {% endif %}
                 
         </div>
-   
-      {% endfor %}
 
-    <div class="container mb-2">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Shopping Bag</h2>
-                <hr>
-            </div>
-        </div>
-        
-
-        <div class="row">
-            <div class="col">
-                {% if basket_items %}
-                    <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col">Delivery Type</th>
-
-
-                                </tr>
+    <!-- Edit basket Modal -->
+<div class="modal fade" id="basketModal{{item.item.basket_item_id}}" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="editBasketHeader" class="modal-header editBasketBodyTrigger">
+        <h5 class="modal-title " id="exampleModalLabel"><i class="fas fa-edit"></i> Edit Basket Item <i class="fas fa-chevron-down"></i></h5>
+      </div>
+      <div id="editBasketModalBody" class="modal-body editBasketBody hide">
+           <form method="POST" action="{% url 'edit_basket' %}">
+            {% csrf_token%}
+          <h3>quantity</h3>
+          <!-- <div class="input-group">
+                <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
+            </div> -->
+             <div class="input-group">
+                                      <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantity">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>  
                                
-                            </thead>
-                            
-                            
-
-                            {% for item in basket_items %}
-                                               
-                            <tr>
-                            <form method="POST" action="{% url 'edit_basket'%}">
-                            {% csrf_token%}
-                                
-                                    <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                                        {% if item.item.repeats_found %}
-                                        <p>{{item.item.repeats_found}}</p>
-                                        {% endif %}
-                                    </td>
-                                    <td class="py-3">
-                                    
-                                        <p class="my-0">${{ item.product.discount_price }}</p>
-                                    </td>
-                                    <td class="py-3 w-25">
-                                        <p  class=" my-0">{{ item.item.quantity }}</p>
-                                        <div class="input-group">
-                                            <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control qty_input hide" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
-                                        </div> 
-                                    </td>
-                                    
-                                    <td class="py-3">
-                                    
-                                        <p class="my-0">${{ item.subtotal }}</p>
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">Digital photo? {{ item.digital_download }}</p>
+                                        <input class="form-control qty_input" type="number" name="basket_quantity" value="1" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty">
+                                   <!-- Am I allowed the same ID on different pages? -->
+                                  <button class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantity">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>  
+                                </div>
+                                        <h3>digital </h3>
+        <p class="my-0">Digital photo? {{ item.digital_download }}</p>
                                         {% if item.product.product_type == 'photo' %}
-                                         <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="extraClass hide">
+                                         <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="">
                                             {% if item.digital_download == "on" %}
                                             <option value="None">Delivery</option>
                                             <option selected value="on">Digital Download</option>
@@ -158,23 +129,19 @@
                                                 </select>
                                             </div>
                                         {% endif%}
-                                    </td>
-                                    
-                              
-                                     <td >
-                                      <!-- change this to sku as some point -->
-                                    <div id="linkedItemEdit{{forloop.counter0}}" class="extra_class hide">This is what youre test
+                <h3>linked</h3>
+                <div id="" class="">This is what youre test
                                      {% for image in item.item.linked_products %}
                                      {% if item.product.product_type == 'container' %}
                                         
-                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product{{forloop.counter0}}" class=" py3">
+                                        <select name="edit-linked-product" id="basket-linked-product" class=" py3">
                                         
                                         {% for product in products %} 
                                         {% if product.sku == image %}
-                                           <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>Found already chosen</option>
+                                           <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option>
                                         {% endif%}  
 
-                                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.name}}</option>
+                                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                                         {% endfor %}
                                         <option value="" disabled>User Photos</option>
                                         {% for photo in user_photos %}
@@ -188,106 +155,45 @@
                                    {% endif %}
                                 {% endfor %}
                                </div>
-                                 </td>
-                                    <td class="py-3">
-                                        <div 
-                                            onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
-                                                                'update-product-{{ forloop.counter0}}', 
-                                                                'cancel-edit-product-{{ forloop.counter0}}',
-                                                                'basket-item-quantity{{ forloop.counter0}}',
-                                                                'basket-item-delivery{{ forloop.counter0}}',
-                                                                'linkedItemEdit{{forloop.counter0}}',
-                                                                'update'
-                                                                )" 
-                                                                id="edit-product-{{ forloop.counter0}}" 
-                                                                class="edit-basket-product my-0">
-                                                                Edit
-                                        </div>
-                                    </td>
-                                    <td class="py-3">
-                                    {{item.item.basket_item_id}}
-                                        <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                                        <input type="submit" id="update-product-{{ forloop.counter0}}" value="input" href="" class="update-basket-product hide my-0">
-                                    </td>
-                                    <td class="py-3">
-                                        <div onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
-                                                                    'update-product-{{ forloop.counter0}}', 
-                                                                    'cancel-edit-product-{{ forloop.counter0}}',
-                                                                    'basket-item-quantity{{ forloop.counter0}}',
-                                                                    'basket-item-delivery{{ forloop.counter0}}',
-                                                                    'linkedItemEdit{{forloop.counter0}}',
-                                                                    'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</div>
-                                    </td>
-                                    </form>
-                                {% if item.item.linked_product_image != "Not linked" %}
-                                    <td>
-                                        <a href="{% url 'delete_basket_item' item.item.basket_item_id %}">Remove</a>
-                                    </td>
-                                </tr>
-                                {% endif %}
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+      </div>
+       <div class="modal-header">
+        <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+      </div>
 
-                                <tr>
-                                
-                                    <th>Linked Products</th>
-                                </tr>
-                                <tr>
-                                {% for image in item.item.linked_product_images_list %}
-                                    <td class="p-3 w-25">
-                                         <img class="img-fluid rounded" src="{{image}}" alt="">
-                                    </td>
-                                    
-                                    
-                                      {% endfor %}
-                                    <!--  -->
-                                    
-                                </tr>
-                                
-                                <tr>
-                                    
-                                                                           
-                                        {%for g in item.item.linked_products%}
-                                        {% if g != 'Not linked' %}
-                                        <td class="p-3 w-25">
-                                        <div>
-                                        
-                                          
-                                                <p>{{g}}</p>
-                                  
-                                        </div>
-                                         </td>
-                                        {% endif %}
-                                        {% endfor %}
-                                </tr>
-                                <tr>
-                               
-                                </tr>
-                                
-                            {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                <h6>Savings: £{{money_saved}}</h6>
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_deficit > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_deficit }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                <p>Delivery total: {{delivery_total}} </p>
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                              
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary reset-modal-body" data-dismiss="modal">Close</button>
+   
+      </div>
+    </div>
+  </div>
+</div> 
+   
+      {% endfor %}
+
+<div class="container">
+    <div class="row">
+         <div class="col-12">
+            <a href="{% url 'empty_basket' %}"><i class="fas fa-trash-alt"></i> Empty basket</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 basket-summary-wrapper">
+            <h6>Savings: £{{money_saved}}</h6>
+            <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
+            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+            <h4 class=""><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+            {% if free_delivery_deficit > 0 %}
+                <p class="mb-1 text-danger">
+                    You could get free delivery by spending just <strong>£{{ free_delivery_deficit }}</strong> more!
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-12 checkout-button-wrapper">
                                     {% if are_all_items_linked == False %}
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     <span class="text-uppercase">Secure Checkout</span>
@@ -302,14 +208,20 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </a>
-
-                                    {% endif %}
                                     
-                                </td>
-                                
-                            </tr>
-                        </table>
-                    </div>
+                            
+                                    {% endif %}
+            </div>
+                                    <div class="col-12 checkout-button-wrapper">
+                                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                             </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                                         </a>
+                        </div>
+                </div> 
+                </div>              
                 {% else %}
                       
                     <p class="lead mb-5">Your bag is empty.</p>
@@ -325,10 +237,7 @@
     </div>
     
 
-    <div>
-        <a href="{% url 'empty_basket' %}">Empty basket</a>
-        
-    </div>
+   
 
  
 <!-- Modal -->
