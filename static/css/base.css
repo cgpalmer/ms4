@@ -207,6 +207,11 @@ footer{
     text-align: right;
 }
 
+.keep-shopping-button{
+    padding: 0;
+}
+
+/* Checkout */
 .checkout-button-wrapper{
     margin-bottom: 1rem;
     text-align: center;
@@ -228,4 +233,8 @@ footer{
     appearance: textfield;
     border-style: solid;
     border-width: 2px;
+}
+
+.order-number{
+    word-wrap: break-word;
 }

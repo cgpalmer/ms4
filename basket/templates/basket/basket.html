@@ -220,14 +220,21 @@
                 </div> 
                 </div>              
                 {% else %}
-                      
-                    <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <div class="row text-center">
+                    <div class="col-12">
+                         <p class="lead mt-4 mb-5">Your bag is empty.</p>
+                    </div>
+                    <div class="col-12">
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 keep-shopping-button btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
+                    </div>
+                    
+                </div> 
+                   
                 {% endif %}
             </div>
         </div>
