@@ -114,6 +114,10 @@ $('.reset-modal-body').click(function(){
     $('.editBasketBody').addClass('hide');
 });
 
+$('.quantityModifier').click(function(e){
+    e.preventDefault();
+});
+
 
 
 function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {

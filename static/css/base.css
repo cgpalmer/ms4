@@ -146,7 +146,7 @@ footer{
 /* Images */
 
 .product-card-image {
-    max-width: 100%;
+    object-fit: contain;
     max-height: 200px;
     overflow: hidden;
 }
@@ -172,7 +172,16 @@ footer{
 /* Basket page */
 
 .basket-container{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.basket-header{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.empty-basket-wrapper{
+    text-align: center;
 }
 
 .linked-products-basket-wrapper{
@@ -188,7 +197,12 @@ footer{
     padding: 0;
 }
 
+.linked-product-hr{
+    width: 65%;
+}
+
 .basket-summary-wrapper{
+    margin-top: 1rem;
     margin-bottom: 2rem;
     text-align: right;
 }
