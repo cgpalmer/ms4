@@ -192,7 +192,7 @@
     <div class="row">
             <div class="col-12 checkout-button-wrapper">
                                     {% if are_all_items_linked == False %}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkProductsModal">
                                     <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -238,22 +238,23 @@
 
  
 <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="checkProductsModal" tabindex="-1" role="dialog" aria-labelledby="checkProductsModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="checkProductsModalLabel">Please check your products</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <p class="check-product-paragraph">1 or more of your products does not have a linked photograph. </p>
+        <p>This means that if you have order a photo frame, canvas or calendar, they may arrive blank.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
+        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
+        <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn btn-success rounded-0 btn-lg">
+                                        <span>Continue To Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
