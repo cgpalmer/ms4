@@ -151,7 +151,11 @@ footer{
     overflow: hidden;
 }
 
-
+.thumbnail{
+    max-height: 100px;
+    max-width: 50%;
+    margin-bottom: 1rem;
+}
 /* Blog space */
 
 .blog-space-heading {
@@ -162,4 +166,24 @@ footer{
 .blog-space-text{
     text-align: center;
     margin-bottom: 1rem;
+}
+
+
+/* Basket page */
+
+.basket-container{
+    margin-bottom: 2rem;
+}
+
+.linked-products-basket-wrapper{
+    margin-top: 1rem;;
+}
+
+.basket-info{
+    margin: 0;
+    padding: 0;
+}
+
+.linked-products-div{
+    padding: 0;
 }
