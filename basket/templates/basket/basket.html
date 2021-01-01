@@ -37,7 +37,7 @@
                            <p class="basket-info">Qty: {{ item.item.quantity }}</p>
                         </div>
                         <div class="col-6">
-                        <p class="basket-info">Sub-total: £{{ item.subtotal }}</p>
+                         <p class="basket-info">Price: £{{ item.product.discount_price }}</p>
                     </div>
                         
                 </div>
@@ -47,7 +47,8 @@
                         <p class="basket-info">SKU: {{ item.product.sku|upper }}</p>
                     </div>
                     <div class="col-6">
-                        <p class="basket-info">Price: £{{ item.product.discount_price }}</p>
+                        <p class="basket-info">Sub-total: £{{ item.subtotal }}</p>
+                       
                     </div>
                     
                 </div>
