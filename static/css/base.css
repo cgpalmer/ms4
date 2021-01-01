@@ -17,6 +17,10 @@ a:hover{
     margin-right: 0;
 }
 
+.smaller-hr{
+    width: 65%;
+}
+
 /* Nav */
 
 .form-control-search{
@@ -53,10 +57,8 @@ footer{
     text-align: center;
 }
 
-.footer-hr{
-    width: 65%;
-    border-top: 1px solid blue;
-}
+
+
 /* Parallax Settings */
 
 .parallax {
