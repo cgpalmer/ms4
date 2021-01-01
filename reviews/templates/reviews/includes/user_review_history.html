@@ -3,6 +3,7 @@
         {% for r in review %}              
             <hr>
                 <div class="text-center">
+                    <p> {{ r.product.friendly_name }}</p>
                     <p><i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
                     <p>  {{ r.review_content }}</p> 
                 
