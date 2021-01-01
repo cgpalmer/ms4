@@ -1,34 +1,36 @@
-<h4>Reviews</h4>
-    {% for r in review %} 
-        <div>
-            <div style="border: solid 1px black">
-                <p>  {{ r.product}}</p>
-                <p>  {{ r.review_rating }}</p>
-                <p>  {{ r.review_content }}</p>
-                <a href="{% url 'edit_review' r.id %}">Edit review</a>         
-            </div>  
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
-                <span>Delete</span>
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="deleteReviewNumber{{r.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewNumber{{r.id}}ModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteReviewNumber{{r.id}}Label">Are you sure you want to remove this?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+<hr>
+<h4 class="text-center">Reviews</h4>
+        {% for r in review %}              
+            <hr>
+                <div class="text-center">
+                    <p><i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
+                    <p>  {{ r.review_content }}</p> 
                 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn btn-black rounded-0 btn-lg">
-                                <span class="text-uppercase">Delete review</span>                      
-                            </a>
+                    <a class="btn btn-primary" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit"></i><span class="buttonText"> Edit</span></a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
+                        <i class="fas fa-trash-alt"></i><span class="buttonText"> Delete</span>
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteReviewNumber{{r.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewNumber{{r.id}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteReviewNumber{{r.id}}Label">Are you sure you want to remove this?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                    
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn btn-black rounded-0 btn-lg">
+                                    <span class="text-uppercase">Delete review</span>                      
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 {% endfor %}
+
+        <hr>

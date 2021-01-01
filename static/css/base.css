@@ -238,3 +238,17 @@ footer{
 .order-number{
     word-wrap: break-word;
 }
+
+/* Profiles */
+
+.card-header{
+    text-align: center;
+}
+
+.buttonText{
+    display: none;
+}
+
+.full-width{
+    width: 100%;
+}
