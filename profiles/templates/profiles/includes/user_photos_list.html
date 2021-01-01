@@ -1,10 +1,21 @@
+ <hr>
+<h4 class="text-center">Your photographs</h4>
  {% for photo in user_photos %}
-        <div>
-        {{photo.title}}
-        <img class="w-25" src="/media/{{photo.image}}" alt="">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
-                        <span>Delete</span>
+    <hr>
+        <div class="container">
+            <div class="row">
+                <p class="col-12 text-center"> Title: {{photo.title}}</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img class="w-100" src="/media/{{photo.image}}" alt="">
+                </div>
+                <div class="col-12 mt-3 text-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
+                         <i class="fas fa-trash-alt"></i> Delete
                     </button>
+                </div>
+            </div>
         </div>
        
        <!-- Modal -->
@@ -19,9 +30,9 @@
                         </div>
                 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase">Delete Photo</span>                      
+                        <button type="button" class="btn btn-secondary rounded-0 btn-lg" data-dismiss="modal">Close</button>
+                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn btn-success rounded-0 btn-lg">
+                            <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                      
                         </a>
                     </div>
                 </div>
@@ -29,3 +40,5 @@
             </div>
 
     {% endfor %}
+
+    <hr>
