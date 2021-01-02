@@ -60,33 +60,24 @@ footer{
 
 
 /* Parallax Settings */
-
-.parallax {
-  /* The image used */
-  background-image: url('../media/product-images/bratislava.jpg');
-
-  /* Full height */
-  height: 100%; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+.home-image{
+    background-image: url('../media/product-images/bratislava.jpg');
+    background-position: center;
+     background-repeat: no-repeat;
   background-size: cover;
+  height: 85vh;
 }
 
-.parallaxImage{
-    height: 100vh;
+.jumbotron{
+    padding-top: 9.5rem;
+    margin-bottom: 0;
 }
 
-.parallaxImageTextWrapper {
-    background-color: rgba(255, 255, 255, 0.7);
+.jumbotronImageTextWrapper {
+    background-color: rgba(255, 255, 255, 0.85);
     opacity: 1;
     color: black;
-}
-
-.static{
-    height: 75vh;
+    text-align: center;
 }
 
 /* Products */
