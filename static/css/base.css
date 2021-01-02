@@ -3,13 +3,41 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Tag settings */
+a {
+    color: #495057;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.smaller-hr{
+    width: 65%;
+}
 
 /* Nav */
 
-#extendedSearchBar{
-    display: none;
+.form-control-search{
+    display: inline-block;
+    width: 44%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 #desktopDropDownMenu{
     display: none;
 }
@@ -18,35 +46,38 @@ body, html {
     display: block;
 }
 
+.input-group-search {
+    width: 92%;
+    float: right;
+}
+
+/* Footer */
+
+footer{
+    text-align: center;
+}
+
+
 
 /* Parallax Settings */
-
-.parallax {
-  /* The image used */
-  background-image: url('../media/product-images/bratislava.jpg');
-
-  /* Full height */
-  height: 100%; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+.home-image{
+    background-image: url('../media/product-images/bratislava.jpg');
+    background-position: center;
+     background-repeat: no-repeat;
   background-size: cover;
+  height: 85vh;
 }
 
-.parallaxImage{
-    height: 100vh;
+.jumbotron{
+    padding-top: 9.5rem;
+    margin-bottom: 0;
 }
 
-.parallaxImageTextWrapper {
-    background-color: rgba(255, 255, 255, 0.7);
+.jumbotronImageTextWrapper {
+    background-color: rgba(255, 255, 255, 0.85);
     opacity: 1;
     color: black;
-}
-
-.static{
-    height: 75vh;
+    text-align: center;
 }
 
 /* Products */
@@ -55,14 +86,163 @@ body, html {
     height: 100px;
 }
 
+
 .product-image{
     width: 100%;
     object-fit: cover;   
 
 }
 
+.product-name {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.special-offer-badge{
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.search-information{
+    margin-top: 0.5rem;
+}
+
+#linkedProductImagePreview, #linkedPhotoLabel{
+    margin-top: 2rem;
+}
+
+#linkedPhotoLabel{
+    margin-bottom: 0.75rem;
+}
+
+.linkingProductSelect{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.imageUploadingForm{
+    text-align: center;
+}
+
+.category-link{
+    margin: 0;
+}
+
+.strikethrough-price{
+    margin-right: 0.5rem;
+}
 /* Django Fields */
 
 .hide {
     display: none;
+}
+
+
+/* Images */
+
+.product-card-image {
+    object-fit: contain;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.thumbnail{
+    max-height: 100px;
+    max-width: 50%;
+    margin-bottom: 1rem;
+}
+/* Blog space */
+
+.blog-space-heading {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.blog-space-text{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+/* Basket page */
+
+.basket-container{
+    margin-bottom: 1rem;
+}
+
+.basket-header, .checkout-header{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.empty-basket-wrapper{
+    text-align: center;
+}
+
+.linked-products-basket-wrapper, .check-product-paragraph{
+    margin-top: 1rem;;
+}
+
+.basket-info{
+    margin: 0;
+    padding: 0;
+}
+
+.linked-products-div{
+    padding: 0;
+}
+
+.linked-product-hr{
+    width: 65%;
+}
+
+.basket-summary-wrapper, .checkout-summary-wrapper{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+.keep-shopping-button{
+    padding: 0;
+}
+
+/* Checkout */
+.checkout-button-wrapper{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.checkout-item-wrapper{
+    margin-bottom: 1.5rem;
+}
+
+.checkout-summary-wrapper{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.stripe-style-input{
+    width: 90%;
+    margin-bottom: 0.5rem;
+    appearance: textfield;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.order-number{
+    word-wrap: break-word;
+}
+
+/* Profiles */
+
+.card-header{
+    text-align: center;
+}
+
+.buttonText{
+    display: none;
+}
+
+.full-width{
+    width: 100%;
 }

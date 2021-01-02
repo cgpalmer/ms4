@@ -2,105 +2,128 @@
 {% load static %}
 
 {% block content %}
-   <h1>Admin Profile</h1>
-
-    <a href="{% url 'add_product' %}">Add product</a>
-    <a href="{% url 'add_blog' %}">Add blog</a>
-
-
-    <div>
-    <h2>Manage Products</h2>
-    
-    
-   
-    
-    <div class="adminCategoryWrapper">
-    <select name="" id="adminProductManage">
-    <option value="" selected disabled>Choose a category</option>
-       {% for cat in categories %}
-        <option value="{{cat.name}}">{{cat.name}}</option>
-       {% endfor %}
-    </select>
-    
-    {% for product in products %}  
-  <div  class="adminCategory{{product.category}} allProducts hide">
-      <div>
-    <div>{{product.name}}: {{product.sku}} - <a href="{% url 'edit_product' product.id %}">Edit</a>  
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
-                        <span>Delete</span>
-                    </button>
-                 <!-- Modal -->
-            <div class="modal fade" id="deleteProductNumber{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteProductNumber{{product.id}}ModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteProductNumber{{product.id}}Label">Are you sure you want to remove this?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <hr>
+            <h2 class="logo-font ">Admin Profile</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4><i class="fas fa-plus-circle"></i><a  href="{% url 'add_product' %}"> Add product</a></h4>
+        </div>
+        <div class="col-12">
+            <h4><i class="fas fa-plus-circle"></i><a href="{% url 'add_blog' %}"> Add blog</a></h4>
+        </div>
+        <div class="col-12 text-center">
+            <hr>
+            <h4>Manage Products</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 adminCategoryWrapper text-center">
+            <select class="stripe-style-input rounded" id="adminProductManage">
+                <option value="" selected disabled>Choose a category</option>
+                {% for cat in categories %}
+                    <option value="{{cat.friendly_name}}">{{cat.friendly_name}}</option>
+                {% endfor %}
+            </select>
+            <hr id="adminCategoryHR" class="hide">
+            {% for product in products %}  
+                
+                <div class="adminCategory{{product.category.friendly_name}} allProducts hide col-12 text-center">
+                    
+                    <p>Name: {{product.name}} </p>
+                    <p>SKU: {{product.sku}} </p>
+                
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <a class="btn btn-primary" href="{% url 'edit_product' product.id %}">Edit</a>
+                        </div>
+                        <div class="col-6 text-center">
+                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
+                                <span>Delete</span>
                             </button>
                         </div>
-                
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase">Delete review</span>                      
-                        </a>
                     </div>
+                    
+                <hr>
                 </div>
-            </div>
-    </div>
-        
-   
-            <div>  
-                  {% for blog in blogs %}
-                        {% if blog.product == product %}
-                            <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a> 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
-                        <span>Delete</span>
-                    </button>
-                 <!-- Modal -->
-                    <div class="modal fade" id="deleteBlogNumber{{blog.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteBlogNumber{{blog.id}}}ModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteBlogNumber{{blog.id}}Label">Are you sure you want to remove this?</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                        
-                                <div class="modal-footer">
+                
+                   <!-- Modal -->
+                <div class="modal fade" id="deleteProductNumber{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteProductNumber{{product.id}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteProductNumber{{product.id}}Label">Are you sure you want to remove this?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>              
+                            <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-black rounded-0 btn-lg">
-                                    <span class="text-uppercase">Delete review</span>                      
+                                <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn btn-success rounded-0 btn-lg">
+                                    <span class="text-uppercase">Delete product</span>                      
                                 </a>
                             </div>
                         </div>
-                    </div>
-                        {% endif %}
-                     {% endfor %}
-            </div>
-
-    
-    {% endfor %}
-
+                    </div> 
+                </div>
+                
+                {% for blog in blogs %}
+                    {% if blog.product == product %}
+                        <div class="col-12">
+                            <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a></p>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
+                                <span>Delete</span>
+                            </button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteBlogNumber{{blog.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteBlogNumber{{blog.id}}}ModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteBlogNumber{{blog.id}}Label">Are you sure you want to remove this?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                        
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-success rounded-0 btn-lg">
+                                            <span class="text-uppercase">Delete review</span>                      
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            
+            {% endfor %}
+                
         </div>
-   
-   {% for order in orders %}
- 
-   
+    </div>
 
-        <a href="{% url 'order_history' order.order_number %}"
-        title="{{ order.order_number }}">
-            {{ order.order_number|truncatechars:6 }}
-        </a>
-    
-    <p>{{ order.date }}</p>
-
-
-{% endfor %}
-
-
-
-
+    <div class="row">
+        <div class="col-12 text-center">
+            <hr>
+            <h4>Order History</h4>
+            <hr>
+        </div>
+        {% for order in orders %}
+            <div class="col-12 text-center">
+                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                    {{ order.order_number|truncatechars:15 }}
+                </a>
+                <p>{{ order.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% include 'includes/footer.html' %}    
 {% endblock %}

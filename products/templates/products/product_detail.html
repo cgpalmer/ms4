@@ -2,135 +2,136 @@
 {% load static %}
 
 {% block content %}
-    <section>
-    <div class="container product-container">
-        <div class="row">
-           
-                <div class="card col-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-white rounded">
-                    <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
-                        <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
-                    </a>
-                    <a class="d-md-block" href="{{product.image_url_desktop}}" target="_blank">
-                        <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.friendly_name}}">
-                    </a>
-                    <div class="card-body">
-                        <div class="card-body">
-             {% if product.special_offer.friendly_name != None %}
-          <span class="badge badge-secondary">
-             
-              {{product.special_offer.friendly_name}}</span>
-
-              {% else %}
-               <span class="badge "></span>
-              {% endif %}
-           
-                        <p class="card-text">{{product.friendly_name}}</p>
-                        
-
-                         <p class="card-text">
-            
-                            {% if product.price != product.discount_price %} 
-                            <span> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
-                            {% else %}
-                            <span> £{{product.price}} </span> 
-                            {% endif %}
-                        </>
-                        {% if product.rating != 0.00 %}
-                        <p class="card-text">{{product.rating}}/5</p>
-                        {% else %}
-                        <p class="card-text">This product hasn't been rated yet.</p>
-                        {% endif %}
-                        
-                        {% if blog != None %}
-                        
-                        <a class="d-md-block" href="{% url 'blog_detail_from_product' product.id %}">
-                            {{blog.title}}
-                        </a>
-                        {% endif %}
-                    
-                        
-             
-                        
-                        <div id="productReview" class="review-wrapper">
-                            {% include 'reviews/includes/product_review_list.html' %}
-                        </div>
-                        
-                        
-                        
-                        </div>                 
-                 
-
-                    </div>
-                 </div>
-
-
-       
-        
-        
-        
-        </div>
-           
-        <div class="row">
-            <form method="POST" action="{% url 'add_to_basket' product.id %}">
-            {% csrf_token%}
-            
-                {% if product.digital_download %}
-                <label for="digital_download">Digital download?</label>
+<div class="container">
+    <div class="row">
+        <div class="card  col-12  mt-4 col-md-6 col-lg-4 shadow p-3 mb-4 rounded">
+            <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
+                <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
+            </a>
+            <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
+                <img src="{{product.image_url_desktop}}" class="card-img-top" alt="{{product.friendly_name}}">
+            </a>
+            <div class="card-body">   
+                {% if product.special_offer.friendly_name != None %}
+                    <span class="badge badge-secondary special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
+                {% else %}
+                    <span class="badge "></span>
                 {% endif %}
-                <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
-                 <div id="productQuantity" class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    </div>
-                                </div>
-                                {% if product_type_for_linking == "container" %}
-                                <h4>Link with photo</h4>
-                                {% for number in number_of_pictures_loop %}
-                                <select name="linked_product{{number}}" class="linkingProductSelect">
-                                    <option value="Not linked|No id|No item">Not linked</option>
-                                    <!-- Can you categorise these so they can have little headers? -->
-                                    {% for link in linked_product %}
-                                    <!-- This should be based on screen size -->
-                                        <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.name}}</option>
-                                    {% endfor %}
-                                         <!-- Change this to user's name and give a bottom border-->
-                                        <option value="" disabled>User Photos</option>
-                                    {% for photo in user_photos %}
-                                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                                    {% endfor %}
-                                </select>
-                                {% endfor %}
-                                {% endif %}
-                            </div>
-
-                            <!-- This image  -->
-                            
-                            <a id="linkedProductImagePreview" class="" href="" target="_blank">
-                                <img id="linkImageSelection" src="" class="card-img-top" alt="{{link.name}}">
-                            </a>
-                
-                
-                
-                  {% if product_type_for_linking == "container" %}
-                            <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                        {{ form.as_p }}
-                    <button type="submit">Upload</button>
-                    </form>
+                <p class="card-text product-name">{{product.friendly_name}}</p>
+                <p class="card-text">            
+                    {% if product.price != product.discount_price %} 
+                        <span class="strikethrough-price"> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+                    {% else %}
+                        <span> £{{product.price}} </span> 
                     {% endif %}
+                </p>
+                <h5>Reviews</h5>
+                {% if product.number_of_ratings != 0 %}
+                    <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
+                    <div id="productReview" class="review-wrapper">
+                        {% include 'reviews/includes/product_review_list.html' %}
+                    </div>
+                {% else %}
+                    <p class="card-text">This product hasn't been rated yet.</p>
+                {% endif %}
+                    <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if product_type_for_linking == "container" %}
+        
+<div class="container">
+    <div class="row">
+        <div class="card  col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+            <p class="btn btn-primary rounded-0" id="imageUploadWrapperTrigger">Click to upload your own image!</p>
+            <div id="imageUploadWrapper" class="imageUploadingForm hide">
+                {% if product_type_for_linking == "container" %}
+                    <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-success btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+           
+<div class="container">       
+    <div class="row">    
+        <div class="card  col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-4 rounded text-center">
+            <form method="POST" action="{% url 'add_to_basket' product.id %}">
+                {% csrf_token%}        
+                <div id="productQuantity" class="">
+                    <h4 class="my-3">Quantity</h4>
+                    <div class="input-group mb-0">
+                        <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantity">
+                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        </button>  
+                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty">
+                        <button class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantity">
+                            <span><i class="fas fa-plus fa-sm"></i></span>
+                        </button>  
+                    </div>
+                </div>
+                {% if product_type_for_linking == "container" %}
+                    <h4 id="linkedPhotoLabel">Link with photo</h4>
+                    {% for number in number_of_pictures_loop %}
+                        <select name="linked_product{{number}}" class="linkingProductSelect">
+                            <option value="Not linked|No id|No item">Not linked</option>
+                            <!-- Can you categorise these so they can have little headers? -->
+                            {% for link in linked_product %}
+                            <!-- This should be based on screen size -->
+                                <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.friendly_name}}</option>
+                            {% endfor %}
+                            <!-- Change this to user's name and give a bottom border-->
+                            <option value="" disabled>User Photos</option>
+                            {% for photo in user_photos %}
+                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                            {% endfor %}
+                       </select>
+                    {% endfor %}
+                    <!-- This image  -->
+                    <div>
+                        <a id="linkedProductImagePreview" class="" href="" target="_blank">
+                            <img id="linkImageSelection" src="" class="card-img-top product-name" alt="{{link.name}}">
+                        </a>
+                        </div>                            
+                {% endif %}   
                 
                 
-                <button type="submit">Add bag</button>
-                <input type="hidden" name="redirect_url" value="{{request.path}}">
+
+                <div class="row my-3">
+                    {% if product.digital_download %}
+                        <div class="col-12">
+                            <label class="mb-0" for="digital_download">Digital download?</label>
+                            <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
+                        </div>
+                    {% endif %}
+                </div>    
+                <div class="row">        
+                    <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg btn-success mb-3" type="submit">
+                        Add to basket
+                        <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                    </button>
+                    <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="">Keep Shopping</span>
+                    </a>
+                    
+                    <input type="hidden" name="redirect_url" value="{{request.path}}">
+                </div>                
             </form>
         </div>
-         
-
-    
     </div>
-     <a href="{% url 'products' %}"><span>Keep Shopping</span></a>
-    </section>
+</div>
 
+{% include 'includes/footer.html' %}
 {% endblock %}
+
+

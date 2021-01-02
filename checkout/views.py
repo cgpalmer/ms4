@@ -215,13 +215,13 @@ def checkout_success(request, order_number):
         for item in basket['items']:
             product = get_object_or_404(Product, pk=item['item_id'])
             sku = product.sku
-            name = product.name
+            name = product.friendly_name
             if item['digital_download']:
                 user = request.user
                 product_file_path = product.image_desktop
         # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
-                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product_file_path=product_file_path, number_of_times_downloaded=number_of_times_downloaded)
+                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product, number_of_times_downloaded=number_of_times_downloaded)
             for link in item['linked_products']:
                 Linked_Product.objects.create(order_id=order, linked_product=link, product=product)
 

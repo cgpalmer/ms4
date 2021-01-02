@@ -40,7 +40,8 @@ class ContentReadyToDownload(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=True, blank=True)
     number_of_times_downloaded = models.BooleanField(default=False)
-    product_file_path = models.CharField(max_length=254, null=True, blank=True)
+    product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user

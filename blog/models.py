@@ -3,7 +3,7 @@ from products.models import Product
 
 # Create your models here.
 class Blog(models.Model):
-    title = models.CharField(max_length=254, null=True, blank=True)
+    title = models.CharField(max_length=254, null=False, blank=False, default="new_blog")
     story = models.TextField()
     sku = models.CharField(max_length=254, null=True, blank=True)
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)

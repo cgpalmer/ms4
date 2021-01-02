@@ -1,7 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
 
-{{download_file.id}}
-{{download_file.number_of_times_downloaded}}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-12">
+            <h5><strong>Warning!</strong></h5>
+            <h5 class="mb-0">
+                When you navigate away from this page, you will no longer be able to download your
+                product.
+            </h5>
+        </div>
+        <div class="col-12 my-5 ">
+            <hr class="mt-0">
+            <h5 class="mb-0">{{download_file.product.friendly_name}}</h5>
+        </div>
+        <div class="col-12 mb-5">
+            <a class="btn btn-success roudned-0 btn-lg" href="/static/media/product-images/{{download_file.product.image_desktop}}" download>Download <i class="fas fa-download"></i></a>
+            <hr class="mb-0">
+        </div>
+        <div class="col-12">
+            <a class="btn btn-primary roudned-0 btn-lg" href="{% url 'profile' %}"><i class="fas fa-chevron-left"></i> Return to profile</a>
+        </div>
+    </div>
+</div>
+<div>
+    
+</div>
 
 
-<a href="/static/media/product-images/{{download_file.product_file_path}}" download>{{download_file.product_file_path}}</a>
-
+{% endblock %}

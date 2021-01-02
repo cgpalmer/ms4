@@ -1,84 +1,112 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container mb-2">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Shopping Bag</h2>
-                <hr>
+
+
+<hr>
+    <h2 class="logo-font basket-header">Shopping Basket</h2>
+<hr>
+     
+{% if basket_items %}      
+     {% for item in basket_items %}
+
+    <div class="container basket-container">
+
+    
+     <div class="row">
+            <div class="col-12">
+                <p>{{ item.product.friendly_name}}</p>
             </div>
         </div>
-        
-
         <div class="row">
-            <div class="col">
-                {% if basket_items %}
-                    <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col">Delivery Type</th>
-
-
-                                </tr>
-                               
-                            </thead>
-                            
-                            
-
-                            {% for item in basket_items %}
-                            {{item}} 
-                            <p>######################################################</p>
-                            
-                            
-                            <tr>
-                            <form method="POST" action="{% url 'edit_basket'%}">
-                            {% csrf_token%}
-                                
-                                    <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image_url_mobile }}">
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                                        {% if item.item.repeats_found %}
-                                        <p>{{item.item.repeats_found}}</p>
+            <div class="col-10">
+                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}">
+            </div>
+            <div class="col-2" >
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+   <i class="fas fa-ellipsis-v"></i>
+</button>
+           
+            </div>
+        </div>
+       
+                <div class="row">
+                    
+                     <div class="col-6">
+                           <p class="basket-info">Qty: {{ item.item.quantity }}</p>
+                        </div>
+                        <div class="col-6">
+                         <p class="basket-info">Price: £{{ item.product.discount_price }}</p>
+                    </div>
+                        
+                </div>
+               
+                <div class="row">
+                    <div class="col-6">
+                        <p class="basket-info">SKU: {{ item.product.sku|upper }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="basket-info">Sub-total: £{{ item.subtotal }}</p>
+                       
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    
+                   <div class="col-12">
+                        {% if item.digital_download == "on" %}
+                            <p class="basket-info">Digital download</p>
+                        {% else %}
+                            <p class="basket-info">Delivery</p>
+                        {% endif%}
+                    </div>
+                    
+                    
+                </div>
+                 {% if item.product.product_type == 'container' %}
+                <div class="row linked-products-basket-wrapper">
+                    <div class="col-12">
+                        <hr class="smaller-hr">
+                        <p>Linked Products</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                        {%for g in item.item.linked_products%}
+                                        {% if g != 'Not linked' %}
+                                            {% if g != 'Not available' %}
+                                        <div class="col-4 linked-products-div">
+                                            <p>{{g}}</p>
+                                        </div>
                                         {% endif %}
-                                    </td>
-                                    <td class="py-3">
-                                    
-                                        <p class="my-0">${{ item.product.discount_price }}</p>
-                                    </td>
-                                    <td class="py-3 w-25">
-                                        <p  class=" my-0">{{ item.item.quantity }}</p>
-                                        <div class="input-group">
-                                            <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control qty_input hide" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
-                                        </div> 
-                                    </td>
-                                    
-                                    <td class="py-3">
-                                    
-                                        <p class="my-0">${{ item.subtotal }}</p>
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">Digital photo? {{ item.digital_download }}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <hr>
+        </div>
+
+    <!-- Edit basket Modal -->
+<div class="modal fade" id="basketModal{{item.item.basket_item_id}}" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="editBasketHeader" class="modal-header editBasketBodyTrigger">
+        <h5 class="modal-title " id="exampleModalLabel"><i class="fas fa-edit"></i> Edit Basket Item {{item.item.basket_item_id}} <i class="fas fa-chevron-down"></i></h5>
+      </div>
+      <div id="editBasketModalBody" class="modal-body editBasketBody hide">
+        <form method="POST" action="{%url 'edit_basket' %}">
+            {% csrf_token%}
+            <h3>quantity for basket item  {{item.item.basket_item_id}}</h3>
+          <div class="input-group">
+                <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
+            </div>
+            
+        <h3>digital </h3>
+        <p class="my-0">Digital photo? {{ item.digital_download }}</p>
                                         {% if item.product.product_type == 'photo' %}
-                                         <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="extraClass hide">
+                                         <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="">
                                             {% if item.digital_download == "on" %}
                                             <option value="None">Delivery</option>
                                             <option selected value="on">Digital Download</option>
@@ -95,23 +123,19 @@
                                                 </select>
                                             </div>
                                         {% endif%}
-                                    </td>
-                                    
-                              
-                                     <td >
-                                      <!-- change this to sku as some point -->
-                                    <div id="linkedItemEdit{{forloop.counter0}}" class="extra_class hide">This is what youre test
+                <h3>linked</h3>
+                <div id="" class="">This is what youre test
                                      {% for image in item.item.linked_products %}
                                      {% if item.product.product_type == 'container' %}
                                         
-                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product{{forloop.counter0}}" class=" py3">
+                                        <select name="edit-linked-product" id="basket-linked-product" class=" py3">
                                         
                                         {% for product in products %} 
                                         {% if product.sku == image %}
-                                           <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>Found already chosen</option>
+                                           <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option>
                                         {% endif%}  
 
-                                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.name}}</option>
+                                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                                         {% endfor %}
                                         <option value="" disabled>User Photos</option>
                                         {% for photo in user_photos %}
@@ -125,108 +149,51 @@
                                    {% endif %}
                                 {% endfor %}
                                </div>
-                                 </td>
-                                    <td class="py-3">
-                                        <div 
-                                            onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
-                                                                'update-product-{{ forloop.counter0}}', 
-                                                                'cancel-edit-product-{{ forloop.counter0}}',
-                                                                'basket-item-quantity{{ forloop.counter0}}',
-                                                                'basket-item-delivery{{ forloop.counter0}}',
-                                                                'linkedItemEdit{{forloop.counter0}}',
-                                                                'update'
-                                                                )" 
-                                                                id="edit-product-{{ forloop.counter0}}" 
-                                                                class="edit-basket-product my-0">
-                                                                Edit
-                                        </div>
-                                    </td>
-                                    <td class="py-3">
-                                    {{item.item.basket_item_id}}
-                                        <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                                        <input type="submit" id="update-product-{{ forloop.counter0}}" value="input" href="" class="update-basket-product hide my-0">
-                                    </td>
-                                    <td class="py-3">
-                                        <div onclick="updateBasket('edit-product-{{ forloop.counter0}}', 
-                                                                    'update-product-{{ forloop.counter0}}', 
-                                                                    'cancel-edit-product-{{ forloop.counter0}}',
-                                                                    'basket-item-quantity{{ forloop.counter0}}',
-                                                                    'basket-item-delivery{{ forloop.counter0}}',
-                                                                    'linkedItemEdit{{forloop.counter0}}',
-                                                                    'cancel')" id="cancel-edit-product-{{ forloop.counter0}}" class="cancel-basket-edit hide my-0">Cancel</div>
-                                    </td>
-                                    </form>
-                                {% if item.item.linked_product_image != "Not linked" %}
-                                    <td>
-                                        <a href="{% url 'delete_basket_item' item.item.basket_item_id %}">Remove</a>
-                                    </td>
-                                </tr>
-                                {% endif %}
+                    <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                    <input type="hidden" name="product_id" value="{{item.item.item_id}}">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+      </div>
+       <div class="modal-header">
+        <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+      </div>
 
-                                <tr>
-                                
-                                    <th>Linked Products</th>
-                                </tr>
-                                <tr>
-                                {% for image in item.item.linked_product_images_list %}
-                                    <td class="p-3 w-25">
-                                         <img class="img-fluid rounded" src="{{image}}" alt="">
-                                    </td>
-                                    
-                                    
-                                      {% endfor %}
-                                    <!--  -->
-                                    
-                                </tr>
-                                
-                                <tr>
-                                    
-                                                                           
-                                        {%for g in item.item.linked_products%}
-                                        {% if g != 'Not linked' %}
-                                        <td class="p-3 w-25">
-                                        <div>
-                                        
-                                          
-                                                <p>{{g}}</p>
-                                  
-                                        </div>
-                                         </td>
-                                        {% endif %}
-                                        {% endfor %}
-                                </tr>
-                                <tr>
-                               
-                                </tr>
-                                
-                            {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                <h6>Savings: £{{money_saved}}</h6>
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_deficit > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_deficit }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                <p>Delivery total: {{delivery_total}} </p>
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <p>all item are linked? {{are_all_items_linked}}</p>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary reset-modal-body" data-dismiss="modal">Close</button>
+   
+      </div>
+    </div>
+  </div>
+</div> 
+   
+      {% endfor %}
+
+<div class="container">
+    <div class="row">
+         <div class="col-12 empty-basket-wrapper">
+            <h4><a href="{% url 'empty_basket' %}"><i class="fas fa-trash-alt"></i> Empty basket</a></h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 basket-summary-wrapper">
+            <h6>Savings: £{{money_saved}}</h6>
+            <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
+            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+            <h4 class=""><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+            {% if free_delivery_deficit > 0 %}
+                <p class="mb-1 text-danger">
+                    You could get free delivery by spending just <strong>£{{ free_delivery_deficit }}</strong> more!
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-12 checkout-button-wrapper">
                                     {% if are_all_items_linked == False %}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkProductsModal">
                                     <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -239,58 +206,63 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </a>
-
-                                    {% endif %}
                                     
-                                </td>
-                                
-                            </tr>
-                        </table>
-                    </div>
+                            
+                                    {% endif %}
+            </div>
+                                    <div class="col-12 checkout-button-wrapper">
+                                        <a href="{% url 'products' %}" class="btn btn-primary rounded-0 btn-lg">
+                                    <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                             </span>
+                        <span>Keep Shopping</span>
+                                         </a>
+                        </div>
+                </div> 
+                </div>              
                 {% else %}
-                      
-                    <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <div class="row text-center">
+                    <div class="col-12">
+                         <p class="lead mt-4 mb-5">Your bag is empty.</p>
+                    </div>
+                    <div class="col-12">
+                    <a href="{% url 'products' %}" class="btn btn-primary rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
+                    </div>
+                    
+                </div> 
+                   
                 {% endif %}
             </div>
         </div>
     </div>
     
 
-    <div>
-        <a href="{% url 'empty_basket' %}">Empty basket</a>
-        
-    </div>
-    <div>
-        {% if minified_items %}
-            {% for item in minified_items%}
-                {{item}}
-            {% endfor %}
-        {% endif %}
-    </div>
+   
+
  
 <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="checkProductsModal" tabindex="-1" role="dialog" aria-labelledby="checkProductsModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="checkProductsModalLabel">Please check your products</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <p class="check-product-paragraph">1 or more of your products does not have a linked photograph. </p>
+        <p>This means that if you have order a photo frame, canvas or calendar, they may arrive blank.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
+        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
+        <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn btn-success rounded-0 btn-lg">
+                                        <span>Continue To Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
@@ -299,5 +271,8 @@
     </div>
   </div>
 </div>
+
+
+
 
 {% endblock %}

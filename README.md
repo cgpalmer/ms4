@@ -715,3 +715,4 @@ https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-i
 
 https://stackoverflow.com/questions/13422689/django-how-to-limit-number-of-objects-returned-from-a-model
 
+https://bootsnipp.com/snippets/e3q3a

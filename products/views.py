@@ -245,8 +245,5 @@ def image_upload(request):
             title = form.cleaned_data.get("title")
             image = form.cleaned_data.get("image")
             Image_upload.objects.create(title=title, user=user, image=image)
-
-
-            return redirect(reverse('products'))
-        
+            return redirect(reverse('home'))
     return redirect(reverse('home'))

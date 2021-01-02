@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+import datetime
+
 
 @login_required
 def admin_profile(request):
@@ -88,6 +90,7 @@ def counting_downloads(request, download_id):
     if request.method == "POST":
         download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
         download_file.number_of_times_downloaded = True
+        download_file.date = datetime.datetime.now()
         download_file.save()    
 
 

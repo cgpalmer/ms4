@@ -170,6 +170,7 @@ def add_to_basket(request, item_id):
     return redirect(redirect_url)
 
 def edit_basket(request):
+    print("edit basket has been reached.")
     basket = request.session.get('basket', {})
     updated_quantity = request.POST.get('basket_quantity')
     updated_delivery = request.POST.get('basket_digital_download')
@@ -258,7 +259,9 @@ def edit_basket(request):
                 else:
                     item['digital_download'] = None
         else:
-            print("else")               
+            # Find out what this does
+            print("I reach the else")
+            return redirect('view_basket')              
     request.session['basket'] = basket
     return redirect('view_basket')
 
