@@ -44,7 +44,7 @@
                             <a class="btn btn-primary" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
                         <div class="col-6 text-center">
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
+                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
                                 <span>Delete</span>
                             </button>
                         </div>
@@ -65,7 +65,7 @@
                             </div>              
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn btn-black rounded-0 btn-lg">
+                                <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn btn-success rounded-0 btn-lg">
                                     <span class="text-uppercase">Delete product</span>                      
                                 </a>
                             </div>
@@ -77,7 +77,7 @@
                     {% if blog.product == product %}
                         <div class="col-12">
                             <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a></p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
                                 <span>Delete</span>
                             </button>
                         </div>
@@ -94,7 +94,7 @@
                         
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-black rounded-0 btn-lg">
+                                        <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-success rounded-0 btn-lg">
                                             <span class="text-uppercase">Delete review</span>                      
                                         </a>
                                     </div>
