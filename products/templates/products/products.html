@@ -10,7 +10,7 @@
       {% endfor %}
     
 
-      <div class="col-12">
+      <div class="col-12 text-center mt-3">
           
         <p>{{products|length}} product(s){% if search_term %} found for "{{search_term}}"</p>
         
@@ -40,7 +40,7 @@
         <div class="card-body">
              {% if product.special_offer.friendly_name != None %}
           
-          <div class="badge badge-secondary special-offer-badge">{{product.special_offer.friendly_name}}</div>
+          <p class="badge badge-secondary special-offer-badge p-2">{{product.special_offer.friendly_name}}</p>
 
              
              
