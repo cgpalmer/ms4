@@ -153,6 +153,7 @@ $("#adminProductManage").change(function() {
     $('.allProducts').addClass('hide');
     let val = $(this).val();
     $(`.adminCategory${val}`).toggleClass(' hide');
+    $(`#adminCategoryHR`).removeClass(' hide');
   
     
 });
