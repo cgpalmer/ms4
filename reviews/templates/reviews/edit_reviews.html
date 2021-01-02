@@ -1,38 +1,34 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
 
 {% block content %}
  
-    <div class="container">
+    <div class="container margin-header-wrapper">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <hr>
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-muted">Edit a Product</h5>
+                <h2 class="logo-font">Edit Review</h2>
                 <hr>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'edit_review' r.id %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_review' r.id %}" class="form mb-2 text-center" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form }}
-                    <p>{{r.id}}</p>
-                    <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Update Product</button>
+                    {{ form|crispy }}
+                    <div class="text-center">
+                        <div>
+                            <button class="btn btn-success btn-lg rounded-0 mb-3 col-12" type="submit">Update Product</button>
+                        </div>
+                        <div>
+                            <a class="btn btn-primary btn-lg rounded-0 col-12" href="{% url 'products' %}">Cancel</a>
+                        </div>                        
                     </div>
                 </form>
             </div>            
         </div>
     </div>
+    {% include 'includes/footer.html' %}
 {% endblock %}
