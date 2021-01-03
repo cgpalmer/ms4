@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product, Image_upload
+from django.contrib import messages
 import uuid
 # Create your views here.
 
@@ -165,8 +166,7 @@ def add_to_basket(request, item_id):
 
     redirect_url = request.POST.get('redirect_url')
     request.session['basket'] = basket
-    
-    print(basket)
+    messages.success(request, f"Successfully added '{product.friendly_name}' to your basket.")
     return redirect(redirect_url)
 
 def edit_basket(request):
@@ -260,8 +260,8 @@ def edit_basket(request):
                     item['digital_download'] = None
         else:
             # Find out what this does
-            print("I reach the else")
-            return redirect('view_basket')              
+            return redirect('view_basket') 
+                 
     request.session['basket'] = basket
     return redirect('view_basket')
 
