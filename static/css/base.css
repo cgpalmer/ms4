@@ -51,6 +51,14 @@ a:hover{
     float: right;
 }
 
+.dropdown-menu{
+    background-color: inherit;
+}
+
+#extendedSearchBar{
+    flex-wrap: nowrap;
+}
+
 /* Footer */
 
 footer{
