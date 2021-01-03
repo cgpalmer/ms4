@@ -165,6 +165,10 @@ footer{
 
 /* Basket page */
 
+.margin-header-wrapper{
+    margin-top: 104px;
+}
+
 .basket-container{
     margin-bottom: 1rem;
 }
