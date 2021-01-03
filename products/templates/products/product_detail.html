@@ -54,7 +54,7 @@
                 {% csrf_token%}        
                 <div id="productQuantity" class="">
                     <h4 class="my-3">Quantity</h4>
-                    <div class="input-group mb-0">
+                    <div class="input-group mb-3">
                         <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantity">
                             <span><i class="fas fa-minus fa-sm"></i></span>
                         </button>  
@@ -90,7 +90,7 @@
                 {% endif %}                  
                 {% if product.digital_download %}
                     <div class="col-12">
-                        <label class="mb-0" for="digital_download">Digital download?</label>
+                        <label class="mb-3" for="digital_download">Digital download?</label>
                         <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
                     </div>
                 {% endif %}
@@ -99,7 +99,7 @@
                     Add to basket
                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
                 </button>
-                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg">
+                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg mb-3">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
