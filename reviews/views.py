@@ -47,13 +47,11 @@ def add_review(request, product_id):
 
             retrieve_product.save()
             
-            messages.success(request, 'Review added.')
-            print("Review added.")
-            return redirect(reverse('products'))
+            messages.success(request, 'Review added. Thank you!')
+            return redirect(reverse('product_detail', args=[retrieve_product.id]))
         else:
             messages.error(request, "'Failed to add product.")
-            print("you've gone past the error messages.")
-            return redirect(reverse('add_review'))
+            return redirect(reverse('product_detail', args=[retrieve_product.id]))
     else:
         form = ReviewForm()
         product = get_object_or_404(Product, pk=product_id)
