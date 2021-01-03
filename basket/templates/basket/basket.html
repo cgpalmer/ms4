@@ -196,15 +196,15 @@
     <div class="row">
             <div class="col-12 checkout-button-wrapper">
                                     {% if are_all_items_linked == False %}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkProductsModal">
+                                    <button type="button" class="col-12 col-md-6 btn btn-success btn-lg rounded-0" data-toggle="modal" data-target="#checkProductsModal">
                                     <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </button>
                                     {% else %}
-                                    <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
+                                    <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn btn-success btn-lg rounded-0">
+                                        <span>Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
@@ -214,7 +214,7 @@
                                     {% endif %}
             </div>
                                     <div class="col-12 checkout-button-wrapper">
-                                        <a href="{% url 'products' %}" class="btn btn-primary rounded-0 btn-lg">
+                                        <a href="{% url 'products' %}" class="col-12 col-md-6 btn btn-primary rounded-0 btn-lg">
                                     <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                              </span>
@@ -275,7 +275,7 @@
   </div>
 </div>
 
-
+ {% include 'includes/footer.html' %}
 
 
 {% endblock %}

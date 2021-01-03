@@ -76,7 +76,7 @@ footer{
 
 
 
-/* Parallax Settings */
+/* Jumbotron Settings */
 .home-image{
     background-image: url('../media/product-images/bratislava.jpg');
     background-position: center;
@@ -266,4 +266,61 @@ footer{
 
 .full-width{
     width: 100%;
+}
+
+
+
+/* iPad */
+@media screen and (min-width: 768px) {
+/* Home */
+.jumbotron {
+    padding-top: 21.5rem;
+    margin-bottom: 0;
+}
+
+.logo-title {
+    font-size: 3rem;
+}
+
+span .fa-lg, a .fa-lg{
+    font-size: 2em;
+}
+
+.basket-total-span{
+    font-size: 1.5rem;
+}
+
+.navbar-toggler-icon{
+    width: 2em;
+    height: 2em;
+}
+
+#extendedSearchBar{
+    width: 75%;
+}
+
+.lead{
+    font-size: 1.75rem;
+}
+
+.btn-lg{
+    font-size: 1.25rem;
+}
+
+.dropdown-item, .nav-link, .form-control-search{
+    font-size: 1.25rem;
+}
+
+.margin-header-wrapper {
+    margin-top: 146px;
+}
+
+
+/* Footer */
+footer{
+    font-size: 150%;
+}
+.footerHeader{
+    font-size: 2rem;
+}
 }

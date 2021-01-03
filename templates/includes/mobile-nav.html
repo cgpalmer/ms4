@@ -4,8 +4,8 @@
     </button>             
     <a class="logo-title ml-3" href="{% url 'home' %}">Hidden Gems</a> 
     <a class="nav-link" href="{% url 'view_basket' %}" id="allProducts">
-        <i class="fas fa-shopping-basket"></i>
-        <span>{{ total|floatformat:2 }}</span>
+        <i class="fas fa-shopping-basket fa-lg"></i>
+        <span class="basket-total-span"> £{{ total|floatformat:2 }}</span>
     </a>
 
         
