@@ -12,7 +12,7 @@
   
     <div class="container margin-header-wrapper">
         <div class="row mt-3">
-            <div class="col">
+            <div class="col extra-margin-top">
                 <hr>
                 <h2 class="logo-font checkout-header">Thank you!</h2>
                 <hr>
@@ -195,7 +195,7 @@
             </div>
         </div>
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
+			<div class="col-12 text-center">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">
@@ -204,14 +204,13 @@
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
-                        <span class="text-center">More shopping?</span><br>
-                        <span class="text-center"> Get stuck in! <i class="fas fa-angle-right"></i></span>
+                    <a href="{% url 'products' %}" class="btn btn-lg btn-success col-12 col-md-8 text-center rounded-0 more-shopping-btn">
+                        <span >More shopping! <i class="fas fa-angle-right"></i></span>
                     </a>
                 {% endif %}
 			</div>
 		</div>
     </div>
                 
-         
+{% include 'includes/footer.html' %}       
 {% endblock %}

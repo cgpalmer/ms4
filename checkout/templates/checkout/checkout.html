@@ -6,19 +6,11 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container margin-header-wrapper header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
  
-    <div class="container">
+    <div class="container margin-header-wrapper ">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 extra-margin-top">
                 <hr>
                     <h2 class="logo-font checkout-header">Checkout</h2>
                 <hr>
@@ -128,14 +120,14 @@
                     </fieldset>
                     
                     <div class="row">
-                    <div class="submit-button text-center mt-2 mb-2 col-12"> 
-                        <button id="submit-button" class="btn btn-black rounded-0 btn-success btn-lg col-12 mb-2">
+                    <div class="submit-button text-center mt-2 mb-3 col-12"> 
+                        <button id="submit-button" class="btn btn-black rounded-0 btn-success btn-lg col-12 col-md-6 extra-margin-bottom">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>                   
-						<a href="{% url 'view_basket' %}" class="btn btn-secondary btn-lg rounded-0 mb-2">
+						<a href="{% url 'view_basket' %}" class="btn col-12 col-md-6 btn-primary btn-lg extra-margin-bottom rounded-0">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
@@ -150,6 +142,8 @@
             
         </div>
     </div>
+</div>
+{% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block additionJS %}
