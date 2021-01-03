@@ -407,6 +407,10 @@ span .fa-lg, a .fa-lg{
     
 }
 
+.buttonText{
+    display: inline-block;
+}
+
 /* Profile */
 .accordion{
     margin-top: 2rem;
