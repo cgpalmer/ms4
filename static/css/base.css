@@ -363,9 +363,7 @@ span .fa-lg, a .fa-lg{
     flex: 0 0 48%;
     max-width: 48%;
 }
-.product-detail-card:first-child{
-    margin-right: 1.5rem;
-}
+
 
 /* General settings */
 
@@ -379,6 +377,10 @@ span .fa-lg, a .fa-lg{
 
 .extra-margin-bottom{
     margin-bottom: 2rem;
+}
+
+.extra-margin-right{
+    margin-right: 1.5rem;
 }
 
 .ipad-text-center {
@@ -399,7 +401,7 @@ span .fa-lg, a .fa-lg{
 }
 
 .message-container{
-    margin: 3rem 0 2rem 0;
+    margin: 2rem 0 3rem 0;
     font-size: 150%;
     
 }
