@@ -51,7 +51,7 @@
             <div class="card col-12  mt-3 order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
-                    <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <button class="btn btn-success btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
@@ -77,17 +77,18 @@
                 {% if product_type_for_linking == "container" %}
                     <h4 id="linkedPhotoLabel">Link with photo</h4>
                     {% for number in number_of_pictures_loop %}
-                        <select name="linked_product{{number}}" class="linkingProductSelect">
+                        <select name="linked_product{{number}}" class="linkingProductSelect stripe-style-input">
                             <option value="Not linked|No id|No item">Not linked</option>
+                            <!-- Change this to user's name and give a bottom border-->
+                            <option value="" disabled>{{user}}'s Photos</option>
+                            {% for photo in user_photos %}
+                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                            {% endfor %}
                             <!-- Can you categorise these so they can have little headers? -->
+                            <option value="" disabled>Hidden Gems' Photos</option>
                             {% for link in linked_product %}
                             <!-- This should be based on screen size -->
                                 <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.friendly_name}}</option>
-                            {% endfor %}
-                            <!-- Change this to user's name and give a bottom border-->
-                            <option value="" disabled>User Photos</option>
-                            {% for photo in user_photos %}
-                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
                             {% endfor %}
                        </select>
                     {% endfor %}

@@ -236,7 +236,7 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-def image_upload(request):
+def image_upload(request, product_id):
     """Process images uploaded by users"""
     if request.method == 'POST':
         form = Image_uploadForm(request.POST, request.FILES)
@@ -245,5 +245,6 @@ def image_upload(request):
             title = form.cleaned_data.get("title")
             image = form.cleaned_data.get("image")
             Image_upload.objects.create(title=title, user=user, image=image)
-            return redirect(reverse('home'))
-    return redirect(reverse('home'))
+            messages.success(request, 'Image uploaded! Find it in the dropdown menu or on your profile page.')
+            return redirect(reverse('product_detail', args=[product_id]))
+    return redirect(reverse('product_detail', args=[product_id]))
