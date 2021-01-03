@@ -59,6 +59,9 @@ a:hover{
     flex-wrap: nowrap;
 }
 
+.nav-link-basket-icon{
+    padding: 0.5rem 0;
+}
 /* Footer */
 
 footer{
