@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container margin-header-wrapper">
     <div class="row">
-        <div class="card  col-12  mt-4 col-md-6 col-lg-4 shadow p-3 mb-4 rounded">
+        <div class="card product-detail-card col-12  mt-4 col-md-6 col-lg-4 shadow p-3 mb-4 rounded">
             <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
             </a>
@@ -34,35 +34,22 @@
                 {% else %}
                     <p class="card-text">This product hasn't been rated yet.</p>
                 {% endif %}
-                    <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a> </div>
+                    <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
-    </div>
-</div>
-
-{% if product_type_for_linking == "container" %}
-        
-<div class="container">
-    <div class="row">
-        <div class="card  col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
-            <p class="btn btn-primary rounded-0" id="imageUploadWrapperTrigger">Click to upload your own image!</p>
-            <div id="imageUploadWrapper" class="imageUploadingForm hide">
+        {% if product_type_for_linking == "container" %}
+            <div class="card product-detail-card  col-12  mt-3 order-md-3 col-md-12 col-lg-4 shadow p-3 mb-3 rounded text-center">
+                <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
                     <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                         <button class="btn btn-success btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
                     </form>
-                {% endif %}
+                {% endif %}             
             </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-           
-<div class="container">       
-    <div class="row">    
-        <div class="card  col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-4 rounded text-center">
+        {% endif %}
+        <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-4 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
                 <div id="productQuantity" class="">
@@ -99,37 +86,56 @@
                         <a id="linkedProductImagePreview" class="" href="" target="_blank">
                             <img id="linkImageSelection" src="" class="card-img-top product-name" alt="{{link.name}}">
                         </a>
-                        </div>                            
-                {% endif %}   
-                
-                
-
-                <div class="row my-3">
-                    {% if product.digital_download %}
-                        <div class="col-12">
-                            <label class="mb-0" for="digital_download">Digital download?</label>
-                            <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
-                        </div>
-                    {% endif %}
-                </div>    
-                <div class="row">        
-                    <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg btn-success mb-3" type="submit">
-                        Add to basket
-                        <span class="icon"><i class="fas fa-chevron-right"></i></span>
-                    </button>
-                    <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="">Keep Shopping</span>
-                    </a>
-                    
-                    <input type="hidden" name="redirect_url" value="{{request.path}}">
-                </div>                
+                    </div>                            
+                {% endif %}                  
+                {% if product.digital_download %}
+                    <div class="col-12">
+                        <label class="mb-0" for="digital_download">Digital download?</label>
+                        <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
+                    </div>
+                {% endif %}
+                     
+                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg btn-success mb-3" type="submit">
+                    Add to basket
+                    <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </button>
+                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="">Keep Shopping</span>
+                </a>
+                <input type="hidden" name="redirect_url" value="{{request.path}}">             
             </form>
         </div>
+    <!-- Here are the row and container end divs -->
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+     
+             
+        
+ 
+
 
 {% include 'includes/footer.html' %}
 {% endblock %}

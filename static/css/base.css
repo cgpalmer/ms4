@@ -124,6 +124,10 @@ footer{
     margin-top: 0.5rem;
 }
 
+
+/* Product detail */
+
+
 #linkedProductImagePreview, #linkedPhotoLabel{
     margin-top: 2rem;
 }
@@ -136,9 +140,7 @@ footer{
     width: 100%;
     margin-bottom: 1rem;
 }
-.imageUploadingForm{
-    text-align: center;
-}
+
 
 .category-link{
     margin: 0;
@@ -325,11 +327,11 @@ span .fa-lg, a .fa-lg{
 
 /* Products */
 
-.card:nth-child(even){
+.all-products-card:nth-child(even){
     margin-left: 1.5rem;
 }
 
-.card {
+.all-products-card {
     flex: 0 0 48%;
     max-width: 48%;
 }
@@ -345,6 +347,9 @@ span .fa-lg, a .fa-lg{
     width: 300px;
     height: 200px;
 }
+
+/* Product detail */
+
 
 /* Footer */
 footer{
