@@ -323,6 +323,28 @@ span .fa-lg, a .fa-lg{
     font-size: 1.5rem;
 }
 
+/* Products */
+
+.card:nth-child(even){
+    margin-left: 1.5rem;
+}
+
+.card {
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+
+.product-card-image {
+    object-fit: contain;
+    min-height: 200px;
+    overflow: hidden;
+    object-position: bottom;
+}
+
+.image-wrapper{
+    width: 300px;
+    height: 200px;
+}
 
 /* Footer */
 footer{
