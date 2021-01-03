@@ -3,12 +3,7 @@
 <section>
   <div class="container margin-header-wrapper product-container">
     <div class="row search-information">
-      {% for c in current_categories %}
-      <a class="col-6" href="{% url 'products' %}?category={{c.name}}">
-        <span class="">{{c.friendly_name}}</span>
-      </a>
-      {% endfor %}
-    
+        
 
       <div class="col-12 text-center mt-3">
           
