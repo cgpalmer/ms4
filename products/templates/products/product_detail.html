@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container margin-header-wrapper">
     <div class="row">
-        <div class="card product-detail-card col-12  mt-4 col-md-6 col-lg-4 shadow p-3 mb-4 rounded">
+        <div class="card product-detail-card col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top" alt="{{product.friendly_name}}">
             </a>
@@ -38,7 +38,7 @@
             </div>
         </div>
         {% if product_type_for_linking == "container" %}
-            <div class="card product-detail-card  col-12  mt-3 order-md-3 col-md-12 col-lg-4 shadow p-3 mb-3 rounded text-center">
+            <div class="card col-12  mt-3 order-md-3 col-md-12 col-lg-4 shadow p-3 mb-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
                     <form method="POST" action="{% url 'image_upload' %}" enctype="multipart/form-data">
@@ -49,7 +49,7 @@
                 {% endif %}             
             </div>
         {% endif %}
-        <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-4 rounded text-center">
+        <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
                 <div id="productQuantity" class="">

@@ -349,7 +349,13 @@ span .fa-lg, a .fa-lg{
 }
 
 /* Product detail */
-
+.product-detail-card{
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+.product-detail-card:first-child{
+    margin-right: 1.5rem;
+}
 
 /* Footer */
 footer{
