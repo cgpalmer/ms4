@@ -62,6 +62,12 @@ a:hover{
 .nav-link-basket-icon{
     padding: 0.5rem 0;
 }
+
+.logo-title{
+    font-size: 1.25rem;
+}
+
+
 /* Footer */
 
 footer{

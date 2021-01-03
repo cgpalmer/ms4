@@ -2,7 +2,7 @@
     <button class="navbar-toggler text-black nav-link" type="button" data-toggle="collapse" data-target="#navbarLoginContent" aria-controls="navbarLoginContent" aria-expanded="false" aria-label="Toggle login">
         <span><i class="fas fa-user fa-lg"></i></span>
     </button>             
-    <a class="" href="{% url 'home' %}">Hidden Gems</a> 
+    <a class="logo-title ml-3" href="{% url 'home' %}">Hidden Gems</a> 
     <a class="nav-link" href="{% url 'view_basket' %}" id="allProducts">
         <i class="fas fa-shopping-basket"></i>
         <span>{{ total|floatformat:2 }}</span>
@@ -31,7 +31,7 @@
 
       </div>    
         
-    <div class="container-fluid">
+    <div class="container-fluid ">
    
               <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                    
                         <form method="GET" action="{% url 'products' %}" class="input-group input-group-search">
                             <input class="form-control form-control-search" name="q" type="search" placeholder="Search" aria-label="Search">
-                            <div></div>
+                            
                           <button class=" btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
                         </form>   
             </div>
