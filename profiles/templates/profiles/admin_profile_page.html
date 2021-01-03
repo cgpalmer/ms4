@@ -4,17 +4,17 @@
 {% block content %}
 <div class="container margin-header-wrapper">
     <div class="row">
-        <div class="col text-center">
+        <div class="col-12 extra-margin-top text-center">
             <hr>
             <h2 class="logo-font ">Admin Profile</h2>
             <hr>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-6 ipad-text-center">
             <h4><i class="fas fa-plus-circle"></i><a  href="{% url 'add_product' %}"> Add product</a></h4>
         </div>
-        <div class="col-12">
+        <div class="col-12 col-md-6 ipad-text-center">
             <h4><i class="fas fa-plus-circle"></i><a href="{% url 'add_blog' %}"> Add blog</a></h4>
         </div>
         <div class="col-12 text-center">
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
         <div class="col-12 adminCategoryWrapper text-center">
-            <select class="stripe-style-input rounded" id="adminProductManage">
+            <select class="stripe-style-input ipad-admin-cat rounded" id="adminProductManage">
                 <option value="" selected disabled>Choose a category</option>
                 {% for cat in categories %}
                     <option value="{{cat.friendly_name}}">{{cat.friendly_name}}</option>
@@ -40,11 +40,11 @@
                     <p>SKU: {{product.sku}} </p>
                 
                     <div class="row">
-                        <div class="col-6 text-center">
-                            <a class="btn btn-primary" href="{% url 'edit_product' product.id %}">Edit</a>
+                        <div class="col-6 col-md-3 offset-md-3 text-center">
+                            <a class="btn btn-primary btn-lg" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
-                        <div class="col-6 text-center">
-                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
+                        <div class="col-6 col-md-3 text-center">
+                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
                                 <span>Delete</span>
                             </button>
                         </div>
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row extra-margin-bottom">
         <div class="col-12 text-center">
             <hr>
             <h4>Order History</h4>

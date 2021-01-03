@@ -357,6 +357,41 @@ span .fa-lg, a .fa-lg{
     margin-right: 1.5rem;
 }
 
+/* General settings */
+
+.main-section-container{
+    min-height: 75vh;
+}
+
+.extra-margin-top {
+    margin-top: 2rem;
+}
+
+.extra-margin-bottom{
+    margin-bottom: 2rem;
+}
+
+.ipad-text-center {
+    text-align: center;
+}
+
+.stripe-style-input{
+    font-size: 1.25rem;
+}
+
+.ipad-admin-cat{
+    width: 67%;
+}
+
+/* Profile */
+.accordion{
+    margin-top: 2rem;
+}
+
+.card-header h5 button{
+    font-size: 1.5rem;
+}
+
 /* Footer */
 footer{
     font-size: 150%;
