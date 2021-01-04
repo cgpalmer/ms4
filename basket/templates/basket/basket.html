@@ -12,7 +12,7 @@
         </div>    
     </div>
 </div>
-     
+
 {% if basket_items %}      
     {% for item in basket_items %}
     <div class="container basket-container  d-md-none">   
@@ -75,7 +75,7 @@
         <hr>
     </div>
 
-    <div class="container basket-container d-none d-md-block">   
+    <div class="container basket-container d-none d-md-block d-lg-none">   
         <div class="row">
             <div class="col-md-12 mb-3">
                 {% if item.item.repeats_found == 'None' %}
@@ -141,6 +141,75 @@
         <hr>
     </div>
 
+    <div class="container col-12 basket-container d-none d-md-none d-xl-block">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                {% if item.item.repeats_found == 'None' %}
+                 <p class="mb-0">{{ item.product.friendly_name}} </p>
+                {% else %}
+                  <p class="mb-0">{{ item.product.friendly_name}}</p>
+                  <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
+                {% endif %}
+            </div> 
+            <div class="col-4">
+                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}">
+            </div>
+            <div class="col-2">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="basket-info">Qty: {{ item.item.quantity }}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="basket-info">Price: £{{ item.product.discount_price }}</p>
+                    </div>                         
+                    <div class="col-12">
+                        <p class="basket-info">SKU: {{ item.product.sku|upper }}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="basket-info">Sub-total: £{{ item.subtotal }}</p>
+                    </div>
+                    <div class="col-12">
+                        {% if item.digital_download == "on" %}
+                            <p class="basket-info">Digital download</p>
+                        {% else %}
+                            <p class="basket-info">Delivery</p>
+                        {% endif%}
+                    </div>
+                </div>
+            </div>
+                              
+            
+            <div class="col-4">
+            {% if item.product.product_type == 'container' %}
+                
+                    <div class="col-12 px-0">
+                        
+                        <p class="px-0">Linked Products</p>
+                    </div>
+                    <div class="row">
+                        {%for g in item.item.linked_products%}
+                            {% if g != 'Not linked' %}
+                                {% if g != 'Not available' %}
+                                    <div class="col-3 linked-products-div">
+                                        <small>{{g|truncatechars:8}}</small>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            {% endif %}
+             </div>
+                 <div class="col-2" >
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+                    <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div> 
+        </div>
+        <hr>
+    </div>
+    
+
+       
     <!-- Edit basket Modal -->
 <div class="modal fade" id="basketModal{{item.item.basket_item_id}}" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
   <div class="modal-dialog" role="document">
