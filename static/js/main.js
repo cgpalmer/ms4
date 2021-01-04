@@ -6,12 +6,12 @@ $( document ).ready(function() {
  
 
   
-    //  $("#desktopExtraNavWrapper").hover(function(){
-    //     $("#desktopDropDownMenu").css('display', 'flex');}
-    //     ,function(){
-    // $("#desktopDropDownMenu").css('display', 'none');
-    // });
-    // $("#id_discount_price").addClass('hide');
+     $("#desktopExtraNavWrapper").hover(function(){
+        $("#desktopDropDownMenu").css('display', 'flex');}
+        ,function(){
+    $("#desktopDropDownMenu").css('display', 'none');
+    });
+    $("#id_discount_price").addClass('hide');
     
 });
 

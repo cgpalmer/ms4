@@ -436,3 +436,17 @@ footer{
 }
 
 
+/* Larger screens - iPad Landscape, iPad Pro, MD-Laptop */
+@media screen and (min-width: 1024px) {
+.navbar-brand{
+    margin-right: 0;
+    font-size: 150%;
+   
+}
+.nav-link, .navbar-brand{
+    text-align: center;
+}
+.desktop-nav-link{
+    line-height: 3.5;
+}
+}
