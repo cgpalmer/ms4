@@ -92,14 +92,13 @@ def edit_review(request, r_id):
             review.review_rating = form.cleaned_data.get("review_rating")
             print("review" + str(review.review_rating))
             review.save()
-            
-
-            return redirect(reverse('products'))
+            return redirect('profile')
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            return redirect('profile')
     else:
         form = ReviewForm(instance=review)
-        messages.info(request, 'something')
+        
 
         template = 'reviews/edit_reviews.html'
         context = {
