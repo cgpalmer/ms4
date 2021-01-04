@@ -36,13 +36,13 @@
      <hr> 
     {% for accessed_download in digital_downloads_user %}
      {% if accessed_download.number_of_times_downloaded == True %}
-      <div class="downloadItem col-12">
-          <hr class="smaller-hr">
+      <div class="downloadItem col-12 text-center">
+          
         <p>{{accessed_download.name}} <i class="far fa-check-circle"></i></p>
         <p>On: {{accessed_download.date}}</p>
-        <hr class="smaller-hr">
-    </div>
         
+    </div>
+      <hr class="smaller-hr">
      {% endif %}
      {% endfor %}
    
