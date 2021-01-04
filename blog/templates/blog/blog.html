@@ -2,35 +2,28 @@
 {% load static %}
 
 {% block content %}
-<div class="container margin-header-wrapper">
+<div class="container margin-header-wrapper main-section-container">
     <div class="row">
-        <div class="col-12 blog-space-heading"> 
+        <div class="col-12 blog-space-heading  extra-margin-top"> 
            <h3> Hidden Gem's</h3> 
            <h3>Blog Space</h3>
-        </div>
-    
-        
+        </div> 
     </div>
-  
+    <div class="row">   
+        <h4 class="blog-space-text" >We do not have any blogs ready at this point. This feature will be coming soon!</h4>        
+        <div class="col-12 blog-space-text">
+            Thank you for showing an interest in our products! Here you will find
+            all the stories behind the photographs!
+        </div> 
+    </div>
     <div class="row">
-      
-        <h4 class="blog-space-text" >We do not have any blogs ready at this point. This feature will be coming soon!</h4>
-     
-        
-           <div class="col-12 blog-space-text">Thank you for showing an interest in our products! Here you will find
-            all the stories behind the photographs!</div> 
-
-
-      <div class="row">
-    <div class="col-12">
-    <form method="GET" action="{% url 'blogs' %}" class="row">
-        <input class="form-control col-9" name="q" type="search" placeholder="Search blogs" aria-label="Search" disabled>
-        <button class="btn btn-outline-success col-3" type="submit" disabled><i class="fas fa-search"></i></button>
-    </form> 
-    
-    </div>
-    
+        <div class="col-12">
+            <form method="GET" action="{% url 'blogs' %}" class="row">
+                <input class="form-control col-9" name="q" type="search" placeholder="Search blogs" aria-label="Search" disabled>
+                <button class="btn btn-outline-success col-3" type="submit" disabled><i class="fas fa-search"></i></button>
+            </form> 
+        </div>
     </div>
 </div>
-
+{% include 'includes/footer.html' %}
 {% endblock %}
