@@ -9,48 +9,40 @@
     </a>
 
         
- <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-      <div class="collapse navbar-collapse" id="navbarLoginContent">
-              <ul class="navbar-nav mr-auto">
+    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="collapse navbar-collapse" id="navbarLoginContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <a href="{% url 'admin_profile_page' %}" class="dropdown-item">Admin</a>
-                                    
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                               
-                            {% endif %}
-                            </li>
-                            </ul>
-                        </div>
-
-      </div>    
-        
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="{% url 'admin_profile_page' %}" class="dropdown-item">Admin</a>                    
+                        {% endif %}
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>              
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>       
     <div class="container-fluid ">
-   
-              <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> 
-            <div id="extendedSearchBar" class="" aria-labelledby="searchProducts">
-                    <!-- refactor this code? -->
-                   
-                        <form method="GET" action="{% url 'products' %}" class="input-group input-group-search">
-                            <input class="form-control form-control-search" name="q" type="search" placeholder="Search" aria-label="Search">
-                            
-                          <button class=" btn btn-success nav-search-button" type="submit"><i class="fas fa-search"></i></button>
-                        </form>   
-            </div>
-                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="extendedSearchBar" class="" aria-labelledby="searchProducts">
+            <!-- refactor this code? -->           
+            <form method="GET" action="{% url 'products' %}" class="input-group input-group-search">
+                <input class="form-control form-control-search" name="q" type="search" placeholder="Search" aria-label="Search">          
+                <button class=" btn btn-success nav-search-button" type="submit"><i class="fas fa-search"></i></button>
+            </form>   
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Home </a>
-                </li>
-                
+                <li class="nav-item">
+                   <a class="nav-link" href="{% url 'home' %}">Home </a>
+                </li>   
                 <li class="nav-item dropdown">
                     <a class=" nav-link" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Special Offers <i class="fas fa-chevron-down"></i>
@@ -68,26 +60,25 @@
                        All Products <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="allProducts">
-                    <!-- refactor this code? -->
+                        <!-- refactor this code? -->
                         <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price</a>
                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">Rating</a>
                         <a href="{% url 'products' %}" class="dropdown-item">All products </a>                        
                     </div>
                 </li>
-               
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Photographs <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="photographsDropdown">
-                    <!-- refactor this code? -->
+                        <!-- refactor this code? -->
                         <a href="{% url 'products' %}?category=landscapes" class="dropdown-item">Landscapes</a>
                         <a href="{% url 'products' %}?category=insects" class="dropdown-item">Insects</a>
                         <a href="{% url 'products' %}?category=animals" class="dropdown-item">Animals</a>
                         <a href="{% url 'products' %}?category=flowers" class="dropdown-item">Flowers</a>
                     </div>
                 </li>
-                 <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="containersDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Frames and Canvases <i class="fas fa-chevron-down"></i>
                     </a>
@@ -98,13 +89,12 @@
                         <a href="{% url 'products' %}?category=calendars" class="dropdown-item">Calendars</a>
                     </div>
                 </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blogs' %}">Blog posts</a>
                 </li>
             </ul>
         </div>            
-
-   </nav>
-            </div>
+    </div>
+</nav>
+            
      
