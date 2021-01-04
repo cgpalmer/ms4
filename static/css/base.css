@@ -61,6 +61,11 @@ a:hover{
     background-color: inherit;
 }
 
+.dropdown-item{
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #extendedSearchBar{
     flex-wrap: nowrap;
 }
@@ -324,6 +329,7 @@ span .fa-lg, a .fa-lg{
     font-size: 1.25rem;
 }
 
+
 .margin-header-wrapper {
     margin-top: 146px;
 }
@@ -428,3 +434,5 @@ footer{
     font-size: 2rem;
 }
 }
+
+
