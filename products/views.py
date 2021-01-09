@@ -177,12 +177,10 @@ def add_product(request):
             # retrieve_blog.image_desktop_url = retrieve_product.image_url_mobile
             retrieve_product.save()
             # retrieve_blog.save()
-            return redirect(reverse('products'))
+            return redirect(reverse('admin_profile_page'))
         else:
             messages.error(
                 request, 'Failed to add product. Please ensure the form is valid.')
-            # deal with this
-            return redirect(reverse('products'))
     else:
         form = ProductForm()
 
@@ -230,11 +228,11 @@ def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    blog = get_object_or_404(Blog, product=product.id)
-    print(blog)
-    blog.delete()
+    # blog = get_object_or_404(Blog, product=product.id)
+    # print(blog)
+    # blog.delete()
     messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))
+    return redirect(reverse('admin_profile_page'))
 
 def image_upload(request, product_id):
     """Process images uploaded by users"""
@@ -247,4 +245,6 @@ def image_upload(request, product_id):
             Image_upload.objects.create(title=title, user=user, image=image)
             messages.success(request, 'Image uploaded! Find it in the dropdown menu or on your profile page.')
             return redirect(reverse('product_detail', args=[product_id]))
+        else:
+            messages.error(request, 'Something went wrong. Please try again.')
     return redirect(reverse('product_detail', args=[product_id]))
