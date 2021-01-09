@@ -4,7 +4,7 @@
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-                    <a class="nav-link col-sm" href="{% url 'blogs' %}">Blog posts</a>
+                   
                      <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
                     <i class="fas fa-shopping-basket"></i>
                     <span>{{ total|floatformat:2 }}</span>
@@ -24,7 +24,7 @@
                     <a href="{% url 'admin_profile_page' %}" class="nav-link col-sm">Admin</a> 
                 {% else %}
                     <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-                    <a class="nav-link col-sm" href="{% url 'blogs' %}">Blog posts</a>
+
                      <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
                     <i class="fas fa-shopping-basket"></i>
                     <span>{{ total|floatformat:2 }}</span>
@@ -37,7 +37,7 @@
                 <a href="{% url 'account_logout' %}" class="nav-link col-2">Logout</a>
             {% else %}
                 <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-                    <a class="nav-link col-sm" href="{% url 'blogs' %}">Blog posts</a>
+              
              <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
                 <i class="fas fa-shopping-basket"></i>
                 <span>{{ total|floatformat:2 }}</span>

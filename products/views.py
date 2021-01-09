@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category, Image_upload, Special, UserProfile
-from blog.models import Blog
+
 from reviews.models import Review
 from .forms import ProductForm, Image_uploadForm
 
@@ -98,24 +98,12 @@ def product_detail(request, product_id):
     print(product_id)
     product = get_object_or_404(Product, pk=product_id)
     print(product)
-    print(product.linked_to_blog)
+   
     linked_product = Product.objects.filter(product_type="photo")
     user_photos = Image_upload.objects.filter(user=request.user)
 
     # change to id
-    if product.linked_to_blog == True:
-        print("blog exists")
-        try:
-            blog = get_object_or_404(Blog, sku=product.sku)
-           
-        except Exception as e:
-            e = None
-            print(e)
-            blog = e
-        
-    else:
-        blog = None
-        
+          
     review = Review.objects.filter(product=product_id)
 
     if product.product_type == "photo":
@@ -133,7 +121,6 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
-        'blog': blog,
         'review': review,
         'linked_product': linked_product,
         'product_type_for_linking': product_type_for_linking,
@@ -167,16 +154,9 @@ def add_product(request):
             print("end of the price stuff")
 
             # # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
-            # # Filling out the blog information
-            # sku = form.cleaned_data.get("sku")
-            # title = form.cleaned_data.get("name")
-            # Blog.objects.create(title=title, sku=sku)
-            # retrieve_blog = get_object_or_404(Blog, sku=sku)
-            # retrieve_blog.product = retrieve_product
-            # retrieve_blog.image_mobile_url = retrieve_product.image_url_mobile
-            # retrieve_blog.image_desktop_url = retrieve_product.image_url_mobile
+        
             retrieve_product.save()
-            # retrieve_blog.save()
+          
             return redirect(reverse('admin_profile_page'))
         else:
             messages.error(
@@ -228,9 +208,7 @@ def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    # blog = get_object_or_404(Blog, product=product.id)
-    # print(blog)
-    # blog.delete()
+  
     messages.success(request, 'Product deleted!')
     return redirect(reverse('admin_profile_page'))
 
