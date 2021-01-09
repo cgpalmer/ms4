@@ -3,6 +3,7 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -26,6 +27,7 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -49,6 +51,7 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
+    "discount_price" : 0.8,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -72,6 +75,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -95,6 +99,7 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
+    "discount_price" : 0.8,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -118,6 +123,7 @@
         "pk": 6,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -141,6 +147,7 @@
         "pk": 7,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -164,6 +171,7 @@
         "pk": 8,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -187,6 +195,7 @@
         "pk": 9,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -210,6 +219,7 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -233,6 +243,7 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -256,6 +267,7 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -279,6 +291,7 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -302,6 +315,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
+    "discount_price" : 0.9,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -325,6 +339,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -348,6 +363,7 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -371,6 +387,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
+    "discount_price" : 0.6,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -394,6 +411,7 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -417,6 +435,7 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
+    "discount_price" : 0.8,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -440,6 +459,7 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
+    "discount_price" : 1,
     "number_of_pictures": 0,
     "product_type": "photo",
     "linked_to_blog": "True",
@@ -463,6 +483,7 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
+    "discount_price" : 4.19,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -486,6 +507,7 @@
         "pk": 22,
         "model": "products.product",
         "fields": {
+    "discount_price" : 8.99,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -509,6 +531,7 @@
         "pk": 23,
         "model": "products.product",
         "fields": {
+    "discount_price" : 10.99,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -533,6 +556,7 @@
         "pk": 24,
         "model": "products.product",
         "fields": {
+    "discount_price" : 9.99,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -556,6 +580,7 @@
         "pk": 25,
         "model": "products.product",
         "fields": {
+    "discount_price" : 14.99,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -579,6 +604,7 @@
         "pk": 26,
         "model": "products.product",
         "fields": {
+    "discount_price" : 24.99,
     "number_of_pictures": 1,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -614,12 +640,12 @@
         "friendly_name": "12 Month Calendar A4",
         "category": 7,
         "price": 5.99,
-        "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
+        "description": "This calendar is small enough to fit in your backpack. Take it anywhere you want to go and stay organised!",
         "rating": 0,
         "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_mobile": "landscape-canvas.jpg",
-        "image_desktop": "landscape-canvas.jpg"
+        "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/xSrFSG.jpg",
+        "image_mobile": "calendar-a4.jpg",
+        "image_desktop": "calendar-a4.jpg"
     }},
      {
         "pk": 28,
@@ -637,12 +663,12 @@
         "friendly_name": "12 Month Calendar A2",
         "category": 7,
         "price": 5.99,
-        "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
+        "description": "This calendar is the perfect for family-sized organisation. Keep it on the wall and keep track of everyone's activities!",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
-        "image_mobile": "landscape-canvas.jpg",
-        "image_desktop": "landscape-canvas.jpg"
+        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/ir8cz8.jpg",
+        "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/ir8cz8.jpg",
+        "image_mobile": "calendar-a2.jpg",
+        "image_desktop": "calendar-a2.jpg"
     }},
     {
         "pk": 29,
@@ -657,15 +683,15 @@
       "special_offer": 4,
         "sku": "cl010103",
         "name": "12 Month Calendar A3",
-        "friendly_name": "12 Month Calendar A4",
+        "friendly_name": "12 Month Calendar A3",
         "category": 7,
         "price": 5.99,
-        "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
+        "description": "This calendar is the perfect desk-buddy. Kept it to one side or hang it next to your computer to stay organised!",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/ir8cz8.jpg",
-        "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/ir8cz8.jpg",
-        "image_mobile": "landscape-canvas.jpg",
-        "image_desktop": "landscape-canvas.jpg"
+        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/1PyYwm.jpg",
+        "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/1PyYwm.jpg",
+        "image_mobile": "calendar-a3.jpg",
+        "image_desktop": "calendar-a3.jpg"
     }}
 ]
 
