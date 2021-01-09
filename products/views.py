@@ -209,7 +209,7 @@ def edit_product(request, product_id):
             retrieve_product.discount_price = discount_price
             retrieve_product.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('admin_profile_page'))
         else:
             messages.error(
                 request, 'Failed to update product. Please ensure the form is valid.')

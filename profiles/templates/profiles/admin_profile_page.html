@@ -28,13 +28,13 @@
             <select class="stripe-style-input ipad-admin-cat rounded" id="adminProductManage">
                 <option value="" selected disabled>Choose a category</option>
                 {% for cat in categories %}
-                    <option value="{{cat.friendly_name}}">{{cat.friendly_name}}</option>
+                    <option value="{{cat.name}}">{{cat.friendly_name}}</option>
                 {% endfor %}
             </select>
             <hr id="adminCategoryHR" class="hide">
             {% for product in products %}  
                 
-                <div class="adminCategory{{product.category.friendly_name}} allProducts hide col-12 text-center">
+                <div class="adminCategory{{product.category.name}} allProducts hide col-12 text-center">
                     
                     <p>Name: {{product.name}} </p>
                     <p>SKU: {{product.sku}} </p>
@@ -71,39 +71,7 @@
                             </div>
                         </div>
                     </div> 
-                </div>
-                
-                {% for blog in blogs %}
-                    {% if blog.product == product %}
-                        <div class="col-12">
-                            <p>{{blog.title}} <a href="{% url 'edit_blog' blog.id %}">Edit</a></p>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBlogNumber{{blog.id}}">
-                                <span>Delete</span>
-                            </button>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="deleteBlogNumber{{blog.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteBlogNumber{{blog.id}}}ModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteBlogNumber{{blog.id}}Label">Are you sure you want to remove this?</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                        
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <a id="checkoutButton" href="{% url 'delete_blog' blog.id %}" class="btn btn-success rounded-0 btn-lg">
-                                            <span class="text-uppercase">Delete review</span>                      
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            
+                </div>            
             {% endfor %}
                 
         </div>

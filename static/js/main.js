@@ -161,6 +161,7 @@ $("#adminProductManage").change(function() {
     console.log("triggered")
     $('.allProducts').addClass('hide');
     let val = $(this).val();
+    console.log(val);
     $(`.adminCategory${val}`).toggleClass(' hide');
     $(`#adminCategoryHR`).removeClass(' hide');
   
