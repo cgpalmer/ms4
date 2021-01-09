@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
-from blog.models import Blog
 from products.models import Image_upload, Product, Category
 from .forms import UserProfileForm
 from reviews.forms import ReviewForm
