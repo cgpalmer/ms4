@@ -15,6 +15,15 @@ $( document ).ready(function() {
     
 });
 
+
+// Nav bar
+
+
+$('#desktop-nav-profile').click(function(){
+    console.log("triggered");
+    $('#navProfileLinks').toggleClass('hide');
+});
+
 // Hiding the photo upload function
 
 $('#imageUploadWrapperTrigger').click(function(){

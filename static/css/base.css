@@ -449,4 +449,12 @@ footer{
 .desktop-nav-link{
     line-height: 2.5;
 }
+
+.desktop-nav-dropdown{
+    background-color: #fff;
+}
+
+.nav-hr{
+    width: 80%;
+}
 }
