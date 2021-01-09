@@ -19,31 +19,27 @@ def add_review(request, product_id):
             # retrieve data from current product
                      
             retrieve_product = get_object_or_404(Product, pk=product_id)
-            print(retrieve_product.name)
+        
             number_of_ratings = retrieve_product.number_of_ratings
             ratings_total = retrieve_product.rating_total
-            print(ratings_total)
+            
 
             # retrieving data from the form 
             new_rating_score = form.cleaned_data.get("review_rating")
-            print("new rating score")
-            print(new_rating_score)
+       
 
             # Average rating calculations
             # Adding up the total score of all the reviews
             retrieve_product.rating_total = ratings_total + new_rating_score
-            print("ratings total")
-            print(retrieve_product.rating_total)
+           
 
             # Adding 1 to the amount of reviews under the product
             retrieve_product.number_of_ratings = number_of_ratings + 1
-            print("How many reviews there are")
-            print(retrieve_product.number_of_ratings)
+           
 
             # Finding the average of the reviews
             retrieve_product.rating = retrieve_product.rating_total / retrieve_product.number_of_ratings
-            print("Average rating")
-            print(retrieve_product.rating)
+           
 
             retrieve_product.save()
             
@@ -80,9 +76,9 @@ def edit_review(request, r_id):
             retrieve_product = get_object_or_404(Product, pk=product_id)
 
             new_review_rating = previous_review_rating - form.cleaned_data.get("review_rating")
-            print(new_review_rating)
+           
             retrieve_product.rating_total = retrieve_product.rating_total - new_review_rating
-            print(retrieve_product.rating_total)
+           
             retrieve_product.rating = retrieve_product.rating_total / retrieve_product.number_of_ratings
             retrieve_product.save()
 
@@ -90,7 +86,7 @@ def edit_review(request, r_id):
             messages.success(request, 'Successfully updated product!')
             review.review_content = form.cleaned_data.get("review_content")
             review.review_rating = form.cleaned_data.get("review_rating")
-            print("review" + str(review.review_rating))
+          
             review.save()
             return redirect('profile')
         else:
@@ -119,21 +115,16 @@ def delete_review(request, r_id):
     old_rating_total = product.rating_total
     old_rating = product.rating
 
-    print(old_number_of_ratings)
-    print(old_rating_total)
-    print(old_rating)
+ 
 
     # Calculating the new rating scores.
     product.number_of_ratings = product.number_of_ratings - 1
-    print("new number of ratings")
-    print(product.number_of_ratings)
-    print("new product rating total")
+
     product.rating_total = product.rating_total - review.review_rating
-    print(product.rating_total)
+
     if product.number_of_ratings != 0:
         product.rating = product.rating_total / product.number_of_ratings
-        print("product rating new")
-        print(product.rating)
+     
     else:
         product.rating = 0
     review.delete()

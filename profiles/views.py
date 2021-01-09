@@ -3,14 +3,10 @@ from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
 from products.models import Image_upload, Product, Category
 from .forms import UserProfileForm
-from reviews.forms import ReviewForm
 from checkout.models import Order
 from reviews.models import Review
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 import datetime
 
 
@@ -19,12 +15,11 @@ def admin_profile(request):
     products = Product.objects.all()
     categories = Category.objects.all()
     orders = Order.objects.order_by("-date")[:5]
-    blogs = Blog.objects.all()
+
     context = {
         'products': products,
         'categories': categories,
         'orders': orders,
-        'blogs': blogs
     }
     return render(request, 'profiles/admin_profile_page.html', context)
 
@@ -41,10 +36,6 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-
-    # Loading all blogs
-
-    blogs = Blog.objects.all()
 
     # Downloading digital content
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)

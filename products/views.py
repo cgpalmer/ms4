@@ -59,9 +59,9 @@ def all_products(request):
     if request.GET:
         if 'special_offer' in request.GET:
             special_offer = request.GET['special_offer'].split(',')
-            print(special_offer)
+    
             if special_offer == ['no_offer']:
-                print("-------------------------------")
+            
                 products = products.exclude(special_offer__name__in=special_offer)
             else:               
                 products = products.filter(special_offer__name__in=special_offer)
@@ -94,10 +94,10 @@ def all_products(request):
 
 def product_detail(request, product_id):
     # Returning the details of a specific product.
-    print("this is the product id")
-    print(product_id)
+  
+
     product = get_object_or_404(Product, pk=product_id)
-    print(product)
+
    
     linked_product = Product.objects.filter(product_type="photo")
     user_photos = Image_upload.objects.filter(user=request.user)
@@ -113,11 +113,11 @@ def product_detail(request, product_id):
     form = Image_uploadForm()
 
     number_of_pictures = product.number_of_pictures
-    print("number of pics is" + str(number_of_pictures))
+    
     number_of_pictures_loop = []
     for n in range(number_of_pictures):
         number_of_pictures_loop.append(n)
-        print(number_of_pictures_loop)
+
 
     context = {
         'product': product,
@@ -148,10 +148,7 @@ def add_product(request):
             product_discount = 1 - retrieve_product.special_offer.discounts
             discount_price = product_price * product_discount
             retrieve_product.discount_price = discount_price
-            print(product_price)
-            print(product_discount)
-            print(discount_price)
-            print("end of the price stuff")
+         
 
             # # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
         

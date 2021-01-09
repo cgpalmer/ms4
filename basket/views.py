@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product, Image_upload
 from django.contrib import messages
-import uuid
+
 # Create your views here.
 
 
@@ -15,11 +15,10 @@ def add_to_basket(request, item_id):
     basket = request.session.get('basket', {})
     # Question this next line-  it's working but why...
     basket_item_id = request.session.get('basket_item_id')
-    print("item id from session" + str(basket_item_id))
+ 
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
-    print("---------------------")
-    print("digi downl " + str(digital_download))
+ 
     linked_products = [['Not linked']]
     # item id is passed through as parameter.
     #get the product
@@ -33,13 +32,13 @@ def add_to_basket(request, item_id):
         number_of_products_to_link = product.number_of_pictures
         linked_products = []
         linked_product_images_list = []
-        print("This is what you are looking for")
+     
 
 
 
         for i in range(number_of_products_to_link):
             linked_product_details = request.POST.get('linked_product' + str(i))
-            print(linked_product_details)
+      
             split_linked_product_details = linked_product_details.split("|")
             linked_product_id = split_linked_product_details[1]
 
@@ -48,17 +47,12 @@ def add_to_basket(request, item_id):
 
 
             linked_product_image = split_linked_product_details[0]
-            print(linked_product_image)
+           
             linked_product_type = split_linked_product_details[2]
 
             if linked_product_type == 'upload':
                 linked_product_object = get_object_or_404(Image_upload, pk=linked_product_id)
-                print("_D_D_D_D_D_D_D_D_D_D_D_D_D_D_D_D")
-                print(linked_product_object)
-                print(linked_product_object.sku)
-                print("***")
-                print(type(linked_product_object.sku))
-                print("***")
+                
             
             
             if linked_product_images_list != []:
@@ -85,7 +79,7 @@ def add_to_basket(request, item_id):
             
             # Put in an elif about being an upload and deal with it that way.
             elif linked_product_type == 'upload':
-                print('upload function reached')
+       
                 if linked_products != []:
                     linked_products.append(str(linked_product_object.sku))
                 else:
@@ -107,14 +101,12 @@ def add_to_basket(request, item_id):
     # checking to see if any of the linked products has repeated pictures to give the user a warning.
     repeats_found = 'None'
     if product.number_of_pictures > 1:
-        print("------------------------------------------------------")
+
         for i in range(0, len(linked_products)):    
             for j in range(i+1, len(linked_products)):    
                 if linked_products[i] == linked_products[j]:
                     if linked_products[i] != "Not linked":
-                        print("Duplicate found")  
-                        print(linked_products[j])
-                        print(linked_products[i])
+                    
                         repeats_found = 'There are repeated pictures in your product.'
 
 
@@ -126,19 +118,19 @@ def add_to_basket(request, item_id):
         
         matching_items = []
         if linked_products[0] == "Not available":
-            print("nothing to link reached")
+          
             for item in basket['items']:
                 # If the ID is in and the the digi-download is on OR off and matches it goes through here. 
                 if item_id == item['item_id'] and digital_download == item['digital_download']:
-                    print("We have a match")
+            
                     matching_items.append(item)
         else:
-            print("this product is linked to a photo")
+    
             for item in basket['items']:
                 if item_id == item['item_id'] and linked_products == item['linked_products']:
                     matching_items.append(item)
         if matching_items:
-            print("matching items exist")
+
             if matching_items[0]['item_id'] == item_id:
                 matching_items[0]['quantity'] += quantity
         else:
@@ -170,7 +162,7 @@ def add_to_basket(request, item_id):
     return redirect(redirect_url)
 
 def edit_basket(request):
-    print("edit basket has been reached.")
+   
     basket = request.session.get('basket', {})
     updated_quantity = request.POST.get('basket_quantity')
     updated_delivery = request.POST.get('basket_digital_download')
@@ -179,8 +171,7 @@ def edit_basket(request):
     # Getting variables to set up editing the linked photos
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, pk=product_id)
-    print('product' + str(product))
-    print("important!" + str(updated_item_id))
+   
 
 
     item_number = -1
@@ -189,7 +180,7 @@ def edit_basket(request):
         if int(updated_item_id) == item['basket_item_id']:
             # Pulling the number of expected linked items
             linked_products_to_edit = product.number_of_pictures
-            print("linked products to edit" + str(linked_products_to_edit)) 
+
 
             # refactor
             item['linked_products'] = []
@@ -199,11 +190,11 @@ def edit_basket(request):
             if product.number_of_pictures > 0:
                 for i in range(linked_products_to_edit):
                     linked_product_details = request.POST.get('edit-linked-product' + str(i))
-                    print(linked_product_details)
+             
                     split_linked_product_details = linked_product_details.split("|")
                     linked_product_id = split_linked_product_details[1]
                     linked_product_image = split_linked_product_details[0]
-                    print(linked_product_image)
+                
                     linked_product_type = split_linked_product_details[2]
                     
                     if updated_linked_product_images_list != []:
@@ -228,7 +219,7 @@ def edit_basket(request):
                     
                     # Put in an elif about being an upload and deal with it that way.
                     elif linked_product_type == 'upload':
-                        print('upload function reached')
+                       
                         linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
                         if updated_linked_products != []:
                             updated_linked_products.append(linked_product.sku)
@@ -267,16 +258,14 @@ def edit_basket(request):
 
 
 def delete_basket_item(request, basket_item_id):
-    print("delete function reached")
+    
     basket = request.session.get('basket', {})
     basket_item_id = int(basket_item_id)
-    print("basket id from url" + str(basket_item_id))
-    print("basket id from url type" + str(type(basket_item_id)))
+  
     item_number = -1
     for item in basket['items']:
         item_number = item_number + 1
-        print(item['basket_item_id'])
-        print("from session basket id " + str(type(item['basket_item_id'])))
+
         if item['basket_item_id'] == basket_item_id:
             del basket['items'][item_number]
             request.session['basket'] = basket
