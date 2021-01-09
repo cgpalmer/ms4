@@ -441,6 +441,8 @@ footer{
 .footerHeader{
     font-size: 2rem;
 }
+
+
 }
 
 
@@ -464,5 +466,57 @@ footer{
 
 .nav-hr{
     width: 80%;
+}
+
+.margin-header-wrapper{
+    margin-top: 1rem;
+}
+
+/* Home page */
+
+.lead{
+    font-size: 1em;
+}
+
+.shop-now-button{
+    font-size: 1.25rem;
+ }
+
+.jumbotron{
+    padding: 0;
+}
+
+.home-image{
+    height: 65vh;
+}
+
+
+.jumbotron{
+     padding-top: 17vh;
+}
+.jumbotronImageTextWrapper-lg{
+    width: 50%;
+   
+}
+/* Footer */
+
+footer{
+    font-size: 1rem;
+}
+.footerHeader{
+    font-size: 1.5rem;
+}
+
+.social-link{
+    text-decoration: none;
+    display: inline-block;
+}
+
+.social-link:nth-child(odd){
+    margin: 0 0.5rem;
+}
+
+.social-ul{
+    padding: 0;
 }
 }
