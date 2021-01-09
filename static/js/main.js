@@ -1,17 +1,14 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-  
-
  
-
-  
      $("#desktopExtraNavWrapper").hover(function(){
         $("#desktopDropDownMenu").css('display', 'flex');}
         ,function(){
     $("#desktopDropDownMenu").css('display', 'none');
     });
-    $("#id_discount_price").addClass('hide');
+
+    // $("#id_discount_price").addClass('hide');
     
 });
 
@@ -19,10 +16,6 @@ $( document ).ready(function() {
 // Nav bar
 
 
-$('#desktop-nav-profile').click(function(){
-    console.log("triggered");
-    $('#navProfileLinks').toggleClass('hide');
-});
 
 // Hiding the photo upload function
 

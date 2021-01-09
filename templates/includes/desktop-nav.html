@@ -1,66 +1,44 @@
 <nav>
    <div class="container-fluid">
         <div class="row">
-            {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                    <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-                   
-                     <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
-                    <i class="fas fa-shopping-basket"></i>
-                    <span>{{ total|floatformat:2 }}</span>
-                </a>
-                <!-- <a id="desktop-nav-profile" href="#" class="nav-link col-2">My Profile</a> -->
-                <!-- <p id="desktop-nav-profile" class="nav-link col-2">My Profile</p> -->
-                <div class=" text-center">
-                    <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Account
-                    </a>
-                    <div class="dropdown-menu desktop-nav-dropdown text-center">
-                        <a class="dropdown-item" href="#">My Profile</a>
-                        <a class="dropdown-item" href="#">Admin</a>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </div>
-                </div>
-                    <a href="{% url 'admin_profile_page' %}" class="nav-link col-sm">Admin</a> 
-                {% else %}
-                    <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-
-                     <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
-                    <i class="fas fa-shopping-basket"></i>
-                    <span>{{ total|floatformat:2 }}</span>
-                </a>
-                <a href="{% url 'profile' %}" class="nav-link col-2">My Profile</a>
-                    <a href="{% url 'admin_profile_page' %}" class="nav-link col-sm">Admin</a>
-                {% endif %}
-                
-                
-                <a href="{% url 'account_logout' %}" class="nav-link col-2">Logout</a>
-            {% else %}
-                <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>
-              
-             <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
+            <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
                 <i class="fas fa-shopping-basket"></i>
                 <span>{{ total|floatformat:2 }}</span>
             </a>
-                <a href="{% url 'account_login' %}" class="nav-link col-sm">Login</a>
-                <a href="{% url 'account_signup' %}" class="nav-link col-sm">Register</a>                     
+            <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>                   
+                
+            {% if request.user.is_authenticated %}          
+                <a class="nav-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user fa signed-in"></i><span> Account</span>
+                </a>
+                <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
+                    <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                    {% if request.user.is_superuser %}
+                        <a class="dropdown-item" href="{% url 'admin_profile_page' %}">Admin</a>
+                    {% endif %}
+                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                </div>
+            {% else %}
+                <a class="nav-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user fa"></i><span> Account</span>
+                </a>
+                <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
+                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                </div>     
             {% endif %} 
-        </div>
-        <div id="navProfileLinks" class="hide">
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-            <div class="col-2 text-center offset-8"> Nav link appears!</div>
-           
         </div>
         <div id="desktopExtraNavWrapper">
             <div class="row">
                 <div class="col-12">
                     <hr class="nav-hr">
-                </div>                
-                <a id="desktopNavAllProducts" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}">All products</a>
-                <a id="desktopNavAllPhotographs" class="col-sm text-center desktop-nav-link" href="{% url 'photo_products' %}?">Photographs</a>
+                </div>
+                <div class="col-sm text-center desktop-nav-link">
+                    <a id="desktopNavAllProducts" href="{% url 'products' %}">All products</a>
+                </div>             
+                <div class="col-sm text-center desktop-nav-link">
+                    <a id="desktopNavAllPhotographs" href="{% url 'photo_products' %}?">Photographs</a>
+                </div>
                 <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
                     <!-- refactor this code? -->
                     <form method="GET" action="{% url 'products' %}" class="row input-group">
@@ -68,8 +46,12 @@
                         <button class=" btn btn-success nav-search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>                 
                 </div>
-                <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvases</a>
-                <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
+                <div class="col-sm text-center desktop-nav-link">
+                    <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvases</a>
+                </div>
+                <div class="col-sm text-center desktop-nav-link">
+                    <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
+                </div>
             </div>
             <div id="desktopDropDownMenu" class="row">
                 <div class="col-sm text-center" aria-labelledby="allProducts">

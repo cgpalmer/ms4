@@ -29,6 +29,14 @@ a:hover{
 
 /* Nav */
 
+.signed-in{
+    color: lightgreen;
+}
+
+.container-fluid .row .drop-placement{
+    transform: translate3d(959px, 46px, 0px)!important;
+}
+
 .form-control-search{
     display: inline-block;
     width: 44%;
