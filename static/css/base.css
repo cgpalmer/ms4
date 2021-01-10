@@ -39,6 +39,10 @@ a:hover{
    
 }
 
+.qty_input{
+    text-align: center;
+}
+
 /* Nav */
 
 .signed-in{
@@ -122,7 +126,7 @@ footer{
 
 /* Jumbotron Settings */
 .home-image{
-    background-image: url('../media/product-images/bratislava.jpg');
+    background-image: url('../media-images/bratislava.jpg');
     background-position: center;
      background-repeat: no-repeat;
   background-size: cover;
@@ -184,7 +188,11 @@ footer{
     width: 100%;
     margin-bottom: 1rem;
 }
-
+.product-linked-preview {
+    display: block;
+    margin-bottom: 1rem;
+    
+}
 
 .category-link{
     margin: 0;
@@ -473,6 +481,20 @@ footer{
 
 /* Larger screens - iPad Landscape, iPad Pro, MD-Laptop */
 @media screen and (min-width: 1024px) {
+
+/* Universal classes */
+
+.extra-margin-top{
+    margin-top: 0;
+}
+
+.extra-margin-right{
+    margin-right: 0;
+}
+
+.extra-margin-bottom{
+    margin-bottom: 1rem;
+}
 .navbar-brand{
     margin-right: 0;
     font-size: 150%;
@@ -553,5 +575,57 @@ footer{
    
 }
 
+/* Product detail */
 
+.product-linked-preview {
+    display: block;
+    margin: 1rem auto 1rem auto;
+    height: 100px;
+    width: unset;
+
+
+}
+
+.product-detail-card{
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-left: 2rem;
+}
+
+.product-detail-card-photos{
+    flex: 0 0 45%;
+    max-width: 45%;
+    margin-left: 3em;
+}
+
+
+.product-detail-card-body{
+    text-align: center;
+}
+
+.stripe-style-input{
+    font-size: 1rem;
+}
+
+.product-detail-labels{
+    font-size: 1.25rem;
+}
+
+#linkedPhotoLabel{
+    margin-top: 1rem;
+}
+
+.product-detail-main-image{
+    height: 300px;
+    width: unset;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+.linkingProductSelect{
+    width: 48%;
+}
 }
