@@ -16,7 +16,7 @@
             <div class="col-12 extra-margin-bottom">
                 <form method="POST" action="{% url 'add_product' %}" class="form" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ form }}
                     <div class="text-center">
                         <button class="btn btn-success btn-lg rounded-0 mb-3 col-12" type="submit">Add Product</button>
                         <a class="btn btn-primary btn-lg rounded-0 col-12" href="{% url 'products' %}">Cancel</a>

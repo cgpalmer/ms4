@@ -26,6 +26,18 @@ a:hover{
     text-align: center;
 }
 
+.on-top-of-image{
+        position: absolute;
+    right:20px;
+    top:15px;
+    background:green;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:16px;
+   
+}
 
 /* Nav */
 
@@ -91,6 +103,19 @@ a:hover{
 
 footer{
     text-align: center;
+}
+
+.social-link{
+    text-decoration: none;
+    display: inline-block;
+}
+
+.social-link:nth-child(odd){
+    margin: 0 0.5rem;
+}
+
+.social-ul{
+    padding: 0;
 }
 
 
@@ -507,16 +532,26 @@ footer{
     font-size: 1.5rem;
 }
 
-.social-link{
-    text-decoration: none;
-    display: inline-block;
-}
-
 .social-link:nth-child(odd){
     margin: 0 0.5rem;
 }
 
-.social-ul{
-    padding: 0;
+/* Products */
+
+.all-products-card:nth-child(even){
+    margin-left: initial;
 }
+
+.all-products-card, .all-products-card:nth-child(even){
+    margin-left: 2.25rem;
+    flex: 0 0 303%;
+    max-width: 30%;
+}
+
+.image-wrapper{
+    width: inherit;
+   
+}
+
+
 }
