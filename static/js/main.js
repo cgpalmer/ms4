@@ -94,11 +94,16 @@ $(".linkingProductSelect").change(function() {
     console.log(imagePath);
   $("#linkImageSelection").attr('src', imagePath);
   $("#linkedProductImagePreview").attr('href', imagePath);
+   $("#linkImageHint").removeClass('hide');
+  
+  $("#linkImageSelection").addClass('product-linked-preview');
  } else {
      let imagePath = "/media/" + splittingValues[0];
      console.log(imagePath);
   $("#linkImageSelection").attr('src', imagePath);
+  $("#linkImageSelection").addClass('product-linked-preview');
   $("#linkedProductImagePreview").attr('href', imagePath);
+
 
  }
  
