@@ -126,11 +126,11 @@ footer{
 
 /* Jumbotron Settings */
 .home-image{
-    background-image: url('../media-images/bratislava.jpg');
+    background-image: url('../media/product-images/bratislava.jpg');
     background-position: center;
-     background-repeat: no-repeat;
-  background-size: cover;
-  height: 85vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
 }
 
 .jumbotron{
@@ -419,6 +419,7 @@ span .fa-lg, a .fa-lg{
     min-height: 73vh;
 }
 
+
 .extra-margin-top {
     margin-top: 2rem;
 }
@@ -484,6 +485,10 @@ footer{
 
 /* Universal classes */
 
+.margin-header-wrapper{
+    margin-top: 0;
+}
+
 .extra-margin-top{
     margin-top: 0;
 }
@@ -515,9 +520,6 @@ footer{
     width: 80%;
 }
 
-.margin-header-wrapper{
-    margin-top: 1rem;
-}
 
 /* Home page */
 
@@ -534,12 +536,12 @@ footer{
 }
 
 .home-image{
-    height: 65vh;
+    height: 72vh;
 }
 
 
 .jumbotron{
-     padding-top: 17vh;
+     padding-top: 27vh;
 }
 .jumbotronImageTextWrapper-lg{
     width: 50%;
