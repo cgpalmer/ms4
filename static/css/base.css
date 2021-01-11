@@ -51,6 +51,7 @@ a:hover{
 
 .container-fluid .row .drop-placement{
     transform: translate3d(959px, 46px, 0px)!important;
+    top: 0.5rem!important;
 }
 
 .form-control-search{
