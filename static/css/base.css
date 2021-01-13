@@ -202,6 +202,10 @@ footer{
 .strikethrough-price{
     margin-right: 0.5rem;
 }
+
+#id_image{
+    overflow: hidden;
+}
 /* Django Fields */
 
 .hide {
@@ -221,6 +225,11 @@ footer{
     max-height: 120px;
     max-width: 50%;
     margin-bottom: 1rem;
+}
+
+.download-image-preview{
+    max-height: 100px;
+    object-fit: contain;
 }
 /* Blog space */
 
@@ -507,6 +516,10 @@ footer{
     text-align: center;
 }
 
+.main-section-container{
+    min-height: 59vh;
+}
+
 /* Nav */
 .navbar-brand{
     margin-right: 0;
@@ -641,5 +654,10 @@ footer{
 
 .linkingProductSelect{
     width: 48%;
+}
+
+/* Profiles */
+.card-header h5 button{
+    font-size: 1rem;
 }
 }

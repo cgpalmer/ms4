@@ -1,59 +1,57 @@
  <hr>
 <h4 class="text-center">Order History</h4>
+<hr class="smaller-hr">
 
-<div class="container">
-    {% if orders %}
-    {% for order in orders %}
-    <hr>
+<div class="container-fluid p-0">
     <div class="row">
-        <div class="col-12 p-0">
-            <p  class="mb-0 p-0">Order Number</p>
-        </div>
-        <div class="col-12 mb-3 p-0">
-            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                 {{ order.order_number|truncatechars:15 }}
-            </a>
+        <div class="col-12">
+            <div class="row">
+             
+                {% if orders %}
+                {% for order in orders %}
+            
+                    <div class="col-12 col-md-6 col-lg-4 mb-2 p-0">
+                          
+                        <p  class="mb-0 p-0">Order Number: 
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:8 }}
+                            </a>
+                        </p>
+                        <p  class="mb-0 p-0">Date: {{ order.date }}</p>
+                        <p  class="mb-0 p-0">Items</p>
+                        <ul class="list-unstyled mb-0 p-0">
+                            {% for item in order.lineitems.all %}
+                                <li class="small">
+                                    {{ item.product.name }} x{{ item.quantity }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <p  class="mb-0 p-0">Order Total: £{{ order.grand_total }}</p>
+                         
+                    </div>
+                    <div class="col-12 d-md-none">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-md-block d-lg-none">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% endif %}
+                {% endfor%}
+                {% else %}
+                    <hr>
+                    <div class="text-center">
+                        <h5 class="mb-3">No orders yet!</h5>
+                        <a class="btn btn-success rounded-0 btn-lg" href="{% url 'products' %}" role="button">Shop now</a>
+                    </div>
+                {% endif %}
+                    
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-5 p-0">
-            <p>Date</p>
-        </div>
-        <div class="col-7 text-right">
-            <p>{{ order.date }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-5 p-0">
-            <p>Items</p>
-        </div>
-        <div class="col-7 text-right">
-            <ul class="list-unstyled">
-                {% for item in order.lineitems.all %}
-                    <li class="small">
-                        {% if item.product.has_sizes %}
-                            Size {{ item.product.size|upper }}
-                        {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-5 p-0">
-            <p>Order Total</p>
-        </div>
-        <div class="col-7 text-right">
-            <p>£{{ order.grand_total }}</p>
-        </div>
-    </div>
-    {% endfor %}
-    {% else %}
-    <hr>
-    <div class="text-center">
-        <h5 class="mb-3">No orders yet!</h5>
-        <a class="btn btn-success rounded-0 btn-lg" href="{% url 'products' %}" role="button">Shop now</a>
-    </div>
-    {% endif %}
-    <hr>
 </div>

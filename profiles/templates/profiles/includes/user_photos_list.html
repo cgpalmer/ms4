@@ -1,44 +1,56 @@
- <hr>
+<hr>
 <h4 class="text-center">Your photographs</h4>
- {% for photo in user_photos %}
-    <hr>
-        <div class="container">
+<hr class="smaller-hr">
+    <div class="row">
+        <div class="col-12">
             <div class="row">
-                <p class="col-12 text-center"> Title: {{photo.title}}</p>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-4 offset-md-4">
-                    <img class="w-100" src="/media/{{photo.image}}" alt="">
-                </div>
-                <div class="col-12 mt-3 text-center">
-                    <button type="button" class="btn btn-danger btn-large rounded-0 col-12 col-md-6" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
-                         <i class="fas fa-trash-alt"></i> Delete
-                    </button>
-                </div>
-            </div>
-        </div>
-       
-       <!-- Modal -->
-            <div class="modal fade" id="deletePhotoNumber{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="deletePhotoNumber{{photo.id}}ModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deletePhotoNumber{{photo.id}}Label">Are you sure you want to remove this?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                {% for photo in user_photos %}
+                    <div class="col-12 col-md-6 col-lg-4 mb-2 p-0">
+                        <p class="text-center"> Title: {{photo.title}}</p>
+                    
+                        <div class="text-center mb-3">
+                            <img class="download-image-preview" src="/media/{{photo.image}}" alt="">
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-danger btn-large rounded-0 col-12 col-md-6" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
+                                <i class="fas fa-trash-alt"></i> Delete
                             </button>
                         </div>
-                
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary rounded-0 btn-lg" data-dismiss="modal">Close</button>
-                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn btn-success rounded-0 btn-lg">
-                            <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                      
-                        </a>
+        
+                        <!-- Modal -->
+                        <div class="modal fade" id="deletePhotoNumber{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="deletePhotoNumber{{photo.id}}ModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deletePhotoNumber{{photo.id}}Label">Are you sure you want to remove this?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>          
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary rounded-0 btn-lg" data-dismiss="modal">Close</button>
+                                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn btn-success rounded-0 btn-lg">
+                                            <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                      
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-12 d-md-none">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-md-block d-lg-none">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block">
+                          <hr class="smaller-hr">
+                    </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            </div>
-
-    {% endfor %}
-
-    <hr>
+        </div>
+    </div>

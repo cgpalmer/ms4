@@ -1,49 +1,75 @@
 <hr>
 <h4 class="text-center">Products ready to download</h4>
-<hr>
-<div class="container">
-    <div class="row text-center">
-        {% for download in digital_downloads_user %}
-            {% if download.number_of_times_downloaded == False %}
-                <div class="downloadItem col-12 ">
-                    <p>{{download.name}}</p>
-                </div>
-                <div class="col-12 mb-3">
-                    <img class="w-100" src="{{download.product.image_url_mobile}}" alt="">
-                </div>
-                <div class="col-12">
-                    {% if download.number_of_times_downloaded == False %}
-                    <form method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <button class="btn btn-success rounded-0 btn-lg" type="submit" value="click">Download <i class="fas fa-download"></i></button>
-                    </form>
-                    {% endif %}
-                </div>      
-            {% endif %}
-        {% endfor %}
+<hr class="smaller-hr">
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            {% for download in digital_downloads_user %}
+                {% if download.number_of_times_downloaded == False %}
+                    <div class="col-12 col-md-6 col-lg-4 p-0">
+                        <div class="downloadItem text-center">
+                            <p>{{download.name}}</p>
+                        </div>
+                        <div class="text-center mb-3">
+                            <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="">
+                        </div>
+                        <div class="mb-3">
+                            {% if download.number_of_times_downloaded == False %}
+                               <form class="text-center" method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <button class="btn btn-success rounded-0 btn-lg" type="submit" value="click">Download <i class="fas fa-download"></i></button>
+                                </form>
+                            {% endif %}
+                        </div>   
+                        <div class="col-12 d-md-none">
+                            <hr class="smaller-hr">
+                        </div>
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-12 d-none d-md-block d-lg-none">
+                                <hr class="smaller-hr">
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:3 %}
+                            <div class="col-12 d-none d-lg-block">
+                                <hr class="smaller-hr">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 
-<div class="container mt-4">
-      <hr> 
-    <div class="text-center row">
-      
-        <div class="col-12">
-            <h4 >Previous purchases</h4>
-        </div> 
-         
-    </div>
-     <hr> 
-    {% for accessed_download in digital_downloads_user %}
-     {% if accessed_download.number_of_times_downloaded == True %}
-      <div class="downloadItem col-12 text-center">
-          
-        <p>{{accessed_download.name}} <i class="far fa-check-circle"></i></p>
-        <p>On: {{accessed_download.date}}</p>
-        
-    </div>
-      <hr class="smaller-hr">
-     {% endif %}
-     {% endfor %}
-   
-     </div>
+
+<hr>
+<h4 class="text-center">Previous purchases</h4>
+<hr class="smaller-hr">
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            {% for accessed_download in digital_downloads_user %}
+                {% if accessed_download.number_of_times_downloaded == True %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <p>{{accessed_download.name}} <i class="far fa-check-circle"></i></p>
+                        <p>On: {{accessed_download.date}}</p>
+                    </div>    
+                
+                <div class="col-12 d-md-none">
+                    <hr class="smaller-hr">
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-md-block d-lg-none">
+                        <hr class="smaller-hr">
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block">
+                        <hr class="smaller-hr">
+                    </div>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>  
+</div>  

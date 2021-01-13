@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row mb-3">
-        <div class="accordion col-12" id="accordionExample">
+        <div class="accordion col-12 col-xl-10 offset-xl-1" id="accordionExample">
             <div class="card col-12 p-0">
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
@@ -27,6 +27,7 @@
                             suitable to download the image onto.
                         </p>
                         {% include 'profiles/includes/user_available_downloads.html' %}
+                        <hr>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,8 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
-                        {% include 'profiles/includes/user_order_history.html' %}          
+                        {% include 'profiles/includes/user_order_history.html' %}  
+                         <hr>        
                     </div>
                 </div>
             </div>
@@ -83,6 +85,7 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                     <div class="card-body">
                        {% include 'reviews/includes/user_review_history.html' %}
+                       <hr>
                     </div>
                 </div>
             </div>
@@ -98,6 +101,7 @@
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                     <div class="card-body">
                         {% include 'profiles/includes/user_photos_list.html' %}
+                        <hr>
                     </div>
                 </div>
             </div>
