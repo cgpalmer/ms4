@@ -5,7 +5,6 @@ from products.models import Image_upload, Product, Category
 from .forms import UserProfileForm
 from checkout.models import Order
 from reviews.models import Review
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import datetime
 
@@ -22,6 +21,7 @@ def admin_profile(request):
         'orders': orders,
     }
     return render(request, 'profiles/admin_profile_page.html', context)
+
 
 @login_required
 def profile(request):
@@ -40,9 +40,7 @@ def profile(request):
     # Downloading digital content
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
     user_photos = Image_upload.objects.filter(user=request.user)
-   
     user_reviews = Review.objects.filter(user=request.user)
-
 
     template = 'profiles/profiles.html'
     context = {
@@ -53,10 +51,10 @@ def profile(request):
         'user_photos': user_photos,
         'digital_downloads_user': digital_downloads_user,
         'review': user_reviews,
-        
     }
 
     return render(request, template, context)
+
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
@@ -75,14 +73,12 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-
 def counting_downloads(request, download_id):
     if request.method == "POST":
         download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
         download_file.number_of_times_downloaded = True
         download_file.date = datetime.datetime.now()
         download_file.save()    
-
 
         template = "profiles/download_ready.html"
         context = {
@@ -91,6 +87,7 @@ def counting_downloads(request, download_id):
         return render(request, template, context)
     else:
         return render(request, 'home/index.html')
+
 
 def delete_user_photo(request, photo_id):
     # Use a filter here for user photos only

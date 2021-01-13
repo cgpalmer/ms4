@@ -13,6 +13,7 @@ from basket.context import basket_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -38,9 +39,6 @@ def condensing_basket(request):
     # for item in basket['items']:
     #     list_of_items_to_check.append([item['basket_item_id'],[item['item_id'],item['digital_download'],item['linked_products']]])
     #     print(list_of_items_to_check)
-        
-    
-    
     # for i in range(0, len(list_of_items_to_check)):    
     #     for j in range(i+1, len(list_of_items_to_check)):    
     #         if list_of_items_to_check[i][1] == list_of_items_to_check[j][1]:    
@@ -54,7 +52,7 @@ def condensing_basket(request):
     #                 item['quantity'] = item['quantity'] + 1
     #             if item['basket_item_id'] == list_of_items_to_check[j][0]:
     #                 del basket['items'][item_number]
-                    
+
     # print("-------------------------------------")
 
     # request.session['basket'] = basket
@@ -69,8 +67,6 @@ def checkout(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
         
-
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -96,15 +92,9 @@ def checkout(request):
                 else:
                     digital_download = False
                 
-                    
-                
-                
-            
-                
                 try:
                     product = get_object_or_404(Product, pk=item['item_id'])
-                    
-                                       
+                                     
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
@@ -131,7 +121,6 @@ def checkout(request):
         if not basket:
             messages.error(request, "There's nothing in your basket at the moment")
             return redirect(reverse('products'))
-    
 
         current_basket = basket_contents(request)
         total = current_basket['grand_total']
@@ -161,7 +150,6 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
-
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
@@ -175,6 +163,7 @@ def checkout(request):
     
     return render(request, template, context)
 
+
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
@@ -182,7 +171,6 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
    
-
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
@@ -218,10 +206,11 @@ def checkout_success(request, order_number):
             name = product.friendly_name
             if item['digital_download']:
                 user = request.user
-                product_file_path = product.image_desktop
+                # product_file_path = product.image_desktop
         # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
-                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product, number_of_times_downloaded=number_of_times_downloaded)
+                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product, 
+                                                      number_of_times_downloaded=number_of_times_downloaded)
             for link in item['linked_products']:
                 Linked_Product.objects.create(order_id=order, linked_product=link, product=product)
 
@@ -233,9 +222,6 @@ def checkout_success(request, order_number):
     context = {
         'order': order,
         'linked_product': linked_product
-        
-        
-        
     }
 
     return render(request, template, context)

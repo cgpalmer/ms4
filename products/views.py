@@ -10,12 +10,14 @@ from .forms import ProductForm, Image_uploadForm
 # Create your views here.
 ''' A view to show all the products and somewhere to search and sort by.'''
 
+
 def photo_products(request):
     products = Product.objects.filter(product_type="photo")
     context = {
         'products': products,
     }
     return render(request, 'products/products.html', context)
+
 
 def container_products(request):
     products = Product.objects.filter(product_type="container")
@@ -24,9 +26,9 @@ def container_products(request):
     }
     return render(request, 'products/products.html', context)
 
+
 def all_products(request):
     # Returning the products page
-
     products = Product.objects.all()
     query = None
     categories = None
@@ -46,7 +48,6 @@ def all_products(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-
             products = products.order_by(sortkey)
 
     if request.GET:
@@ -54,16 +55,12 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-
-     
     if request.GET:
         if 'special_offer' in request.GET:
             special_offer = request.GET['special_offer'].split(',')
-    
             if special_offer == ['no_offer']:
-            
                 products = products.exclude(special_offer__name__in=special_offer)
-            else:               
+            else:
                 products = products.filter(special_offer__name__in=special_offer)
             special_offer = Special.objects.filter(name__in=special_offer)
 
@@ -94,31 +91,20 @@ def all_products(request):
 
 def product_detail(request, product_id):
     # Returning the details of a specific product.
-  
-
     product = get_object_or_404(Product, pk=product_id)
-
-   
     linked_product = Product.objects.filter(product_type="photo")
     user_photos = Image_upload.objects.filter(user=request.user)
-
     # change to id
-          
     review = Review.objects.filter(product=product_id)
-
     if product.product_type == "photo":
         product_type_for_linking = "photo"
     else:
         product_type_for_linking = "container"
     form = Image_uploadForm()
-
     number_of_pictures = product.number_of_pictures
-    
     number_of_pictures_loop = []
     for n in range(number_of_pictures):
         number_of_pictures_loop.append(n)
-
-
     context = {
         'product': product,
         'review': review,
@@ -127,7 +113,6 @@ def product_detail(request, product_id):
         'form': form,
         'user_photos': user_photos,
         'number_of_pictures_loop': number_of_pictures_loop
-
     }
     return render(request, 'products/product_detail.html', context)
 
@@ -143,29 +128,21 @@ def add_product(request):
             sku = form.cleaned_data.get("sku")
             retrieve_product = get_object_or_404(Product, sku=sku)
             product_price = retrieve_product.price
-            
-            
             product_discount = 1 - retrieve_product.special_offer.discounts
             discount_price = product_price * product_discount
             retrieve_product.discount_price = discount_price
-         
-
-            # # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
-        
+            # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
             retrieve_product.save()
-          
             return redirect(reverse('admin_profile_page'))
         else:
             messages.error(
                 request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-
     template = 'products/add_product.html'
     context = {
         'form': form,
     }
-
     return render(request, template, context)
 
 
@@ -190,14 +167,11 @@ def edit_product(request, product_id):
                 request, 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
-        
-
     template = 'products/edit_product.html'
     context = {
         'form': form,
         'product': product,
     }
-
     return render(request, template, context)
 
 
@@ -205,9 +179,9 @@ def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-  
     messages.success(request, 'Product deleted!')
     return redirect(reverse('admin_profile_page'))
+
 
 def image_upload(request, product_id):
     """Process images uploaded by users"""
