@@ -83,7 +83,6 @@ def edit_review(request, r_id):
             return redirect('profile')
     else:
         form = ReviewForm(instance=review)
-        
         template = 'reviews/edit_reviews.html'
         context = {
             'form': form,
@@ -113,4 +112,4 @@ def delete_review(request, r_id):
     review.delete()
     product.save()
     messages.success(request, 'Review deleted!')
-    return redirect(reverse('products'))
+    return redirect(reverse('profile'))

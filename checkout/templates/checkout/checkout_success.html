@@ -16,9 +16,13 @@
                 <hr>
                 <h2 class="logo-font checkout-header">Thank you!</h2>
                 <hr>
-                <h5>Your order has been submitted.</h5>
-                    
-                 <h5>You will receive a confirmation to the following email address: {{user.email}}</h5>           
+                {% if messages %}
+                    <div class="message-container">
+                        {% for message in messages %}
+                            <p class="mb-0"><i class="far fa-check-circle"></i> {{message}}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}       
             </div>
         </div>
  <div class="row mt-3">

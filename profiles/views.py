@@ -93,6 +93,7 @@ def delete_user_photo(request, photo_id):
     # Use a filter here for user photos only
     user_photo = get_object_or_404(Image_upload, pk=photo_id)
     user_photo.delete()
+    messages.success(request, 'Photo successfully deleted')
     return redirect(reverse('profile'))
 
 
