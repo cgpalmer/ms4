@@ -12,6 +12,28 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     # adding to a basket
+
+    if 'total_items_in_basket' in request.session:
+        print("it's there")
+        add_item = request.session['total_items_in_basket']
+        print("add item")
+        print(add_item)
+        add_item = add_item + 1
+        print("add item")
+        print(add_item)
+        request.session['total_items_in_basket'] = add_item
+    else:
+        print("its not there")
+        add_item = 0
+        request.session['total_items_in_basket'] = add_item
+        print("add item")
+        print(add_item)
+        request.session['total_items_in_basket'] = add_item
+    
+
+    
+  
+
     basket = request.session.get('basket', {})
     # When the basket is empty this is set to one. Then one is added each time.
     basket_item_id = request.session.get('basket_item_id')
@@ -129,6 +151,7 @@ def edit_basket(request):
     # Getting variables to set up editing the linked photos
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, pk=product_id)
+
     item_number = -1
     for item in basket['items']:
         item_number = item_number + 1
@@ -216,6 +239,14 @@ def empty_basket(request):
     if basket != {}:
         del basket['items']
         request.session['basket'] = basket
+        # Include in checkout success too. In fact - make this a function
+        add_item = request.session['total_items_in_basket']
+        print("add_item ")
+        print(add_item)
+        add_item = 0
+        print("add_item ")
+        print(add_item)
+        request.session['total_items_in_basket'] = add_item
         return redirect('view_basket')
     else:
         return redirect('view_basket')
