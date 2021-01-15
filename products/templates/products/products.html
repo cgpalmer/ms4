@@ -1,15 +1,16 @@
-{% extends 'base.html' %} {% load static %} {% load mathfilters %} 
+{% extends 'base.html' %} {% load static %} 
 {% block content %}
 <section>
   <div class="container-fluid main-section-container margin-header-wrapper product-container">
     <div class="row search-information">
         
 
-      <div class="col-12 text-center mt-3">
+      <div class="col-12 text-center my-3">
           
-        <p>{{products|length}} product(s){% if search_term %} found for "{{search_term}}"</p>
+        <p>{{products|length}} product(s){% if search_term %} found for "{{search_term}}"
         
-        {% endif %}
+        {% endif %}</p>
+        <a href="{% url 'products' %}" class="btn btn-primary col-md-6 "><i class="fas fa-chevron-left"></i> Back to products</a>
       </div>
      
     </div>
