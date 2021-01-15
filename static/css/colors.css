@@ -1,45 +1,31 @@
 /* Background Colours */
-.offer-bar{
-    background-color: black;
-}
 
 .navbar, footer, .main-colour {
-    background-color: 
-    /* #004E89; */
-    /* #97a3b6; */
-    /* #80bd48; */
-    /* #acb9ca; */
-    /* #78747e; */
-    /* #706b28; */
-    #978b21;
+    background-color: #978b21;
 }
-
 
 
 
 /* Text colour */
 
-.navbar, .navbar-light .navbar-brand, p,  .footerHeader{
-    color: black;
+.navbar, .navbar-light .navbar-brand, footer p, .footerHeader, .social-link, a, .dropdown-item, .navbar-light .navbar-nav .nav-link{
+    color: white;
 }
 
-.parallaxImageTextWrapper h2, .parallaxImageTextWrapper p {
-    color: black;
+p, .product-name{
+    color: black
 }
+
 
 .navbar-light .navbar-toggler-icon {
-   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(239, 239, 208, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  
 }
 
-.offer-bar{
+.navbar-light .navbar-toggler{
+    border-color: white;
     color: white;
 }
 
 /* Feature styling */
 
-.orangeButton{
-    /* background-color: #FF6B35; */
-    background-color: #ECF87F;
-    border: 1px solid #EFEFD0;
-    color: black;
-}
