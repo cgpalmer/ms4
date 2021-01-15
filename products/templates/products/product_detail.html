@@ -28,7 +28,7 @@
                 {% else %}
                     <span class="badge "></span>
                 {% endif %}
-                <p class="card-text product-name">{{product.friendly_name}}</p>
+                <p class="card-text product-name non-link">{{product.friendly_name}}</p>
                 <p class="card-text">            
                     {% if product.price != product.discount_price %} 
                         <span class="strikethrough-price"> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
@@ -136,7 +136,7 @@
                 {% else %}
                     <span class="badge "></span>
                 {% endif %}
-                <p class="card-text product-name">{{product.friendly_name}}</p>
+                <p class="card-text product-name non-link">{{product.friendly_name}}</p>
                 <p class="card-text">            
                     {% if product.price != product.discount_price %} 
                         <span class="strikethrough-price"> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
