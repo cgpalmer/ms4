@@ -29,3 +29,6 @@ p, .product-name{
 
 /* Feature styling */
 
+hr{
+    border-color: white;
+}
