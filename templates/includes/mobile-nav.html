@@ -44,10 +44,10 @@
                    <a class="nav-link" href="{% url 'home' %}">Home </a>
                 </li>   
                 <li class="nav-item dropdown">
-                    <a class=" nav-link" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" nav-link cat-links" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Special Offers <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="photographsDropdown">
+                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="photographsDropdown">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}?special_offer=new_photos" class="dropdown-item">New photographs!</a>
                         <a href="{% url 'products' %}?special_offer=editors_pick" class="dropdown-item">Editor's Pick!</a>
@@ -56,10 +56,10 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link cat-links" href="#" id="allProducts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        All Products <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="allProducts">
+                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="allProducts">
                         <!-- refactor this code? -->
                         <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price</a>
                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">Rating</a>
@@ -67,10 +67,10 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link cat-links" href="#" id="photographsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Photographs <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="photographsDropdown">
+                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="photographsDropdown">
                         <!-- refactor this code? -->
                         <a href="{% url 'products' %}?category=landscapes" class="dropdown-item">Landscapes</a>
                         <a href="{% url 'products' %}?category=insects" class="dropdown-item">Insects</a>
@@ -79,19 +79,17 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="containersDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link cat-links" href="#" id="containersDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Frames and Canvases <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="containersDropdown">
+                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="containersDropdown">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}?category=canvas" class="dropdown-item">Canvases</a>
                         <a href="{% url 'products' %}?category=photo_frame" class="dropdown-item">Photo frames</a>
                         <a href="{% url 'products' %}?category=calendars" class="dropdown-item">Calendars</a>
                     </div>
                 </li>
-                <li class="nav-item">
-          
-                </li>
+              
             </ul>
         </div>            
     </div>

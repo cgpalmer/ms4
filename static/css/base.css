@@ -5,11 +5,20 @@ body, html {
 
 /* Tag settings */
 a {
-    color: #495057;
+    color: white;
+
 }
 
 a:hover{
     text-decoration: none;
+    color: white;
+
+  
+}
+
+.cat-links:hover, .dropdown-item:hover {
+    background-color: white;
+    color: #978b21!important;
 }
 
 .row{
@@ -560,6 +569,9 @@ footer{
     height: 72vh;
 }
 
+.account-link, a:not([href]){
+    color: white;
+}
 
 .jumbotron{
      padding-top: 27vh;
