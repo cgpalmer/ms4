@@ -46,6 +46,24 @@ p, .product-name, .category-link a{
     color: white;
 }
 
+
+/* Hover Effects */
+
+.category-link a:hover, .product-name:hover{
+    color: #978b21;
+}
+
+.cat-links:hover, .dropdown-item:hover {
+    background-color: white;
+    color: #978b21!important;
+}
+
+.social-icon:hover{
+    transform: scale(1.2);
+}
+
+
+
 /* Feature styling */
 
 .white-hr, .nav-hr{

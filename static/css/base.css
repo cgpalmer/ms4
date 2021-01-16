@@ -16,14 +16,6 @@ a:hover{
   
 }
 
-.category-link a:hover, .product-name:hover{
-    color: #978b21;
-}
-
-.cat-links:hover, .dropdown-item:hover {
-    background-color: white;
-    color: #978b21!important;
-}
 
 .non-link:hover{
     color: inherit
@@ -130,6 +122,7 @@ footer{
 .social-link{
     text-decoration: none;
     display: inline-block;
+    cursor: pointer;
 }
 
 .social-link:nth-child(odd){
