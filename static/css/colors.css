@@ -4,6 +4,25 @@
     background-color: #978b21;
 }
 
+.btn-success  {
+    border-color: #212D97;
+    background-color: #212D97;
+}
+
+.btn-success:hover {
+    background-color: rgb(27, 37, 129);
+     border-color: rgb(27, 37, 129);
+}
+
+.btn-primary, .btn-danger{
+    border-color: #978b21;
+    background-color: #978b21;
+}
+
+.btn-primary, .btn-danger:hover{
+    background-color: #7c7217;
+    border-color: #7c7217;
+}
 
 
 /* Text colour */
@@ -31,4 +50,8 @@ p, .product-name, .category-link a{
 
 .white-hr, .nav-hr{
     border-color: white;
+}
+
+.signed-in{
+    color: #212D97;
 }
