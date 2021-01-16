@@ -47,7 +47,7 @@ class Product(models.Model):
 
 
 class Special(models.Model):
-    name = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254, null=False, blank=True, default="none")
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     discounts = models.DecimalField(max_digits=4, decimal_places=3, default=0.0, null=False, blank=False)
 
