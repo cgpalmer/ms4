@@ -55,7 +55,7 @@
                     <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button class="btn btn-success btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
+                        <button class="btn action-btn btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
                     </form>
                 {% endif %}             
             </div>
@@ -108,11 +108,11 @@
                     </div>
                 {% endif %}
                      
-                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg btn-success mb-3" type="submit">
+                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg action-btn mb-3" type="submit">
                     Add to basket
                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
                 </button>
-                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg mb-3">
+                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black second-btn rounded-0 btn-lg mb-3">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
@@ -182,11 +182,11 @@
                     </div>
                 {% endif %}
                      
-                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg btn-success mb-3" type="submit">
+                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg action-btn mb-3" type="submit">
                     Add to basket
                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
                 </button>
-                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black btn-primary rounded-0 btn-lg mb-3">
+                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black second-btn rounded-0 btn-lg mb-3">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>

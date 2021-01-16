@@ -11,8 +11,8 @@
                             <p><i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
                             <p>  {{ r.review_content }}</p> 
                         
-                            <a class="btn btn-success rounded-0 mx-2" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit"></i><span class="buttonText"> Edit</span></a>
-                            <button type="button" class="btn btn-danger mx-2 rounded-0" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
+                            <a class="btn action-btn rounded-0 mx-2" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit"></i><span class="buttonText"> Edit</span></a>
+                            <button type="button" class="btn second-btn mx-2 rounded-0" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
                                 <i class="fas fa-trash-alt"></i><span class="buttonText"> Delete</span>
                             </button>
                         </div>
@@ -30,8 +30,8 @@
                             </div>
                     
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary rounded-0 btn-lg" data-dismiss="modal">Close</button>
-                                <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn btn-success rounded-0 btn-lg">
+                                <button type="button" class="btn second-btn rounded-0 btn-lg" data-dismiss="modal">Close</button>
+                                <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn action-btn rounded-0 btn-lg">
                                     <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                          
                                 </a>
                             </div>

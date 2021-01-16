@@ -32,7 +32,7 @@
                 <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}">
             </div>
             <div class="col-2" >
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+                <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
                 <i class="fas fa-ellipsis-v"></i>
                 </button>
             </div>                    
@@ -134,14 +134,14 @@
                 </div>
                 <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn btn-success btn-lg col-12 rounded-0">Save changes</button>
+                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg btn-danger btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="col-2" >
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+                <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
                 <i class="fas fa-ellipsis-v"></i>
                 </button>
             </div>                    
@@ -271,14 +271,14 @@
                 </div>
                 <input type="text" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="text" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn btn-success btn-lg col-12 rounded-0">Save changes</button>
+                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg btn-danger btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -344,7 +344,7 @@
             {% endif %}
              </div>
                  <div class="col-2" >
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
+                    <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}">
                     <i class="fas fa-ellipsis-v"></i>
                     </button>
                 </div> 
@@ -408,14 +408,14 @@
                 </div>
                 <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn btn-success btn-lg col-12 rounded-0">Save changes</button>
+                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg btn-danger btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -503,14 +503,14 @@
     <div class="row  extra-margin-bottom">
             <div class="col-12 checkout-button-wrapper">
                                     {% if are_all_items_linked == False %}
-                                    <button type="button" class="col-12 col-md-6 btn btn-success btn-lg rounded-0" data-toggle="modal" data-target="#checkProductsModal">
+                                    <button type="button" class="col-12 col-md-6 btn action-btn btn-lg rounded-0" data-toggle="modal" data-target="#checkProductsModal">
                                     <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </button>
                                     {% else %}
-                                    <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn btn-success btn-lg rounded-0">
+                                    <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn action-btn btn-lg rounded-0">
                                         <span>Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -521,7 +521,7 @@
                                     {% endif %}
             </div>
                                     <div class="col-12 checkout-button-wrapper">
-                                        <a href="{% url 'products' %}" class="col-12 col-md-6 btn btn-primary rounded-0 btn-lg">
+                                        <a href="{% url 'products' %}" class="col-12 col-md-6 btn second-btn rounded-0 btn-lg">
                                     <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                              </span>
@@ -536,7 +536,7 @@
                          <p class="lead mt-4 mb-5">Your bag is empty.</p>
                     </div>
                     <div class="col-12">
-                    <a href="{% url 'products' %}" class="btn btn-primary rounded-0 btn-lg">
+                    <a href="{% url 'products' %}" class="btn second-btn rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -570,13 +570,13 @@
         <p>This means that if you have order a photo frame, canvas or calendar, they may arrive blank.</p>
       </div>
       <div class="modal-footer text-center px-4">
-          <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn  mb-3 btn-success col-12 rounded-0 btn-lg">
+          <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn  mb-3 action-btn col-12 rounded-0 btn-lg">
                                         <span>Continue To Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </a>
-        <button type="button" class="btn mb-3 btn-primary col-12 rounded-0 btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
+        <button type="button" class="btn mb-3 second-btn col-12 rounded-0 btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
     
       </div>
     </div>

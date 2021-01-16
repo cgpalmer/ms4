@@ -54,6 +54,9 @@ a:hover{
 
 /* Nav */
 
+.fa-user{
+    padding: 3px;
+}
 .signed-in{
     color: lightgreen;
 }

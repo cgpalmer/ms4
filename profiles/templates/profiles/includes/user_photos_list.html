@@ -12,7 +12,7 @@
                             <img class="download-image-preview" src="/media/{{photo.image}}" alt="">
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-danger btn-large rounded-0 col-12 col-md-6" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
+                            <button type="button" class="btn second-btn btn-large rounded-0 col-12 col-md-6" data-toggle="modal" data-target="#deletePhotoNumber{{photo.id}}">
                                 <i class="fas fa-trash-alt"></i> Delete
                             </button>
                         </div>
@@ -28,8 +28,8 @@
                                         </button>
                                     </div>          
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-0 btn-lg" data-dismiss="modal">Close</button>
-                                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn btn-success rounded-0 btn-lg">
+                                        <button type="button" class="btn second-btn rounded-0 btn-lg" data-dismiss="modal">Close</button>
+                                        <a id="checkoutButton" href="{% url 'delete_user_photo' photo.id %}" class="btn action-btn rounded-0 btn-lg">
                                             <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                      
                                         </a>
                                     </div>

@@ -4,24 +4,17 @@
     background-color: #978b21;
 }
 
-.btn-success  {
+
+.action-btn  {
     border-color: #212D97;
     background-color: #212D97;
+    color: white;
 }
 
-.btn-success:hover {
-    background-color: rgb(27, 37, 129);
-     border-color: rgb(27, 37, 129);
-}
-
-.btn-primary, .btn-danger{
+.second-btn, .second-btn{
     border-color: #978b21;
     background-color: #978b21;
-}
-
-.btn-primary, .btn-danger:hover{
-    background-color: #7c7217;
-    border-color: #7c7217;
+    color: white;
 }
 
 
@@ -49,11 +42,11 @@ p, .product-name, .category-link a{
 
 /* Hover Effects */
 
-.category-link a:hover, .product-name:hover{
+.category-link a:hover, .category-link:active .product-name:hover, .product-name:active{
     color: #978b21;
 }
 
-.cat-links:hover, .dropdown-item:hover {
+.cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{
     background-color: white;
     color: #978b21!important;
 }
@@ -62,6 +55,22 @@ p, .product-name, .category-link a{
     transform: scale(1.2);
 }
 
+.action-btn:hover, .action-btn:active {
+    background-color: rgb(27, 37, 129);
+     border-color: rgb(27, 37, 129);
+     box-shadow: 0 0 0 0.2rem rgb(27, 37, 129, 0.5);
+     color: white;
+     
+}
+
+
+
+.second-btn:hover, .second-btn:active, .second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus{
+    background-color: #7c7217;
+    border-color: #7c7217;
+     box-shadow: 0 0 0 0.2rem rgba(124,114,23, 0.5);
+     color: white;
+}
 
 
 /* Feature styling */
