@@ -29,6 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
+
 ALLOWED_HOSTS = ['hidden-gems-cgpalmer91.herokuapp.com', 'localhost']
 
 
@@ -51,8 +52,6 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
-    'mathfilters',
-
     # External apps
     'crispy_forms',
     'storages'
