@@ -716,3 +716,9 @@ https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-i
 https://stackoverflow.com/questions/13422689/django-how-to-limit-number-of-objects-returned-from-a-model
 
 https://bootsnipp.com/snippets/e3q3a
+
+https://stackoverflow.com/questions/51084909/how-can-i-use-a-catch-all-route-using-path-or-re-path-so-that-django-passes
+https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handler404-in-django
+https://stackoverflow.com/questions/34685233/css-badge-over-image-with-bootstrap
+
+https://www.canva.com/colors/color-wheel/ - color scheme
