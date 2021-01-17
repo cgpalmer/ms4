@@ -145,11 +145,19 @@ def edit_basket(request):
     for item in basket['items']:
         item_number = item_number + 1
         if int(basket_item_id) == item['basket_item_id']:
+            # Updating the quantity
             print(item['quantity'])
             if int(updated_quantity) == 0:
                 del basket['items'][item_number]
             else:
                 item['quantity'] = int(updated_quantity)
+
+            # Updating the digital download if necessary
+            if product.digital_download is True:
+                if updated_delivery == "True":
+                    item['digital_download'] = True
+                else:
+                    item['digital_download'] = None
 
 
     #         # Pulling the number of expected linked items
