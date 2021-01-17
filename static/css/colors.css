@@ -19,8 +19,8 @@
 
 
 /* Text colour */
-
-.navbar, .navbar-light .navbar-brand, footer p, .footerHeader, .social-link, a, .dropdown-item, .navbar-light .navbar-nav .nav-link{
+ 
+.navbar, .navbar-light .navbar-brand, footer p, .dropdown-item, .footerHeader, .social-link, a, .navbar-light .navbar-nav .nav-link{
     color: white;
 }
 
@@ -28,6 +28,9 @@ p, .product-name, .category-link a{
     color: black
 }
 
+.desktop-dropdown{
+    color: #978b21;
+}
 
 .navbar-light .navbar-toggler-icon {
    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -70,6 +73,11 @@ p, .product-name, .category-link a{
     border-color: #7c7217;
      box-shadow: 0 0 0 0.2rem rgba(124,114,23, 0.5);
      color: white;
+}
+
+.desktop-dropdown:hover, .desktop-dropdown:focus{
+    background-color: #7c7217;
+    color: white!important;
 }
 
 

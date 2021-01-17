@@ -61,10 +61,6 @@ a:hover{
     color: lightgreen;
 }
 
-.container-fluid .row .drop-placement{
-    transform: translate3d(959px, 46px, 0px)!important;
-    top: 0.5rem!important;
-}
 
 .form-control-search{
     display: inline-block;
@@ -96,6 +92,7 @@ a:hover{
 
 .dropdown-menu{
     background-color: inherit;
+    border: 0;
 }
 
 .dropdown-item{
@@ -555,6 +552,12 @@ a:not([href]):hover{
     color: white;
     cursor: pointer;
 }
+
+.container-fluid .row .drop-placement{
+    transform: translate3d(140px, 46px, 0px)!important;
+    top: 0.5rem!important;
+}
+
 
 /* Home page */
 

@@ -8,17 +8,17 @@
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
                     <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
                     {% if request.user.is_superuser %}
-                        <a class="dropdown-item" href="{% url 'admin_profile_page' %}">Admin</a>
+                        <a class="dropdown-item desktop-dropdown" href="{% url 'admin_profile_page' %}">Admin</a>
                     {% endif %}
-                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    <a class="dropdown-item desktop-dropdown" href="{% url 'account_logout' %}">Logout</a>
                 </div>
             {% else %}
                 <a class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user fa"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
-                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                    <a class="dropdown-item desktop-dropdown" href="{% url 'account_login' %}">Login</a>
+                    <a href="{% url 'account_signup' %}" class="dropdown-item desktop-dropdown">Register</a>
                 </div>     
             {% endif %} 
             <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>                   
@@ -26,7 +26,7 @@
             
             <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
                 <i class="fas fa-shopping-basket"></i>
-                <span>{{ total|floatformat:2 }}</span>
+                <span>£{{ total|floatformat:2 }}</span>
             </a>
         </div>
         <div id="desktopExtraNavWrapper">
