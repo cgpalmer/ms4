@@ -22,8 +22,9 @@
             <div class="col-12 mb-3">
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
-                 basket_item_d{{item.item.basket_item_id}}
+                 {{basket_item_id}}
                 {% else %}
+                 {{basket_item_id}}
                   <p class="mb-0">{{ item.product.friendly_name}}</p>
                   <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
                 {% endif %}
@@ -289,7 +290,7 @@
     <div class="container col-12 basket-container d-none d-md-none d-xl-block">
         <div class="row">
             <div class="col-md-12 mb-3">
-                  basket_item_d{{item.item.basket_item_id}}
+                  {{item.item.basket_item_id}}
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
