@@ -722,3 +722,5 @@ https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handle
 https://stackoverflow.com/questions/34685233/css-badge-over-image-with-bootstrap
 
 https://www.canva.com/colors/color-wheel/ - color scheme
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
