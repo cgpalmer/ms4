@@ -77,7 +77,7 @@
         </div>
         <hr>
     </div>
-   <!-- Edit basket Modal -->
+    <!-- Edit basket Modal -->
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}S" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -87,7 +87,7 @@
             <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
-                <h3>Quantity basketModal{{item.item.basket_item_id}}</h3>
+                <h3>Quantity</h3>
                 <div class="input-group mb-3">
                     <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
                 </div>
@@ -106,8 +106,9 @@
                 {% endif %}
          
               
-              
+                
                 <div class="my-3">
+                    {% if item.product.product_type == 'container' %}
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
@@ -131,7 +132,9 @@
                     </select>
                     {% endif %}
                     {% endfor %}
+                     {% endif %}
                 </div>
+               
                 <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="hidden" name="product_id" value="{{item.item.item_id}}">
                 <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
@@ -152,7 +155,7 @@
     <div class="container basket-container d-none d-md-block d-lg-none">   
         <div class="row">
             <div class="col-md-12 mb-3">
-                basket_item_d{{item.item.basket_item_id}}
+               
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
@@ -225,7 +228,7 @@
             <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
-                <h3>Quantity basketModal{{item.item.basket_item_id}}</h3>
+                <h3>Quantity</h3>
                 <div class="input-group mb-3">
                     <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
                 </div>
@@ -244,8 +247,9 @@
                 {% endif %}
          
               
-              
+                
                 <div class="my-3">
+                    {% if item.product.product_type == 'container' %}
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
@@ -269,7 +273,9 @@
                     </select>
                     {% endif %}
                     {% endfor %}
+                     {% endif %}
                 </div>
+               
                 <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="hidden" name="product_id" value="{{item.item.item_id}}">
                 <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
@@ -289,7 +295,7 @@
     <div class="container col-12 basket-container d-none d-md-none d-xl-block">
         <div class="row">
             <div class="col-md-12 mb-3">
-                  {{item.item.basket_item_id}} large
+              
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
@@ -368,7 +374,7 @@
             <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
-                <h3>Quantity basketModal{{item.item.basket_item_id}}</h3>
+                <h3>Quantity</h3>
                 <div class="input-group mb-3">
                     <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
                 </div>
@@ -387,8 +393,9 @@
                 {% endif %}
          
               
-              
+                
                 <div class="my-3">
+                    {% if item.product.product_type == 'container' %}
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
@@ -412,7 +419,9 @@
                     </select>
                     {% endif %}
                     {% endfor %}
+                     {% endif %}
                 </div>
+               
                 <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
                 <input type="hidden" name="product_id" value="{{item.item.item_id}}">
                 <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
