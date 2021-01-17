@@ -30,6 +30,9 @@ a:hover{
     width: 65%;
 }
 
+.fw-600{
+    font-weight: 600;
+}
 .message-container{
     margin-top: 1rem;
     text-align: center;

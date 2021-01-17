@@ -20,7 +20,7 @@
 
 /* Text colour */
  
-.navbar, .navbar-light .navbar-brand, footer p, .dropdown-item, .footerHeader, .social-link, a, .navbar-light .navbar-nav .nav-link{
+.navbar, .navbar-light .navbar-brand, footer p, .dropdown-item, .footerHeader, .social-link, .navbar-light .navbar-nav .nav-link{
     color: white;
 }
 
@@ -28,7 +28,7 @@ p, .product-name, h4, h4 a{
     color: black
 }
 
-.desktop-dropdown, .text-link, .text-link a{
+.desktop-dropdown, .text-link, .text-link a, .form-group a{
     color: #978b21;
 }
 
@@ -95,4 +95,8 @@ p, .product-name, h4, h4 a{
 
 .signed-in{
     color: #212D97;
+}
+
+select, select:focus{
+    border-color: #7c7217;
 }

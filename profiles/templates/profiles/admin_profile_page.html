@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-12 text-center my-3">
-            <h4>For full site admin, click here: <a class= href="{% url 'add_product' %}">Full admin</a></h4>
+            <h4>For full site admin, click here: <a class="text-link fw-600" href="{% url 'add_product' %}">Full admin</a></h4>
         </div>
      
     </div>
@@ -27,7 +27,7 @@
          
         <div class="col-12 col-md-6 text-center">
               <hr>
-            <h4 class=""><i class="fas fa-plus-circle"></i><a href="{% url 'add_product' %}"> Add product</a></h4>
+            <h4 class="text-link fw-600"><i class="fas fa-plus-circle"></i><a href="{% url 'add_product' %}"> Add product</a></h4>
         </div>
        
         <div class="col-12 text-center">
@@ -53,14 +53,15 @@
                     <p>SKU: {{product.sku}} </p>
                 
                     <div class="row">
-                        <div class="col-6 col-md-3 offset-md-3 text-center">
-                            <a class="btn action-button btn-lg" href="{% url 'edit_product' product.id %}">Edit</a>
-                        </div>
-                        <div class="col-6 col-md-3 text-center">
-                             <button type="button" class="btn second-btn btn-lg" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
+                         <div class="col-6 col-md-3 offset-md-3  text-center">
+                             <button type="button" class="btn second-btn btn-lg rounded-0" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
                                 <span>Delete</span>
                             </button>
                         </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <a class="btn action-btn btn-lg rounded-0" href="{% url 'edit_product' product.id %}">Edit</a>
+                        </div>
+                       
                     </div>
                     
                 <hr>
@@ -77,8 +78,8 @@
                                 </button>
                             </div>              
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn action-button rounded-0 btn-lg">
+                                <button type="button" class="btn second-btn rounded-0" data-dismiss="modal">Close</button>
+                                <a id="checkoutButton" href="{% url 'delete_product' product.id %}" class="btn action-btn rounded-0">
                                     <span class="text-uppercase">Delete product</span>                      
                                 </a>
                             </div>
