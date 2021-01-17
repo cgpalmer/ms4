@@ -100,3 +100,20 @@ p, .product-name, h4, h4 a{
 select, select:focus{
     border-color: #7c7217;
 }
+
+.item-added-transition{
+    animation: basket-glow 3s linear;
+}
+@keyframes basket-glow{
+    0%{
+        color: white;
+    }
+    50% {
+        color: #212D97;
+        box-shadow: #212D97;
+        
+    }
+    100% {
+      color: white; 
+    }
+}

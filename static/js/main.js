@@ -1,3 +1,21 @@
+ $('#addToBasket').click(function(){
+        item = sessionStorage.getItem('currentBasketAmount')
+        if (item == null){
+            sessionStorage.setItem('currentBasketAmount', 0);
+             sessionStorage.setItem('newBasketAmount', 1);
+        } else{
+            item++;
+            sessionStorage.setItem('newBasketAmount', item)
+        }
+        console.log(item);
+ });
+
+$('#emptyBasket').click(function(){
+    sessionStorage.clear();
+    console.log("should clear");
+});
+
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -10,6 +28,18 @@ $( document ).ready(function() {
 
     // $("#id_discount_price").addClass('hide');
     
+    let currentBasketAmount = sessionStorage.getItem('currentBasketAmount')
+    let newBasketAmount = sessionStorage.getItem('newBasketAmount')
+    console.log(currentBasketAmount)
+    console.log(newBasketAmount)
+    if(newBasketAmount > currentBasketAmount){
+        $(".fa-shopping-basket").addClass('item-added-transition');
+        sessionStorage.setItem('currentBasketAmount', newBasketAmount)
+        // $(".fa-shopping-basket").removeClass('item-added-transition');
+    } else{
+           $(".fa-shopping-basket").removeClass('item-added-transition');
+    }
+
 });
 
 
@@ -72,6 +102,7 @@ $("#deliveryTypeCheckbox").change(function() {
 
 $('#addToBasket').click(function(){
     $("#productDetailQty").prop('disabled', false);
+   
 });
 
 
