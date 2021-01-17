@@ -13,7 +13,6 @@
     </div>
 </div>
 
-{{test}}
 
 {% if basket_items %}      
     {% for item in basket_items %}
@@ -78,7 +77,7 @@
         </div>
         <hr>
     </div>
-    <!-- Edit basket Modal -->
+   <!-- Edit basket Modal -->
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}S" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -92,8 +91,9 @@
                 <div class="input-group mb-3">
                     <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
                 </div>
-                <h3>Delivery Type</h3>
+                
                 {% if item.product.product_type == 'photo' %}
+                <h3>Delivery Type</h3>
                 <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control">
                     {% if item.digital_download == "on" %}
                     <option value="None">Delivery</option>
@@ -103,23 +103,22 @@
                     <option value="True">Digital Download</option>
                     {% endif %}
                 </select>
-                {% else %}
-                <!-- This is the same ID because only one will show at a time.  -->
-                <div class="hide">
-                    <select id="basket-item-delivery{{ forloop.counter0}}" name="" class="extraClass hide">
-                        <option value="" class="hide"></option>
-                    </select>
-                </div>
-                {% endif%}
+                {% endif %}
+         
+              
+              
                 <div class="my-3">
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product" id="basket-linked-product" class=" py3">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class=" py3">
+                        <option value="Not linked|No id|No item">Not linked</option> 
                         {% for product in products %} 
-                        {% if product.sku == image %}
-                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option>
-                        {% endif%}  
+                        
+                            {% if product.sku == image %}
+                            <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                            {% endif%} 
+                        
                         <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
                         <option value="" disabled>User Photos</option>
@@ -230,8 +229,9 @@
                 <div class="input-group mb-3">
                     <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
                 </div>
-                <h3>Delivery Type</h3>
+                
                 {% if item.product.product_type == 'photo' %}
+                <h3>Delivery Type</h3>
                 <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control">
                     {% if item.digital_download == "on" %}
                     <option value="None">Delivery</option>
@@ -241,23 +241,22 @@
                     <option value="True">Digital Download</option>
                     {% endif %}
                 </select>
-                {% else %}
-                <!-- This is the same ID because only one will show at a time.  -->
-                <div class="hide">
-                    <select id="basket-item-delivery{{ forloop.counter0}}" name="" class="extraClass hide">
-                        <option value="" class="hide"></option>
-                    </select>
-                </div>
-                {% endif%}
+                {% endif %}
+         
+              
+              
                 <div class="my-3">
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product" id="basket-linked-product" class=" py3">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class=" py3">
+                        <option value="Not linked|No id|No item">Not linked</option> 
                         {% for product in products %} 
-                        {% if product.sku == image %}
-                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option>
-                        {% endif%}  
+                        
+                            {% if product.sku == image %}
+                            <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                            {% endif%} 
+                        
                         <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
                         <option value="" disabled>User Photos</option>
@@ -271,8 +270,8 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <input type="text" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                <input type="text" name="product_id" value="{{item.item.item_id}}">
+                <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                <input type="hidden" name="product_id" value="{{item.item.item_id}}">
                 <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
                 </form>
             </div>
