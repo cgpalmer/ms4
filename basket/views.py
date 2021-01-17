@@ -81,8 +81,10 @@ def add_to_basket(request, item_id):
                         repeats_found = 'There are repeated pictures in your product.'
     # appending the items to the basket
     if basket != {}:
-    
+        print("--------------------------")
+        print(basket_item_id)
         basket_item_id = basket_item_id + 1
+        
         matching_items = []
         if linked_products[0] == "Not available":
             for item in basket['items']:
@@ -106,6 +108,7 @@ def add_to_basket(request, item_id):
                 'linked_product_images_list': linked_product_images_list,
                 'repeats_found': repeats_found
             })
+            request.session['basket_item_id'] = basket_item_id
     else:
         basket['items'] = []
         request.session['basket_item_id'] = 1
@@ -120,7 +123,7 @@ def add_to_basket(request, item_id):
         })
     redirect_url = request.POST.get('redirect_url')
     request.session['basket'] = basket
-    request.session['basket_item_id'] = basket_item_id
+ 
     messages.success(request, f"Successfully added '{product.friendly_name}' to your basket.")
     return redirect(redirect_url)
 
@@ -222,13 +225,8 @@ def empty_basket(request):
         del basket['items']
         request.session['basket'] = basket
         # Include in checkout success too. In fact - make this a function
-        add_item = request.session['total_items_in_basket']
-        print("add_item ")
-        print(add_item)
-        add_item = 0
-        print("add_item ")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
+ 
+       
         return redirect('view_basket')
     else:
         return redirect('view_basket')
