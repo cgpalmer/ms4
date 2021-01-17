@@ -147,77 +147,96 @@ def edit_basket(request):
     basket = request.session.get('basket', {})
     updated_quantity = request.POST.get('basket_quantity')
     updated_delivery = request.POST.get('basket_digital_download')
-    updated_item_id = request.POST.get('basket_item_id')
+    basket_item_id = request.POST.get('basket_item_id')
     # Getting variables to set up editing the linked photos
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, pk=product_id)
-
+    print("-----------------------------")
+    print(updated_quantity)
+    print(updated_delivery)
+    print(basket_item_id)
+    print(product.name)
     item_number = -1
     for item in basket['items']:
         item_number = item_number + 1
-        if int(updated_item_id) == item['basket_item_id']:
-            # Pulling the number of expected linked items
-            linked_products_to_edit = product.number_of_pictures
-            # refactor
-            item['linked_products'] = []
-            item['linked_product_images_list'] = []
-            updated_linked_product_images_list = []
-            updated_linked_products = []
-            if product.number_of_pictures > 0:
-                for i in range(linked_products_to_edit):
-                    linked_product_details = request.POST.get('edit-linked-product' + str(i))
-                    split_linked_product_details = linked_product_details.split("|")
-                    linked_product_id = split_linked_product_details[1]
-                    linked_product_image = split_linked_product_details[0]
-                    linked_product_type = split_linked_product_details[2]
-                    if updated_linked_product_images_list != []:
-                        if linked_product_type == "upload":
-                            linked_product_image = "/media/" + linked_product_image
-                            updated_linked_product_images_list.append(linked_product_image)
-                        else:
-                            updated_linked_product_images_list.append(linked_product_image)
-                    else:
-                        if linked_product_type == "upload":
-                            linked_product_image = "/media/" + linked_product_image
-                            updated_linked_product_images_list.insert(0, linked_product_image)
-                        else:
-                            updated_linked_product_images_list.insert(0, linked_product_image)
-                    if linked_product_id == "No id":
-                        if updated_linked_products != []:
-                            updated_linked_products.append('Not linked')
-                        else:
-                            updated_linked_products.insert(0, 'Not linked')
-                    # Put in an elif about being an upload and deal with it that way.
-                    elif linked_product_type == 'upload':
-                        linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
-                        if updated_linked_products != []:
-                            updated_linked_products.append(linked_product.sku)
-                        else:
-                            updated_linked_products.insert(0, linked_product.sku)
-                    else:
-                        linked_product = get_object_or_404(Product, pk=linked_product_id)
-                        # There are going to be issues with upload your own photos here
-                        if updated_linked_products != []:
-                            updated_linked_products.append(linked_product.sku)
-                        else:
-                            updated_linked_products.insert(0, linked_product.sku)
-            else:
-                updated_linked_products = ['Not available']
-                updated_linked_product_images_list = ['Not available']
-            item['linked_products'] = updated_linked_products
-            item['linked_product_images_list'] = updated_linked_product_images_list
-            # Removing an item if quantity is 0.
+        if int(basket_item_id) == item['basket_item_id']:
+            # Updating the quantity
+            print(item['quantity'])
             if int(updated_quantity) == 0:
                 del basket['items'][item_number]
             else:
                 item['quantity'] = int(updated_quantity)
+
+            # Updating the digital download if necessary
+            if product.digital_download is True:
                 if updated_delivery == "True":
                     item['digital_download'] = True
                 else:
                     item['digital_download'] = None
-        else:
-            # Find out what this does
-            return redirect('view_basket')
+
+
+    #         # Pulling the number of expected linked items
+    #         linked_products_to_edit = product.number_of_pictures
+    #         # refactor
+    #         item['linked_products'] = []
+    #         item['linked_product_images_list'] = []
+    #         updated_linked_product_images_list = []
+    #         updated_linked_products = []
+    #         if product.number_of_pictures > 0:
+    #             for i in range(linked_products_to_edit):
+    #                 linked_product_details = request.POST.get('edit-linked-product' + str(i))
+    #                 split_linked_product_details = linked_product_details.split("|")
+    #                 linked_product_id = split_linked_product_details[1]
+    #                 linked_product_image = split_linked_product_details[0]
+    #                 linked_product_type = split_linked_product_details[2]
+    #                 if updated_linked_product_images_list != []:
+    #                     if linked_product_type == "upload":
+    #                         linked_product_image = "/media/" + linked_product_image
+    #                         updated_linked_product_images_list.append(linked_product_image)
+    #                     else:
+    #                         updated_linked_product_images_list.append(linked_product_image)
+    #                 else:
+    #                     if linked_product_type == "upload":
+    #                         linked_product_image = "/media/" + linked_product_image
+    #                         updated_linked_product_images_list.insert(0, linked_product_image)
+    #                     else:
+    #                         updated_linked_product_images_list.insert(0, linked_product_image)
+    #                 if linked_product_id == "No id":
+    #                     if updated_linked_products != []:
+    #                         updated_linked_products.append('Not linked')
+    #                     else:
+    #                         updated_linked_products.insert(0, 'Not linked')
+    #                 # Put in an elif about being an upload and deal with it that way.
+    #                 elif linked_product_type == 'upload':
+    #                     linked_product = get_object_or_404(Image_upload, pk=linked_product_id)
+    #                     if updated_linked_products != []:
+    #                         updated_linked_products.append(linked_product.sku)
+    #                     else:
+    #                         updated_linked_products.insert(0, linked_product.sku)
+    #                 else:
+    #                     linked_product = get_object_or_404(Product, pk=linked_product_id)
+    #                     # There are going to be issues with upload your own photos here
+    #                     if updated_linked_products != []:
+    #                         updated_linked_products.append(linked_product.sku)
+    #                     else:
+    #                         updated_linked_products.insert(0, linked_product.sku)
+    #         else:
+    #             updated_linked_products = ['Not available']
+    #             updated_linked_product_images_list = ['Not available']
+    #         item['linked_products'] = updated_linked_products
+    #         item['linked_product_images_list'] = updated_linked_product_images_list
+    #         # Removing an item if quantity is 0.
+    #         if int(updated_quantity) == 0:
+    #             del basket['items'][item_number]
+    #         else:
+    #             item['quantity'] = int(updated_quantity)
+    #             if updated_delivery == "True":
+    #                 item['digital_download'] = True
+    #             else:
+    #                 item['digital_download'] = None
+    #     else:
+    #         # Find out what this does
+    #         return redirect('view_basket')
     request.session['basket'] = basket
     return redirect('view_basket')
 
