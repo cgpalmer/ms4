@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 
+
 ALLOWED_HOSTS = ['hidden-gems-cgpalmer91.herokuapp.com', 'localhost']
 
 
