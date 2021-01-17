@@ -11,7 +11,7 @@ def basket_contents(request):
     total = 0
     full_price_total = 0
     products = Product.objects.filter(product_type="photo")
-    user_photos = Image_upload.objects.all()
+    user_photos = Image_upload.objects.filter(user=request.user)
     product_count = 0
     delivery_total = 0
     basket = request.session.get('basket', {})

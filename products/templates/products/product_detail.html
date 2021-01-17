@@ -51,12 +51,23 @@
         
             <div class="card col-12  mt-3 order-md-3 col-md-12 col-lg-4 product-detail-card extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
-                {% if product_type_for_linking == "container" %}
+                
+                {% if request.user.is_authenticated %}
                     <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <button class="btn action-btn btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
                     </form>
+                {% else %}
+                    <div class="mb-3">
+                    <h5>If you would like to have your own photos on your calendar, then </h5>
+                    <a class="btn action-btn rounded-0" href="{% url 'account_login' %}">Login now</a>
+                    </div>
+                    <div class="mb-3">
+                        <h5>Don't have an account, yet?</h5>
+                     <a class="btn action-btn rounded-0" href="{% url 'account_signup' %}">Register now!</a>
+                    </div>
+                    
                 {% endif %}             
             </div>
         
