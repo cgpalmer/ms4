@@ -152,6 +152,7 @@
     <div class="container basket-container d-none d-md-block d-lg-none">   
         <div class="row">
             <div class="col-md-12 mb-3">
+                basket_item_d{{item.item.basket_item_id}}
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
@@ -288,6 +289,7 @@
     <div class="container col-12 basket-container d-none d-md-none d-xl-block">
         <div class="row">
             <div class="col-md-12 mb-3">
+                  basket_item_d{{item.item.basket_item_id}}
                 {% if item.item.repeats_found == 'None' %}
                  <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}

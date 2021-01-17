@@ -12,31 +12,12 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     # adding to a basket
-
-    if 'total_items_in_basket' in request.session:
-        print("it's there")
-        add_item = request.session['total_items_in_basket']
-        print("add item")
-        print(add_item)
-        add_item = add_item + 1
-        print("add item")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
-    else:
-        print("its not there")
-        add_item = 0
-        request.session['total_items_in_basket'] = add_item
-        print("add item")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
-    
-
-    
-  
-
     basket = request.session.get('basket', {})
     # When the basket is empty this is set to one. Then one is added each time.
     basket_item_id = request.session.get('basket_item_id')
+    print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
+    print("basket_item_id")
+    print(basket_item_id)
     quantity = int(request.POST.get('quantity'))
     digital_download = request.POST.get('digital_download')
     linked_products = [['Not linked']]
@@ -100,8 +81,8 @@ def add_to_basket(request, item_id):
                         repeats_found = 'There are repeated pictures in your product.'
     # appending the items to the basket
     if basket != {}:
-        for item in basket['items']:
-            basket_item_id = basket_item_id + 1
+    
+        basket_item_id = basket_item_id + 1
         matching_items = []
         if linked_products[0] == "Not available":
             for item in basket['items']:
@@ -139,6 +120,7 @@ def add_to_basket(request, item_id):
         })
     redirect_url = request.POST.get('redirect_url')
     request.session['basket'] = basket
+    request.session['basket_item_id'] = basket_item_id
     messages.success(request, f"Successfully added '{product.friendly_name}' to your basket.")
     return redirect(redirect_url)
 
