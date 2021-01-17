@@ -24,11 +24,11 @@
     color: white;
 }
 
-p, .product-name, .category-link a{
+p, .product-name {
     color: black
 }
 
-.desktop-dropdown{
+.desktop-dropdown, .text-link, .text-link a{
     color: #978b21;
 }
 
@@ -45,8 +45,8 @@ p, .product-name, .category-link a{
 
 /* Hover Effects */
 
-.category-link a:hover, .category-link:active .product-name:hover, .product-name:active{
-    color: #978b21;
+.text-link:hover, .text-link:active, .text-link a:hover, .text-link a:active, .product-name:hover, .product-name:active{
+    color: #7c7217;
 }
 
 .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{

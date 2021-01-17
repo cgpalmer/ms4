@@ -20,7 +20,7 @@
             <p>
                 {% blocktrans %}
                 If you have not created an account yet, then please
-                <a href="{{ signup_url }}">sign up</a> first.
+                <a class="text-link" href="{{ signup_url }}">sign up</a> first.
                 {% endblocktrans %}
             </p>
         </div>
@@ -33,7 +33,7 @@
                 {% endif %}
                 <button class="primaryAction btn action-btn btn-lg rounded-0 mb-3 col-12" type="submit">{% trans "Sign In" %}</button>
                 <div class="text-center">
-                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                    <a class="button secondaryAction text-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </div>
             </form>
         </div>
