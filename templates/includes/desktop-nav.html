@@ -6,7 +6,7 @@
                     <i class="fas fa-user fa signed-in"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
-                    <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                    <a class="dropdown-item desktop-dropdown" href="{% url 'profile' %}">My Profile</a>
                     {% if request.user.is_superuser %}
                         <a class="dropdown-item desktop-dropdown" href="{% url 'admin_profile_page' %}">Admin</a>
                     {% endif %}

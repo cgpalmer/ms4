@@ -24,7 +24,7 @@
     color: white;
 }
 
-p, .product-name {
+p, .product-name, h4, h4 a{
     color: black
 }
 
