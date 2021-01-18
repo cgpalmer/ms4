@@ -32,13 +32,32 @@ def cache_checkout_data(request):
 
 
 def condensing_basket(request):
-    # basket = request.session.get('basket', {})
+    basket = request.session.get('basket', {})
+
+    list_of_items_to_check = []
+    item_number = -1
+    for item in basket['items']:
+        item_number = item_number + 1
+        appending_item = [item['basket_item_id'],[item['item_id'],item['digital_download'],item['linked_products']]]
+        
+        print("appending item" + str(appending_item[1]))
+        if list_of_items_to_check != []:
+            print("not empty")
+            for i in range(len(list_of_items_to_check)):
+                if list_of_items_to_check[i][1] == appending_item[1]:
+                    print("duplicate found")
+                    basket['items'][item_number - 1]['quantity'] = basket['items'][item_number - 1]['quantity'] + basket['items'][item_number]['quantity']
+                    del basket['items'][item_number]
+                    print(list_of_items_to_check)
+                else:
+                    list_of_items_to_check.append(appending_item)
+                    print(list_of_items_to_check)
+
+        else:
+            print("empty")
+            list_of_items_to_check.append(appending_item)
+   
     
-    # print("Below is all of your duplicate things.")
-    # list_of_items_to_check = []
-    # for item in basket['items']:
-    #     list_of_items_to_check.append([item['basket_item_id'],[item['item_id'],item['digital_download'],item['linked_products']]])
-    #     print(list_of_items_to_check)
     # for i in range(0, len(list_of_items_to_check)):    
     #     for j in range(i+1, len(list_of_items_to_check)):    
     #         if list_of_items_to_check[i][1] == list_of_items_to_check[j][1]:    
@@ -55,7 +74,7 @@ def condensing_basket(request):
 
     # print("-------------------------------------")
 
-    # request.session['basket'] = basket
+    request.session['basket'] = basket
     return redirect(checkout)
 
 
