@@ -55,16 +55,15 @@ def basket_contents(request):
 
 
             list_of_linked_product_info = item['linked_products']
-            print("LIST " + str(list_of_linked_product_info))
+           
             for product_info in list_of_linked_product_info:
                 if product_info == 'Not linked' and product.number_of_pictures > 0:
                     are_all_items_linked = False
-                    print(are_all_items_linked)            
+                             
    
 
     if delivery_total == 0 or total > settings.FREE_DELIVERY_AMOUNT:
-        print(delivery_total)
-        print(total)
+       
         delivery = 0
         free_delivery_deficit = 0
     else:

@@ -43,7 +43,11 @@ def condensing_basket(request):
         print("appending item" + str(appending_item[1]))
         if list_of_items_to_check != []:
             print("not empty")
-            for i in range(len(list_of_items_to_check)):
+            '''
+                This len of list of items to check is the issue. It runs through once because that's how many are in.
+                So the second gets added but the loop doesn't run again to find the duplicate.
+            '''
+            for i in range(len(basket['items'])):
                 if list_of_items_to_check[i][1] == appending_item[1]:
                     print("duplicate found")
                     basket['items'][item_number - 1]['quantity'] = basket['items'][item_number - 1]['quantity'] + basket['items'][item_number]['quantity']
