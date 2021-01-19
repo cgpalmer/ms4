@@ -404,6 +404,8 @@ span .fa-lg, a .fa-lg{
     padding: 0;
 }
 
+
+
 .shop-now-button{
     font-size: 1.5rem;
 }
@@ -503,8 +505,17 @@ footer{
 
 
 }
+/* iPad screens and larger */
 
+@media screen and (min-width: 768px) {
+header .navbar-light .navbar-toggler-icon {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
+.fa-shopping-basket, .basket-total-span{
+    padding-top: 13px;
+}
+}
 /* Larger screens - iPad Landscape, iPad Pro, MD-Laptop */
 @media screen and (min-width: 1024px) {
 
@@ -566,7 +577,9 @@ a:not([href]):hover{
     top: 0.5rem!important;
 }
 
-
+.fa-shopping-basket, .basket-total-span{
+    padding-top: unset;
+}
 /* Home page */
 
 .lead{
