@@ -43,12 +43,12 @@
                 <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
                     <!-- refactor this code? -->
                     <form method="GET" action="{% url 'products' %}" class="row input-group">
-                        <input class="form-control" name="q" type="search" placeholder="Search products" aria-label="Search">
+                        <input class="form-control" name="q" type="search" placeholder="Search" aria-label="Search">
                         <button class=" btn action-btn nav-search-button" type="submit"><i class="fas fa-search"></i></button>
                     </form>                 
                 </div>
                 <div class="col-sm text-center desktop-nav-link">
-                    <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center desktop-nav-link" href="{% url 'container_products' %}">Frames and Canvases</a>
+                    <a id="desktopNavAllFramesAndCanvas" class="col-sm text-center px-0 desktop-nav-link" href="{% url 'container_products' %}">Frames & Canvases</a>
                 </div>
                 <div class="col-sm text-center desktop-nav-link">
                     <a id="desktopNavAllSpecialOffers" class="col-sm text-center desktop-nav-link" href="{% url 'products' %}?special_offer=no_offer">Special Offers</a>  
