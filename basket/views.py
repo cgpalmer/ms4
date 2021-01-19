@@ -12,28 +12,6 @@ def view_basket(request):
 
 def add_to_basket(request, item_id):
     # adding to a basket
-
-    if 'total_items_in_basket' in request.session:
-        print("it's there")
-        add_item = request.session['total_items_in_basket']
-        print("add item")
-        print(add_item)
-        add_item = add_item + 1
-        print("add item")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
-    else:
-        print("its not there")
-        add_item = 0
-        request.session['total_items_in_basket'] = add_item
-        print("add item")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
-    
-
-    
-  
-
     basket = request.session.get('basket', {})
     # When the basket is empty this is set to one. Then one is added each time.
     basket_item_id = request.session.get('basket_item_id')

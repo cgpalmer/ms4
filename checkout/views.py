@@ -62,7 +62,7 @@ def condensing_basket(request):
                 delete_item_number = -1
                 for item in basket['items']:
                     delete_item_number = delete_item_number + 1
-                    if item['basket_item_id'] == int(list_of_items_to_check[j][0]):
+                    if item['basket_item_id'] == int(list_of_items_to_check[i][0]):
                         del basket['items'][delete_item_number]
                         request.session['basket'] = basket
     return redirect(checkout)
