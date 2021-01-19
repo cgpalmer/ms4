@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+                <p class="">Order Summary ({{ product_count }})</p>
                 <div class="row">
                     <div class="col-2 text-left p-0">
                         <p class="mb-1 mt-0 small" >Item</p>
@@ -59,12 +59,12 @@
                 {% endfor %}
                 <hr class="my-0">
                 <div class="row checkout-summary-wrapper">
-                    <div class="col-7 offset-2">
+                    <div class="col-7 col-md-6 ">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 col-md-6 text-md-left">
                         <p class="my-0">${{ total | floatformat:2 }}</p>
                         <p class="my-0">${{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
@@ -75,16 +75,16 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <hr class="mt-0">
-                <p class="text-muted text-center">Please fill out the form below to complete your order.</p>
+                <p class="text-center">Please fill out the form below to complete your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded  text-center px-3 mb-2 mt-2">
-                        <legend class="fieldset-label text-muted px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label px-2 w-auto">Details</legend>
                         {{ order_form.full_name  }}
                         {{ order_form.email  }}
                     </fieldset>
-                    <fieldset class="rounded text-center px-3 mb-4">
-                        <legend class="fieldset-label text-muted px-2 w-auto">Delivery</legend>
+                    <fieldset class="rounded text-center px-3 mb-3">
+                        <legend class="fieldset-label px-2 w-auto">Delivery</legend>
                         {{ order_form.phone_number  }}
                         {{ order_form.country  }}
                         {{ order_form.postcode  }}
@@ -98,20 +98,20 @@
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label class="form-check-label" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                    <a class="text-link" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-link" href="{% url 'account_login' %}">login</a> to save this information
                                 </label>
 							{% endif %}
 						</div>
                     </fieldset>
-                    <fieldset class="px-3 mb-4">
-                        <legend class="fieldset-label text-muted text-center px-2 w-auto">Payment</legend>
+                    <fieldset class="px-3 mb-3">
+                        <legend class="fieldset-label text-center px-2 w-auto">Payment</legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
                          <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        <p class="small text-danger text-center my-0">
+                        <div class="mb-3 text-link" id="card-errors" role="alert"></div>
+                        <p class="small text-link text-center my-0">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
@@ -121,7 +121,7 @@
                     
                     <div class="row">
                     <div class="submit-button text-center mt-2 mb-3 col-12"> 
-                        <button id="submit-button" class="btn rounded-0 action-btn btn-lg col-12 col-md-6 extra-margin-bottom">
+                        <button id="submit-button" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 extra-margin-bottom">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
