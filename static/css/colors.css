@@ -97,7 +97,7 @@ p, .product-name, h4, h4 a{
     color: #212D97;
 }
 
-select, select:focus{
+select, select:focus, input{
     border-color: #7c7217;
 }
 

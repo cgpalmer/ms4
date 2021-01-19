@@ -26,6 +26,10 @@ a:hover{
     margin-right: 0;
 }
 
+.nav-row{
+    width: 100%;
+}
+
 .smaller-hr{
     width: 65%;
 }

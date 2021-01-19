@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <button class="navbar-toggler text-black nav-link" type="button" data-toggle="collapse" data-target="#navbarLoginContent" aria-controls="navbarLoginContent" aria-expanded="false" aria-label="Toggle login">
-        <span><i class="fas fa-user fa-lg"></i></span>
-    </button>             
-    <a class="logo-title ml-3" href="{% url 'home' %}">Hidden Gems</a> 
-    <a class="nav-link" href="{% url 'view_basket' %}" id="allProducts">
-        <i class="fas fa-shopping-basket item-added-transition fa-lg"></i>
-        <span class="basket-total-span"> £{{ total|floatformat:2 }}</span>
-    </a>
+    <div class="container-fluid">
+        <div class="row nav-row">
+            <button class="navbar-toggler col-2 text-black nav-link" type="button" data-toggle="collapse" data-target="#navbarLoginContent" aria-controls="navbarLoginContent" aria-expanded="false" aria-label="Toggle login">
+                <span><i class="fas fa-user fa-lg"></i></span>
+            </button>             
+            <a class="logo-title col-7 text-center" href="{% url 'home' %}">Hidden Gems</a> 
+            <a class="nav-link col-3 px-0 text-center" href="{% url 'view_basket' %}" id="allProducts">
+                <i class="fas fa-shopping-basket item-added-transition fa-lg"></i>
+                <span class="basket-total-span"> £{{ total|floatformat:2 }}</span>
+            </a>
 
         
     <div class="col-12 col-lg-4 my-auto px-0 py-1 py-lg-0">
@@ -26,17 +28,22 @@
                 </li>
             </ul>
         </div>
-    </div>       
+    </div> 
+        </div>
+    </div>
+          
     <div class="container-fluid ">
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="row nav-row">
+        <button class="navbar-toggler col-2 col-md-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> 
-        <div id="extendedSearchBar" class="" aria-labelledby="searchProducts">
+        <div id="extendedSearchBar" class="col-10 col-md-8" aria-labelledby="searchProducts">
             <!-- refactor this code? -->           
             <form method="GET" action="{% url 'products' %}" class="input-group input-group-search">
                 <input class="form-control form-control-search" name="q" type="search" placeholder="Search" aria-label="Search">          
                 <button class=" btn action-btn nav-search-button" type="submit"><i class="fas fa-search"></i></button>
             </form>   
+        </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
