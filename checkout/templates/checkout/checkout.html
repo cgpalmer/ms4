@@ -71,10 +71,9 @@
                     </div>
                 </div>
             </div>
-      
-        <div class="row">
+        
             <div class="col-12 col-lg-6">
-                <hr class="mt-0">
+                <hr class="mt-0 d-lg-none">
                 <p class="text-center">Please fill out the form below to complete your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
