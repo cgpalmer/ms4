@@ -51,6 +51,21 @@
                             {% else %}
                             <p class="my-0 small text-muted">Delivery : Delivery</p>
                             {% endif %}
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <p class="text-muted my-0 small">Linked Products</p>
+                                </div>
+                                  {%for g in item.item.linked_products%}
+                            {% if g != 'Not linked' %}
+                                {% if g != 'Not available' %}
+                                    <div class="col-3 linked-products-div">
+                                        <small>{{g|truncatechars:8}}</small>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                            </div>
+                             
                         </div>
                         <div class="col-3 text-right">
                             <p class="my-0 small text-muted">${{item.subtotal}}</p>
@@ -63,6 +78,8 @@
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
+                         
+                    </div>
                     </div>
                     <div class="col-3 col-md-6 text-md-left">
                         <p class="my-0">${{ total | floatformat:2 }}</p>
