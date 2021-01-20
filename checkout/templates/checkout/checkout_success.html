@@ -75,10 +75,24 @@
                             {% else %}
                                 <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.discount_price}} each - delivery</p>
                             {% endif %}
+                           
                         </div>
                     </div>
                     {% endfor %}
-
+                    <div class="row">
+                        <div class="col-12">
+                     <!-- This at the moment will show all the items for the order. Need a way to only show the right 
+                                item with the right
+                            -->
+                            Linked product list
+                            {% for lp in linked_product %}
+                                 <p class="small mb-0">{{lp.product.name}}</p>
+                                 {% for lp in linked_product %}
+                                 <p class="small mb-0">{{lp.linked_product}}</p>
+                                 {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <p class="mt-3 font-weight-bold">Delivering To:</p>
