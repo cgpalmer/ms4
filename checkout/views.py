@@ -226,7 +226,7 @@ def checkout_success(request, order_number):
     if 'basket' in request.session:
         del request.session['basket']
 
-    linked_product = Linked_Product.objects.filter(order_id=order.id)
+    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(linked_product='Not available')
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

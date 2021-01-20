@@ -84,12 +84,12 @@
                      <!-- This at the moment will show all the items for the order. Need a way to only show the right 
                                 item with the right
                             -->
-                            Linked product list
+                            <p class="font-weight-bold mb-0 ">Linked products:</p>
+                            
                             {% for lp in linked_product %}
-                                 <p class="small mb-0">{{lp.product.name}}</p>
-                                 {% for lp in linked_product %}
-                                 <p class="small mb-0">{{lp.linked_product}}</p>
-                                 {% endfor %}
+                                <div>
+                                <span class="small font-weight-bold mb-0">{{lp.product.name}}: </span><span class="small">{{lp.linked_product}}</span>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>

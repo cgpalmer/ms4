@@ -724,3 +724,5 @@ https://stackoverflow.com/questions/34685233/css-badge-over-image-with-bootstrap
 https://www.canva.com/colors/color-wheel/ - color scheme
 
 https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+
+https://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering#:~:text=While%20you%20can%20filter%20Models,filtering%20using%20the%20Q%20object.

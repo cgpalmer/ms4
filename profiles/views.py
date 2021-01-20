@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
 from products.models import Image_upload, Product, Category
+from checkout.models import Linked_Product
 from .forms import UserProfileForm
 from checkout.models import Order
 from reviews.models import Review
@@ -58,7 +59,7 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-
+    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(linked_product='Not available')
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
         'A confirmation email was sent on the order date.'
@@ -68,6 +69,7 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+        'linked_product': linked_product
     }
 
     return render(request, template, context)
