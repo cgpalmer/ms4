@@ -292,7 +292,7 @@
     </div>
      {% endfor %}
     {% for item in basket_items %}
-    <div class="container col-12 basket-container d-none d-md-none d-xl-block">
+    <div class="container basket-container d-none d-md-none d-lg-block">
         <div class="row">
             <div class="col-md-12 mb-3">
               
@@ -338,22 +338,19 @@
                         
                         <p class="px-0">Linked Products</p>
                     </div>
-                    <div class="row">
-                        {%for g in item.item.linked_products%}
-                            {% if g != 'Not linked' %}
-                                {% if g != 'Not available' %}
-                                    <div class="col-3 linked-products-div">
-                                        <small>{{g|truncatechars:8}}</small>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
                    
-                    {% for image in item.item.linked_product_images_list %}
-                        <!-- <img src="{{image}}" alt=""> -->
-                        <p>{{image}}</p>
-                    {% endfor %}
+                   
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            {% for image in item.item.linked_product_images_list %}
+                                <div class="col-3 linked_product_image_wrapper" >
+                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="">
+                                </div>
+                                
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
             {% endif %}
              </div>
                  <div class="col-2" >
@@ -509,7 +506,7 @@
             <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
             <h4 class=""><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
             {% if free_delivery_deficit > 0 %}
-                <p class="mb-1 text-danger">
+                <p class="mb-1 text-link">
                     You could get free delivery by spending just <strong>£{{ free_delivery_deficit }}</strong> more!
                 </p>
             {% endif %}
