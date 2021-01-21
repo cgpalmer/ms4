@@ -52,6 +52,7 @@
                             <p class="my-0 small text-muted">Delivery : Delivery</p>
                             {% endif %}
                             <div class="row">
+                                {% if item.product.product_type == "container" %}
                                 <div class="col-12 p-0">
                                     <p class="text-muted my-0 small">Linked Products</p>
                                 </div>
@@ -64,6 +65,7 @@
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
+                        {% endif %}
                             </div>
                              
                         </div>
