@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ['hidden-gems-cgpalmer91.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
