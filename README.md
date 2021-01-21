@@ -232,19 +232,12 @@ ___
 <span id="defensiveFeatures"></span>
 ## Defensive Features
 
++ Incuding a modal that will show when the user either uploads their own photo or place an order. This is to stop the user clicking
+  any other buttons because they think nothing is happening.
++ User is limited to a quantity of 1 of a specific item, if they are digitally downloading that item. This is because you only need to download one digital copy.
++ User can only access the links to members area if they are logged in. 
++ Only super users are able to access django admin and my own custom admin. 
 
-+ If you use the back button after logging in, then you can try and log back in but it will take you to the dashboard with feedback telling you that you are currently logged in. After that the login link will hide.
-+ I wanted to make sure that the users inputted all the information necessary for a successful search. 
-  So I have used JS to disable the buttons until a criteria has been met. 
-+ If you try to access any of the web pages that are reserved for account holders, it will redirect you to the login
-  page. I did this to help protect people's reports so that only they could modify them. 
-+ A new user cannot use the same email as a current user. This is because the functionality of the website uses the
-  email address to identify which user to assign the report to. 
-+ A returning user cannot select an email that has already been taken. 
-+ I ask the user to confirm their password before they can delete their account.
-+ The passwords are hashed and a different salt is generated each time a password is made/changed. If anyone hacks into
-  database they will not be able to see the passwords.
-+ Add a dashboard button to the pages when a user is logged in on mobile/tablet. This is for quick and easy access. It would look like the settings icon in the dashboard.
 ___
 <span id="technologiesUsed"></span>
 ### Technologies Used
