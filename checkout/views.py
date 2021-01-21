@@ -51,11 +51,12 @@ def condensing_basket(request):
 
     for k in range(len(duplicates_found)):
         for item in basket['items']:
-            if item['basket_item_id'] == duplicates_found[k][0][0]:
-                item['quantity'] = item['quantity'] + duplicates_found[k][1][1]
-                request.session['basket'] = basket
-                print("new item quantity")
-                print(item['quantity'])   
+            if item['digital_download'] is None:
+                if item['basket_item_id'] == duplicates_found[k][0][0]:
+                    item['quantity'] = item['quantity'] + duplicates_found[k][1][1]
+                    request.session['basket'] = basket
+                    print("new item quantity")
+                    print(item['quantity'])   
 
    
     for k in range(len(duplicates_found)):

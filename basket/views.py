@@ -217,13 +217,7 @@ def empty_basket(request):
         del basket['items']
         request.session['basket'] = basket
         # Include in checkout success too. In fact - make this a function
-        add_item = request.session['total_items_in_basket']
-        print("add_item ")
-        print(add_item)
-        add_item = 0
-        print("add_item ")
-        print(add_item)
-        request.session['total_items_in_basket'] = add_item
+   
         return redirect('view_basket')
     else:
         return redirect('view_basket')
