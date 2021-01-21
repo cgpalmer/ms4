@@ -139,7 +139,7 @@
                     
                     <div class="row">
                     <div class="submit-button text-center mt-2 mb-3 col-12"> 
-                        <button id="submit-button" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
+                        <button id="submit-button" type="submit" data-toggle="modal" data-target="#loadingModal" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
@@ -160,6 +160,27 @@
             
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loadingModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The webpage is loading. Please be patient.
+      </div>
+      <div class="modal-footer">
+  
+      </div>
+    </div>
+  </div>
 </div>
 {% include 'includes/footer.html' %}
 {% endblock %}
