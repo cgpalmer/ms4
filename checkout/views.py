@@ -34,37 +34,39 @@ def cache_checkout_data(request):
 def condensing_basket(request):
     basket = request.session.get('basket', {})
     list_of_items_to_check = []
-    delete_number = []
-    item_number = 0
+    duplicates_found = []
     for item in basket['items']:
-        item_number = item_number + 1
-        print(item_number)
-        appending_item = [item_number, item['basket_item_id'], int(item['quantity']), [item['item_id'],item['digital_download'],item['linked_products']]]
+        
+        appending_item = [item['basket_item_id'], int(item['quantity']), [item['item_id'],item['digital_download'],item['linked_products']]]
         list_of_items_to_check.append(appending_item)
 
     for i in range(0, len(list_of_items_to_check)): 
         for j in range(i+1, len(list_of_items_to_check)):
-            if list_of_items_to_check[i][3] == list_of_items_to_check[j][3]: 
+            if list_of_items_to_check[i][2] == list_of_items_to_check[j][2]: 
                 print("duplicate found")   
                 print(list_of_items_to_check[j])
                 print(list_of_items_to_check[i])
-                list_of_items_to_check[i][2] = list_of_items_to_check[i][2] + list_of_items_to_check[j][2]
-                print("------------")
-                # this isn't right- always 0?
-                search_number = int(list_of_items_to_check[i][0])
-                print(search_number)
-                print(type(search_number))
-                # basket['items'][search_number]['quantity'] = list_of_items_to_check[i][2] 
-                print("after calculation")
-                print(list_of_items_to_check[i])
-                delete_number.append(int(list_of_items_to_check[j][0]))
-                print(delete_number)
-                delete_item_number = -1
-                for item in basket['items']:
-                    delete_item_number = delete_item_number + 1
-                    if item['basket_item_id'] == int(list_of_items_to_check[i][0]):
-                        del basket['items'][delete_item_number]
-                        request.session['basket'] = basket
+                duplicates_found.append([list_of_items_to_check[i],list_of_items_to_check[j]])
+                print(duplicates_found)
+
+    for k in range(len(duplicates_found)):
+        for item in basket['items']:
+            if item['basket_item_id'] == duplicates_found[k][0][0]:
+                item['quantity'] = item['quantity'] + duplicates_found[k][1][1]
+                request.session['basket'] = basket
+                print("new item quantity")
+                print(item['quantity'])   
+
+   
+    for k in range(len(duplicates_found)):
+        print(len(duplicates_found))
+        item_number = -1
+        for item in basket['items']:
+            item_number = item_number + 1
+            print(item_number)
+            if item['basket_item_id'] == duplicates_found[k][1][0]:       
+                del basket['items'][item_number]
+            request.session['basket'] = basket
     return redirect(checkout)
 
 
