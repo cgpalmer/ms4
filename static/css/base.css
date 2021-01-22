@@ -534,9 +534,9 @@ footer {
     
 /* Home page */
     .home-image {
-    background-image: url('../media/product-images/bratislava_mobile.jpg');
+    background-image: url('../media/product-images/bratislava_mobile.webp');
     }
-    
+
 	.lead {
 		font-size: 1em;
 	}
