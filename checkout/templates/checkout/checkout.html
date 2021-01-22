@@ -37,7 +37,7 @@
                         <div class="col-2  p-0 ">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image_url_mobile %}
-                                    <img class="w-100" src="{{ item.product.image_url_mobile}}" alt="{{ product.name }}">
+                                    <img class="w-100" src="{{ item.product.image_url_mobile}}" alt="{{ product.friendly_name }}">
                                 {% else %}
                                     <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 {% endif %}

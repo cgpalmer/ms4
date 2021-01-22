@@ -11,7 +11,7 @@
                             <p>{{download.name}}</p>
                         </div>
                         <div class="text-center mb-3">
-                            <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="">
+                            <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="{{download.product.friendly_name}}">
                         </div>
                         <div class="mb-3">
                             {% if download.number_of_times_downloaded == False %}
