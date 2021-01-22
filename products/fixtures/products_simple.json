@@ -18,9 +18,9 @@
         "price": 1,
         "description": "A picture of a little grasshopper, which almost blended in with the stones it was scurrying across. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/5xJCde.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/9903/IYAqAt.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/5xJCde.jpg",
-        "image_mobile": "grasshopper-mobile.jpg",
+        "image_mobile": "grasshopper_mobile.jpg",
         "image_desktop": "grasshopper.jpg"
     }},
     {
@@ -42,9 +42,9 @@
         "price": 1,
         "description": "A carpenter-bee, known for being solid-black in colour, was enjoying the shade and nectar from this tree.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/78dRCm.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/6510/sg6nSf.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/78dRCm.jpg",
-        "image_mobile": "bee-mobile.jpg",
+        "image_mobile": "bee_mobile.jpg",
         "image_desktop": "bee.jpg"
     }},
     {
@@ -66,9 +66,9 @@
         "price": 1,
         "description": "A picture of the River Danube in Budapest, at dusk.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/47SM9B.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/2163/BAI2PB.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/47SM9B.jpg",
-        "image_mobile": "budapest-mobile.jpg",
+        "image_mobile": "budapest_mobile.jpg",
         "image_desktop": "budapest.jpg"
     }},
     {
@@ -90,9 +90,9 @@
         "price": 1,
         "description": "A picture of the River Danube in Budapest, at dusk.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/yyf0l1.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/1369/51CUe1.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/yyf0l1.jpg",
-        "image_mobile": "parliament-mobile.jpg",
+        "image_mobile": "parliament_mobile.jpg",
         "image_desktop": "parliament.jpg"
     }},
     {
@@ -114,9 +114,9 @@
         "price": 1,
         "description": "A picture from the hills of Bratislava, showing one of the many lakes.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/95c2I7.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/3582/Kj8LaK.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/95c2I7.jpg",
-        "image_mobile": "bratislava-mobile.jpg",
+        "image_mobile": "bratislava_mobile.jpg",
         "image_desktop": "bratislava.jpg"
     }},
     {
@@ -138,9 +138,9 @@
         "price": 1,
         "description": "A picture showing the beauty of Lan-Ha Bay, Vietnam from Cannon-fort on Cat-Ba Island.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/tUS7e0.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/9352/3hT6en.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/tUS7e0.jpg",
-        "image_mobile": "cannon-fort-mobile.jpg",
+        "image_mobile": "cannon-fort_mobile.jpg",
         "image_desktop": "cannon-fort.jpg"
     }},
     {
@@ -162,9 +162,9 @@
         "price": 1,
         "description": "A picture of the Univeristy of York Campus after some snow.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/h3GF78.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/6131/xComZ0.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/h3GF78.jpg",
-        "image_mobile": "uni-of-york-campus-mobile.jpg",
+        "image_mobile": "uni-of-york-campus_mobile.jpg",
         "image_desktop": "uni-of-york-campus.jpg"
     }},
     {
@@ -186,9 +186,9 @@
         "price": 1,
         "description": "A picture of a blue dragonfly  found in Copenhagen.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/JBsNah.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/2423/xSfTxJ.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/JBsNah.jpg",
-        "image_mobile": "blue-dragonfly-mobile.jpg",
+        "image_mobile": "blue-dragonfly_mobile.jpg",
         "image_desktop": "blue-dragonfly.jpg"
     }},
     {
@@ -210,9 +210,9 @@
         "price": 1,
         "description": "A picture of a beautiful butterfly found in Strathclyde, Glasgow.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/wOiu3k.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/774/4YH7KU.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/wOiu3k.jpg",
-        "image_mobile": "butterfly-mobile.jpg",
+        "image_mobile": "butterfly_mobile.jpg",
         "image_desktop": "butterfly.jpg"
     }},
     {
@@ -234,9 +234,9 @@
         "price": 1,
         "description": "A picture of a red dragonfly from Northern Thailand, Chiang-Mai.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/hF6wA9.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/9376/gPNL7y.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/hF6wA9.jpg",
-        "image_mobile": "red-dragonfly-mobile.jpg",
+        "image_mobile": "red-dragonfly_mobile.jpg",
         "image_desktop": "red-dragonfly.jpg"
     }},
     {
@@ -258,9 +258,9 @@
         "price": 1,
         "description": "A picture of a white flower covered in bees. Taken at the Cophagen Botanical Gardens",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/rM6GIb.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/7180/zCvD37.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/rM6GIb.jpg",
-        "image_mobile": "white-flower-mobile.jpg",
+        "image_mobile": "white-flower_mobile.jpg",
         "image_desktop": "white-flower.jpg"
     }},
     {
@@ -282,9 +282,9 @@
         "price": 1,
         "description": "A picture of beautfil pruple flowers found in Bratislava",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/dkri3z.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/4890/D5N5kl.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/dkri3z.jpg",
-        "image_mobile": "purple-flowers-mobile.jpg",
+        "image_mobile": "purple-flowers_mobile.jpg",
         "image_desktop": "purple-flowers.jpg"
     }},
     {
@@ -306,9 +306,9 @@
         "price": 1,
         "description": "A picture of a row of flowers from Cophagen that grew in an orderly fashion.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/zKucK3.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/2011/YcFloJ.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/zKucK3.jpg",
-        "image_mobile": "pink-flowers-mobile.jpg",
+        "image_mobile": "pink-flowers_mobile.jpg",
         "image_desktop": "pink-flowers.jpg"
     }},
     {
@@ -330,9 +330,9 @@
         "price": 1,
         "description": "A picture of incredible purple water-lillies from the Botanical Gardens in Copenhagen.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/zaWbuQ.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/6173/Rrl1it.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/zaWbuQ.jpg",
-        "image_mobile": "waterlilly-mobile.jpg",
+        "image_mobile": "waterlilly_mobile.jpg",
         "image_desktop": "waterlilly.jpg"
     }},
     {
@@ -354,9 +354,9 @@
         "price": 1,
         "description": "A picture of multiple tulips, all different colours. Found in Copenhagn. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/lpWOq5.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/866/fmVv9Q.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/lpWOq5.jpg",
-        "image_mobile": "tuplis-mobile.jpg",
+        "image_mobile": "tuplis_mobile.jpg",
         "image_desktop": "tuplis.jpg"
     }},
     {
@@ -378,9 +378,9 @@
         "price": 1,
         "description": "A picture of a crab from the island of Phi-Phi, in Thailand. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/PEOucf.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/5121/Nnb1lR.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/PEOucf.jpg",
-        "image_mobile": "crab-mobile.jpg",
+        "image_mobile": "crab_mobile.jpg",
         "image_desktop": "crab.jpg"
     }},
     {
@@ -402,9 +402,9 @@
         "price": 1,
         "description": "A picture of the critically endangered White-headed Langurs, in Lan-Ha Bay just off of Vietnam.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/ZrQITY.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/3585/O5dyOl.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/ZrQITY.jpg",
-        "image_mobile": "white-headed-langur-mobile.jpg",
+        "image_mobile": "white-headed-langur_mobile.jpg",
         "image_desktop": "white-headed-langur.jpg"
     }},
     {
@@ -426,9 +426,9 @@
         "price": 1,
         "description": "A picture of two majestic elephants at a sanctuary in Chaing Mai, Thailand.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/SW5C9F.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/1166/PKqc2R.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/SW5C9F.jpg",
-        "image_mobile": "elephants-mobile.jpg",
+        "image_mobile": "elephants_mobile.jpg",
         "image_desktop": "elephants.jpg"
     }},
     {
@@ -450,9 +450,9 @@
         "price": 1,
         "description": "A picture of a frog in Bratislava. There were 8 in total. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/ZS83gb.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/v2/xq90/922/YcG0lV.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/ZS83gb.jpg",
-        "image_mobile": "frog-mobile.jpg",
+        "image_mobile": "frog_mobile.jpg",
         "image_desktop": "frog.jpg"
     }},
     {
@@ -474,9 +474,9 @@
         "price": 1,
         "description": "A picture of a gecko basking in the sun in the Copenhagen Botanical Gardens.",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/pjEDM0.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/7316/WcKZqd.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/924/pjEDM0.jpg",
-        "image_mobile": "gecko-mobile.jpg",
+        "image_mobile": "gecko_mobile.jpg",
         "image_desktop": "gecko.jpg"
     }},
     {
@@ -498,9 +498,9 @@
         "price": 6.99,
         "description": "A small, elegant, black frame for photographs that are 7 x 5\".",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/roeCws.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/7269/kxED4v.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/roeCws.jpg",
-        "image_mobile": "8by6.jpg",
+        "image_mobile": "8by6_mobile.jpg",
         "image_desktop": "8by6.jpg"
     }},
     {
@@ -522,9 +522,9 @@
         "price": 8.99,
         "description": "A medium, elegant, black frame for photographs that are 8 x 6\".",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/roeCws.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/7269/kxED4v.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/roeCws.jpg",
-        "image_mobile": "8by6.jpg",
+        "image_mobile": "8by6_mobile.jpg",
         "image_desktop": "8by6.jpg"
     }},
     {
@@ -547,9 +547,9 @@
 
         "description": "A large, elegant, black frame for photographs that are 10 x 8\".",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/xheFOn.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/9265/1EzJMm.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/923/xheFOn.jpg",
-        "image_mobile": "10by8.jpg",
+        "image_mobile": "10by8_mobile.jpg",
         "image_desktop": "10by8.jpg"
     }},
     {
@@ -571,9 +571,9 @@
         "price": 9.99,
         "description": "Excellent quality, crisp canvas to place anywhere in your home. This product is perfect for the square photographs that you love so much from your instagram. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/924/8ZQ3U8.png",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/443/BC4TZ1.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/924/8ZQ3U8.png",
-        "image_mobile": "square-canvas.png",
+        "image_mobile": "square-canvas_mobile.png",
         "image_desktop": "square-canvas.png"
     }},
     {
@@ -590,14 +590,14 @@
       "special_offer": 4,
         "sku": "cv010201",
         "name": "Cavnas 18\" x 24\"",
-        "friendly_name": "Canvas 16\" x 16\"",
+        "friendly_name": "Canvas 18\" x 24\"",
         "category": 5,
         "price": 14.99,
         "description": "Excellent quality, crisp canvas to place anywhere in your home. Perfect for those incredible landscape photographs. Why not stack three in a column really create and atmosphere. ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/6727/uoRcQO.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
-        "image_mobile": "landscape-canvas.jpg",
+        "image_mobile": "landscape-canvas_mobile.jpg",
         "image_desktop": "landscape-canvas.jpg"
     }},
     {
@@ -614,14 +614,14 @@
       "special_offer": 4,
         "sku": "cv010501",
         "name": "Cavnas 24\" x 36\"",
-        "friendly_name": "Canvas 16\" x 16\"",
+        "friendly_name": "Canvas 24\" x 24\"",
         "category": 5,
         "price": 24.99,
         "description": "Excellent quality, crisp canvas to place anywhere in your home. Make this large canvas the feature piece on any wall. Guaranteed to be a conversation starter.  ",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/6727/uoRcQO.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/640x480q90/922/AJGP3Q.jpg",
-        "image_mobile": "landscape-canvas.jpg",
+        "image_mobile": "landscape-canvas_mobile.jpg",
         "image_desktop": "landscape-canvas.jpg"
     }},
   {
@@ -642,7 +642,7 @@
         "price": 5.99,
         "description": "This calendar is small enough to fit in your backpack. Take it anywhere you want to go and stay organised!",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/xSrFSG.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img923/6606/JO9hrp.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/xSrFSG.jpg",
         "image_mobile": "calendar-a4.jpg",
         "image_desktop": "calendar-a4.jpg"
@@ -665,7 +665,7 @@
         "price": 5.99,
         "description": "This calendar is the perfect for family-sized organisation. Keep it on the wall and keep track of everyone's activities!",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/923/ir8cz8.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img924/9673/aBYfhg.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/923/ir8cz8.jpg",
         "image_mobile": "calendar-a2.jpg",
         "image_desktop": "calendar-a2.jpg"
@@ -688,7 +688,7 @@
         "price": 5.99,
         "description": "This calendar is the perfect desk-buddy. Kept it to one side or hang it next to your computer to stay organised!",
         "rating": 0,
-        "image_url_mobile": "https://imagizer.imageshack.com/v2/640x480q90/922/1PyYwm.jpg",
+        "image_url_mobile": "https://imagizer.imageshack.com/img922/4890/MgVDW8.jpg",
         "image_url_desktop": "https://imagizer.imageshack.com/v2/1024x768q90/922/1PyYwm.jpg",
         "image_mobile": "calendar-a3.jpg",
         "image_desktop": "calendar-a3.jpg"
