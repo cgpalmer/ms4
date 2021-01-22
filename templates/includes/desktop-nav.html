@@ -2,7 +2,7 @@
    <div class="container-fluid pb-3">
         <div class="row pt-3">
             {% if request.user.is_authenticated %}          
-                <a class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="" class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user fa signed-in"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
@@ -13,7 +13,7 @@
                     <a class="dropdown-item desktop-dropdown" href="{% url 'account_logout' %}">Logout</a>
                 </div>
             {% else %}
-                <a class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="" class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user fa"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
@@ -24,7 +24,7 @@
             <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>                   
                 
             
-            <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="allProducts">
+            <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="basketLinkDesktop">
                 <i class="fas fa-shopping-basket item-added-transition"></i>
                 <span>£{{ total|floatformat:2 }}</span>
             </a>
@@ -40,7 +40,7 @@
                 <div class="col-sm text-center desktop-nav-link">
                     <a id="desktopNavAllPhotographs" href="{% url 'photo_products' %}?">Photographs</a>
                 </div>
-                <div id="desktopExtendedSearchBar" class="col-sm text-center" aria-labelledby="searchProducts">
+                <div id="desktopExtendedSearchBar" class="col-sm text-center">
                     <!-- refactor this code? -->
                     <form method="GET" action="{% url 'products' %}" class="row input-group">
                         <input class="form-control" name="q" type="search" placeholder="Search" aria-label="Search">
