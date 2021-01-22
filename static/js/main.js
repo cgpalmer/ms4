@@ -25,9 +25,7 @@ $( document ).ready(function() {
         ,function(){
     $("#desktopDropDownMenu").css('display', 'none');
 
-     $(function() {
-        $('.lazy').Lazy();
-    });
+    
          
     });
 
