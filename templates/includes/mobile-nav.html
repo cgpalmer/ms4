@@ -37,7 +37,7 @@
         <button class="navbar-toggler col-2 col-md-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> 
-        <div id="extendedSearchBar" class="col-10 col-md-7" aria-labelledby="searchProducts">
+        <div id="extendedSearchBar" class="col-10 col-md-7" aria-label="search products">
             <!-- refactor this code? -->           
             <form method="GET" action="{% url 'products' %}" class="input-group input-group-search">
                 <input class="form-control form-control-search" name="q" type="search" placeholder="Search" aria-label="Search">          
@@ -54,7 +54,7 @@
                     <a class=" nav-link cat-links" href="#" id="specialOffersDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Special Offers <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="photographsDropdown">
+                    <div class="dropdown-menu border-0 pl-3" aria-labelledby="specialOffersDropdown">
                     <!-- refactor this code? -->
                         <a href="{% url 'products' %}?special_offer=new_photos" class="dropdown-item">New photographs!</a>
                         <a href="{% url 'products' %}?special_offer=editors_pick" class="dropdown-item">Editor's Pick!</a>
