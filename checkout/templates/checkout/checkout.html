@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_with_stripe.html" %}
 {% load static %}
 <!--  You need to include basket tools here. -->
 
@@ -185,7 +185,7 @@
 {% include 'includes/footer.html' %}
 {% endblock %}
 
-{% block additionJS %}
+{% block stripeJS %}
 {{ block.super}}
     {{stripe_public_key|json_script:"id_stripe_public_key"}}
     {{client_secret|json_script:"id_client_secret"}}
