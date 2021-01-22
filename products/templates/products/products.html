@@ -21,7 +21,7 @@
         <a class="d-md-none" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_mobile}}"
-            class="card-img-top product-card-image "
+            class="card-img-top product-card-image lazy"
             alt="{{product.friendly_name}}"
           />
           {% if product.special_offer.friendly_name != None %}
@@ -32,7 +32,7 @@
         <a class="d-md-block d-none " href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_mobile}}"
-            class="card-img-top product-card-image"
+            class="card-img-top product-card-image lazy"
             alt="{{product.friendly_name}}"
           />
            {% if product.special_offer.friendly_name != None %}

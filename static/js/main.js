@@ -24,6 +24,11 @@ $( document ).ready(function() {
         $("#desktopDropDownMenu").css('display', 'flex');}
         ,function(){
     $("#desktopDropDownMenu").css('display', 'none');
+
+     $(function() {
+        $('.lazy').Lazy();
+    });
+         
     });
 
     // $("#id_discount_price").addClass('hide');
@@ -155,35 +160,6 @@ $('.reset-modal-body').click(function(){
 $('.quantityModifier').click(function(e){
     e.preventDefault();
 });
-
-
-
-function updateBasket(editId, updateId, cancelId, editQuantity, editDelivery, editLinkedItem, editMode) {
-    let editButton = document.getElementById(editId);
-    let updateButton = document.getElementById(updateId);
-    let cancelButton = document.getElementById(cancelId);
-    let quantityEdit = document.getElementById(editQuantity);
-    let deliveryEdit = document.getElementById(editDelivery);
-    let editItem = document.getElementById(editLinkedItem);
-    console.log(editItem)
-    let editingMode = editMode;
-    if (editingMode == 'update'){
-        editButton.classList.add('hide')
-        updateButton.classList.remove('hide')
-        cancelButton.classList.remove('hide')
-        quantityEdit.classList.remove('hide')
-        deliveryEdit.classList.remove('hide')
-        editItem.classList.remove('hide')
-    } else {
-        editButton.classList.remove('hide')
-        updateButton.classList.add('hide')
-        cancelButton.classList.add('hide')
-        quantityEdit.classList.add('hide')
-        deliveryEdit.classList.add('hide')
-        editItem.classList.add('hide')
-    }
-    
-}
 
 
 $("#adminProductManage").change(function() {
