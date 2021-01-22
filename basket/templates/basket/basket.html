@@ -117,10 +117,10 @@
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
-                            <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
                             {% endif%} 
                         
-                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
                         <option value="" disabled>User Photos</option>
                         {% for photo in user_photos %}
@@ -258,10 +258,10 @@
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
-                            <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
                             {% endif%} 
                         
-                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
                         <option value="" disabled>User Photos</option>
                         {% for photo in user_photos %}
@@ -401,10 +401,10 @@
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
-                            <option value="{{product.image_url_desktop}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
                             {% endif%} 
                         
-                        <option value="{{product.image_url_desktop}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
                         <option value="" disabled>User Photos</option>
                         {% for photo in user_photos %}
