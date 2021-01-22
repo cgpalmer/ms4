@@ -126,7 +126,7 @@ footer {
 /* Jumbotron Settings */
 
 .home-image {
-	background-image: url('../media/product-images/bratislava.webp');
+	background-image: url('../media/product-images/bratislava_mobile.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -533,7 +533,10 @@ footer {
     }
     
 /* Home page */
-
+    .home-image {
+    background-image: url('../media/product-images/bratislava_mobile.jpg');
+    }
+    
 	.lead {
 		font-size: 1em;
 	}
