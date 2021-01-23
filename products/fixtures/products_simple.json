@@ -628,6 +628,7 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
+    "discount_price" : 5.99,
     "number_of_pictures": 12,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -651,6 +652,7 @@
         "pk": 28,
         "model": "products.product",
         "fields": {
+            "discount_price" : 10.99,
     "number_of_pictures": 12,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -662,7 +664,7 @@
         "name": "12 Month Calendar A2",
         "friendly_name": "12 Month Calendar A2",
         "category": 7,
-        "price": 5.99,
+        "price": 10.99,
         "description": "This calendar is the perfect for family-sized organisation. Keep it on the wall and keep track of everyone's activities!",
         "rating": 0,
         "image_url_mobile": "https://imagizer.imageshack.com/img924/9673/aBYfhg.jpg",
@@ -674,6 +676,7 @@
         "pk": 29,
         "model": "products.product",
         "fields": {
+            "discount_price" : 8.99,
     "number_of_pictures": 12,
     "product_type": "container",
     "linked_to_blog": "False",
@@ -685,7 +688,7 @@
         "name": "12 Month Calendar A3",
         "friendly_name": "12 Month Calendar A3",
         "category": 7,
-        "price": 5.99,
+        "price": 8.99,
         "description": "This calendar is the perfect desk-buddy. Kept it to one side or hang it next to your computer to stay organised!",
         "rating": 0,
         "image_url_mobile": "https://imagizer.imageshack.com/img922/4890/MgVDW8.jpg",
