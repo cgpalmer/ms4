@@ -217,13 +217,14 @@ footer {
 }
 
 .linked_product_image_wrapper {
-	margin: 0 5px 5px 0;
+	margin: 0 0 5px 0;
 }
+
+
 
 .linked_product_image_thumbnail {
 	object-fit: contain;
-	width: 100%;
-	height: 50px;
+	width: 90%;
 	object-position: bottom;
 }
 
@@ -459,6 +460,16 @@ footer {
 	}
 }
 
+/* Basket */
+
+
+ .linked_product_image_thumbnail {
+	object-fit: contain;
+	width: 90%;
+	height: 36px;
+	object-position: bottom;
+
+ }
 
 /* iPad screens and larger */
 

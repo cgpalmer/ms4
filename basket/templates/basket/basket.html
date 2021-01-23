@@ -61,17 +61,18 @@
                         <hr class="smaller-hr">
                         <p>Linked Products</p>
                     </div>
-                    <div>
-                        {%for g in item.item.linked_products%}
-                            {% if g != 'Not linked' %}
-                                {% if g != 'Not available' %}
-                                    <div class="col-4 linked-products-div">
-                                        <p>{{g}}</p>
-                                    </div>
+                    <div class="row">
+                            {% for image in item.item.linked_product_images_list %}
+                                {% if image != "Not linked" %}
+                                <div class="col-3 linked_product_image_wrapper" >
+                                    <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
+                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                                    </a>
+                                </div>
                                 {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+                            {% endfor %}
+                        </div>
+
                 </div>
                 {% endif %}
         </div>
@@ -205,17 +206,18 @@
                         <hr class="smaller-hr">
                         <p>Linked Products</p>
                     </div>
-                    <div>
-                        {%for g in item.item.linked_products%}
-                            {% if g != 'Not linked' %}
-                                {% if g != 'Not available' %}
-                                    <div class="col-4 linked-products-div">
-                                        <p>{{g}}</p>
-                                    </div>
+                    <div class="row">
+                            {% for image in item.item.linked_product_images_list %}
+                                {% if image != "Not linked" %}
+                                <div class="col-3 linked_product_image_wrapper" >
+                                    <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
+                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                                    </a>
+                                </div>
                                 {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+                            {% endfor %}
+                        </div>
+
                 </div>
                 {% endif %}
         </div>
@@ -350,7 +352,9 @@
                             {% for image in item.item.linked_product_images_list %}
                                 {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
+                                    <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
                                     <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                                        </a>
                                 </div>
                                 {% endif %}
                             {% endfor %}
