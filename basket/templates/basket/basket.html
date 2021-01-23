@@ -343,10 +343,11 @@
                     <div class="container-fluid p-0">
                         <div class="row">
                             {% for image in item.item.linked_product_images_list %}
+                                {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image">
                                 </div>
-                                
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>

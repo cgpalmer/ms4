@@ -96,9 +96,9 @@
                     <!-- This image  -->
                     <div>
                         <a id="linkedProductImagePreview" class="" href="" target="_blank">
-                            <img id="linkImageSelection" src="" class="card-img-top" alt="{{link.name}}">
+                            <img id="linkImageSelection" src="/static/media/product-images/white_square.jpg" class="card-img-top hide" alt="{{link.name}}">
                         </a>
-                        <p id="linkImageHint" class="hide" >Click the image for a full size picture.</p>
+                        <p id="linkImageHint" class="hide text-link" >Click the image for a full size picture.</p>
                     </div>                            
                 {% endif %}                  
                 {% if product.digital_download %}
@@ -201,31 +201,6 @@
     
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-     
-             
-        
- 
-
 
 {% include 'includes/footer.html' %}
 {% endblock %}

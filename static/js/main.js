@@ -29,7 +29,7 @@ $( document ).ready(function() {
          
     });
 
-    // $("#id_discount_price").addClass('hide');
+
     
     let currentBasketAmount = sessionStorage.getItem('currentBasketAmount')
     let newBasketAmount = sessionStorage.getItem('newBasketAmount')
@@ -120,6 +120,7 @@ $('#reviewTrigger').click(function(){
 $(".linkingProductSelect").change(function() {
  console.log("function reached.");
  let val = $(this).val();
+ console.log(val)
  let splittingValues = val.split("|");
  let imageType = splittingValues[2];
  let imageId = splittingValues[1]
@@ -128,16 +129,20 @@ $(".linkingProductSelect").change(function() {
     console.log(imagePath);
   $("#linkImageSelection").attr('src', imagePath);
   $("#linkedProductImagePreview").attr('href', imagePath);
-   $("#linkImageHint").removeClass('hide');
+   $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
   
   $("#linkImageSelection").addClass('product-linked-preview');
+ } else if(imageType == "No item"){
+    imagePath = "/static/media/product-images/white_square.jpg"
+    $("#linkImageSelection").attr('src', imagePath);
+    $("#linkImageSelection, #linkedProductImagePreview, #linkImageHint").addClass('hide');
  } else {
      let imagePath = "/media/" + splittingValues[0];
      console.log(imagePath);
   $("#linkImageSelection").attr('src', imagePath);
   $("#linkImageSelection").addClass('product-linked-preview');
   $("#linkedProductImagePreview").attr('href', imagePath);
-
+  $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
 
  }
  
