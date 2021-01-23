@@ -20,6 +20,7 @@ class ProductForm(forms.ModelForm):
 
         self.fields['discount_price'].widget.attrs['required'] = False
         self.fields['discount_price'].widget.attrs['disabled'] = True
+        self.fields['price'].widget.attrs['placeholder'] = "£"
 
 class Image_uploadForm(forms.ModelForm):
     """Form for the image model"""

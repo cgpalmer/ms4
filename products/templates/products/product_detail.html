@@ -45,7 +45,7 @@
                 {% else %}
                     <p class="card-text">This product hasn't been rated yet.</p>
                 {% endif %}
-                    <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a>
+                    <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
         
@@ -132,10 +132,9 @@
             </a>
             <div class="card-body product-detail-card-body">   
                 {% if product.special_offer.friendly_name != None %}
-                    <span class="badge badge-secondary special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
-                {% else %}
-                    <span class="badge "></span>
-                {% endif %}
+          
+          <span class="badge badge-secondary on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
+              {% endif %}
                 <p class="card-text product-name non-link">{{product.friendly_name}}</p>
                 <p class="card-text">            
                     {% if product.price != product.discount_price %} 
@@ -153,7 +152,7 @@
                 {% else %}
                     <p class="card-text">This product hasn't been rated yet.</p>
                 {% endif %}
-                    <a href="{% url 'add_review' product.id %}"><i class="fas fa-plus"></i> Add review</a>
+                    <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
         
