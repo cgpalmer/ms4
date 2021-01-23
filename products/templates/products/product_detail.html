@@ -17,10 +17,10 @@
         {% if product_type_for_linking == "container" %}
         <div class="card product-detail-card extra-margin-right col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
-                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
             <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
-                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
             <div class="card-body product-detail-card-body">   
                 {% if product.special_offer.friendly_name != None %}
@@ -96,7 +96,7 @@
                     <!-- This image  -->
                     <div>
                         <a id="linkedProductImagePreview" class="" href="" target="_blank">
-                            <img id="linkImageSelection" src="/static/media/product-images/white_square.jpg" class="card-img-top hide" alt="{{link.name}}">
+                            <img id="linkImageSelection" src="/static/media/sight_images/white_square.jpg" class="card-img-top hide" alt="{{link.name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                         </a>
                         <p id="linkImageHint" class="hide text-link" >Click the image for a full size picture.</p>
                     </div>                            
@@ -125,10 +125,10 @@
         {% else %}
         <div class="card product-detail-card-photos extra-margin-right col-12  mt-3 col-md-6 col-lg-6 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
-                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
             <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
-                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
             <div class="card-body product-detail-card-body">   
                 {% if product.special_offer.friendly_name != None %}

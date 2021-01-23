@@ -116,7 +116,7 @@ $('#reviewTrigger').click(function(){
     $("#reviewsWrapper").toggleClass('hide');
 });
 
-
+// Linked products
 $(".linkingProductSelect").change(function() {
  console.log("function reached.");
  let val = $(this).val();
@@ -175,3 +175,5 @@ $("#adminProductManage").change(function() {
   
     
 });
+
+

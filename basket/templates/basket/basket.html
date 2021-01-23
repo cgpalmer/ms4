@@ -29,7 +29,7 @@
                 {% endif %}
             </div> 
             <div class="col-10">
-                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}">
+                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </div>
             <div class="col-2" >
                 <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}S">
@@ -164,7 +164,7 @@
                 {% endif %}
             </div> 
             <div class="col-6">
-                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}">
+                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}} " onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </div>
             <div class="col-4">
                 <div class="row">
@@ -304,7 +304,7 @@
                 {% endif %}
             </div> 
             <div class="col-4">
-                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}">
+                <img class="img-fluid rounded thumbnail" src="{{ item.product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </div>
             <div class="col-2">
                 <div class="row">
@@ -345,7 +345,7 @@
                             {% for image in item.item.linked_product_images_list %}
                                 {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
-                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image">
+                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                                 </div>
                                 {% endif %}
                             {% endfor %}
