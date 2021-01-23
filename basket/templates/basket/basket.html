@@ -81,10 +81,10 @@
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}S" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger">
-                <h5 class="modal-title " id="exampleModalLabel"><i class="fas fa-edit"></i> Edit Basket Item <i class="fas fa-chevron-down"></i></h5>
+            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger text-center">
+                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
             </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
+            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
@@ -112,7 +112,7 @@
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class=" py3">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
                         {% for product in products %} 
                         
@@ -222,10 +222,10 @@
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}M" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger">
-                <h5 class="modal-title " id="exampleModalLabel"><i class="fas fa-edit"></i> Edit Basket Item <i class="fas fa-chevron-down"></i></h5>
+            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger  text-center">
+                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
             </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
+            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
@@ -253,7 +253,7 @@
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class=" py3">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
                         {% for product in products %} 
                         
@@ -366,10 +366,10 @@
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}L" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger">
-                <h5 class="modal-title " id="exampleModalLabel"><i class="fas fa-edit"></i> Edit Basket Item <i class="fas fa-chevron-down"></i></h5>
+            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger text-center">
+                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
             </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody hide">
+            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
@@ -397,7 +397,7 @@
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class=" py3">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
                         {% for product in products %} 
                         
@@ -436,7 +436,7 @@
     </div>
 
     {% endfor %}
-    
+    <!-- missing div below I think  -->
 <div class="container">
     <div class="row">
          <div class="col-12 empty-basket-wrapper">

@@ -151,15 +151,9 @@ $(".linkingProductSelect").change(function() {
 
 // Update basket
 
-$('.editBasketBodyTrigger').click(function(){
-    console.log("triggered!!")
-    $('.editBasketBody').toggleClass('hide');
-});
 
-$('.reset-modal-body').click(function(){
-    console.log("triggered reset")
-    $('.editBasketBody').addClass('hide');
-});
+
+
 
 $('.quantityModifier').click(function(e){
     e.preventDefault();
