@@ -10,11 +10,11 @@
                             <p> {{ r.product.friendly_name }}</p>
                             <p><i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
                             <p>  {{ r.review_content }}</p> 
-                        
-                            <a class="btn action-btn rounded-0 mx-2" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit"></i><span class="buttonText"> Edit</span></a>
                             <button type="button" class="btn second-btn mx-2 rounded-0" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
                                 <i class="fas fa-trash-alt"></i><span class="buttonText"> Delete</span>
                             </button>
+                            <a class="btn action-btn rounded-0 mx-2" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit"></i><span class="buttonText"> Edit</span></a>
+                            
                         </div>
                     </div>
 
