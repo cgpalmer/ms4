@@ -114,6 +114,15 @@
                     {% if item.product.product_type == 'container' %}                                      
                     <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
+                         <option value="" disabled>User Photos</option>
+                        {% for photo in user_photos %}
+                        {% if photo.sku == image %}
+                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                        {% endif%} 
+                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                        {% endfor %}
+                        
+                       <option value="" disabled>Hidden Gems' Photos</option>
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
@@ -122,13 +131,7 @@
                         
                         <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
-                        <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
+                       
                     </select>
                     {% endif %}
                     {% endfor %}
@@ -255,6 +258,14 @@
                     {% if item.product.product_type == 'container' %}                                      
                     <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
+                         <option value="" disabled>User Photos</option>
+                        {% for photo in user_photos %}
+                        {% if photo.sku == image %}
+                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                        {% endif%} 
+                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                        {% endfor %}
+                        <option value="" disabled>Hidden Gems' Photos</option>
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
@@ -263,13 +274,7 @@
                         
                         <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
-                        <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
+                       
                     </select>
                     {% endif %}
                     {% endfor %}
@@ -398,7 +403,15 @@
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
                     <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
-                        <option value="Not linked|No id|No item">Not linked</option> 
+                        <option value="Not linked|No id|No item">Not linked</option>
+                         <option value="" disabled>User Photos</option>
+                        {% for photo in user_photos %}
+                        {% if photo.sku == image %}
+                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                        {% endif%} 
+                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                        {% endfor %}
+                        <option value="" disabled>Hidden Gems' Photos</option>
                         {% for product in products %} 
                         
                             {% if product.sku == image %}
@@ -407,13 +420,7 @@
                         
                         <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
                         {% endfor %}
-                        <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
+                       
                     </select>
                     {% endif %}
                     {% endfor %}
