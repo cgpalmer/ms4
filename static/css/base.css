@@ -303,6 +303,10 @@ footer {
 	text-align: center;
 }
 
+.accordion-header {
+    font-weight: ;
+}
+
 .buttonText {
 	display: none;
 }
