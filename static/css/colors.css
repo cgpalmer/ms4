@@ -16,20 +16,18 @@
  .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{
      background-color: white;
 }
- .desktop-dropdown:hover, .desktop-dropdown:focus{
+ .desktop-dropdown:hover, .desktop-dropdown:focus {
      background-color: #7c7217;
      color: white!important;
 }
 
-{
-
-}
 /* Text colour */
- .navbar, .navbar-light .navbar-brand, .navbar-light .navbar-toggler, footer p, .dropdown-item, 
- .footerHeader, .social-link, .navbar-light .navbar-nav .nav-link, .second-btn, .second-btn, 
- .action-btn, .action-btn:hover, .action-btn:active, .second-btn:hover, .second-btn:active, 
- .second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus,
- .accordion-header, .accordion-header:hover {
+
+.navbar, .navbar-light .navbar-brand, .navbar-light .navbar-toggler, footer p, .dropdown-item, 
+.footerHeader, .social-link, .navbar-light .navbar-nav .nav-link, .second-btn, .second-btn, 
+.action-btn, .action-btn:hover, .action-btn:active, .second-btn:hover, .second-btn:active, 
+.second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus,
+.accordion-header, .accordion-header:hover {
      color: white;
 }
 
@@ -93,7 +91,7 @@
      animation: basket-glow 3s linear;
 }
 
-.btn-no-effects:hover, .btn-no-effects:active, .btn-no-effects:focus{
+.btn-no-effects, .btn-no-effects:hover, .btn-no-effects:active, .btn-no-effects:focus{
     background-color: #212D97 ;
     color: white;
     border: none;

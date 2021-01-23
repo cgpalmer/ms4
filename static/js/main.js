@@ -17,15 +17,17 @@ $('#emptyBasket').click(function(){
 
 
 $( document ).ready(function() {
-    console.log( "ready!" );
-
+    console.log( " defs ready!" );
  
      $("#desktopExtraNavWrapper").hover(function(){
         $("#desktopDropDownMenu").css('display', 'flex');}
         ,function(){
     $("#desktopDropDownMenu").css('display', 'none');
+});
+    $('#previousPurchaseHeader, #revealPreviousPurchase').click(function(){
+        console.log("reached");
+      $('#previousPurchaseWrapper, #previousPurchaseHr').toggleClass('hide');
 
-    
          
     });
 
@@ -123,7 +125,6 @@ $(".linkingProductSelect").change(function() {
  console.log(val)
  let splittingValues = val.split("|");
  let imageType = splittingValues[2];
- let imageId = splittingValues[1]
  if (imageType == "inventory") {
     let imagePath = splittingValues[0];
     console.log(imagePath);

@@ -43,10 +43,11 @@
 
 
 <hr>
-<h4 class="text-center">Previous purchases</h4>
-<hr class="smaller-hr">
+<h4 id="previousPurchaseHeader" class="text-center">Previous purchases</h4>
+<h4 id="revealPreviousPurchase" class="text-center"><i class="fas fa-chevron-down"></i></h4>
+<hr id="previousPurchaseHr" class="smaller-hr hide">
 <div class="row">
-    <div class="col-12">
+    <div id="previousPurchaseWrapper" class="col-12 hide">
         <div class="row">
             {% for accessed_download in digital_downloads_user %}
                 {% if accessed_download.number_of_times_downloaded == True %}
