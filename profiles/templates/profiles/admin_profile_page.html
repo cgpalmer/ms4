@@ -50,6 +50,7 @@
                 <div class="adminCategory{{product.category.name}} allProducts hide col-12 text-center">
                     
                     <p>Name: {{product.name}} </p>
+                    <img class="img-fluid rounded thumbnail" src="{{ product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';">
                     <p>SKU: {{product.sku}} </p>
                 
                     <div class="row">
@@ -94,7 +95,8 @@
     <div class="row extra-margin-bottom">
         <div class="col-12 text-center">
             <hr>
-            <h4>Order History</h4>
+            <h4>Latest Orders</h4>
+            <p>These are the 5 most recent. See the full admin page for more.</p>
             <hr>
         </div>
         {% for order in orders %}
