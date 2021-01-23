@@ -22,9 +22,7 @@
  .navbar, .navbar-light .navbar-brand, .navbar-light .navbar-toggler, footer p, .dropdown-item, .footerHeader, .social-link, .navbar-light .navbar-nav .nav-link, .second-btn, .second-btn, .action-btn, .action-btn:hover, .action-btn:active, .second-btn:hover, .second-btn:active, .second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus {
      color: white;
 }
- .desktop-dropdown:hover, .desktop-dropdown:focus{
-     color: white!important;
-}
+
  p, .product-name, h4, h4 a, .form-control:focus {
      color: black 
 }
@@ -62,6 +60,9 @@
 }
  .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{
      color: #978b21!important;
+}
+ .desktop-dropdown:hover, .desktop-dropdown:focus{
+     color: white!important;
 }
  .social-icon:hover{
      transform: scale(1.2);
