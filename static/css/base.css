@@ -515,7 +515,7 @@ footer {
 	}
 
 	.main-section-container {
-		min-height: 59vh;
+		min-height: 73vh;
 	}
 
 /* Nav */
@@ -571,7 +571,7 @@ footer {
 	}
 
 	.home-image {
-		height: 72vh;
+		height: 73vh;
 	}
 
 	.account-link, a:not([href]) {
