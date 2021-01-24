@@ -102,6 +102,7 @@ a:hover {
 }
 
 .logo-title {
+    margin-top: 5px;
 	font-size: 1.25rem;
 }
 
@@ -380,6 +381,7 @@ footer {
 /* Nav */
 
 	.logo-title {
+        margin-top: 0;
 		font-size: 3rem;
 	}
 

@@ -7,7 +7,7 @@
             <a class="logo-title col-7 text-center" href="{% url 'home' %}">Hidden Gems</a> 
             <a class="nav-link col-3 px-0 text-center" href="{% url 'view_basket' %}" id="basketMobileNavLink">
                 <i class="fas fa-shopping-basket item-added-transition fa-lg"></i>
-                <span class="basket-total-span"> £{{ total|floatformat:2 }}</span>
+                <span class="basket-total-span"> £ {{ total|floatformat:2 }}</span>
             </a>
 
         

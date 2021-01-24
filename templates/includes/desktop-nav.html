@@ -26,7 +26,7 @@
             
             <a class="nav-link col-sm" href="{% url 'view_basket' %}" id="basketLinkDesktop">
                 <i class="fas fa-shopping-basket item-added-transition"></i>
-                <span>£{{ total|floatformat:2 }}</span>
+                <span>£ {{ total|floatformat:2 }}</span>
             </a>
         </div>
         <div id="desktopExtraNavWrapper">
