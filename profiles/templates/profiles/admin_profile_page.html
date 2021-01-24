@@ -45,21 +45,22 @@
                 {% endfor %}
             </select>
             <hr id="adminCategoryHR" class="hide">
+            <div class="row">
             {% for product in products %}  
                 
-                <div class="adminCategory{{product.category.name}} allProducts hide col-12 text-center">
+                <div class="adminCategory{{product.category.name}} allProducts hide col-12 col-md-6 col-lg-4 text-center">
                     
                     <p>Name: {{product.name}} </p>
                     <img class="img-fluid rounded thumbnail" src="{{ product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';">
                     <p>SKU: {{product.sku}} </p>
                 
-                    <div class="row">
-                         <div class="col-6 col-md-3 offset-md-3  text-center">
+                    <div class="row col-12">
+                         <div class="col-6 col-md-6 col-lg-6 text-center">
                              <button type="button" class="btn second-btn btn-lg rounded-0" data-toggle="modal" data-target="#deleteProductNumber{{product.id}}">
                                 <span>Delete</span>
                             </button>
                         </div>
-                        <div class="col-6 col-md-3 text-center">
+                        <div class="col-6 col-md-6 col-lg-6 text-center">
                             <a class="btn action-btn btn-lg rounded-0" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
                        
@@ -67,7 +68,7 @@
                     
                 <hr>
                 </div>
-                
+               
                    <!-- Modal -->
                 <div class="modal fade" id="deleteProductNumber{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteProductNumber{{product.id}}ModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -86,8 +87,10 @@
                             </div>
                         </div>
                     </div> 
-                </div>            
+                </div>  
+                    
             {% endfor %}
+            </div>  
                 
         </div>
     </div>

@@ -211,8 +211,9 @@ footer {
 }
 
 .thumbnail {
-	max-height: 120px;
-	max-width: 50%;
+
+    object-fit: contain;
+	height: 120px;
 	margin-bottom: 1rem;
 }
 
