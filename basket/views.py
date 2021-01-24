@@ -149,6 +149,7 @@ def edit_basket(request):
             if product.digital_download is True:
                 if updated_delivery == "True":
                     item['digital_download'] = True
+                    item['quantity'] = 1
                 else:
                     item['digital_download'] = None
 

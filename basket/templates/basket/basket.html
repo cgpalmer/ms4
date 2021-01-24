@@ -392,7 +392,7 @@
                 
                 {% if item.product.product_type == 'photo' %}
                 <h3>Delivery Type</h3>
-                <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control">
+                <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
                     {% if item.digital_download == "on" %}
                     <option value="None">Delivery</option>
                     <option selected value="on">Digital Download</option>
