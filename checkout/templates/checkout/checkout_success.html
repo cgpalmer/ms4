@@ -26,7 +26,7 @@
             </div>
         </div>
  <div class="row mt-3">
-            <div class="col-12 col-lg-6 offset-lg-3">
+            <div class="col-12 col-lg-10 offset-lg-1">
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
                         <div class="col">
@@ -85,13 +85,14 @@
                                 item with the right
                             -->
                             <p class="font-weight-bold mb-0 ">Linked products:</p>
-                            
+                        </div>
+
                             {% for lp in linked_product %}
-                                <div>
+                                <div class="col-12 col-md-6 col-lg-4">
                                 <span class="small font-weight-bold mb-0">{{lp.product.name}}: </span><span class="small">{{lp.linked_product}}</span>
                                 </div>
                             {% endfor %}
-                        </div>
+                        
                     </div>
                     <div class="row">
                         <div class="col">
