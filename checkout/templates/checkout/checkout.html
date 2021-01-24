@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-12 col-lg-6">
-                <p class="">Order Summary ({{ product_count }})</p>
+                <h4 class="text-center">Order Summary</h4>
                 <div class="row">
                     <div class="col-2 text-left p-0">
                         <p class="mb-1 mt-0 small" >Item</p>
@@ -75,24 +75,28 @@
                     </div>
                 {% endfor %}
                 <hr class="my-0">
+                </div>
+                
+            </div>
+        
+            <div class="col-12 col-lg-6">
+                <hr class="mt-0 d-lg-none">
+                <h4 class="text-center col-12">Price Summary</h4>
                 <div class="row checkout-summary-wrapper">
-                    <div class="col-7 col-md-6 ">
+                    
+                    <div class="col-6 text-right p-0">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
-                         
+                        
+                        
                     </div>
-                    </div>
-                    <div class="col-3 col-md-6 text-md-left">
+                    <div class="col-6 text-left">
                         <p class="my-0">${{ total | floatformat:2 }}</p>
                         <p class="my-0">${{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
-            </div>
-        
-            <div class="col-12 col-lg-6">
-                <hr class="mt-0 d-lg-none">
                 <p class="text-center">Please fill out the form below to complete your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
