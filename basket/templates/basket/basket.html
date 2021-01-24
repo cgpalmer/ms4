@@ -76,6 +76,7 @@
                     </div>
                     <div class="row">
                             {% for image in item.item.linked_product_images_list %}
+                            {{image}}
                                 {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">

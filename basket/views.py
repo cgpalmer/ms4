@@ -168,14 +168,10 @@ def edit_basket(request):
                     # Changing media paths depending if the user is using their own photo.
                     if linked_product_type == "upload":
                         linked_product_image = "/media/" + linked_product_image
-                    else:
-                        updated_linked_product_images_list.append(linked_product_image)
-                    # Appending to the list depending on if it is empty.
-                    if updated_linked_product_images_list != []:
                         updated_linked_product_images_list.append(linked_product_image)
                     else:
-                        updated_linked_product_images_list.insert(0, linked_product_image)
-                    # Creating a list of product skus to display for linked images on the order.
+                        updated_linked_product_images_list.append(linked_product_image)
+                
                     if linked_product_id == "No id":
                         linked_product = 'Not linked'
                     elif linked_product_type == 'upload':
