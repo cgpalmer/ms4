@@ -7,5 +7,5 @@ class ReviewForm(forms.ModelForm):
         model = Review
         exclude = ('user','product',)
 
-    review_rating = forms.IntegerField(label='Rating / 5', widget=forms.NumberInput(attrs={'min': 0, 'max': 5}))
+    review_rating = forms.IntegerField(label='Rating / 5', widget=forms.NumberInput(attrs={'min': 0, 'max': 5,'class': 'text-center'}))
 
