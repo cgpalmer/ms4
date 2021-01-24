@@ -172,3 +172,28 @@ $("#adminProductManage").change(function() {
 });
 
 
+
+
+
+
+function decreaseBasketQuantity(element){
+    
+    let splittingElementID = element.split("_");
+    let quantityInputID = `#productDetailQty_${splittingElementID[1]}`;
+    let quantity = parseInt($(quantityInputID).val());
+    if (quantity > 1){         
+        $(quantityInputID).val(quantity - 1);
+    } else {
+        quantity = 0;
+         $(quantityInputID).val(quantity);
+    }
+};
+
+function increaseBasketQuantity(element){
+
+    let splittingElementID = element.split("_");
+    let quantityInputID = `#productDetailQty_${splittingElementID[1]}`;
+    let quantity = parseInt($(quantityInputID).val()); 
+    $(quantityInputID).val(quantity + 1);
+   
+};

@@ -103,8 +103,16 @@
                 {% csrf_token%}
                 <h3>Quantity</h3>
                 <div class="input-group mb-3">
-                    <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
+                    
+                    <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityS" onclick="decreaseBasketQuantity('descreaseQTY_S{{forloop.counter}}');">
+                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        </div>  
+                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_S{{forloop.counter}}">
+                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityS" onclick="increaseBasketQuantity('increaseQTY_S{{forloop.counter}}');">
+                            <span><i class="fas fa-plus fa-sm"></i></span>
+                        </div> 
                 </div>
+                
                 
                 {% if item.product.product_type == 'photo' %}
                 <h3>Delivery Type</h3>
@@ -249,10 +257,15 @@
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
-                <div class="input-group mb-3">
-                    <input id="basket-item-quantity{{forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
+                 <div class="input-group mb-3">
+                <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityM" onclick="decreaseBasketQuantity('descreaseQTY_M{{forloop.counter}}');">
+                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        </div>  
+                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_M{{forloop.counter}}">
+                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityM" onclick="increaseBasketQuantity('increaseQTY_M{{forloop.counter}}');">
+                            <span><i class="fas fa-plus fa-sm"></i></span>
+                        </div> 
                 </div>
-                
                 {% if item.product.product_type == 'photo' %}
                 <h3>Delivery Type</h3>
                 <select name="basket_digital_download" class="form-control">
@@ -314,7 +327,7 @@
     </div>
      {% endfor %}
 
-    <!-- Dekstop -->
+    <!-- Desktop -->
     {% for item in basket_items %}
     <div class="container basket-container d-none d-md-none d-lg-block">
         <div class="row">
@@ -400,8 +413,16 @@
                 {% csrf_token%}
                 <h3>Quantity</h3>
                 <div class="input-group mb-3">
-                    <input id="basket-item-quantity{{ forloop.counter0}}" class="form-control  qty_input" type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="" >
-                </div>
+                    
+               
+                        <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityL" onclick="decreaseBasketQuantity('descreaseQTY_L{{forloop.counter}}');">
+                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        </div>  
+                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_L{{forloop.counter}}">
+                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityL" onclick="increaseBasketQuantity('increaseQTY_L{{forloop.counter}}');">
+                            <span><i class="fas fa-plus fa-sm"></i></span>
+                        </div>  
+                    </div>
                 
                 {% if item.product.product_type == 'photo' %}
                 <h3>Delivery Type</h3>
