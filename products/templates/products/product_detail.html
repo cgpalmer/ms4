@@ -15,14 +15,14 @@
             {% endif %}
         </div>
         {% if product_type_for_linking == "container" %}
-        <div class="card product-detail-card extra-margin-right col-12  mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+        <div class="card product-detail-card extra-margin-right col-12 mt-3 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
             <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
-            <div class="card-body product-detail-card-body">   
+            <div class="card-body product-detail-card-body  text-center">   
                 {% if product.special_offer.friendly_name != None %}
                     <span class="badge  special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
                 {% else %}
@@ -49,16 +49,7 @@
             </div>
         </div>
         
-            <div class="card col-12  mt-3 order-md-3 col-md-12 col-lg-4 product-detail-card extra-margin-bottom shadow p-3 rounded text-center">
-                <h4 class="my-3">Upload your own images to use!</h4>
-                {% if product_type_for_linking == "container" %}
-                    <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <button class="btn action-btn btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
-                    </form>
-                {% endif %}             
-            </div>
+           
         
         <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
@@ -76,6 +67,7 @@
                     </div>
                 </div>
                 {% if product_type_for_linking == "container" %}
+                <div class="mb-4">
                     <h4 id="linkedPhotoLabel" class="product-detail-labels">Link with photo</h4>
                     {% for number in number_of_pictures_loop %}
                         <select name="linked_product{{number}}" class="linkingProductSelect stripe-style-input">
@@ -101,12 +93,7 @@
                         <p id="linkImageHint" class="hide text-link" >Click the image for a full size picture.</p>
                     </div>                            
                 {% endif %}                  
-                {% if product.digital_download %}
-                    <div class="col-12">
-                        <label class="mb-3" for="digital_download">Digital download?</label>
-                        <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
-                    </div>
-                {% endif %}
+               </div>  
                      
                 <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg action-btn mb-3" type="submit">
                     Add to basket
@@ -118,11 +105,36 @@
                     </span>
                     <span class="">Keep Shopping</span>
                 </a>
-                <input type="hidden" name="redirect_url" value="{{request.path}}">             
+                <input type="hidden" name="redirect_url" value="{{request.path}}">
+                          
             </form>
         </div>
-
+        <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+                <h4 class="my-3">Upload your own images to use!</h4>
+                {% if product_type_for_linking == "container" %}
+                    <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="btn action-btn btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
+                    </form>
+                {% endif %}             
+            </div>
+        </div>
+         <div class="card col-12  d-block d-lg-none mt-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+                <h4 class="my-3">Upload your own images to use!</h4>
+                {% if product_type_for_linking == "container" %}
+                    <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="btn action-btn btn-lg rounded-0 col-12" type="submit">Upload <i class="fas fa-upload"></i></button>
+                    </form>
+                {% endif %}             
+            </div>
+    
+  
         {% else %}
+        </div>
+    <div class="row">     
         <div class="card product-detail-card-photos extra-margin-right col-12  mt-3 col-md-6 col-lg-6 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
@@ -130,7 +142,7 @@
             <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
-            <div class="card-body product-detail-card-body">   
+            <div class="card-body product-detail-card-body  text-center">   
                 {% if product.special_offer.friendly_name != None %}
           
           <span class="badge  on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
@@ -155,10 +167,7 @@
                     <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
-        
-           
-        
-        <div class="card product-detail-card-photos col-12  mt-3 order-md-2 col-md-6 col-lg-6 shadow p-3 mb-3 rounded text-center">
+        <div class="card product-detail-card-photos col-12  mt-3 col-md-6 col-lg-6 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
                 <div id="productQuantity" class="">
@@ -197,8 +206,8 @@
         {% endif %}
 
     <!-- Here are the row and container end divs -->
-    
     </div>
+    
 </div>
 
 {% include 'includes/footer.html' %}
