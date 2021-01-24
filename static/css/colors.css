@@ -100,6 +100,12 @@
     
 }
 
+.alert-danger { 
+    color: white; 
+    background-color: #978b21; 
+    border-color: #978b21; 
+}
+
     @keyframes basket-glow{
     0%{
         color: white;
@@ -112,4 +118,12 @@
     100% {
       color: white; 
     }
+}
+
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
 }

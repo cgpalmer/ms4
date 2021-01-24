@@ -725,3 +725,6 @@ https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-
 Catching broken images
 https://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images
 https://stackoverflow.com/questions/58088946/getting-uncaught-referenceerror-function-is-not-defined
+
+Remove colour from navbar toggler
+https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4
