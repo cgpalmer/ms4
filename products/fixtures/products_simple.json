@@ -486,7 +486,7 @@
     "discount_price" : 4.19,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -510,7 +510,7 @@
     "discount_price" : 8.99,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -534,7 +534,7 @@
     "discount_price" : 10.99,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -559,7 +559,7 @@
     "discount_price" : 9.99,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -583,7 +583,7 @@
     "discount_price" : 14.99,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -607,7 +607,7 @@
     "discount_price" : 24.99,
     "number_of_pictures": 1,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -631,7 +631,7 @@
     "discount_price" : 5.99,
     "number_of_pictures": 12,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -655,7 +655,7 @@
             "discount_price" : 10.99,
     "number_of_pictures": 12,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
@@ -679,7 +679,7 @@
             "discount_price" : 8.99,
     "number_of_pictures": 12,
     "product_type": "container",
-    "linked_to_blog": "False",
+   
     "digital_download": "False",
     "number_of_ratings": 0,
     "rating_total": 0,
