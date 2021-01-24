@@ -489,7 +489,8 @@ footer {
 	}
 }
 
-/* Larger screens - iPad Landscape, iPad Pro, MD-Laptop */
+/* Larger screens - iPad Landscape, */
+
 @media screen and (min-width: 1024px) {
 
 /* General classes */
@@ -604,10 +605,13 @@ footer {
 	}
 
 	.all-products-card, .all-products-card:nth-child(even) {
-		margin-left: 2.25rem;
-		flex: 0 0 303%;
+        margin-left: 1.5rem;
+        flex: 0 0 30%;
 		max-width: 30%;
-	}
+		
+    }
+   
+/* Screens wider than 1280px */
 
 	.image-wrapper {
 		width: inherit;
@@ -671,4 +675,10 @@ footer {
 	.card-header h5 button {
 		font-size: 1rem;
 	}
+}
+ @media screen and (min-width: 1280px) {
+.all-products-card, .all-products-card:nth-child(even) {
+		margin-left: 2.25rem;
+		
+    }
 }

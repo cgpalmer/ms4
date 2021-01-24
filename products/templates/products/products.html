@@ -17,16 +17,18 @@
     <div class="row">
       {% for product in products %}
       <div class="card all-products-card  col-12 col-md-6 col-lg-4 shadow p-3 mb-4 rounded">
+          {% if product.special_offer.friendly_name != None %}
+          
+          <span class="badge on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
+              {% endif %}
         <div class="image-wrapper">
+                   
         <a class="d-md-none" href="{% url 'product_detail' product.id %}">
           <img
             src="{{product.image_url_mobile}}"
             class="card-img-top product-card-image lazy"
             alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
-          {% if product.special_offer.friendly_name != None %}
-          
-          <span class="badge on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
-              {% endif %}
+   
         </a>
         <a class="d-md-block d-none " href="{% url 'product_detail' product.id %}">
           <img
