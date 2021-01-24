@@ -197,3 +197,60 @@ function increaseBasketQuantity(element){
     $(quantityInputID).val(quantity + 1);
    
 };
+
+
+
+//  Edit review quantity
+
+$('#increaseEditReviewQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#edit_review_rating').val());
+    
+    if (quantity == 5){  
+        quantity = 5;      
+        $('#edit_review_rating').val(quantity);
+    } else {   
+            $('#edit_review_rating').val(quantity + 1);
+    }          
+        
+});
+
+$('#decreaseEditReviewQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#edit_review_rating').val());
+        
+        // If is not undefined
+    if (quantity > 1){         
+        $('#edit_review_rating').val(quantity - 1);
+    } else {
+        quantity = 0;
+         $('#edit_review_rating').val(quantity);
+    }
+});
+
+// Add review
+$('#increaseAddReviewQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#add_review_rating').val());
+    
+    if (quantity == 5){  
+        quantity = 5;      
+        $('#add_review_rating').val(quantity);
+    } else {   
+            $('#add_review_rating').val(quantity + 1);
+    }          
+        
+});
+
+$('#decreaseAddReviewQuantity').click(function(e){
+    e.preventDefault();
+    var quantity = parseInt($('#add_review_rating').val());
+        
+        // If is not undefined
+    if (quantity > 1){         
+        $('#add_review_rating').val(quantity - 1);
+    } else {
+        quantity = 0;
+         $('#add_review_rating').val(quantity);
+    }
+});
