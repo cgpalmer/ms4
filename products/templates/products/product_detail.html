@@ -73,10 +73,12 @@
                         <select name="linked_product{{number}}" class="linkingProductSelect stripe-style-input">
                             <option value="Not linked|No id|No item">Not linked</option>
                             <!-- Change this to user's name and give a bottom border-->
+                            {% if request.user.is_authenticated %}    
                             <option value="" disabled>{{user}}'s Photos</option>
                             {% for photo in user_photos %}
                                 <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
                             {% endfor %}
+                            {% endif %}
                             <!-- Can you categorise these so they can have little headers? -->
                             <option value="" disabled>Hidden Gems' Photos</option>
                             {% for link in linked_product %}
