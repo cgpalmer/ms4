@@ -39,7 +39,10 @@ def profile(request):
     orders = profile.orders.all()
 
     # Downloading digital content
-    digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user)
+    digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user).exclude(
+                            number_of_times_downloaded=True)
+    digital_previous_downloads_user = ContentReadyToDownload.objects.filter(user=request.user).exclude(
+                                      number_of_times_downloaded=False)
     user_photos = Image_upload.objects.filter(user=request.user)
     user_reviews = Review.objects.filter(user=request.user)
 
@@ -51,6 +54,7 @@ def profile(request):
         'on_profile_page': True,
         'user_photos': user_photos,
         'digital_downloads_user': digital_downloads_user,
+        'digital_previous_downloads_user': digital_previous_downloads_user,
         'review': user_reviews,
     }
 
