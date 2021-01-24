@@ -24,7 +24,7 @@
             </a>
             <div class="card-body product-detail-card-body">   
                 {% if product.special_offer.friendly_name != None %}
-                    <span class="badge badge-secondary special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
+                    <span class="badge  special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
                 {% else %}
                     <span class="badge "></span>
                 {% endif %}
@@ -133,7 +133,7 @@
             <div class="card-body product-detail-card-body">   
                 {% if product.special_offer.friendly_name != None %}
           
-          <span class="badge badge-secondary on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
+          <span class="badge  on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
               {% endif %}
                 <p class="card-text product-name non-link">{{product.friendly_name}}</p>
                 <p class="card-text">            

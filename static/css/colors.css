@@ -1,7 +1,7 @@
 /* Background Colours */
  .navbar, footer, .main-colour,.second-btn, .second-btn, 
  .second-btn:hover, .second-btn:active, .second-btn:focus, 
- .btn-danger:hover, .btn-danger:active, .btn-danger:focus {
+ .btn-danger:hover, .btn-danger:active, .btn-danger:focus, .special-offer-badge {
      background-color: #978b21;
 }
  .action-btn,.accordion>.card>.card-header {

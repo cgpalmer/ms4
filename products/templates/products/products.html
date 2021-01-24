@@ -25,7 +25,7 @@
             alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
           {% if product.special_offer.friendly_name != None %}
           
-          <span class="badge badge-secondary on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
+          <span class="badge on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
               {% endif %}
         </a>
         <a class="d-md-block d-none " href="{% url 'product_detail' product.id %}">
@@ -36,7 +36,7 @@
           />
            {% if product.special_offer.friendly_name != None %}
           
-          <span class="badge badge-secondary on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
+          <span class="badge on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
               {% endif %}
         </a>
         
