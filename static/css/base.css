@@ -316,8 +316,11 @@ footer {
 	width: 100%;
 }
 
+/* Mobile landscape */
 @media screen and (min-width: 500px) {
-    
+.jumbotron{
+    margin-top: 4.5rem;
+}
 }
 
 /* iPad */
