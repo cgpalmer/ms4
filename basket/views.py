@@ -150,6 +150,7 @@ def edit_basket(request):
                 if updated_delivery == "True":
                     item['digital_download'] = True
                     item['quantity'] = 1
+                    messages.warning(request, f"Digital purchases are restricted to a quantity of 1.")
                 else:
                     item['digital_download'] = None
 
