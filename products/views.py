@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Image_upload, Special, UserProfile
+from .models import Product, Category, Image_upload, Special
 from django.db.models.functions import Lower
 from reviews.models import Review
 from .forms import ProductForm, Image_uploadForm

@@ -13,13 +13,13 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=False, blank=True)
-    default_country = CountryField(blank_label='Country *', null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=False, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=False, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=False, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=False, blank=True)
-    default_county = models.CharField(max_length=80, null=False, blank=True)
+    default_phone_number = models.CharField(max_length=20, null=False, blank=True, default="*")
+    default_country = CountryField(blank_label='Country *', null=False, blank=True, default="UK")
+    default_postcode = models.CharField(max_length=20, null=False, blank=True, default="*")
+    default_town_or_city = models.CharField(max_length=40, null=False, blank=True, default="*")
+    default_street_address1 = models.CharField(max_length=80, null=False, blank=True, default="*")
+    default_street_address2 = models.CharField(max_length=80, null=False, blank=True, default="*")
+    default_county = models.CharField(max_length=80, null=False, blank=True, default="*")
 
     def __str__(self):
         return self.user.username
@@ -37,9 +37,9 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 
 
 class ContentReadyToDownload(models.Model):
-    user = models.CharField(max_length=254, null=False, blank=True)
-    sku = models.CharField(max_length=254, null=False, blank=True)
-    name = models.CharField(max_length=254, null=False, blank=True)
+    user = models.CharField(max_length=254, null=False, blank=True, default="Anonymous")
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254, null=False, blank=True, default="Purchase")
     number_of_times_downloaded = models.BooleanField(default=False)
     product = models.ForeignKey('products.Product', null=True, blank=True, on_delete=models.SET_NULL)
     date = models.DateTimeField(auto_now_add=True)
