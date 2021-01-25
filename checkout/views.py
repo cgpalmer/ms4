@@ -9,6 +9,7 @@ from profiles.models import UserProfile, ContentReadyToDownload
 from profiles.forms import UserProfileForm
 from checkout.models import Linked_Product
 from basket.context import basket_contents
+from basket.views import emptyingBasket
 
 import stripe
 import json
@@ -227,8 +228,7 @@ def checkout_success(request, order_number):
             for link in item['linked_products']:
                 Linked_Product.objects.create(order_id=order, linked_product=link, product=product)
 
-    if 'basket' in request.session:
-        del request.session['basket']
+    emptyingBasket(request)
 
     linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(linked_product='Not available')
     template = 'checkout/checkout_success.html'

@@ -210,12 +210,13 @@ def delete_basket_item(request, basket_item_id):
 
 
 def empty_basket(request):
+    emptyingBasket(request)
+    return redirect('view_basket')
+
+
+def emptyingBasket(request):
     basket = request.session.get('basket', {})
     if basket != {}:
         del basket['items']
         request.session['basket'] = basket
-        # Include in checkout success too. In fact - make this a function
-   
-        return redirect('view_basket')
-    else:
-        return redirect('view_basket')
+    return basket
