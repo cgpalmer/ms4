@@ -32,8 +32,10 @@ card.addEventListener('change', function (event) {
             <span>${event.error.message}</span>
         `;
         $(errorDiv).html(html);
+       
     } else {
         errorDiv.textContent = '';
+     
     }
 });
 
@@ -46,6 +48,9 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+    $('body').addClass('modal-open');
+    $('#loadingModal').addClass('show').css('display', 'block').css('background-color', 'rgba(0,0,0,0.5)');
+    
 
 
      var saveInfo = Boolean($('#id-save-info').attr('checked'));
@@ -98,6 +103,9 @@ form.addEventListener('submit', function(ev) {
                 $(errorDiv).html(html);
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
+                $('body').removeClass('modal-open');
+                $('#loadingModal').removeClass('show').css('display', 'none');
+                
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
@@ -109,3 +117,4 @@ form.addEventListener('submit', function(ev) {
         location.reload();
     })
 });
+

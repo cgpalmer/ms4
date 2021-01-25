@@ -143,7 +143,7 @@
                     
                     <div class="row">
                     <div class="submit-button text-center mt-2 mb-3 col-12"> 
-                        <button id="submit-button" type="submit" data-toggle="modal" data-target="#loadingModal" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
+                        <button id="submit-button" type="submit" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
@@ -176,7 +176,7 @@
        
       </div>
       <div class="modal-body text-center">
-          <p> Your order is being processed! </p>
+          <p> We are just checking everything is ready to go! </p>
           <p> Please do not navigate from this page. You will be redirected shortly.</p>
       
       </div>
@@ -195,3 +195,5 @@
     {{client_secret|json_script:"id_client_secret"}}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
+
+
