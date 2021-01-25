@@ -63,7 +63,8 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(linked_product='Not available')
+    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(
+                     linked_product='Not available')
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
         'A confirmation email was sent on the order date.'
@@ -84,8 +85,7 @@ def counting_downloads(request, download_id):
         download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
         download_file.number_of_times_downloaded = True
         download_file.date = datetime.datetime.now()
-        download_file.save()    
-
+        download_file.save()
         template = "profiles/download_ready.html"
         context = {
             'download_file': download_file
@@ -101,5 +101,3 @@ def delete_user_photo(request, photo_id):
     user_photo.delete()
     messages.success(request, 'Photo successfully deleted')
     return redirect(reverse('profile'))
-
-

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 @login_required
 def add_review(request, product_id):
     if request.method == 'POST':
@@ -52,6 +53,7 @@ def add_review(request, product_id):
         }
         return render(request, template, context)
 
+
 @login_required
 def edit_review(request, r_id):
     """ Edit a product in the store """
@@ -69,14 +71,12 @@ def edit_review(request, r_id):
 
             new_review_rating = previous_review_rating - form.cleaned_data.get("review_rating")
             retrieve_product.rating_total = retrieve_product.rating_total - new_review_rating
-           
             retrieve_product.rating = retrieve_product.rating_total / retrieve_product.number_of_ratings
             retrieve_product.save()
 
             messages.success(request, 'Successfully updated product!')
             review.review_content = form.cleaned_data.get("review_content")
             review.review_rating = form.cleaned_data.get("review_rating")
-          
             review.save()
             return redirect('profile')
         else:
@@ -91,6 +91,7 @@ def edit_review(request, r_id):
         }
 
         return render(request, template, context)
+
 
 @login_required
 def delete_review(request, r_id):

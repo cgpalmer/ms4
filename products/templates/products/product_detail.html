@@ -54,10 +54,10 @@
         <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
-                <div id="productQuantity" class="">
+                <div>
                     <h4 class="my-3 product-detail-labels">Quantity</h4>
                     <div class="input-group mb-3 col-xl-8 offset-xl-2">
-                        <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantity">
+                        <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityC">
                             <span><i class="fas fa-minus fa-sm"></i></span>
                         </button>  
                         <input class="form-control qty_input " type="number" name="quantity" value="1" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty">
@@ -160,7 +160,7 @@
                 <h5>Reviews</h5>
                 {% if product.number_of_ratings != 0 %}
                     <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
-                    <div id="productReview" class="review-wrapper">
+                    <div class="review-wrapper">
                         {% include 'reviews/includes/product_review_list.html' %}
                     </div>
                 {% else %}
@@ -172,7 +172,7 @@
         <div class="card product-detail-card-photos col-12  mt-3 col-md-6 col-lg-6 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
-                <div id="productQuantity" class="">
+                <div>
                     <h4 class="my-3 product-detail-labels">Quantity</h4>
                     <div class="input-group mb-3 col-xl-8 offset-xl-2">
                         <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantity">
@@ -210,7 +210,7 @@
     <!-- Here are the row and container end divs -->
     </div>
     
-</div>
+
 
 {% include 'includes/footer.html' %}
 {% endblock %}

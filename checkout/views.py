@@ -37,17 +37,18 @@ def condensing_basket(request):
     list_of_items_to_check = []
     duplicates_found = []
     for item in basket['items']:
-        
-        appending_item = [item['basket_item_id'], int(item['quantity']), [item['item_id'],item['digital_download'],item['linked_products']]]
+
+        appending_item = [item['basket_item_id'], int(item['quantity']), [item['item_id'], item['digital_download'],
+                          item['linked_products']]]
         list_of_items_to_check.append(appending_item)
 
-    for i in range(0, len(list_of_items_to_check)): 
+    for i in range(0, len(list_of_items_to_check)):
         for j in range(i+1, len(list_of_items_to_check)):
-            if list_of_items_to_check[i][2] == list_of_items_to_check[j][2]: 
-                print("duplicate found")   
+            if list_of_items_to_check[i][2] == list_of_items_to_check[j][2]:
+                print("duplicate found")
                 print(list_of_items_to_check[j])
                 print(list_of_items_to_check[i])
-                duplicates_found.append([list_of_items_to_check[i],list_of_items_to_check[j]])
+                duplicates_found.append([list_of_items_to_check[i], list_of_items_to_check[j]])
                 print(duplicates_found)
 
     for k in range(len(duplicates_found)):
@@ -57,16 +58,15 @@ def condensing_basket(request):
                     item['quantity'] = item['quantity'] + duplicates_found[k][1][1]
                     request.session['basket'] = basket
                     print("new item quantity")
-                    print(item['quantity'])   
+                    print(item['quantity'])
 
-   
     for k in range(len(duplicates_found)):
         print(len(duplicates_found))
         item_number = -1
         for item in basket['items']:
             item_number = item_number + 1
             print(item_number)
-            if item['basket_item_id'] == duplicates_found[k][1][0]:       
+            if item['basket_item_id'] == duplicates_found[k][1][0]:
                 del basket['items'][item_number]
             request.session['basket'] = basket
     return redirect(checkout)
@@ -79,7 +79,6 @@ def checkout(request):
 
     if request.method == 'POST':
         basket = request.session.get('basket', {})
-        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -98,22 +97,21 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_basket = json.dumps(basket['items'])
             order.save()
-           
+
             for item in basket['items']:
                 if item['digital_download'] == 'on':
                     digital_download = True
                 else:
                     digital_download = False
-                
+
                 try:
                     product = get_object_or_404(Product, pk=item['item_id'])
-                                     
+
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=item["quantity"],
                         digital_download=digital_download,
-                        
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
@@ -173,9 +171,7 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-    
     return render(request, template, context)
-
 
 
 def checkout_success(request, order_number):
@@ -184,7 +180,7 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-   
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
@@ -211,7 +207,7 @@ def checkout_success(request, order_number):
         email will be sent to {order.email}.')
 
     # This is where orders are stored for digital download
- 
+
     basket = request.session.get('basket', {})
     if basket != {}:
         for item in basket['items']:
@@ -223,14 +219,15 @@ def checkout_success(request, order_number):
                 # product_file_path = product.image_desktop
         # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
-                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product, 
+                ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product,
                                                       number_of_times_downloaded=number_of_times_downloaded)
             for link in item['linked_products']:
                 Linked_Product.objects.create(order_id=order, linked_product=link, product=product)
 
     emptyingBasket(request)
 
-    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(linked_product='Not available')
+    linked_product = Linked_Product.objects.filter(order_id=order.id).exclude(linked_product='Not linked').exclude(
+                     linked_product='Not available')
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
@@ -238,4 +235,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-

@@ -109,7 +109,6 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 2
 
 
-
 # These are settings for the signup requirements. Is this signup or login? Check
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -203,4 +202,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-

@@ -17,13 +17,11 @@ def basket_contents(request):
     basket = request.session.get('basket', {})
     are_all_items_linked = True
     multi_buy_message = ""
-    
-   
+
     if basket != {}:
         for item in basket['items']:
             product_count += 1
             product = get_object_or_404(Product, pk=item['item_id'])
-            
             subtotal = product.discount_price * item['quantity']
 
             full_price_sub_total = product.price * item['quantity']
@@ -42,7 +40,6 @@ def basket_contents(request):
                 'product': product,
                 'subtotal': subtotal,
                 'digital_download': digital_download,
-                
             })
 
             minified_items.append({
@@ -50,29 +47,22 @@ def basket_contents(request):
                 'quantity': item['quantity'],
                 'subtotal': subtotal,
                 'digital_download': digital_download,
-                
             })
 
-
             list_of_linked_product_info = item['linked_products']
-           
             for product_info in list_of_linked_product_info:
                 if product_info == 'Not linked' and product.number_of_pictures > 0:
                     are_all_items_linked = False
-                             
-   
 
     if delivery_total == 0 or total > settings.FREE_DELIVERY_AMOUNT:
-       
         delivery = 0
         free_delivery_deficit = 0
     else:
         delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
         free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - total
-    
+
     money_saved = full_price_total - total
     grand_total = delivery + total
-    
     context = {
         'basket_items': basket_items,
         'total': total,

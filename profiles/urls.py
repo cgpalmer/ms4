@@ -10,6 +10,4 @@ urlpatterns = [
     path('order_history/<order_number>', views.order_history, name='order_history'),
     path('download/<download_id>', views.counting_downloads, name='counting_downloads'),
     path('delete/<photo_id>', views.delete_user_photo, name='delete_user_photo'),
-
-    
 ]

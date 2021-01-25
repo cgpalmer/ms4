@@ -167,7 +167,7 @@
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"> <i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
@@ -251,10 +251,10 @@
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}M" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger  text-center">
-                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
+            <div id="editBasketHeaderM" class="modal-header editBasketBodyTrigger  text-center">
+                <h3 class="modal-title w-100"> Edit Basket Item</h3>
             </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
+            <div id="editBasketModalBodyM" class="modal-body text-center pb-0 editBasketBody">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
@@ -287,7 +287,7 @@
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productM" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option> 
                          <option value="" disabled>User Photos</option>
                         {% for photo in user_photos %}
@@ -318,7 +318,7 @@
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
@@ -406,10 +406,10 @@
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}L" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger text-center">
-                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
+            <div id="editBasketHeaderL" class="modal-header editBasketBodyTrigger text-center">
+                <h3 class="modal-title w-100" id="editBasketLabelL">Edit Basket Item</h3>
             </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
+            <div id="editBasketModalBodyL" class="modal-body text-center pb-0 editBasketBody">
                 <form method="POST" action="{%url 'edit_basket' %}">
                 {% csrf_token%}
                 <h3>Quantity</h3>
@@ -427,7 +427,7 @@
                 
                 {% if item.product.product_type == 'photo' %}
                 <h3>Delivery Type</h3>
-                <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
+                <select id="basket-item-deliveryL{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
                     {% if item.digital_download == "on" %}
                     <option value="None">Delivery</option>
                     <option selected value="on">Digital Download</option>
@@ -445,7 +445,7 @@
                     <h3>Linked Products</h3>
                     {% for image in item.item.linked_products %}
                     {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
+                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productL" class="w-100 py3 my-2">
                         <option value="Not linked|No id|No item">Not linked</option>
                          <option value="" disabled>User Photos</option>
                         {% for photo in user_photos %}
@@ -476,7 +476,7 @@
                 </form>
             </div>
             <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
@@ -518,7 +518,7 @@
                                         </span>
                                     </button>
                                     {% else %}
-                                    <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn action-btn btn-lg rounded-0">
+                                    <a id="checkoutButtonCondense" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn action-btn btn-lg rounded-0">
                                         <span>Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>

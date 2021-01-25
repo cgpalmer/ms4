@@ -3,6 +3,7 @@ from .models import Review
 
 # Register your models here.
 
+
 class ReviewsAdmin(admin.ModelAdmin):
     list_display = (
         'product',
@@ -12,5 +13,5 @@ class ReviewsAdmin(admin.ModelAdmin):
 
     ordering = ('-review_rating',)
 
-admin.site.register(Review, ReviewsAdmin)
 
+admin.site.register(Review, ReviewsAdmin)

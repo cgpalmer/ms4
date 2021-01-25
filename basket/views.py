@@ -150,10 +150,9 @@ def edit_basket(request):
                 if updated_delivery == "True":
                     item['digital_download'] = True
                     item['quantity'] = 1
-                    messages.warning(request, f"Digital purchases are restricted to a quantity of 1.")
+                    messages.warning(request, "Digital purchases are restricted to a quantity of 1.")
                 else:
                     item['digital_download'] = None
-
 
             updated_linked_product_images_list = []
             updated_linked_products = []
@@ -171,7 +170,7 @@ def edit_basket(request):
                         updated_linked_product_images_list.append(linked_product_image)
                     else:
                         updated_linked_product_images_list.append(linked_product_image)
-                
+
                     if linked_product_id == "No id":
                         linked_product = 'Not linked'
                     elif linked_product_type == 'upload':
