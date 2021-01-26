@@ -1,16 +1,10 @@
 # Report On Any Discrimination
 
-![Image a website on different devices](static/files/wireframes/responsive-design.jpg)
 
-### [Live page](http://report-against-discrimination.herokuapp.com/homepage)
 
-# Disclaimer
+### [Live page](https://hidden-gems-cgpalmer91.herokuapp.com/)
 
-The statistics on this website are free to use. However, they must be reported responsibly and with context. 
 
-Any misrepresentation of the statistics will be denounced and asked to remove them. 
-
-Please do not use a person's name in the reports, as the report will be removed.
 
 
 
@@ -20,6 +14,7 @@ ___
 + <a href="#rationale">Rationale</a>
     - <a href="#inspiration">Inspiration</a>
 + <a href="#UX">UX</a> 
+   - <a href="#fivePlanes">5 planes of UX</a>
    - <a href="#userStories">User Stories</a>
 + <a href="#features">Features</a>
    - <a href="#existingFeatures">Existing Features</a>
@@ -78,6 +73,42 @@ ___
 <span id="UX"></span>
 ## UX
 
+5 planes of UX
+
+### Strategy
+
+
+Design
+Simple and intuitive site that is easy enough for anyone to use, from mobile or desktop. No special features needed like Bluetooth or Account being made.  
+
+Business
+Make it easy for people to to buy photographs digitally or physically, with the option of having the in a frame, or printer to calendars or canvases. 
+
+Having a website interface is the most accessible design to reach the widest net of clients. This means that users of all ages are more likely to be comfortable on the platform. An app may be the more popular choice amongst younger user whereas the older generation are accustomed to websites – which are not subject to such quick change. In addition, whilst the younger generation may prefer an app, they are fully capable of searching for a website. The capabilities of using an app, or a smartphone over a computer, may be beyond the abilities of some demographics.
+In general, a website is much more accessible for those with accessibility issues, especially as more tools continue to come out to aid the process. Those with sight or mobility issues can still get the full experience through a website on any device.
+The site has been designed as mobile-first, which is particularly important for this project. Photos are becoming increasingly popular on mobile, as the cameras continue to get better. Fewer people have films cameras and it is now common practise to have digital photos printed instead.
+With a mobile-first design, the website is easy to use straight from your mobile – the place where most of the user’s excellent photos are stored. This has several benefits:
+1. The user does not need to transfer photos between devices to order.
+2. The user can store the photos for a later time by uploading them from your mobile. You can then finish the order from any device. 
+3. The user can complete a transaction from start to finish on a mobile, means fewer users will be put of by the complexity of device switching and those who are impulse buying are satisfied quickly. 
+4. If the user wants to buy a photo have on their social media account, they can download it to their phone – which is the most likely place for them to use social media. 
+Unlike shops where users print their photographs, a user does not need to be familiar with Bluetooth or smartphones in order to get your photos. This, again, widens the demographic of clients. 
+Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For example:
+Table – scenario - action
+User wants a photo to use on digital products. Downloads digitally.
+User wants a photo to put in an existing frame. User have a photo delivered to the door. (Currently restricted to 1 size of 7” x 5”). 
+User has a photo but would like a frames. User buys a frame or canvas on the same website. 
+User wants to buy the photo and wants it in a container. User buys a frame, canvas or calendar and gets the photos printed on for free. 
+User wants to have their photo printer on a canvas, calendar or in a frame. (Photo will be printed to size automatically to match the container.) User uploads their photo and links it to a product. 
+
+I am aware that we should offer to print all photos in a variety of sizes and that is a future feature. 
+Strategy for the business
+There will be an admin section which allows admin staff to add, remove, edit products, and read orders to be fulfilled. There is also an admin link to the full Django admin site, which is only accessible to the superuser. I separated the two for a couple of reasons: 
+The staff structure at the business may want people to add products but not at able to access customer details. In addition, they may want some staff to see the most recent orders but not have access to them all. Finally, this separation can prevent some staff from editing special offers and other finance related possibilities.
+This all allows for full customisation of delegation tasks which allows managers and employees to smoothly work together throughout the day. 
+The forms are validated to ensure that all the information that is needed for the website to work is provided when adding or editing products. 
+
+### Scope
 <span id="userStories"></span> 
 ### User Stories
 
@@ -89,6 +120,99 @@ ___
 
 
 #### User as a charity or researcher (professional user)
+
+
+Feature set 
+Current features
+Order photographs or containers – calendar, frames or canvas. Photographs come at a default size of 7” x 5”. 
+Be able to upload their own photographs
+Download their purchases to their computer. 
+Search for products by name, sku, description.
+When you purchase a calendar, frame or canvas, the user can choose to have a picture printed to the product. 
+To have an account that remembers their details.
+
+Future features
+Picture resolution validation to make sure the photo is high enough quality.
+A product preview of the photo within the frame or on the canvas/ calendar. 
+A blog to explain the story behind each photo as a unique feature.
+Users can upload their own photos to be bought and receive a percentage of the profits. 
+
+Business objectives
+For people to use us to purchase frames, calendars and canvases.
+For people to upload their photos and know that the picture will be delivered to their door at the correct size for the containers.
+Content required:
+Profile page with details about the user.
+Filters, categories and search to refine product search and speed up the user experience. 
+Products with extended details
+A basket to handle the purchases
+A checkout to process purchases and payments.
+Reviews about each product available to create, edit, delete and read. 
+Interaction design
+
+Navbar	
+I have designed the navbar to read top-to-bottom of importance for mobile. On the mobile, I have attempted to space out the important parts so the user associated certain areas of the website with certain functions. 
+I have broken the nav down into two sections. Account and its accessories, including the basket, and the product menu. For both mobile and desktop, the account links are on top and the products nav are on the bottom. I have also included a different dropdown on the mobile, with a different icon to differentiate between the menus.
+I decided to keep the basket icon visible to users at all times. There is a flashing animation that occurs when a new product is added to the basket and, therefore, it would be redundant if it was hidden on mobile. It also keeps a running total for the basket sub-total so the user is aware of how much they are spending.
+Mobile specific:
+The account dropdown contains linked to the ‘profile, admin, login/logout and register’ pages depending on your status. The hierarchy is that useful links for profile come first, then login/logout, then register. This is because I believe those are visiting that part of the site are returning customers. Most who will sign up, will do it from the checkout link when making a purchase. 
+For the product menu, I have chosen this order: Home, All products, special offers, photograph, frames & canvases. I put the special offers near to the top to entice the users and the frames at the bottom as the main selling point of the website is the photographs. Within each category are the sub-categories, which as this point are random but could change with popularity in orders. 
+
+
+Desktop specific:
+With the desktop, I have the account on the left and the basket on the right as before. I have moved the search bar to be in the middle of the product links as a way of balancing the links. 
+It may be argued that the “All products” and “Special offers” should be on the left of the search bar as important reads from left to right. However, I have placed the “Special offers” underneath the basket, so that it is continuously seen every time a use is drawn to the basket’s “added product” animation. 
+Equally, I wanted the main products near to the search bar so should a user not find what they want in the search bar, the bulk of the filters are directly next to the search bar. It is my hope that the user will then start to look through “Photographs” and “Frames & Canvases” for the products they would like. 
+Finally, when the mouse hovers over any of the categories on the products bar, all of the menu opens. This serves as a reminder that there is lots to choose from and explore. The user can traverse across the sub-categories, without the menu hiding itself, providing a satisfying experience. 
+Other interaction design:
+All of the actions a user can take to personalise and modify their experience takes place within the profile page. This is separate from the main part of the website. Although, the user can still access their uploaded photos from the products detail pages, which makes a more intuitive experience for the user. 
+
+Full list of features
+Breakdown the apps and pages
+Footer with email
+
+### Skeleton design
+Wireframes
+
+Whilst this isn't an exhaustive document of every page on each device, it showcases that there is responsive design within the site. These particular images focus on three main
+breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
+[Image a website on different devices](static/files/testing/responsive_design.pdf)
+
+
+
+### Surface design
+Buttons
+Action buttons also have a chevron pointing right, which is the logical symbol for “next”. All of the navigation buttons or cancel buttons have a chevron pointing left. This give the illusion that there is a certain way to navigate around the website, that discourages the users from click the browser “back” button. 
+
+Typography
+The same font is used across the website. The font-weight has been adjusted accordingly for the elements that need to stand out more or need to be more readable. For example: Where necessary, on the small “special offer” badge the font-weight is slightly less so it is more readable at a smaller font. 
+I deliberately picked a clean, plain text font to maximise accessibility for the user. It does not use any cursive devices, nor is it italic. 
+
+Colour Scheme
+For my project, I knew which picture I wanted for my landing page. I decided that I would use a colour from the picture in order to replicate the feel of “nature” in colour scheme. As the majority of photographs on the site are animals or nature, I felt this fitted the website well. 
+Once I had my base green colour, I used Canva https://www.canva.com/colors/color-wheel/ as a tool for developing secondary colours. Using the “Complementary” section, I chose to pick the secondary as the dark blue you see on the screen. I used the chromatic and found it suggested slightly lighter colours. However, the base green I chose, I decided to keep as it was darker and the “white” text had a better contrast ratio and was much easier to read.
+Therefore, I made the hover functions, a slightly darker version of the two main “green” and “blue” colour.
+I did experiment with the the other colours on the tetradict pdf. However, they broke they didn’t seem to properly fit with my design. Any fourth colour looked out of place and complex. Therefore, I stuck with a 3-colour system of white, green and blue.
+Possibly the most important use of my colour scheme, aside from readability, is that I used it to reinforce the intuitive navigation and action around the website. All action buttons are blue. Whereas all cancel, navigation, delete buttons are green. As a general rule, the user will look for a blue button when they want to complete an action and will see a green button when they wish to return to a page. 
+In addition, I use the colour scheme to have alert the user to the status of certain features. For example, when an item is added to the basket, the basket icon in the nav glows blue. This is so the user knows it has been added successfully and is drawn to their current total so far.
+Another feature is the “profile” icon, which turns blue when a user is logged in. This is just visual feedback for the user, should they run into any issues. 
+
+Balance in the design
+I have made a significant effort to keep a balance on each webpage. Each has access to the header and foot, which are consistent in their sizes across the pages. Each page has a clear “section” in the middle that has an individual purpose. 
+Cards
+Each product has been placed on a card, with a photo at the top and text at the bottom. As these are white cards on a white background, I have added shadow to create a subtle 3D look.  The cards are consistent, with the images being of the same height and the text formatted in the same way below.
+On the product details, cards are also used to keep the design consistent.
+
+Horizontal rules
+Horizontal rules have been used across the website to highlight headers and to separate items. For instance, they are used to separate reviews from each other or items in the basket.
+I found these to be subtle and more flexible to use that a table. 
+
+
+
+
+
+
+
+
 
 
 
