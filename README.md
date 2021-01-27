@@ -624,6 +624,8 @@ For all of the following tutorials, I have edited the code necessary for my proj
 
 ___
 
+https://stackoverflow.com/questions/46132857/allow-certain-group-and-admin-to-view-part-of-html-in-django
+https://stackoverflow.com/questions/44265564/django-registration-of-tag-library-not-working
 
 
 
