@@ -38,8 +38,8 @@ class Product(models.Model):
     # check these as things will break if this is allowed to be null.
     number_of_pictures = models.IntegerField(default=0)
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
 
 
 class Special(models.Model):
@@ -47,8 +47,8 @@ class Special(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     discounts = models.DecimalField(max_digits=4, decimal_places=3, default=0.0, null=True, blank=False)
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
 
 
 
