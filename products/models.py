@@ -41,9 +41,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    def get_image_url(self):
-        return self.image_url_mobile
-
 
 class Special(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True, default="none")
