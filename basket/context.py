@@ -59,7 +59,7 @@ def basket_contents(request):
         free_delivery_deficit = 0
     else:
         delivery = Decimal.from_float(settings.STANDARD_DELIVERY_AMOUNT)
-        free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - total
+        free_delivery_deficit = settings.FREE_DELIVERY_AMOUNT - delivery_total
 
     money_saved = full_price_total - total
     grand_total = delivery + total
