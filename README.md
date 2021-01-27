@@ -1,7 +1,7 @@
 # Report On Any Discrimination
 
 
-
+[](static/files/wireframes/landing_image.jpg)
 ### [Live page](https://hidden-gems-cgpalmer91.herokuapp.com/)
 
 
