@@ -48,18 +48,34 @@ ___
 
 This project aims to give users an opportunity to display unique photographs of the world, around their room. 
 Users will be able to select from a wide range of my own personal photographs and purchase them on quality paper,
-a variety of canvas sizes or frames. In addition, users can use their own unique photographs and have them printed in 
+a variety of canvas sizes, frames or calendars. In addition, users can use their own unique photographs and have them printed in 
 the same way!
 
-There are many sites that offer this but here is where Hidden Gems is different. Each photo will have a blog attached
-to it explaining the story behind the photo. This personal touch adds a third dimension to the art and gives users
-a starting point to discuss their choices with guests. 
+With no need for bluetooth or fancy smart phones, Hidden Gems is a one-stop shop for all of the users needs! 
+
+Photos can be digitally downloaded, delivered or put in a frame, calendar or on a canvas.
+
 
 ___
 
 <span id="inspiration"></span>
 
 ## Inspiration
+
+My inspiration from this project came from a need to connect with an e-commerce website. I did not feel particularly excited about the prospect of making an online shop, 
+so I needed to pick something that would intrinsically motivate me. 
+
+So I decided to build a website where I could show-case my photographs from travelling. I have used my favourite photos from the small parts of the world that I have
+been lucky enough to visit.
+
+I decided it would be nice if people wanted these photos in a frame or on a canvas. However, I was sure people would much prefer their own photographs on a canvas, which led me to 
+my project idea. 
+
+In the past, I have used the bluetooth machines in shops to print my pictures and found them to be a complex and confusing. I thought that a website where you could directly
+upload from your phone would go a long way. It would have the look and feel of uploading normal files to your computer, email etc. This made me feel like I could design a site
+where it was accessible to a wide range of people.
+
+
 
 #### Requesting information
 
@@ -378,6 +394,8 @@ Frameworks
 3. jQuery
 4. Sqlite 3 in development
 5. Postgres in deployment
+6. Font Awesome
+7. Google Fonts
 
 Other dependencies include:
 + Pillow
