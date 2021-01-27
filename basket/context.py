@@ -71,7 +71,6 @@ def basket_contents(request):
         'free_delivery_deficit': free_delivery_deficit,
         'FREE_DELIVERY_AMOUNT': settings.FREE_DELIVERY_AMOUNT,
         'grand_total': grand_total,
-        'new_customer_offer': settings.NEW_CUSTOMER_OFFER,
         'delivery_total': delivery_total,
         'are_all_items_linked': are_all_items_linked,
         'products': products,
