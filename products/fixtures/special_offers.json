@@ -27,7 +27,7 @@
         "pk": 4,
         "model": "products.special",
         "fields": {
-        "name": null,
+        "name": "None",
         "friendly_name": null,
         "discounts": 0.0
     }}
