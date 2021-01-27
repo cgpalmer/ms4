@@ -79,7 +79,7 @@ a:hover {
 }
 
 .input-group-search {
-	width: 92%;
+	width: 100%;
 	float: right;
 }
 
@@ -103,7 +103,8 @@ a:hover {
 
 .logo-title {
     margin-top: 5px;
-	font-size: 1.25rem;
+    font-size: 1.25rem;
+    padding: 0;
 }
 
 /* Footer */
@@ -379,6 +380,11 @@ footer {
 	}
 
 /* Nav */
+
+.input-group-search {
+    width: 84%;
+    float: unset;
+}
 
 	.logo-title {
         margin-top: 0;

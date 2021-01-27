@@ -11,8 +11,8 @@
                 <span><i class="fas fa-user fa-lg "></i></span>
             </button>  
             {% endif %}
-            <a class="logo-title col-7 text-center" href="{% url 'home' %}">Hidden Gems</a> 
-            <a class="nav-link col-3 px-0 text-center" href="{% url 'view_basket' %}" id="basketMobileNavLink">
+            <a class="logo-title col-6 text-center" href="{% url 'home' %}">Hidden Gems</a> 
+            <a class="nav-link col-4 px-0 text-center" href="{% url 'view_basket' %}" id="basketMobileNavLink">
                 <i class="fas fa-shopping-basket item-added-transition fa-lg"></i>
                 <span class="basket-total-span"> £ {{ total|floatformat:2 }}</span>
             </a>
@@ -91,6 +91,8 @@
                         <a href="{% url 'products' %}?category=insects" class="dropdown-item">Insects</a>
                         <a href="{% url 'products' %}?category=animals" class="dropdown-item">Animals</a>
                         <a href="{% url 'products' %}?category=flowers" class="dropdown-item">Flowers</a>
+                        <a href="{% url 'photo_products' %}" class="dropdown-item">All photographs</a>
+                        
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -102,6 +104,7 @@
                         <a href="{% url 'products' %}?category=canvas" class="dropdown-item">Canvases</a>
                         <a href="{% url 'products' %}?category=photo_frame" class="dropdown-item">Photo frames</a>
                         <a href="{% url 'products' %}?category=calendars" class="dropdown-item">Calendars</a>
+                        <a href="{% url 'container_products' %}" class="dropdown-item">All accessories</a>
                     </div>
                 </li>
               
