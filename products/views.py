@@ -124,7 +124,7 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            # question this
+            # question this - remove product from this line.
             product = form.save()
             # Retrieving the product, calculating the price and updating the discount price.
             sku = form.cleaned_data.get("sku")
