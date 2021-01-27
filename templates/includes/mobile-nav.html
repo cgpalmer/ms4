@@ -22,8 +22,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <a href="{% url 'admin_profile_page' %}" class="dropdown-item">Admin</a>                    
+                        {% if request.user|has_group:"retail_assistant" %} 
+                            <a href="{% url 'admin_profile_page' %}" class="dropdown-item">Admin</a> 
+                                          
                         {% endif %}
                         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
