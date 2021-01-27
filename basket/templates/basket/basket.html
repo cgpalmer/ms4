@@ -72,11 +72,10 @@
                 <div class="linked-products-basket-wrapper col-12">
                     <div>
                         <hr class="smaller-hr">
-                        <p>Linked Products</p>
+                        <p>Linked Products <br> Click image for full size.</p>
                     </div>
                     <div class="row">
                             {% for image in item.item.linked_product_images_list %}
-                            {{image}}
                                 {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
@@ -228,7 +227,7 @@
                 <div class="linked-products-basket-wrapper col-12">
                     <div>
                         <hr class="smaller-hr">
-                        <p>Linked Products</p>
+                        <p>Linked Products - click image for full size.</p>
                     </div>
                     <div class="row">
                             {% for image in item.item.linked_product_images_list %}
@@ -374,7 +373,7 @@
                 
                     <div class="col-12 px-0">
                         
-                        <p class="px-0">Linked Products</p>
+                        <p class="px-0">Linked Products - click image for full size.</p>
                     </div>
                    
                    

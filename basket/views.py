@@ -14,6 +14,7 @@ def view_basket(request):
     checking for duplicated linked products. Linked products are photographs that can
     be added to a container purchase.'''
 
+
 def add_to_basket(request, item_id):
     # Requesting basket information
     basket = request.session.get('basket', {})
