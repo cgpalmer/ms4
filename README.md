@@ -92,6 +92,7 @@ With a mobile-first design, the website is easy to use straight from your mobile
 2. The user can store the photos for a later time by uploading them from your mobile. You can then finish the order from any device. 
 3. The user can complete a transaction from start to finish on a mobile, means fewer users will be put of by the complexity of device switching and those who are impulse buying are satisfied quickly. 
 4. If the user wants to buy a photo have on their social media account, they can download it to their phone – which is the most likely place for them to use social media. 
+
 Unlike shops where users print their photographs, a user does not need to be familiar with Bluetooth or smartphones in order to get your photos. This, again, widens the demographic of clients. 
 Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For example:
 Table – scenario - action
@@ -175,7 +176,7 @@ Wireframes
 
 Whilst this isn't an exhaustive document of every page on each device, it showcases that there is responsive design within the site. These particular images focus on three main
 breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
-[Image a website on different devices](static/files/testing/responsive_design.pdf)
+[Image a website on different devices.](static/files/testing/responsive_design.pdf)
 
 
 
@@ -189,7 +190,7 @@ I deliberately picked a clean, plain text font to maximise accessibility for the
 
 Colour Scheme
 For my project, I knew which picture I wanted for my landing page. I decided that I would use a colour from the picture in order to replicate the feel of “nature” in colour scheme. As the majority of photographs on the site are animals or nature, I felt this fitted the website well. 
-Once I had my base green colour, I used Canva https://www.canva.com/colors/color-wheel/ as a tool for developing secondary colours. Using the “Complementary” section, I chose to pick the secondary as the dark blue you see on the screen. I used the chromatic and found it suggested slightly lighter colours. However, the base green I chose, I decided to keep as it was darker and the “white” text had a better contrast ratio and was much easier to read.
+Once I had my base green colour, I used [Canva](https://www.canva.com/colors/color-wheel/) as a tool for developing secondary colours. Using the “Complementary” section, I chose to pick the secondary as the dark blue you see on the screen. I used the chromatic and found it suggested slightly lighter colours. However, the base green I chose, I decided to keep as it was darker and the “white” text had a better contrast ratio and was much easier to read.
 Therefore, I made the hover functions, a slightly darker version of the two main “green” and “blue” colour.
 I did experiment with the the other colours on the tetradict pdf. However, they broke they didn’t seem to properly fit with my design. Any fourth colour looked out of place and complex. Therefore, I stuck with a 3-colour system of white, green and blue.
 Possibly the most important use of my colour scheme, aside from readability, is that I used it to reinforce the intuitive navigation and action around the website. All action buttons are blue. Whereas all cancel, navigation, delete buttons are green. As a general rule, the user will look for a blue button when they want to complete an action and will see a green button when they wish to return to a page. 
@@ -207,23 +208,13 @@ Horizontal rules have been used across the website to highlight headers and to s
 I found these to be subtle and more flexible to use that a table. 
 
 
-
-
-
-
-
-
-
-
-
 ### Wireframes
 
 Wireframes have been made using Balsamiq. 
 
 [Wireframes](static/files/wireframes/ms3-wireframes-with-notes.pdf)
 
-As there were not initial wireframes of the all the screen, I have added responsive images of all the pages in their final form.
-[- responsive images of actual site.](static/files/wireframes/responsive-images-instead-of-WF.pdf)
+
 ___
 <span id="features"></span>
 ## Features
@@ -360,7 +351,7 @@ ___
   any other buttons because they think nothing is happening.
 + User is limited to a quantity of 1 of a specific item, if they are digitally downloading that item. This is because you only need to download one digital copy.
 + User can only access the links to members area if they are logged in. 
-+ Only super users are able to access django admin and my own custom admin. 
++ Only super users are able to access django admin and the content management system admin. THIS MAY CHANGE
 
 ___
 <span id="technologiesUsed"></span>
@@ -377,14 +368,22 @@ Front-end
 Back-end 
 
 1. Python 
-2. MongoDB Atlas
+2. Sqlite 3 in development
+3. Postgres in deployment
 
 Frameworks
 
-1. Materialize 1.0.0
-2. Flask 
-3. Jinja 
-4. jQuery
+1. Bootstrap 4
+2. Django 
+3. jQuery
+4. Sqlite 3 in development
+5. Postgres in deployment
+
+Other dependencies include:
++ Pillow
++ White Noise
+
+Of course, a full list can be found at [requirements.](requirements.txt)
 
 
 ___
@@ -416,15 +415,9 @@ As a profession user, I want to be able to see some statistics about my search s
 1. Nav has been fully tested
 2. I have checked that the collapsibles open and close appropriately
 3. I have checked buttons enable and disable appropriately
-4. I have checked that the correct form options are unhidden based on the users previous inputs
 
 #### Feedback from other users
 User 1
-
-* "When i click search by location, it does not populate any cities after choosing that location type. If there are none in the database maybe include a little message saying sorry there are none as it currently looks like a bug" 
-
-Regarding this comment, I have since filled out several reports so that the website has something to pull from the database. 
-It is unnecessary for me put in a comment about there not being any available as the database will always have reports in.
 
 * "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
 
@@ -440,20 +433,7 @@ As in the wireframes section, the website is responsive across mobile, iPad, iPa
 
 ### Cross browser test
 
-I have test my site on Microsoft Edge, Firefox and Chrome web browsers.
-I specifically test the following things:
-   + Do the collapsibles and their animations open?
-   + Does the checkbox still work?
-   + Does the tooltip work on the signup page?
-   + Do the select options work? 
 
-On the browsers Firefox, Edge and Chrome, all of th elements above are working properly.
-I have attached a pdf of the results of the tests. They are only for Firefox and Edge as Chrome was my main developer and is
-covered by my other testing.
-
-[Firefox cross browser testing.](static/files/testing/crossBrowserTesting/crossBrowserFirefoxTest.pdf) 
-
-[Edge cross browser testing.](static/files/testing/crossBrowserTesting/crossBrowserEdgeTest.pdf) 
 
 
 
@@ -465,7 +445,7 @@ I have configured the cornflakes to accept a line length of 120 characters.
 Therefore, the only code issue that comes up on http://pep8online.com/ is that the lines are too long as it is set to 79 characters.
 
 #### CSS
-CSS has been checked by this online validator: https://jigsaw.w3.org/css-validator/#validate_by_input
+CSS has been checked by this online validator: 
 My css only has warnings about webkits being 'unknown vendor extensions'.
 There are no issues with my css. 
 
@@ -479,15 +459,6 @@ There are no issues with my JS.
 ### Interesting bugs
 
 1. [Dividing by 0](static/files/testing/interesting-bugs-documentation/bug-for-dividing-by-0.pdf) 
-2. [Logging in issues](static/files/testing/interesting-bugs-documentation/Issue-with-logging-in.pdf) 
-3. [Console error breaking the JS flow](static/files/testing/interesting-bugs-documentation/js-console-error-interrupting-the-other-js.pdf) 
-4. [Problems reading if the email address exists, live](static/files/testing/interesting-bugs-documentation/Live-reading-if-the-username-exists.pdf) 
-5. [Only certain elements are being searched in the array](static/files/testing/interesting-bugs-documentation/Not-match-against-all-array-elements.pdf) 
-6. [Problems with validating the password](static/files/testing/interesting-bugs-documentation/password-validation-issue.pdf) 
-
-
-
-
 
 ___
 <span id="responsiveDesign"></span>
@@ -503,17 +474,9 @@ It has been specifically designed for the following:
    + Laptop with HiDPI screen
 
 
-The majority of the website stays consistent to an easy user experience. There are minor changes to font-sizes etc. Some 
-of these can be seen in the [responsive image](static/files/wireframes/responsive-design.jpg). This has been taken from the website:
-http://ami.responsivedesign.is/#
-
 There are a few major resposive choices, detailed below.
 
-1. When viewing on a laptop the search results present their information in a different way. The incident description,
-date and whether it had been reported are shown in their own colour on the right of the card.
 
-2. The pictures of staff and descriptions shift to being alongside each other once on the laptop/ landscape iPad Pro 
-screen.
 ___
 <span id="deployment"></span>
 ## Deployment
@@ -640,117 +603,7 @@ ___
 
 For all of the following tutorials, I have edited the code necessary for my project. 
 
-This tutorial helped me to make sure my urls were clearer.
-https://restfulapi.net/resource-naming/
 
-This tutorial helped me to alphabetise some areas of results.
-https://stackoverflow.com/questions/1959386/how-do-you-sort-a-list-in-jinja2
-
-This tutorial helped me to use the date-time function in python
-https://www.dataquest.io/blog/python-datetime-tutorial/
-
-This tutorial helped me to save the date from the input into the mongoDB.
-https://stackoverflow.com/questions/58160212/how-to-save-date-from-datepicker-into-database-in-sqlalchemy-flask-application
-
-This tutorial helped me to validate a password live for when users are deciding their first password.
-https://www.w3resource.com/javascript/form/password-validation.php
-
-
-This link helped to set up Flash-messages.
-https://www.youtube.com/watch?v=DFCKWhoiHZ4
-
-This tutorial helped me to store things to the Flask session.
-https://pythonise.com/series/learning-flask/flask-session-object
-
-This tutorial helped me to set up a back-end validation check which matched the live JS version.
-https://www.geeksforgeeks.org/python-program-check-validity-password/
-
-
-This tutorial helped me to check if there was a value in the array that matched the criteria.
-https://stackoverflow.com/questions/55957237/checking-if-input-value-matches-the-array-items
-
-This tutorial helped me to check the email live to see if there was already a user with that account.
-https://stackoverflow.com/questions/14411235/while-typing-in-a-text-input-field-printing-the-content-typed-in-a-div
-
-This link helped me to process a list of emails in python and access them in JS.
-https://groups.google.com/forum/#!topic/web2py/OmwTo1ZsFN4
-
-This link helped me to process a list from python into a json file.
-https://stackoverflow.com/questions/23038710/accessing-python-list-in-javascript-as-an-array
-
-This helped me to understand how I could get the value from a select option.
-http://jsfiddle.net/YPsqQ/
-
-Tutorial on how to hash a password
-https://nitratine.net/blog/post/how-to-hash-passwords-in-python/
-
-Tutorial helped me to pull certain keys and values from mongodb queries
-https://realpython.com/iterate-through-dictionary-python/
-
-I also use the documentation for Flask, Jinja, Materialize, jQuery and Python.
-I used W3Schools for any basics that I needed to brush up on.
-A special thank you to Stack Overflow, as even though I didn't always use the help they provided in the end, I still learnt a lot from trial and error.
-
-
-<span id="media"></span>
-<ins>Media</ins>
-
-To generate my favicon, I used this website: 
-
-https://www.favicon.cc/
-
-
-
-<span id="acknowledgements"></span>
-<ins>Acknowledgements</ins>  
-
-I used the Government's own website when choosing which categorise would be available. There are a few names I have
-changed on the grounds that there are more colloquial terms available. Eg. 'Sex' has been changed to 'sexism'.
-Please find the link attached below:
-https://www.gov.uk/discrimination-your-rights
-
-
-___
-<span id="project"></span>
-## Project Evaluation
-
-I believe this website handles its purpose with maturity and simplicity. There is no unnecessary data collected and indeed
-there is the option to skip it. The clean UX, complete with a responsive navbar, makes the site very easy to navigate.
-All of the links to the user areas are in the same place and easy to access in the navbar. 
-This is also complemented by a simple and complimentary colour scheme. They colours are calm and neutral which 
-sets the correct tone for the purpose of the website.
-
-There are a variety of way in which you can search through the reports. All of search options are on one webpage
-which cuts down on screen loading time. In addition, elements of a form that aren't needed are hidden. Again, this
-creates a clean user experience where the user is not over loaded with information.
-
-Giving the user complete control over their own reports helps to promote trust in the website. Users can edit and
-even delete their reports at any time. If a user is logged in they will be associated with that report in their dashboard
-but no where else on the website. This allows flexibility and anonymity. 
-
-Overall, I think the website has a clear purpose, clean UX and defensive features to ensure the user gets the most
-out of the experience.
-
-
-
-<span id="improvements"></span>
-### Improvements
-
-+ There could be a few instructions on where to find what - especially things like searching your own reports in the dashboard. However, the dashboard is hidden and you are taken straight there when you log in and the manage reports is open ready. 
-+ I tried to move my secret_key to the env.py but for some reason it didn't work. I'd need to hide it to make it more secure in the future.
-+ I would like to refactor the code that chooses whether you can search by a date.
-+ The menu could have icons on it as a visual reminder.
-+ There could be a dashboard button like the settings button on the pages as a shortcut.
-+ I need to use an ajax to live check the email addresses when signing up as the regex will become slow and cumbersome 
-  as the users grow.
-+ The code for counting the reports has recently become depreciated - in the future I would like to upgrade the code to the new version.
-+ Some of my flash messages aren't clear enough to standout to the user. It would be better if they had a border or different css to help them stand out. 
-
-
-
-https://stackoverflow.com/questions/16080952/django-cannot-convert-float-to-decimal-first-convert-the-float-to-a-string
-https://www.frames.co.uk/picture-frames/popular-sizes
-https://blog.365canvas.com/canvas-sizes/
 ___
 
 
@@ -814,3 +667,40 @@ https://stackoverflow.com/questions/58088946/getting-uncaught-referenceerror-fun
 
 Remove colour from navbar toggler
 https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4
+
+https://stackoverflow.com/questions/16080952/django-cannot-convert-float-to-decimal-first-convert-the-float-to-a-string
+
+
+
+<span id="media"></span>
+<ins>Media</ins>
+
+To generate my favicon, I used this website: 
+
+https://favicon.io/emoji-favicons/gem-stone
+
+These ima 
+
+This site helped me know which [Frames](https://www.frames.co.uk/picture-frames/popular-sizes) were the right size.
+This site helped me know which [Canvases](https://blog.365canvas.com/canvas-sizes/) were the right size.
+
+<span id="acknowledgements"></span>
+<ins>Acknowledgements</ins>  
+
+Thank you to Asos and Topshop for providing different mobile experiences, which I used to help inform my own decisions. 
+
+
+___
+<span id="project"></span>
+## Project Evaluation
+
+
+
+
+
+<span id="improvements"></span>
+### Improvements
+
+
+
+
