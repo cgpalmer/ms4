@@ -61,7 +61,7 @@ a:hover {
 }
 
 .main-section-container{
-    min-height: 45vh;
+    min-height: 47vh;
 }
 /* Nav */
 
@@ -128,6 +128,10 @@ footer {
 
 .social-ul {
 	padding: 0;
+}
+
+.footerHeader{
+    margin-top: 1rem;
 }
 
 /* Jumbotron Settings */
@@ -469,7 +473,8 @@ footer {
 /* Profile */
 
 	.accordion {
-		margin-top: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 	}
 
 	.card-header h5 button {
@@ -535,6 +540,7 @@ footer {
 		margin-bottom: 1rem;
 	}
 
+  
 	.message-container {
 		margin: 2rem 0 0 0;
 		text-align: center;
@@ -636,6 +642,10 @@ footer {
         flex: 0 0 30%;
 		max-width: 30%;
 		
+    }
+
+    .extra-row-margin {
+        margin-bottom: 1rem;
     }
    
 

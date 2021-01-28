@@ -14,7 +14,7 @@
 
         <div class="row mb-3">
             <div class="col-12 col-md-10 offset-md-1 extra-margin-bottom">
-                <form method="POST" action="{% url 'add_product' %}" class="form" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'add_product' %}" class="form extra-row-margin" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="text-center">
