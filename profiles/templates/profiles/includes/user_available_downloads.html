@@ -24,7 +24,9 @@
                         <div class="col-12 d-md-none">
                             <hr class="smaller-hr">
                         </div>
-                        {% if forloop.counter|divisibleby:2 %}
+                    
+                    </div>
+                    {% if forloop.counter|divisibleby:2 %}
                             <div class="col-12 d-none d-md-block d-lg-none">
                                 <hr class="smaller-hr">
                             </div>
@@ -34,7 +36,6 @@
                                 <hr class="smaller-hr">
                             </div>
                         {% endif %}
-                    </div>
             
             {% endfor %}
         </div>

@@ -32,7 +32,7 @@
      color: white;
 }
 
- p, .product-name, h4, h4 a, .form-control:focus, .email {
+ p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number, .order-number:hover {
      color: black 
 }
  .signed-in {

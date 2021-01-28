@@ -13,7 +13,7 @@
                     <div class="col-12 col-md-6 col-lg-4 mb-2 p-0">
                           
                         <p  class="mb-0 p-0">Order Number: 
-                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                            <a class="order-number" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                                 {{ order.order_number|truncatechars:8 }}
                             </a>
                         </p>
