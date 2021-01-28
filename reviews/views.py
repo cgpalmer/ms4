@@ -41,7 +41,7 @@ def add_review(request, product_id):
             messages.success(request, 'Review added. Thank you!')
             return redirect(reverse('product_detail', args=[retrieve_product.id]))
         else:
-            messages.error(request, "'Failed to add product.")
+            messages.error(request, "'Failed to add review.")
             return redirect(reverse('product_detail', args=[retrieve_product.id]))
     else:
         form = ReviewForm()
@@ -74,13 +74,13 @@ def edit_review(request, r_id):
             retrieve_product.rating = retrieve_product.rating_total / retrieve_product.number_of_ratings
             retrieve_product.save()
 
-            messages.success(request, 'Successfully updated product!')
+            messages.success(request, 'Successfully updated review!')
             review.review_content = form.cleaned_data.get("review_content")
             review.review_rating = form.cleaned_data.get("review_rating")
             review.save()
             return redirect('profile')
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update review. Please ensure the form is valid.')
             return redirect('profile')
     else:
         form = ReviewForm(instance=review)
