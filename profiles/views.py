@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 import datetime
 
 
-@login_required
+# @login_required
 def admin_profile(request):
     products = Product.objects.all()
     categories = Category.objects.all()

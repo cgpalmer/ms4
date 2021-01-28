@@ -29,3 +29,9 @@ class TestUrls(SimpleTestCase):
         url = reverse('empty_basket')
         print(resolve(url))
         self.assertEquals(resolve(url).func, empty_basket)
+
+class TestViews(TestCase):
+    def test_view_basket_GET(self):
+        response = self.client.get('view_basket')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'basket.html')

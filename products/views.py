@@ -119,7 +119,7 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
-@login_required
+# @login_required
 def add_product(request):
     """ Add a product to the store """
     if request.method == 'POST':
@@ -148,7 +148,7 @@ def add_product(request):
     }
     return render(request, template, context)
 
-@login_required
+# @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
     product = get_object_or_404(Product, pk=product_id)
