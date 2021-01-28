@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category, Image_upload
+from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
@@ -22,8 +22,4 @@ class ProductForm(forms.ModelForm):
         self.fields['price'].widget.attrs['placeholder'] = "£"
 
 
-class Image_uploadForm(forms.ModelForm):
-    """Form for the image model"""
-    class Meta:
-        model = Image_upload
-        fields = ('title', 'image')
+

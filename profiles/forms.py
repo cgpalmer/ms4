@@ -1,6 +1,5 @@
 from django import forms
-from .models import UserProfile
-from products.models import Image_upload
+from .models import UserProfile, Image_upload
 
 
 class UserProfileForm(forms.ModelForm):
@@ -41,3 +40,4 @@ class Image_uploadForm(forms.ModelForm):
     class Meta:
         model = Image_upload
         fields = ('title', 'image')
+

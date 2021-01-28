@@ -1,7 +1,8 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product, Image_upload
+from products.models import Product
+from profiles.models import Image_upload
 
 
 def basket_contents(request):

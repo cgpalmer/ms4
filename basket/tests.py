@@ -1,6 +1,7 @@
-from django.test import TestCase, SimpleTestCase
+from django.test import TestCase, SimpleTestCase, Client
 from django.urls import reverse, resolve
 from basket.views import view_basket, add_to_basket, edit_basket, delete_basket_item, empty_basket
+
 
 class TestUrls(SimpleTestCase):
 

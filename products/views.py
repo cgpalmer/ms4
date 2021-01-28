@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Image_upload, Special
-from profiles.models import UserProfile
+from .models import Product, Category, Special
+from profiles.models import UserProfile, Image_upload
 from django.db.models.functions import Lower
 from reviews.models import Review
-from .forms import ProductForm, Image_uploadForm
+from .forms import ProductForm
+from profiles.forms import Image_uploadForm
 from django.contrib.auth.decorators import login_required
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Special, Image_upload
+from .models import Product, Category, Special
 
 
 # Register your models here.
@@ -32,17 +32,10 @@ class SpecialAdmin(admin.ModelAdmin):
     )
 
 
-class Image_uploadAdmin(admin.ModelAdmin):
-    list_display = (
-        'user',
-        'title',
-        'downloaded'
-    )
 
-    ordering = ('sku',)
 
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Special, SpecialAdmin)
-admin.site.register(Image_upload, Image_uploadAdmin)
+
