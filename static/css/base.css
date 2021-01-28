@@ -60,6 +60,9 @@ a:hover {
 	text-align: center;
 }
 
+.main-section-container{
+    min-height: 45vh;
+}
 /* Nav */
 
 .fa-user {
@@ -333,7 +336,7 @@ footer {
 /* General classes */
 
 	.main-section-container {
-		min-height: 73vh;
+		min-height: 68vh;
 	}
 
 	.extra-margin-top, .more-shopping-btn {
