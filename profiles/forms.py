@@ -1,5 +1,6 @@
 from django import forms
 from .models import UserProfile
+from products.models import Image_upload
 
 
 class UserProfileForm(forms.ModelForm):
@@ -32,3 +33,11 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded stripe-style-input full-width'
             self.fields[field].label = False
+
+
+
+class Image_uploadForm(forms.ModelForm):
+    """Form for the image model"""
+    class Meta:
+        model = Image_upload
+        fields = ('title', 'image')

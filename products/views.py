@@ -199,3 +199,19 @@ def image_upload(request, product_id):
         else:
             messages.error(request, 'Something went wrong. Please try again.')
     return redirect(reverse('product_detail', args=[product_id]))
+
+
+@login_required
+def image_upload_from_profile(request):
+    if request.method == 'POST':
+        form = Image_uploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = get_object_or_404(UserProfile, user=request.user)
+            title = form.cleaned_data.get("title")
+            image = form.cleaned_data.get("image")
+            Image_upload.objects.create(title=title, user=user, image=image)
+            messages.success(request, 'Image uploaded! Find it in the dropdown menu or on your profile page.')
+            return redirect(reverse('profile'))
+        else:
+            messages.error(request, 'Something went wrong. Please try again.')
+    return redirect(reverse('profile'))

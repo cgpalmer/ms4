@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import UserProfile, ContentReadyToDownload
 from products.models import Image_upload, Product, Category
 from checkout.models import Linked_Product
-from .forms import UserProfileForm
+from .forms import UserProfileForm, Image_uploadForm
 from checkout.models import Order
 from reviews.models import Review
 from django.contrib.auth.decorators import login_required
@@ -37,7 +37,7 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-
+    image_form = Image_uploadForm
     # Downloading digital content
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user).exclude(
                             number_of_times_downloaded=True)
@@ -50,6 +50,7 @@ def profile(request):
     context = {
         'current_user': profile,
         'form': form,
+        'image_upload_form': image_form,
         'orders': orders,
         'on_profile_page': True,
         'user_photos': user_photos,
