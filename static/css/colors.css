@@ -13,12 +13,13 @@
  .form-control:focus {
      background-color: #fff;
 }
- .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{
+ .cat-links:hover, .cat-links:active, .cat-links:focus, .cat-links:focus-visible, .dropdown-item:hover, .dropdown-item:active{
      background-color: white;
 }
- .desktop-dropdown:hover, .desktop-dropdown:focus {
+ .desktop-dropdown:hover, .desktop-dropdown:focus, .desktop-dropdown:focus-visible {
      background-color: #7c7217;
      color: white!important;
+    
 }
 
 /* Text colour */
