@@ -27,7 +27,7 @@
 .footerHeader, .social-link, .navbar-light .navbar-nav .nav-link, .second-btn, .second-btn, 
 .action-btn, .action-btn:hover, .action-btn:active, .second-btn:hover, .second-btn:active, 
 .second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus,
-.accordion-header, .accordion-header:hover {
+.accordion-header, .accordion-header:hover, email, tel {
      color: white;
 }
 
