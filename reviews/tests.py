@@ -1,5 +1,5 @@
 from django.test import TestCase
-
+from .models import Review
 from .forms import ReviewForm
 
 class TestReviewForm(TestCase):
@@ -30,3 +30,4 @@ class TestReviewForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('review_rating', form.errors.keys())
         self.assertEqual(form.errors['review_rating'][0], 'Ensure this value is greater than or equal to 0.')
+
