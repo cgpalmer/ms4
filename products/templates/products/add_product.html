@@ -18,8 +18,8 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="text-center">
-                        <button class="btn action-btn btn-lg rounded-0 mb-3 col-12" type="submit">Add Product</button>
-                        <a class="btn second-btn btn-lg rounded-0 col-12" href="{% url 'admin_profile_page' %}">Cancel</a>
+                        <button class="btn action-btn btn-lg rounded-0 mb-3 col-12" type="submit">Add Product <i class="fas fa-chevron-right"></i></button>
+                        <a class="btn second-btn btn-lg rounded-0 col-12" href="{% url 'admin_profile_page' %}"><i class="fas fa-chevron-left"></i> Cancel</a>
                     </div>
                 </form>
             </div>            
