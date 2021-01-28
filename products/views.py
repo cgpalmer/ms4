@@ -177,7 +177,7 @@ def edit_product(request, product_id):
     }
     return render(request, template, context)
 
-@login_required
+# @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
@@ -185,7 +185,7 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('admin_profile_page'))
 
-@login_required
+# @login_required
 def image_upload(request, product_id):
     """Process images uploaded by users"""
     if request.method == 'POST':
