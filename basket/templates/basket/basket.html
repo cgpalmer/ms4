@@ -269,6 +269,7 @@
                         </div> 
                 </div>
                 {% if item.product.product_type == 'photo' %}
+                  {% if request.user.is_authenticated %}  
                 <h3>Delivery Type</h3>
                 <select name="basket_digital_download" class="form-control">
                     {% if item.digital_download == "on" %}
@@ -279,6 +280,7 @@
                     <option value="True">Digital Download</option>
                     {% endif %}
                 </select>
+                {% endif %}
                 {% endif %}
          
               
@@ -427,6 +429,7 @@
                     </div>
                 
                 {% if item.product.product_type == 'photo' %}
+                  {% if request.user.is_authenticated %}  
                 <h3>Delivery Type</h3>
                 <select id="basket-item-deliveryL{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
                     {% if item.digital_download == "on" %}
@@ -437,6 +440,7 @@
                     <option value="True">Digital Download</option>
                     {% endif %}
                 </select>
+                {% endif %}
                 {% endif %}
          
               
