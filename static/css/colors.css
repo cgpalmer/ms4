@@ -32,13 +32,13 @@
      color: white;
 }
 
- p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number, .order-number:hover {
+ p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number {
      color: black 
 }
  .signed-in {
      color: #212D97;
 }
- .desktop-dropdown, .text-link, .text-link a, .form-group a{
+ .desktop-dropdown, .text-link, .text-link a, .form-group a, .order-number:hover{
      color: #978b21;
 }
  .navbar-light .navbar-toggler-icon {
