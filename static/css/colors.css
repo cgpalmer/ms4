@@ -24,15 +24,15 @@
 
 /* Text colour */
 
-.navbar, .navbar-light .navbar-brand, .navbar-light .navbar-toggler, footer p, .dropdown-item, 
+.navbar, .navbar-light .navbar-brand, .navbar-light .navbar-toggler, footer p, footer, .dropdown-item, 
 .footerHeader, .social-link, .navbar-light .navbar-nav .nav-link, .second-btn, .second-btn, 
 .action-btn, .action-btn:hover, .action-btn:active, .second-btn:hover, .second-btn:active, 
 .second-btn:focus, .btn-danger:hover, .btn-danger:active, .btn-danger:focus,
-.accordion-header, .accordion-header:hover, email, tel {
+.accordion-header, .accordion-header:hover {
      color: white;
 }
 
- p, .product-name, h4, h4 a, .form-control:focus {
+ p, .product-name, h4, h4 a, .form-control:focus, .email {
      color: black 
 }
  .signed-in {
@@ -65,7 +65,7 @@
  .text-link:hover, .text-link:active, .text-link a:hover, .text-link a:active, .product-name:hover, .product-name:active{
      color: #7c7217;
 }
- .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active{
+ .cat-links:hover, .cat-links:active, .dropdown-item:hover, .dropdown-item:active, .email:hover{
      color: #978b21!important;
 }
  .desktop-dropdown:hover, .desktop-dropdown:focus{
