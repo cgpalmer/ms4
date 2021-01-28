@@ -14,12 +14,12 @@
                             <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="{{download.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                         </div>
                         <div class="mb-3">
-                            {% if download.number_of_times_downloaded == False %}
+                        
                                <form class="text-center" method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <button class="btn action-btn rounded-0 btn-lg" type="submit" value="click">Download <i class="fas fa-download"></i></button>
                                 </form>
-                            {% endif %}
+                           
                         </div>   
                         <div class="col-12 d-md-none">
                             <hr class="smaller-hr">

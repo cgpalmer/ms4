@@ -25,6 +25,9 @@ def add_to_basket(request, item_id):
         # Retrieving form data
         quantity = int(request.POST.get('quantity'))
         digital_download = request.POST.get('digital_download')
+        print("Printing digital download " + str(digital_download))
+        print(type(digital_download))
+        print(digital_download)
         linked_products = [['Not linked']]  # Default setting
         product = get_object_or_404(Product, pk=item_id)
 
@@ -202,7 +205,7 @@ def edit_basket(request):
             # Updating the digital download if necessary
             if product.digital_download is True:
                 if updated_delivery == "True":
-                    item['digital_download'] = True
+                    item['digital_download'] = 'on'
                     item['quantity'] = 1
                     messages.warning(request, "Digital purchases are restricted to a quantity of 1.")
                 else:

@@ -40,7 +40,7 @@ def condensing_basket(request):
         for item in basket['items']:
 
             appending_item = [item['basket_item_id'], int(item['quantity']), [item['item_id'], item['digital_download'],
-                            item['linked_products']]]
+                              item['linked_products']]]
             list_of_items_to_check.append(appending_item)
 
         for i in range(0, len(list_of_items_to_check)):
@@ -60,6 +60,7 @@ def condensing_basket(request):
                         request.session['basket'] = basket
                         print("new item quantity")
                         print(item['quantity'])
+        
 
         for k in range(len(duplicates_found)):
             print(len(duplicates_found))
