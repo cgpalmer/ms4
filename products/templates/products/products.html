@@ -5,9 +5,9 @@
     <div class="row search-information">
         
 
-      <div class="col-12 text-center my-3">
+      <div class="col-12 text-center products-found">
           
-        <p>{{products|length}} product(s){% if search_term %} found for "{{search_term}}"
+        <p class="search_result">{{products|length}} product(s){% if search_term %} found for "{{search_term}}"
         
         {% endif %}</p>
         <a href="{% url 'products' %}" class="btn second-btn col-md-6 rounded-0"><i class="fas fa-chevron-left"></i> Back to products</a>
@@ -43,7 +43,7 @@
         </a>
         
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
             
             <div>
             <a class="card-text product-name" href="{% url 'product_detail' product.id %}">{{product.friendly_name}}</a>
