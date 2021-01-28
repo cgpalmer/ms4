@@ -563,7 +563,7 @@ footer {
 	}
 
 	.container-fluid .row .drop-placement {
-		transform: translate3d(140px, 46px, 0px)!important;
+		transform: translate3d(11vw, 46px, 0px)!important;
 		top: 0.5rem!important;
 	}
 
