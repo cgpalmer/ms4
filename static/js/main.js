@@ -134,7 +134,7 @@ $(".linkingProductSelect").change(function() {
   
   $("#linkImageSelection").addClass('product-linked-preview');
  } else if(imageType == "No item"){
-    imagePath = "/static/media/product-images/white_square.jpg"
+    imagePath = "/static/media/site_images/white_square.jpg"
     $("#linkImageSelection").attr('src', imagePath);
     $("#linkImageSelection, #linkedProductImagePreview, #linkImageHint").addClass('hide');
  } else {
