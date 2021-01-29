@@ -274,6 +274,21 @@ Horizontal rules
 Horizontal rules have been used across the website to highlight headers and to separate items. For instance, they are used to separate reviews from each other or items in the basket.
 I found these to be subtle and more flexible to use that a table. 
 
+Image Presentation
+
+Image presentation was tricky for this project and I feel I got the balance just right. As anyone knows, the larger the images on website, the slower the page will load.*
+However, for a website that is selling products that have images printed onto products, printed out or digitally downloaded, I needed to make sure images looked good on the page.
+To achieve my balance, I restricted the image sizes to the largest sized image container on the website (300px height). This greatly reduce the amount of memory each photo was taking
+up. 
+
+However, I want the user to still be able to see the full image and explore it's quality. So images across the website are links (where appropriate) to the full size image, hosted on 
+Image Shack. This way, I do not need to load the photo, just the link but the user can still zoom in and appreciate the real quality. 
+
+I also left the width as unrestricted and object fit is set to contain. This has caused some images to sit differently in their containers but where possible they have all been aligned either at the bottom or top,
+depending on which suited the purpose better. My reasons for not controlling the width meant that some of the images became distorted or no longer had the main part of the picture visible.
+Again, I feel the images have the best compromise of responsive design, performance and quality. 
+
+*Please see my efforts to improve my websites performance on the [Testing page](TESTING.md) under the "performance section".
 
 ___
 <span id="dataIntegration"></span>
@@ -429,6 +444,9 @@ Frameworks
 Other dependencies include:
 + Pillow
 + White Noise
+
+Other
++ [Image Shack](https://imageshack.com/)
 
 Of course, a full list can be found at [requirements.](requirements.txt)
 
