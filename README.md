@@ -190,6 +190,8 @@ Please see this link for a [Full list of features](static/files/UX/scope/feature
 8. User to retain their basket in session, despite logging out and then in again.
 9. - Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
 10. A new customer offer to apply on first order that makes the delivery free.
+11. Photos must be printed on all available sizes. Customers should be able to choose that size when adding to the basket.
+12. Better data integration for storing the linked products. 
 
 
 ### Skeleton design
@@ -233,21 +235,62 @@ ___
 <span id="dataIntegration"></span>
 ## Data Integration
 
-I used the following repository for converting excel spreadsheets to JSON files. This is my repository and I was able to 
-build it by using the following article:
-[Article to upload excel to JSON](https://www.journaldev.com/33335/python-excel-to-json-conversion)
+Throughout this project, I have Postgres and JSON files to store data. I have also used Whitenoise t hold my static file, 
+as Heroku doesn't support file uploads.
 
+#### Postgres
 
+With Postgres, in conjunction with Django, I have created several models within each app. I have ensured that each model
+only contains data that is relevant to the app. If I felt information was better suited, I created a separate model.
+
+I have chosen Postgres as it is a relational database and allows for the collaboration between models. I have made use of 
+the foreign keys in order to control my cross-app logic. For instance, I store a product in each of the reviews as a 
+foreign key. By storing the instance of a product, I am able to extract whatever data is appropriate
+for the review. 
+
+I have used a combination of entries for my models, including the following: Character fields, dates, decimals,
+integer, boolean, text fields and urls. Each of these has been specifically chosen as the best tool to store the data. 
+
+Further examples of data integration logic:
+
+In the products app, I have three models: Special, Category, Product. Instead of storing the category within the 
+product, I stored it as it's own model. This allowed me to loop through the categories for forms or other select options.
+In addition, having both categories and special offers allow for an update in either, without having to change each individual
+product. Eg - swapping an offer from 'clearance' to 'Multi-buy' would only require the changing of the category. Each product
+with that foreign key would then change in turn.
+
+When a user uploads their own images, I have stored their profile in the database as well. This allows me to loop through
+the user's photos and display them in the "linked products" option when purchasing an accessory. By storing their
+profile, I can ensure they do not have access to anyone else's photographs. Likewise, I have done the same to the 
+ContentDownload model which means the user can only download, what they have purchased.
+
+The most unique model is the linked_product model, in the checkout app. It was important that the customer had a record
+of the linked_products that they chose for their order - in case it was wrong. The model only has three fields: order.id,
+product, linked_product. The product refers to the original item being purchased (calendar etc) and the linked products
+refer to the photographs associated with the product. The idea is that on the order summary, I can list the product and every linked product associated with it.
+
+However, whilst this works, it is not the elegent or efficient of designs. For every calendar ordered, 12 entries go 
+into this model. That means that the database will fill up quickly. Moreover, looping through each item looking for the
+right order.id with continue to get slower, the more orders placed. 
+
+Therefore, whilst this works for the website on a small scale, it will need to be altered ready for upscaling.
+
+#### JSON
+
+The most complex part of my data storage came from storing items in the basket. This was complicated by the fact that some
+products, such as a photo frames, could be associated with another product - or 12 others, in the case of calendars.
+I had to ensure there was enough data in the session to be able to pull images, SKUs and delivery details in order to provide
+customer information and, more importantly, to query.
+
+I am most proud of the condensing_basket view in checkout. It takes the items stored in the basket and checks if there
+are any duplicates, usually from editing the basket. It then identifies duplicates, updates the quantity of one and deletes
+the other. This was only possible because I was able to store so much meta-data in the basket['items']. It provides
+a much cleaner summary for the user.  
 ___
 <span id="defensiveFeatures"></span>
 ## Defensive Features
 
-+ Incuding a modal that will show when the user either uploads their own photo or place an order. This is to stop the user clicking
-  any other buttons because they think nothing is happening.
-+ User is limited to a quantity of 1 of a specific item, if they are digitally downloading that item. This is because you only need to download one digital copy.
-+ User can only access the links to members area if they are logged in. 
-+ Only super users are able to access django admin and the content management system admin. THIS MAY CHANGE
-
++ 
 ___
 <span id="technologiesUsed"></span>
 ### Technologies Used
