@@ -1,14 +1,14 @@
- $('#addToBasket').click(function(){
-        item = sessionStorage.getItem('currentBasketAmount')
-        if (item == null){
-            sessionStorage.setItem('currentBasketAmount', 0);
-             sessionStorage.setItem('newBasketAmount', 1);
-        } else{
-            item++;
-            sessionStorage.setItem('newBasketAmount', item)
-        }
-        console.log(item);
- });
+//  $('#addToBasket').click(function(){
+//         item = sessionStorage.getItem('currentBasketAmount')
+//         if (item == null){
+//             sessionStorage.setItem('currentBasketAmount', 0);
+//              sessionStorage.setItem('newBasketAmount', 1);
+//         } else{
+//             item++;
+//             sessionStorage.setItem('newBasketAmount', item)
+//         }
+//         console.log(item);
+//  });
 
 $('#emptyBasket').click(function(){
     sessionStorage.clear();

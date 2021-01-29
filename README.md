@@ -290,8 +290,66 @@ ___
 <span id="defensiveFeatures"></span>
 ## Defensive Features
 
-+ 
-___
+General
+
++ Form validation is present on each form.
++ There is a modal that asks for confirmation whenever something is being deleted.
++ A custom 404 page has been made in the case of broken links.
++ Visual feedback messages at the top of each appropriate screen for successful and failed actions.
+
+Authentication
+
++ User can only access the links to members area if they are logged in. 
++ Only super users are able to access the full Django admin site.
++ Retail users and super users are able to access the websites custom Content Management System in the Admin Profile Page.
+
+
+Products
+
++ Only users can add a review so that poor reviews can be address by contacting the user. Users are redirected to the login
+  page.
++ Only photographs can be downloaded digitally - the option is hidden for accessories and set as delivery by default.
++ The 'add to basket' button disables if you click a quantity of 0.
++ Digital products are auto-changed to a quantity of 1.
++ The quantity input is also disabled and cannot be altered when the item is digital download.
++ When an item is not linked to an extra product, the preview picture disappears. This is to avoid the user clicking on
+  the photograph and receiving a broken link.
++ There is an image of a white square, should any work out how to unhide the image or the JS fails. 
+
+
+Basket 
++ Items are delete from basket if the quantity is changed to 0.
++ A warning tells the user if their accessories (calendar etc) does not have photographs associated with them and what will happen. 
++ A warning tells the user if there are repeated photographs in their purchase. Eg, calendar has two of the same photos.
++ User is limited to a quantity of 1 of a specific item, if they are digitally downloading that item. 
+  This is because you only need to download one digital copy.
++ At this stage, users cannot be sent their purchase through email - therefore they cannot digitally download items unless they
+  are logged in. The option is hidden in the edit basket model and the product detail model.
++ An empty basket will show a message and a button to redirect the user.
+
+
+
+Checkout
+
++ Including a modal that will show when the user either uploads their own photo or place an order. These are typically slow processes.
+  This is to stop the user clicking any other buttons because they think nothing is happening.
++ There are live validators to give clues to the user if the payment hasn't been successful.
++ The modal with disappear if the payment or delivery information is not valid. 
++ The user is directed as soon as the payment and order is successfully placed. 
++ If someone clicks back after processing a payment (during the modal loading), the basket will inform them that there aren't 
+  items.
+
+Reviews
+
++ There are live validators that will cap the rating score at 0 or 5 using JS.
++ The model also has 'Max' and 'Min' validators on the review_rating.
+
+Profiles
+
++ When downloading a purchase, there is a back button on the screen to encourage the user to use. This will refresh the
+  screen and register that the item has been downloaded.
+
+
 <span id="technologiesUsed"></span>
 ### Technologies Used
 
