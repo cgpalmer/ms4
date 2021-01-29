@@ -104,31 +104,31 @@ $( document ).ready(function() {
     // Linked products preview image - live changes
     $(".linkingProductSelect").change(function() {
 
-    // Getting the image path from the select
-    let val = $(this).val();
-    let splittingValues = val.split("|");
-    let imageType = splittingValues[2];
+        // Getting the image path from the select
+        let val = $(this).val();
+        let splittingValues = val.split("|");
+        let imageType = splittingValues[2];
 
-    // Different options are then chosen based on image type.
-    if (imageType == "inventory") {
-        let imagePath = splittingValues[0];
-        $("#linkImageSelection").attr('src', imagePath);
-        $("#linkedProductImagePreview").attr('href', imagePath);
-        $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
-        $("#linkImageSelection").addClass('product-linked-preview');
+        // Different options are then chosen based on image type.
+        if (imageType == "inventory") {
+            let imagePath = splittingValues[0];
+            $("#linkImageSelection").attr('src', imagePath);
+            $("#linkedProductImagePreview").attr('href', imagePath);
+            $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
+            $("#linkImageSelection").addClass('product-linked-preview');
 
-    } else if(imageType == "No item"){
-        let imagePath = "/static/media/site_images/white_square.jpg";
-        $("#linkImageSelection").attr('src', imagePath);
-        $("#linkImageSelection, #linkedProductImagePreview, #linkImageHint").addClass('hide');
+        } else if(imageType == "No item"){
+            let imagePath = "/static/media/site_images/white_square.jpg";
+            $("#linkImageSelection").attr('src', imagePath);
+            $("#linkImageSelection, #linkedProductImagePreview, #linkImageHint").addClass('hide');
 
-    } else {
-        let imagePath = "/media/" + splittingValues[0];
-        $("#linkImageSelection").attr('src', imagePath);
-        $("#linkImageSelection").addClass('product-linked-preview');
-        $("#linkedProductImagePreview").attr('href', imagePath);
-        $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
-    }
+        } else {
+            let imagePath = "/media/" + splittingValues[0];
+            $("#linkImageSelection").attr('src', imagePath);
+            $("#linkImageSelection").addClass('product-linked-preview');
+            $("#linkedProductImagePreview").attr('href', imagePath);
+            $("#linkImageHint, #linkImageSelection, #linkedProductImagePreview").removeClass('hide');
+        }
     
     });
 
