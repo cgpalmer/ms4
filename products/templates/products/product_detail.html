@@ -5,6 +5,7 @@
  
 <div class="container-fluid main-section-container margin-header-wrapper">
     <div class="row">
+
         <div class="col-12 extra-margin-top">
             {% if messages %}
                 <div class="message-container">
@@ -14,7 +15,9 @@
                 </div>
             {% endif %}
         </div>
-        {% if product_type_for_linking == "container" %}
+  {% if product_type_for_linking == "container" %}
+        {% if request.user.is_authenticated %} 
+      
         <div class="card product-detail-card extra-margin-right col-12 mt-4 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
@@ -48,8 +51,6 @@
                     <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
-        
-           
         
         <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
@@ -111,7 +112,7 @@
                           
             </form>
         </div>
-         {% if request.user.is_authenticated %} 
+        
         <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 mb-4 order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
@@ -133,8 +134,111 @@
                     </form>
                 {% endif %}             
             </div>
-            {% endif %}
+        {% else %}
+                    <div class="card product-detail-card extra-margin-right col-12 mt-4 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+            <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+            </a>
+            <a class="d-md-block d-none" href="{{product.image_url_desktop}}" target="_blank">
+                <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+            </a>
+            <div class="card-body product-detail-card-body  text-center">   
+                {% if product.special_offer.friendly_name != None %}
+                    <span class="badge  special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
+                {% else %}
+                    <span class="badge "></span>
+                {% endif %}
+                <h5 class="card-text">{{product.friendly_name}}</h5>
+                <p class="card-text">            
+                    {% if product.price != product.discount_price %} 
+                        <span class="strikethrough-price"> <s> £{{product.price}} </s></span> <span> £{{product.discount_price}} </span>
+                    {% else %}
+                        <span> £{{product.price}} </span> 
+                    {% endif %}
+                </p>
+                <h5>Reviews</h5>
+                {% if product.number_of_ratings != 0 %}
+                    <p class="card-text"><i class="fas fa-star"></i> {{product.rating}}/5</p>
+                    <div id="productReview" class="review-wrapper">
+                        {% include 'reviews/includes/product_review_list.html' %}
+                    </div>
+                {% else %}
+                    <p class="card-text">This product hasn't been rated yet.</p>
+                {% endif %}
+                    <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
+            </div>
+        </div>
+        
+        <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
+            <form method="POST" action="{% url 'add_to_basket' product.id %}">
+                {% csrf_token%}        
+                <div>
+                    <h4 class="my-3 product-detail-labels">Quantity</h4>
+                    <div class="input-group mb-3 col-xl-8 offset-xl-2">
+                        <button class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityC">
+                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        </button>  
+                        <input class="form-control qty_input " type="number" name="quantity" value="1" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty">
+                        <button class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantity">
+                            <span><i class="fas fa-plus fa-sm"></i></span>
+                        </button>  
+                    </div>
+                </div>
+                {% if product_type_for_linking == "container" %}
+                <div class="mb-4">
+                    <h4 id="linkedPhotoLabel" class="product-detail-labels">Link with photo</h4>
+                    {% for number in number_of_pictures_loop %}
+                        <select name="linked_product{{number}}" class="linkingProductSelect stripe-style-input">
+                            <option value="Not linked|No id|No item">Not linked</option>
+                            <!-- Change this to user's name and give a bottom border-->
+                            {% if request.user.is_authenticated %}    
+                            <option value="" disabled>{{user}}'s Photos</option>
+                            {% for photo in user_photos %}
+                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                            {% endfor %}
+                            {% endif %}
+                            <!-- Can you categorise these so they can have little headers? -->
+                            <option value="" disabled>Hidden Gems' Photos</option>
+                            {% for link in linked_product %}
+                            <!-- This should be based on screen size -->
+                                <option value="{{link.image_url_desktop}}|{{link.id}}|inventory">{{link.friendly_name}}</option>
+                            {% endfor %}
+                       </select>
+                    {% endfor %}
+                    <!-- This image  -->
+                    <div>
+                        <a id="linkedProductImagePreview" class="" href="" target="_blank">
+                            <img id="linkImageSelection" src="/static/media/site_images/white_square.jpg" class="card-img-top hide" alt="{{link.name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                        </a>
+                        <p id="linkImageHint" class="hide text-link" >Click the image for a full size picture.</p>
+                    </div>                            
+                {% endif %}                  
+               </div>  
+                     
+                <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg action-btn mb-3" type="submit">
+                    Add to basket
+                    <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </button>
+                <a href="{% url 'products' %}" class="btn col-12 btn-outline-black second-btn rounded-0 btn-lg mb-3">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="">Keep Shopping</span>
+                </a>
+                <input type="hidden" name="redirect_url" value="{{request.path}}">
+                          
+            </form>
+        </div>
+        
+        
+        
+        {% endif %}
   
+
+
+
+
+            <!-- Photographs -->
         {% else %}
         </div>
     <div class="row">     
