@@ -619,15 +619,17 @@ python3 manage.py makemigrations –dry-run
 
 This is to see the migrations before they occur.
 ```
-python3 manage.py makemigrations –dry-run
+python3 manage.py makemigrations 
 ```
 
 Make the migrations.
-```python3 manage.py migrate –plan
+```
+python3 manage.py migrate –plan
 ```
 
 This is to see the migrate before it occurs
-```python3 manage.py migrate
+```
+python3 manage.py migrate
 ```
 Migrate the databases.
 
