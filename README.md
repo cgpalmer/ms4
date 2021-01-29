@@ -421,6 +421,7 @@ Frameworks
 5. Postgres in deployment
 6. Font Awesome
 7. Google Fonts
+8. Lazy Loading
 
 Other dependencies include:
 + Pillow

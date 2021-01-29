@@ -129,3 +129,34 @@ I specifically test the following things:
    + Does the checkbox still work?
 I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
 [Cross Browser Testing](static/files/testing/performance_testing/cross_browser_testing.pdf)
+
+
+## Performance Testing
+
+I used Lighthouse on Google Chrome to test the performance of my website. There are clearly areas to improve upon
+and most of the seem around loading up the correct scripts as an when needed or image sizes.
+
+Originally, I used PageSpeed insights and received these scores:
+[Page speed initial mobile](PageSpeed_initial_mobile.pdf)
+[Page speed initial desktop](PageSpeed_initial_desktop.pdf)
+
+I then reduced the size of the images to fit the largest container (see also Image Presentation). I also made sure only
+the mobile sized images were loaded on the website and the larger images were available through "href".
+
+I also created different base.html templates, some of which has more specific requirements such as the Stripe JS. By only including
+the JS where necessary, I greatly sped up my mobile website and improved my desktop performance. 
+
+For comparison and future development, I also used Lighthouse in Chrome to test the performance of my site. I have included the [mobile test](PageSpeed_latest_mobile.pdf)
+and [desktop test](PageSpeed_latest_desktop.pdf)
+
+Clearly the numbers are not green yet and there is still work to be done to make the experience optimal for users for the landing page. I tried to
+reduc the image size for the jumbotron but the lack of quality distorted the image and mde little difference in speed.
+
+However, whilst the landing page still has some improvements, the actual loading of the products page is excellent. My efforts to reduce the
+image sizes and remove unnecessary cdn's has brought the products and product detail pages to a very high score. I also used lazy_loading() to really
+push the experience for the mobile user. The reports are available here:
+
+[Mobile products](Lighthouse_latest_mobile_products.pdf)
+[Mobile product details](Lighthouse_latest_mobile_product_detail.pdf)
+[Desktop products](Lighthouse_latest_desktop_product.pdf)
+[Desktop product details](Lighthouse_latest_desktop_product_detail.pdf)
