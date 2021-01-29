@@ -553,58 +553,98 @@ $ git push -u Heroku master
 ### To run the app locally
 
 To run this project locally, please ensure you have an IDE installed on your computer. Popular ones are gitpod, Visual Studio or PyCharm (for python projects specifically).
+Regardless of which IDE you choose, you will also need the following installed.
 
-Regardless of which IDE you choose, you will also need the following installed. 
-+	This project uses MongoDB as a database, and therefore you will need either a MongoDB Atlas account or have MongoDB running locally on your machine.
-    +  	To set up MongoDB Atlas please see the documentation 
-        [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-+	[PIP](https://pip.pypa.io/en/stable/) – to install packages such as pyMongo    
-+	[Python3](https://www.python.org/doc/) – the project uses Python3 for the backend language – specially Python 3.8
-+	[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) – for easy version control
+•	PIP – to install packages such as django
+•	Python3 – the project uses Python3 for the backend language – specially Python 3.8
+•	Git – for easy version control
 
-The next step is to access your github repository.
-Option 1 is to download a zip file. 
-1. On the GitHub project page, there is a ‘code’ tab which will dropdown to allow you to download a zip file.
-2. Once downloaded, extract the files to a desired folder on the desktop.
+The next step is to access your github repository. Option 1 is to download a zip file.
+1.	On the GitHub project page, there is a ‘code’ tab which will dropdown to allow you to download a zip file.
+2.	Once downloaded, extract the files to a desired folder on the desktop.
 
 Option 2 is to clone the repository.
-1. Under the same code tab, click to copy the url for your repository.
-2. Open Git Bash on your local computer and ensure you are in the right directory. Then run the following command:
-
+1.	Under the same code tab, click to copy the url for your repository.
+2.	Open Git Bash on your local computer or open the command line on your IDE and ensure you are in the right directory. Then run the following command:
 ```
-git clone https://github.com/cgpalmer/ms3-project-2.git
+git clone https://github.com/cgpalmer/ms4.git
+```
+
+You can then select a file destination for the directory.
+First check you have pip installed on the machine:
+```
+py -3 -m pip --version
 ```
 
 It is recommended to use a virtual environment for the Python interpreter. Python's own built in environment can utilised by this code:
 ```
-python -m .venv venv
+python -m .venv <path for venv>
 ```
 
-Please note: Different IDE and operating systems, your python command may be slightly different.
+
+Please note: Different IDE and operating systems, your python command may be slightly different. You may also use the graphical interface to search and select an interpreter. 
+
 Once you have your virtual environment, you can activate it with:
 ```
-.venv\Scripts\activate 
+.venv\Scripts\activate
 ```
 
-I have attached a link to the documentation on setting up a virtual environment, in case the commands are different. 
-[Python interpreter](https://docs.python.org/3/library/venv.html)
-
-Next, you will need to download all of your requirements for the project. You can do this manually or you can run this code: 
+I have attached a link to the documentation on setting up a virtual environment, in case the commands are different: [Python interpreter.](https://docs.python.org/3/library/venv.html)
+Next, you will need to download all of your requirements for the project. You can do this manually or you can run this code:
 ```
-pip -r requirements.txt.
+pip -r requirements.txt
 ```
 
-All that is left to set up now is your SECRET_KEY and a MONGO_URI. You can store these in a file:- .flaskenv. 
-You must ensure your database name is the same as the one in MongoDB so it connects properly. For this project it is “projectDB”.
+Next you need to set up your environment variables in an env.py file.
+You will need the following for your code to run:
 
-There are three collections to interact with: report, categories, user_credentials. 
-Now, you are ready to run the app in browser.
-The command is: 
+- SECRET_KEY
+- DATABASE_URL* 
+- EMAIL_HOST_PASSWORD
+- EMAIL_HOST_USER
+- STRIPE_PUBLIC_KEY 
+- STRIPE_SECRET_KEY 
+- STRIPE_WH_SECRET
+
+The database URL is so you can run the postgres server than I am running. If you remove the DATABASE_URL from the env, the settings.py will default to a sqlite3 database. Regardless of which database you run, will need to create the databases using the following commands.
+Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
+
+Email host password can be found in the security settings of your email host.
+The user is simply the email address from which you want your emails to be sent from.
+
+Before you can start the local server, you will need to make sure your models have been created in the database. Follow these commands: 
 ```
-python3 app.py
+python3 manage.py makemigrations –dry-run
+```
+
+This is to see the migrations before they occur.
+```
+python3 manage.py makemigrations –dry-run
+```
+
+Make the migrations.
+```python3 manage.py migrate –plan
+```
+
+This is to see the migrate before it occurs
+```python3 manage.py migrate
+```
+Migrate the databases.
+
+This will create a database of all of your models.
+You will then need to run the following code for each fixture in the project, in order to “fill” the databases.
+```
+python3 manage.py loaddata <fixturename.json>
+```
+
+Once the data is loaded you can then run your server locally. 
+
+```
+python3 manage.py runserver 
 ```
 
 This will open a port (which may be different depending on your IDE) and gives you the open to see your app.
+
 
 ___
 <span id="credit"></span>
