@@ -80,7 +80,7 @@ def add_to_basket(request, item_id):
                 'digital_download': digital_download,
                 'quantity': quantity,
                 'linked_products': linked_products,
-                'linked_product_images_list': linked_products,
+                'linked_product_images_list': linked_product_images_list,
                 'repeats_found': repeats_found
             })
 
