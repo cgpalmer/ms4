@@ -1,4 +1,35 @@
-# testing
+# Testing
+
+## General testing
+
+### Basic test
+
+1. Nav has been fully tested
+2. I have checked that the collapsibles open and close appropriately
+3. I have checked buttons enable and disable appropriately
+
+### Feedback from other users
+
+On the whole, I received more feedback than this but they consisted of generic, this margin is too big etc. The following are
+mistakes that I had missed.
+
+User 1
+
+* "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
+
+Since this, I have changed the nav to a grid so it has more of a purposeful size.
+
+User 2
+
+* "I searched for a really long name and it has caused white space around the margins."
+
+I added the class "word-wrap" to deal with any potential long searches.
+
+User 3
+
+* "The menu items on iOS disappear when I hover over them."
+
+The active class for this item turned the color the same as the background, making it "disappear". I corrected the classes. 
 
 ## User stories tests
 
@@ -51,25 +82,6 @@ Store Owner | Expected outcome | Actual outcome
 As a store owner, I want to be able to see all of the above.
 As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
 As a store owner, I want to be able to easily naviagte to the Django Admin panel.
-
-
-
-
-
-## General testing
-
-### Basic test
-
-1. Nav has been fully tested
-2. I have checked that the collapsibles open and close appropriately
-3. I have checked buttons enable and disable appropriately
-
-### Feedback from other users
-User 1
-
-* "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
-
-Since this, I have changed the nav to a grid so it has more of a purposeful size.
 
 
 ## Code validation

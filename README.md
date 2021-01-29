@@ -434,7 +434,7 @@ ___
 
 ## Testing
 
-
+For all testing, please click [Testing](TESTING.md)
 
 ___
 <span id="responsiveDesign"></span>
