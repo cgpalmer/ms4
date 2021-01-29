@@ -70,7 +70,7 @@
                              
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{item.subtotal}}</p>
+                            <p class="my-0 small text-muted">£{{item.subtotal}}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -92,9 +92,9 @@
                         
                     </div>
                     <div class="col-6 text-left">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">£{{ total | floatformat:2 }}</p>
+                        <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
                 <p class="text-center">Please fill out the form below to complete your order.</p>
@@ -137,7 +137,7 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
 						</p>
                     </fieldset>
                     
