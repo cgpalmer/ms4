@@ -464,9 +464,10 @@ I have configured the cornflakes to accept a line length of 120 characters.
 Therefore, the only code issue that comes up on http://pep8online.com/ is that the lines are too long as it is set to 79 characters.
 
 #### CSS
-CSS has been checked by this online validator: 
-My css only has warnings about webkits being 'unknown vendor extensions'.
-There are no issues with my css. 
+CSS has been checked by this online validator: [Jigsaw](https://jigsaw.w3.org/css-validator/ )
+When inputted by URL, the only issues are relating to bootstrap.min.
+When inputted by direct input, no issues are found but there are some warnings about using the same colour for background and borders. 
+These are by design though and intenional.
 
 #### HTML
 My HTML has been checked on this website: https://validator.w3.org/
