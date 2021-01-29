@@ -502,11 +502,19 @@ It has been specifically designed for the following:
 
 
 There are a few major resposive choices, detailed below.
-1. When viewing on a laptop the search results present their information in a different way. The incident description,
-date and whether it had been reported are shown in their own colour on the right of the card.
+1. The majority of the decision were based on how many objects could fit accross the screen. For mobile, I stuck to a rule 
+   of one. For iPad and medium screens, I used two and for large, I used 3. However, I kept the forms in a single column
+   as it seemed to flow better that way when I was using them. 
 
-2. The pictures of staff and descriptions shift to being alongside each other once on the laptop/ landscape iPad Pro 
-screen.
+2. The bigget decision was how to handle all of the navigation links, account links and basket links. I used Topshop and
+   Asos as market research for how they handled their navigation. I quickly understood that the basket and search bar,
+   should always be visible. I also settled on separating the accounts from the products by having two navbars, which allowed
+   a use to choose which section they needed to explore. 
+
+3. The last major choice I had to make was which images to use on which screens. I thought about using the 'src set' option
+   in the html, when I realised that all of my images were limited to around 300px height maximum. By pre-formatting the pictures
+   to this size, I was able to really cut down on the memory and therefore, the loading time. I decided I would keep the large
+   images as a link, so users could click and see the full-quality image.
 
 ___
 <span id="deployment"></span>
