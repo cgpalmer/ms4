@@ -111,6 +111,7 @@
                           
             </form>
         </div>
+         {% if request.user.is_authenticated %} 
         <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 mb-4 order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
@@ -132,7 +133,7 @@
                     </form>
                 {% endif %}             
             </div>
-    
+            {% endif %}
   
         {% else %}
         </div>
