@@ -1,3 +1,5 @@
+// This JS has been copied from Boutique Ado - Code Institute
+
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -47,6 +49,8 @@ form.addEventListener('submit', function(ev) {
     // Prevent default post
     ev.preventDefault();
     card.update({ 'disabled': true});
+
+    // This is my own code - It displays a modal as soon as the checkout button is pressed.
     $('#submit-button').attr('disabled', true);
     $('body').addClass('modal-open');
     $('#loadingModal').addClass('show').css('display', 'block').css('background-color', 'rgba(0,0,0,0.5)');
@@ -103,6 +107,8 @@ form.addEventListener('submit', function(ev) {
                 $(errorDiv).html(html);
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
+
+                // Closing modal if the order isn't processed correctly.
                 $('body').removeClass('modal-open');
                 $('#loadingModal').removeClass('show').css('display', 'none');
                 
@@ -115,6 +121,6 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // just reload the page, the error will be in django messages
         location.reload();
-    })
+    });
 });
 
