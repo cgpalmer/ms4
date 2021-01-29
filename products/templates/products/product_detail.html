@@ -192,11 +192,12 @@
                           {% if request.user.is_authenticated %}  
                         <label class="mb-3" for="digital_download">Digital download?</label>
                         <input id="deliveryTypeCheckbox" type="checkbox" name="digital_download">
+                        
                         {% endif %}
                     </div>
 
                 {% endif %}
-                     
+                <p>All delivered photographs are a default 7" x 5". More sizes coming soon!</p>   
                 <button id="addToBasket" class="btn col-12 btn-outline-black rounded-0 btn-lg action-btn mb-3" type="submit">
                     Add to basket
                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
