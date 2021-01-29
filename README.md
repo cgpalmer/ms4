@@ -436,59 +436,6 @@ ___
 
 
 
-### User stories
-
-
-
-### General testing
-
-#### Basic test
-
-1. Nav has been fully tested
-2. I have checked that the collapsibles open and close appropriately
-3. I have checked buttons enable and disable appropriately
-
-#### Feedback from other users
-User 1
-
-* "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
-
-Since this, I have changed the nav to a grid so it has more of a purposeful size.
-
-
-### Code validation
-
-#### Python
-To check my python code validation, I have used a combination of 'cornflakes-linter 0.4.0' and http://pep8online.com/
-I have configured the cornflakes to accept a line length of 120 characters.
-Therefore, the only code issue that comes up on http://pep8online.com/ is that the lines are too long as it is set to 79 characters.
-
-#### CSS
-CSS has been checked by this online validator: [Jigsaw](https://jigsaw.w3.org/css-validator/ )
-When inputted by URL, the only issues are relating to bootstrap.min.
-When inputted by direct input, no issues are found but there are some warnings about using the same colour for background and borders. 
-These are by design though and intenional.
-
-#### HTML
-My HTML has been checked on this website: https://validator.w3.org/
-
-#### Javascript
-My javascript has been checked at https://jshint.com/
-There are a couple of unused variables which are actually functions but if you remove that from JSHint configure, there are no errors.
-
-### Cross browser test
-
-I have test my site on Microsoft Edge, Firefox and Chrome web browsers.
-I specifically test the following things:
-   + Do the collapsibles and their animations open?
-   + Does the checkbox still work?
-I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
-[Cross Browser Testing]()
-
-### Interesting bugs
-
-1. [Dividing by 0](static/files/testing/interesting-bugs-documentation/bug-for-dividing-by-0.pdf) 
-
 ___
 <span id="responsiveDesign"></span>
 ## Responsive Design

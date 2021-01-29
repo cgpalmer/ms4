@@ -1,3 +1,6 @@
+# testing
+
+## User stories tests
 
 User Stories - first time users | Expected outcome | Actual outcome 
 --------- | --------------- | ---
@@ -26,9 +29,91 @@ As a returning user, I want to be able to delete my account.                    
 General User | Expected outcome | Actual outcome 
 --------- | --------------- | ---
 
+As a user, I want to access to all the appropriate features, regardless of what device I am on. 
+As a user, I want to be able to explore the products immediately.
+As a user, I want to be able to gather information about the products.
+As a user, I want to know when I have added something to my basket.
+As a user, I want to be able to modify my basket at any point. 
+As a user, I want to be able to view my basket at any moment.
+As a user, I want to be able to search for different products.
+As a user, I want to be able to easily see contact information.
+As a user, I want to be able to see a summary of my order before I place it.
+As a user, I want to be able to see full size photographs and the quality of them before purchase. 
 
 Retail assistant | Expected outcome | Actual outcome 
 --------- | --------------- | ---
+As a retail assistant, I want to be able to edit a product.
+As a retail assistant, I want to be able to add a product.
+As a retail assistant, I want to be able to see the latest 5 orders.
 
 Store Owner | Expected outcome | Actual outcome 
 --------- | --------------- | ---
+As a store owner, I want to be able to see all of the above.
+As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
+As a store owner, I want to be able to easily naviagte to the Django Admin panel.
+
+
+
+
+
+## General testing
+
+### Basic test
+
+1. Nav has been fully tested
+2. I have checked that the collapsibles open and close appropriately
+3. I have checked buttons enable and disable appropriately
+
+### Feedback from other users
+User 1
+
+* "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
+
+Since this, I have changed the nav to a grid so it has more of a purposeful size.
+
+
+## Code validation
+
+### Python
+To check my python code validation, I have used a combination of 'cornflakes-linter 0.4.0' and http://pep8online.com/
+I have configured the cornflakes to accept a line length of 120 characters.
+Therefore, the only code issue that comes up on http://pep8online.com/ is that the lines are too long as it is set to 79 characters.
+
+### CSS
+CSS has been checked by this online validator: [Jigsaw](https://jigsaw.w3.org/css-validator/ )
+When inputted by URL, the only issues are relating to bootstrap.min.
+When inputted by direct input, no issues are found but there are some warnings about using the same colour for background and borders. 
+These are by design though and intenional.
+
+### HTML
+My HTML has been checked on this website: https://validator.w3.org/
+
+### Javascript
+My javascript has been checked at https://jshint.com/
+There are a couple of unused variables which are actually functions but if you remove that from JSHint configure, there are no errors.
+
+
+## Interesting bugs
+
+Here is a list of interesting bugs that I came across during the project.
+
+1. [Adding a float and a decimal](static/files/testing/interesting_bugs/Adding_float_and_decimal.pdf)
+2. [Adding a foreign key value to another model.](static/files/testing/interesting_bugs/Adding_foreign_key_values_to_a_blog_instance.pdf) Please note that this code has since been removed
+   but provided a basic understanding that I used for future foreign keys.
+3. [Category filter not working.](static/files/testing/interesting_bugs/category_filter_not_working.pdf)
+4. [Non unique ID](static/files/testing/interesting_bugs/non_unique_ID.pdf)
+5. [Querying the database](static/files/testing/interesting_bugs/querying_the_db.pdf)
+6. [Rating not divisible by 0](static/files/testing/interesting_bugs/Rating_not_divisible_by_0.pdf)
+7. [Repeated digital download not functioning.](static/files/testing/interesting_bugs/Repeated_digital_download.pdf)
+8. [Subtotal error in basket](static/files/testing/interesting_bugs/subtotal_error_in_basket.pdf)
+
+
+
+## Cross browser test
+
+I have test my site on Microsoft Edge, Firefox and Chrome web browsers.
+I specifically test the following things:
+   + Do the collapsibles and their animations open?
+   + Does the checkbox still work?
+I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
+[Cross Browser Testing]()
