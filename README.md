@@ -87,9 +87,7 @@ where it was accessible to a wide range of people.
 ___
 
 <span id="UX"></span>
-## UX
-
-5 planes of UX
+## UX - 5 planes
 
 ### Strategy
 
@@ -111,7 +109,9 @@ With a mobile-first design, the website is easy to use straight from your mobile
 
 Unlike shops where users print their photographs, a user does not need to be familiar with Bluetooth or smartphones in order to get your photos. This, again, widens the demographic of clients. 
 Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For example:
+
 Table – scenario - action
+
 User wants a photo to use on digital products. Downloads digitally.
 User wants a photo to put in an existing frame. User have a photo delivered to the door. (Currently restricted to 1 size of 7” x 5”). 
 User has a photo but would like a frames. User buys a frame or canvas on the same website. 
@@ -138,35 +138,22 @@ The forms are validated to ensure that all the information that is needed for th
 
 
 
-#### User as a charity or researcher (professional user)
+#### Business objectives
 
+1. For people to use us to purchase frames, calendars and canvases.
+2. For people to upload their photos and know that the picture will be delivered to their door at the correct size for the containers.
 
-Feature set 
-Current features
-Order photographs or containers – calendar, frames or canvas. Photographs come at a default size of 7” x 5”. 
-Be able to upload their own photographs
-Download their purchases to their computer. 
-Search for products by name, sku, description.
-When you purchase a calendar, frame or canvas, the user can choose to have a picture printed to the product. 
-To have an account that remembers their details.
+#### Content required:
 
-Future features
-Picture resolution validation to make sure the photo is high enough quality.
-A product preview of the photo within the frame or on the canvas/ calendar. 
-A blog to explain the story behind each photo as a unique feature.
-Users can upload their own photos to be bought and receive a percentage of the profits. 
+1. Profile page with details about the user.
+2. Filters, categories and search to refine product search and speed up the user experience. 
+3. Products with extended details.
+4. A basket to handle the purchases.
+5. A checkout to process purchases and payments.
+6. Reviews about each product available to create, edit, delete and read. 
 
-Business objectives
-For people to use us to purchase frames, calendars and canvases.
-For people to upload their photos and know that the picture will be delivered to their door at the correct size for the containers.
-Content required:
-Profile page with details about the user.
-Filters, categories and search to refine product search and speed up the user experience. 
-Products with extended details
-A basket to handle the purchases
-A checkout to process purchases and payments.
-Reviews about each product available to create, edit, delete and read. 
-Interaction design
+#### Interaction design
+
 
 Navbar	
 I have designed the navbar to read top-to-bottom of importance for mobile. On the mobile, I have attempted to space out the important parts so the user associated certain areas of the website with certain functions. 
@@ -185,9 +172,25 @@ Finally, when the mouse hovers over any of the categories on the products bar, a
 Other interaction design:
 All of the actions a user can take to personalise and modify their experience takes place within the profile page. This is separate from the main part of the website. Although, the user can still access their uploaded photos from the products detail pages, which makes a more intuitive experience for the user. 
 
+<span id="features"></span>
+### Features
+
 Please see this link for a [Full list of features](static/files/UX/scope/feature_list.pdf)
-Breakdown the apps and pages
-Footer with email
+
+<span id="featuresLeftToImplement"></span>
+### Features Left to Implement
+
+1. Picture resolution validation to make sure the photo is high enough quality.
+2. A product preview of the photo within the frame or on the canvas/ calendar. 
+3. A blog to explain the story behind each photo as a unique feature.
+4. Users can upload their own photos to be bought and receive a percentage of the profits. 
+5. User to attach the purchased image to an email when the user isn’t logged in. This would allow non-logged in users the option to buy digitally. 
+6. The user would not need to put in their delivery details if only purchasing digital photos.
+7. Emails will actually be sent with an email receipt.
+8. User to retain their basket in session, despite logging out and then in again.
+9. - Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
+10. A new customer offer to apply on first order that makes the delivery free.
+
 
 ### Skeleton design
 Wireframes
@@ -226,128 +229,6 @@ Horizontal rules have been used across the website to highlight headers and to s
 I found these to be subtle and more flexible to use that a table. 
 
 
-
-
-
-___
-<span id="features"></span>
-## Features
-
-<span id="existingFeatures"></span>
-### Existing Features
-
-<ins>Navbar</ins>
-
-1. The navbar is responsive and had a traditional 'hamburger' icon on devices smaller than a laptop.
-2. Each link will take the user to the designated pages.
-3. There are links for the home page, login page, signup page, add report, search report - initially.
-4. When logged in the links change to the following: - home page, dashboard, logout, add report, search report.
-5. The logo will take the user back to the home page.
-
-<ins>Footer</ins>
-
-1. An email address which the user can contact the team by.
-2. A telephone which the users can contact the team by.
-
-<ins>Home </ins>
-
-1. There is an update on how many reports have been collected altogether.
-2. User can see the purpose of the website clearly.
-3. There is information about the team behind the website.
-4. There is a disclaimer giving advice on how to use the website. 
-
-<ins>Dashboard </ins>
-
-1. Has a welcome message with the users name.
-2. A collapsible gives the user the three options:- Manage their own reports, search the database or add a report.
-3. The search our database and add report links will take the user to the designated pages for adding reports and 
-   searching the database.
-4. The managing reports part of the collapsible is open.
-5. The user can search their own reports by searching all, by location or by discrimination.
-6. Button is disabled until the right amount of information is given.
-7. There is a settings button which will take the user to the settings.
-
-
-
-<ins>Login </ins>
-
-1. A form to input user details which will allow them to log in.
-2. A button which will submit the form.
-3. If the user inputs an incorrect email or password, then a message will flash underneath the heading giving 
-   the user feedback.
-4. There is advice on how a user can reset their password.
-5. There is a link to the signup page in case the user doesn't yet have an account. 
-
-<ins>Signup</ins>
-
-1. A form to fill in in order to register an account.
-2. A lightbulb will give the users information for the password requirements. 
-3. There is an eye-icon which users can press to see the password they have inputted.
-4. When the user enters a password that meets the criteria a tick will be displayed next to the eye-icon.
-5. There is a check button the user must click to confirm they have checked the password.
-6. Once signed up, the user is redirected to another page where they can enter their preferred name.
-
-<ins>Add report</ins>
-
-1. There is a reminder to not use person's name in the report.
-2. There are initial options to start the report.
-3. There is a disabled button which will become enabled when all the options have been chosen.
-4. Upon pushing the add report button, the user is taken to a new screen where they can add a loction or skip 
-   and then add a date.  
-
-<ins>Search report</ins>
-
-1. There collapsible from materialize that has four options: Search by discrimination, location, whether it has been reported or all.
-2. If the user clicks on a header, then that part of the collapsible stands out to draw focus. 
-3. In all search options except 'search all', there is an option to choose a date frame within which to search.
-4. For the discrimination option, you can choose from the pre-selected discrimination categories. 
-5. For the location option, you can choose any of the pre-set location options.
-6. Should you choose to search by buildings, you may choose a second location in order to compare. 
-7. Like in the add report, the button stays disabled until the user has given enough information for a viable report.
-8. Starred inputs are there to show the user which information is needed.
-9. For searching by reported to authorities, there is a choice between whether the report has or hasn't been reported.
-
-<ins>Settings</ins>
-
-1. There is a collapsible on the settings page where the user can change name, password, email or delete account.
-2. Each of the options above are in their own collapsible body.
-3. The current name, password, email have the original values displayed underneath.
-4. When deleting the account, the user must put in their correct password.  
-
-<ins>Search Result</ins>
-
-1. All results are within a card and display all of the report information.
-2. The pagination works by splitting up the reports ten at a time and putting them in separate collapsibles.
-3. At the top of the page, the user will get three statistics: How many reports, what percentage they make up of 
-   the database they make, and how many have been reported to authorities. 
-4. There are two choices with each report: to either edit or delete the report.
-
-
-<ins>User Modify</ins>
-
-1. The user modify page has a form with all previous values form the report.
-2. The user can modify any of the values and resubmit the form.
-
-<ins>User Delete</ins>
-
-1. The user delete page will show a single report with a delete button.
-
-<span id="featuresLeftToImplement"></span>
-### Features Left to Implement
-
-MS4
-- Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
-
-
-
-
-- The date will present itself the correct way round.
-- Automatic email will be sent to the website managers when a report is updated/added
-- Public can recommend categorise when adding a report rather than having to email separately.
-- A google api will allow the locations of the features to be displayed as clusters across a map. 
-- People can filter incidents just by a date frame. 
-- Export data as a CSV to be used on excel.
-- Councils/ other professional bodies will be able to upload reports of discrimination via their own CSV.
 ___
 <span id="dataIntegration"></span>
 ## Data Integration
