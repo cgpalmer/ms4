@@ -133,9 +133,52 @@ The forms are validated to ensure that all the information that is needed for th
 
 #### First-time user
 
+1. As a first-time user, I want to easily navigate through the website be able to easily access all of its features.
+2. As a first-time user, I want to be able to immediately see what the website is about.
+3. As a first-time user, I want to be able to create an account.
+4. As a first-time user, I want to be able to log in with my new account.
+5. As a first-time user, I want to be able to purchase something without having to create and account.
 
 #### Returning user
 
+1. As a returning user, I want to be able to log in easily.
+2. As a returning user, I want to be able to modify one of my delivery details.
+3. As a returning user, I want to be able to modify one of my reviews.
+4. As a returning user, I want to be able to delete one of my reviews.
+5. As a returning user, I want to be able to delete one of my reviews.
+6. As a returning user, I want to be able to upload one of my own images to use.
+7. As a returning user, I want to be able to use a previous upload in a purchase.
+8. As a returning user, I want to be able to see my order history.
+9. As a returning user, I want to be able to see my previous products.
+10. As a returning user, I want to be able to download my digital purchase.
+11. As a returning user, I want to be able to change my password.
+12. As a returning user, I want to be able to log out when I am done.
+13. As a returning user, I want my personal details to be private.  
+
+#### General user
+
+1. As a user, I want to access to all the appropriate features, regardless of what device I am on. 
+2. As a user, I want to be able to explore the products immediately.
+3. As a user, I want to be able to gather information about the products.
+4. As a user, I want to know when I have added something to my basket.
+5. As a user, I want to be able to modify my basket at any point. 
+6. As a user, I want to be able to view my basket at any moment.
+7. As a user, I want to be able to search for different products.
+8. As a user, I want to be able to easily see contact information.
+9. As a user, I want to be able to see a summary of my order before I place it.
+
+
+#### Retail assistant
+
+1. As a retail assistant, I want to be able to edit a product.
+2. As a retail assistant, I want to be able to add a product.
+3. As a retail assistant, I want to be able to see the latest 5 orders.
+
+#### Store owner (super user)
+
+3. As a store owner, I want to be able to see all of the above.
+2. As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
+3. As a store owner, I want to be able to easily naviagte to the Django Admin panel.
 
 
 #### Business objectives
