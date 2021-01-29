@@ -126,8 +126,7 @@ p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number {
         color: white;
     }
     50% {
-        color: #212D97;
-        box-shadow: 0, 0, 0, 0, #212D97;        
+        color: #212D97;  
     }
     100% {
       color: white; 
