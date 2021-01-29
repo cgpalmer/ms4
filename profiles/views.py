@@ -114,6 +114,7 @@ def image_upload(request, product_id):
             user = get_object_or_404(UserProfile, user=request.user)
             title = form.cleaned_data.get("title")
             image = form.cleaned_data.get("image")
+            print(image)
             Image_upload.objects.create(title=title, user=user, image=image)
             messages.success(request, 'Image uploaded! Find it in the dropdown menu or on your profile page.')
             return redirect(reverse('product_detail', args=[product_id]))
