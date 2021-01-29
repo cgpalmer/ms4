@@ -297,6 +297,8 @@ ___
 Throughout this project, I have Postgres and JSON files to store data. I have also used Whitenoise to hold my static file, 
 as Heroku doesn't support file uploads.
 
+Explain why white noise
+
 Please find my [database table schema](static/files/data_integration/database_schema_tables.pdf) and my [database schema diagram](static/files/data_integration/database_schema_diagram.png)
 at their respective links.
 
@@ -444,11 +446,12 @@ Frameworks
 Other dependencies include:
 + Pillow
 + White Noise
++ Heroku for deployment
+
+Of course, a full list can be found at [requirements.](requirements.txt)
 
 Other
 + [Image Shack](https://imageshack.com/)
-
-Of course, a full list can be found at [requirements.](requirements.txt)
 
 
 ___
@@ -497,55 +500,88 @@ ___
 
 ### To run the app on Heroku. 
 
-Create a Heroku account.
-Click to start a new app.
-Pick your location based on the closest free version (or paid version) to your actual location. For this project it was Europe.
-Choose an appropriate name for the app and click to create.
-
-Once your app has been created, then move to the ‘deploy’ tab. You can connect to GitHub through one of the tabs. 
-I, however, have used the CLI.
-You can link to an existing repository by using the following command in your IDE:
+Create a Heroku account. Click to start a new app. Pick your location based on the closest free version (or paid version) to your actual location. For this project it was Europe. Choose an appropriate name for the app and click to create.
+Before you start to configure the app for deployment, go to the ‘resources’ tab and select Postgres. The free plan will suffice for this project. 
+Then move to the ‘deploy’ tab. You can connect to GitHub through one of the tabs. I, however, have used the CLI. You can link to an existing repository by using the following command in your IDE:
 ```
 $ heroku git:remote -a "enter-your-heroku-app-name"
 ```
-Heroku actually have excellent documentation on this and the full documentation can be found here under the ‘deploy’ tab in your Heroku account. There are several ways to connect your project to Heroku. 
 
-Then, head over to the ‘settings’ tab and click on the ‘reveal config vars’ button. 
-Configure the following:
+Heroku actually have excellent documentation on this and the full documentation can be found [here]( https://dashboard.heroku.com/) under the ‘deploy’ tab in your Heroku account. There are several ways to connect your project to Heroku.
+You can also set up automatic deployment to Heroku whenever you push to Github. You should be wary of this, however. If you are using Whitenoise, like I have for this project, then there is not a limited on your static files. 
+If, however, you pay for a cloud service, such as AWS, then automatic deployments will wear down you request allowance.
 
-Key: value
+Then, head over to the ‘settings’ tab and click on the ‘reveal config vars’ button. Configure the following:
+- SECRET_KEY
+- DATABASE_URL* 
+- EMAIL_HOST_PASSWORD
+- EMAIL_HOST_USER
+- STRIPE_PUBLIC_KEY 
+- STRIPE_SECRET_KEY 
+- STRIPE_WH_SECRET
+Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
 
-IP: 0.0.0.0 
+EMAIL_HOST_PASSWORD Can be found in the security settings of your email host.
+The EMAIL_HOST_USER is simply the email address from which you want your emails to be sent from. 
 
-PORT: 8080 
+DATABASE_URL can refer to whichever database system you have set up for your project. For this project, I used Postgres as it is the relational database I wanted and Heroku has a convenient package for it. Before you select the Postgres, you will need to install a couple of things on Github.
+You will need dj_database_url and psycopg2. Run the following commands to get them:
+```
+pip3 install dj_database_url
+```
 
-MONGO_URI: "link to your MongoDB" 
+```
+pip3 install psycopg2-binary
+```
 
-You can find your MongoDB link by going into your MongoDB Atlas account and clicking the ‘connect’ button. From there you have the option to choose to connect to your application and can select the correct language and version. 
+At this point, you will need re-record all of your requirements by using the following command.
+pip3 freeze --local > requirements.txt
 
-With the Heroku settings sorted, you can head back to your IDE.
-There a few things you now need to set up:
-1. A ‘procfile’ which will tell Heroku what kind of application it is and how it should be run.
-2. A ‘requirements.txt’ which will tell Heroku which dependencies it needs to install in order for the app to run. 
-The command for ‘procfile’ is: 
+Please note that you need to re-run the requirements command if you add any dependencies mid-project. Otherwise, Heroku will not deploy the app correctly.
+
+Finally, you can retrieve the URL for your Postgres in the the config vars part of the Heroku settings. 
+Go to your main app settings.py and 
+
+```
+import dj_database_url
+```
+
+Then find the database settings and remove the default settings. Instead, run the default as:
+```
+‘default’: dj_database_url.parse(‘URL from Postgres – found in Heroku config var’)
+```
+
+Now that you have a connection with the database, you will need to re-migrate all of your models. Run the following code:
+
+```
+python3 manage.py migrate --plan
+```
+
+That will create all your databases. You will now need to “fill” the databases with products. You can do this by running the next command for every fixture in the project.
+
+```
+python3 manage.py loaddata <fixturename.json>
+```
+
+With those set up, you can now push your project to Heroku directly from your IDE.
+First, you will need a ‘procfile’ which will tell Heroku what kind of application it is and how it should be run.
+The command for ‘procfile’ is:
 ```
 echo web: python run.py > Procfile
 ```
-The command for requirements is:  
-```
-pip3 freeze --local > requirements.txt
-```
-Please note that you need to re-run the requirements command if you add any dependencies mid-project. Otherwise, Heroku will not deploy the app correctly. 
 
-With those set up, you can now push your project to Heroku directly from your IDE.
+Log in to Heroku from the command line using:
+
 ```
 $ heroku login -i
 ```
-Enter your username and password.
-Push your commits to Heroku using this command:
+
+Enter your username and password. Push your commits to Heroku using this command:
 ```
 $ git push -u Heroku master
 ```
+
+
 
 
 <span id="deploymentLocal"></span>
@@ -609,12 +645,13 @@ You will need the following for your code to run:
 The database URL is so you can run the postgres server than I am running. If you remove the DATABASE_URL from the env, the settings.py will default to a sqlite3 database. Regardless of which database you run, will need to create the databases using the following commands.
 Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
 
-Email host password can be found in the security settings of your email host.
-The user is simply the email address from which you want your emails to be sent from.
+EMAIL_HOST_PASSWORD Can be found in the security settings of your email host.
+The EMAIL_HOST_USER is simply the email address from which you want your emails to be sent from. 
+
 
 Before you can start the local server, you will need to make sure your models have been created in the database. Follow these commands: 
 ```
-python3 manage.py makemigrations –dry-run
+python3 manage.py makemigrations --dry-run
 ```
 
 This is to see the migrations before they occur.
@@ -624,7 +661,7 @@ python3 manage.py makemigrations
 
 Make the migrations.
 ```
-python3 manage.py migrate –plan
+python3 manage.py migrate --plan
 ```
 
 This is to see the migrate before it occurs
