@@ -18,7 +18,7 @@
 }
 
 .cat-links:hover, .cat-links:active, .cat-links:focus, .cat-links:focus-visible, 
-.dropdown-item:hover, .dropdown-item:active{
+.dropdown-item:hover, .dropdown-item:active, .account-dropdown{
     background-color: white;
 }
 
@@ -45,7 +45,7 @@ p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number {
     color: #212D97;
 }
 
-.desktop-dropdown, .text-link, .text-link a, .form-group a, .order-number:hover{
+.desktop-dropdown, .text-link, .text-link a, .form-group a, .order-number:hover, .account-dropdown{
     color: #978b21;
 }
 
@@ -88,8 +88,13 @@ p, .product-name, h4, h4 a, .form-control:focus, .email, .order-number {
     background-color: white;
 }
 
-.desktop-dropdown:hover, .desktop-dropdown:focus{
+.desktop-dropdown:hover, .desktop-dropdown:focus, .dropdown-menu .account-dropdown:hover, 
+.account-dropdown:active, .account-dropdown:focus{
     color: white!important;
+}
+
+.account-dropdown:active, .account-dropdown:focus, .dropdown-menu .account-dropdown:hover{
+    background-color: #978b21;
 }
 
 .social-icon:hover{

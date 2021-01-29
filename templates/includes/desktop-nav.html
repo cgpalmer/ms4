@@ -8,19 +8,19 @@
                     <i class="fas fa-user fa signed-in"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
-                    <a class="dropdown-item desktop-dropdown" href="{% url 'profile' %}">My Profile</a>
+                    <a class="dropdown-item account-dropdown" href="{% url 'profile' %}">My Profile</a>
                    {% if request.user|has_group:"retail_assistant" %} 
-                        <a class="dropdown-item desktop-dropdown" href="{% url 'admin_profile_page' %}">Admin</a>
+                        <a class="dropdown-item account-dropdown" href="{% url 'admin_profile_page' %}">Admin</a>
                     {% endif %}
-                    <a class="dropdown-item desktop-dropdown" href="{% url 'account_logout' %}">Logout</a>
+                    <a class="dropdown-item account-dropdown" href="{% url 'account_logout' %}">Logout</a>
                 </div>
             {% else %}
                 <a href="" class="nav-link account-link col-sm text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user fa"></i><span> Account</span>
                 </a>
                 <div class="dropdown-menu desktop-nav-dropdown text-center drop-placement">
-                    <a class="dropdown-item desktop-dropdown" href="{% url 'account_login' %}">Login</a>
-                    <a href="{% url 'account_signup' %}" class="dropdown-item desktop-dropdown">Register</a>
+                    <a class="dropdown-item account-dropdown" href="{% url 'account_login' %}">Login</a>
+                    <a href="{% url 'account_signup' %}" class="dropdown-item account-dropdown">Register</a>
                 </div>     
             {% endif %} 
             <a class="navbar-brand col-sm" href="{% url 'home' %}">Hidden Gems</a>                   
