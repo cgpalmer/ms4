@@ -128,4 +128,4 @@ I specifically test the following things:
    + Do the collapsibles and their animations open?
    + Does the checkbox still work?
 I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
-[Cross Browser Testing]()
+[Cross Browser Testing](static/files/testing/performance_testing/cross_browser_testing.pdf)

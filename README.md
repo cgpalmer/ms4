@@ -449,6 +449,8 @@ It has been specifically designed for the following:
    + Laptop with MDPI screen
    + Laptop with HiDPI screen
 
+Please find examples of the sites responsive design [here](static/files/testing/performance_testing/responsive_design.pdf)
+
 
 There are a few major resposive choices, detailed below.
 1. The majority of the decision were based on how many objects could fit accross the screen. For mobile, I stuck to a rule 
