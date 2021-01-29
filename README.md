@@ -473,8 +473,7 @@ My HTML has been checked on this website: https://validator.w3.org/
 
 #### Javascript
 My javascript has been checked at https://jshint.com/
-There are no issues with my JS.
-
+There are a couple of unused variables which are actually functions but if you remove that from JSHint configure, there are no errors.
 
 ### Cross browser test
 
