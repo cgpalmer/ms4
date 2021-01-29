@@ -387,6 +387,7 @@ Reviews
 
 + There are live validators that will cap the rating score at 0 or 5 using JS.
 + The model also has 'Max' and 'Min' validators on the review_rating.
++ JS also stops the user using the large buttons to go above 5 or below 0.
 
 Profiles
 
