@@ -1,12 +1,12 @@
 // Counting the basket items - outside document ready for functionality
 $('#addToBasket').click(function(){
-    item = sessionStorage.getItem('currentBasketAmount')
+    let item = sessionStorage.getItem('currentBasketAmount');
     if (item == null){
         sessionStorage.setItem('currentBasketAmount', 0);
         sessionStorage.setItem('newBasketAmount', 1);
     } else{
         item++;
-        sessionStorage.setItem('newBasketAmount', item)
+        sessionStorage.setItem('newBasketAmount', item);
     }
 });
 
@@ -40,12 +40,12 @@ $( document ).ready(function() {
     
     // Basket
     // Triggering the 'added item' animation
-    let currentBasketAmount = sessionStorage.getItem('currentBasketAmount')
-    let newBasketAmount = sessionStorage.getItem('newBasketAmount')
+    let currentBasketAmount = sessionStorage.getItem('currentBasketAmount');
+    let newBasketAmount = sessionStorage.getItem('newBasketAmount');
 
     if(newBasketAmount > currentBasketAmount){
         $(".fa-shopping-basket").addClass('item-added-transition');
-        sessionStorage.setItem('currentBasketAmount', newBasketAmount)
+        sessionStorage.setItem('currentBasketAmount', newBasketAmount);
     } else{
            $(".fa-shopping-basket").removeClass('item-added-transition');
     }
@@ -72,17 +72,17 @@ $( document ).ready(function() {
     });
 
     // Disabling the quantity button on Product Detail depending on the delivery method.
-    let digital_counter = 0
+    let digital_counter = 0;
     $("#deliveryTypeCheckbox").change(function() {
         digital_counter++;
-        
+        let quantity;
         if (digital_counter % 2 == 0){
             $("#productDetailQty, #decreaseProductDetailQuantity, #increaseProductDetailQuantity").prop('disabled', false);
-            var quantity = 1;
+            quantity = 1;
             $('#productDetailQty').val(quantity);
         } else {
             $("#productDetailQty, #decreaseProductDetailQuantity, #increaseProductDetailQuantity").prop('disabled', true);
-        var quantity = 1;
+        		quantity = 1;
             $('#productDetailQty').val(quantity);
         }
     
@@ -118,7 +118,7 @@ $( document ).ready(function() {
         $("#linkImageSelection").addClass('product-linked-preview');
 
     } else if(imageType == "No item"){
-        imagePath = "/static/media/site_images/white_square.jpg"
+        let imagePath = "/static/media/site_images/white_square.jpg";
         $("#linkImageSelection").attr('src', imagePath);
         $("#linkImageSelection, #linkedProductImagePreview, #linkImageHint").addClass('hide');
 
@@ -149,14 +149,14 @@ $( document ).ready(function() {
             quantity = 0;
             $(quantityInputID).val(quantity);
         }
-    };
+    }
 
     function increaseBasketQuantity(element){
         let splittingElementID = element.split("_");
         let quantityInputID = `#productDetailQty_${splittingElementID[1]}`;
         let quantity = parseInt($(quantityInputID).val()); 
         $(quantityInputID).val(quantity + 1);
-    };
+    }
 
     //  Edit review quantity and capping the score at 5 or 0
     $('#increaseEditReviewQuantity').click(function(e){
