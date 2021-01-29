@@ -431,23 +431,12 @@ ___
 <span id="testing"></span>
 
 ## Testing
-I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
-[Cross Browser Testing](static/files/testing/cross_browser_testing.pdf)
- 
+
+
+
 ### User stories
 
-User Stories - first time users | Expected outcome | Actual outcome 
---------- | --------------- | ---
-As a first-time user, I want to easily navigate through the website be able to easily access all of its features. | I expect all of the links to be working and in an intuitive position| All the links take me to their destination and none are broken.
- 
-User Stories - returning users | Expected outcome | Actual outcome 
---------- | --------------- | ---
-As a returning user, I want to be able to log in easily.                                                     | I expect to find the login button easily and be able to fill in the form to login.| I could find the login button easily in the nav bar and the form is very quick to fill in. Once I have logged in I am taken to the dashboard.
 
-
-User as a charity or researcher (professional user)| Expected outcome | Actual outcome 
---------- | --------------- | ---
-As a profession user, I want to be able to see some statistics about my search so I can compare them to other searches. | I expect to see some statistics when I search the database | At the top of the search results, I can see how many reports have been returned, what percentage of the database they are and how many have been reported to authorities.
 
 ### General testing
 
@@ -463,19 +452,6 @@ User 1
 * "The search bar is a random length on the mobile view. It doesn't seem like it's lined up with anything?"
 
 Since this, I have changed the nav to a grid so it has more of a purposeful size.
-
-
-
-
-### Responsive design
-
-As in the wireframes section, the website is responsive across mobile, iPad, iPad Pro and Laptops - both MDi and HDMi.
-[Here is the list for the responsive images.](static/files/wireframes/responsive-design.jpg)
-
-### Cross browser test
-
-
-
 
 
 ### Code validation
@@ -495,7 +471,17 @@ My HTML has been checked on this website: https://validator.w3.org/
 
 #### Javascript
 My javascript has been checked at https://jshint.com/
-There are no issues with my JS. 
+There are no issues with my JS.
+
+
+### Cross browser test
+
+I have test my site on Microsoft Edge, Firefox and Chrome web browsers.
+I specifically test the following things:
+   + Do the collapsibles and their animations open?
+   + Does the checkbox still work?
+I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
+[Cross Browser Testing]()
 
 ### Interesting bugs
 
@@ -516,7 +502,11 @@ It has been specifically designed for the following:
 
 
 There are a few major resposive choices, detailed below.
+1. When viewing on a laptop the search results present their information in a different way. The incident description,
+date and whether it had been reported are shown in their own colour on the right of the card.
 
+2. The pictures of staff and descriptions shift to being alongside each other once on the laptop/ landscape iPad Pro 
+screen.
 
 ___
 <span id="deployment"></span>
