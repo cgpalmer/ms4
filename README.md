@@ -17,7 +17,6 @@ ___
    - <a href="#fivePlanes">5 planes of UX</a>
    - <a href="#userStories">User Stories</a>
 + <a href="#features">Features</a>
-   - <a href="#existingFeatures">Existing Features</a>
    - <a href="#featuresLeftToImplement">Features left To Implement</a>
 + <a href="#dataIntegration">Data Integration</a>
 + <a href="#defensiveFeatures">Defensive Features</a>
@@ -232,10 +231,11 @@ Please see this link for a [Full list of features](static/files/UX/Scope/feature
 6. The user would not need to put in their delivery details if only purchasing digital photos.
 7. Emails will actually be sent with an email receipt.
 8. User to retain their basket in session, despite logging out and then in again.
-9. - Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
+9. Multi buy will be customisable based on the the amount and discount - for now it is fixed at buy 3 and get x amount off. X can be changed though.
 10. A new customer offer to apply on first order that makes the delivery free.
 11. Photos must be printed on all available sizes. Customers should be able to choose that size when adding to the basket.
 12. Better data integration for storing the linked products. 
+13. A modal to provide feedback when an image is uploading.
 
 
 ### Skeleton design
@@ -243,7 +243,7 @@ Wireframes
 
 Whilst this isn't an exhaustive document of every page on each device, it showcases that there is responsive design within the site. These particular images focus on three main
 breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
-[Image a website on different devices.]()
+[Image a website on different devices.](static/files/Skeleton/wireframes/wireframes_finished.pdf)
 
 
 
@@ -393,7 +393,7 @@ Basket
 
 Checkout
 
-+ Including a modal that will show when the user either uploads their own photo or place an order. These are typically slow processes.
++ Including a modal that will show when the user places an order. This is typically a slow processes.
   This is to stop the user clicking any other buttons because they think nothing is happening.
 + There are live validators to give clues to the user if the payment hasn't been successful.
 + The modal with disappear if the payment or delivery information is not valid. 
