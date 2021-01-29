@@ -1,1 +1,0 @@
-print(python3 manage.py test products)
