@@ -279,8 +279,11 @@ ___
 <span id="dataIntegration"></span>
 ## Data Integration
 
-Throughout this project, I have Postgres and JSON files to store data. I have also used Whitenoise t hold my static file, 
+Throughout this project, I have Postgres and JSON files to store data. I have also used Whitenoise to hold my static file, 
 as Heroku doesn't support file uploads.
+
+Please find my [database table schema](static/files/data_integration/database_schema_tables.pdf) and my [database schema diagram](static/files/data_integration/database_schema_diagram.png)
+at their respective links.
 
 #### Postgres
 
