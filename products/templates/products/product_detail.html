@@ -18,7 +18,7 @@
   {% if product_type_for_linking == "container" %}
         {% if request.user.is_authenticated %} 
       
-        <div class="card product-detail-card extra-margin-right col-12 mt-4 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+        <div class="card product-detail-card extra-margin-right col-12 first-pd-card col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
@@ -113,7 +113,7 @@
             </form>
         </div>
         
-        <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 mb-4 order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+        <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 last-pd-card order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
                     <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
@@ -124,7 +124,7 @@
                 {% endif %}             
             </div>
         </div>
-         <div class="card col-12  d-block d-lg-none mt-3 mb-4 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+         <div class="card col-12  d-block d-lg-none mt-3 last-pd-card ipad-margin-level col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                 <h4 class="my-3">Upload your own images to use!</h4>
                 {% if product_type_for_linking == "container" %}
                     <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
@@ -135,7 +135,7 @@
                 {% endif %}             
             </div>
         {% else %}
-                    <div class="card product-detail-card extra-margin-right col-12 mt-4 col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+                    <div class="card product-detail-card-2-column extra-margin-right col-12 first-pd-card col-md-6 col-lg-4 ipad-margin-level shadow p-3  rounded">
             <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
@@ -169,7 +169,7 @@
             </div>
         </div>
         
-        <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
+        <div class="card product-detail-card-2-column  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 last-pd-card ipad-margin-level rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
                 <div>
@@ -242,7 +242,7 @@
         {% else %}
         </div>
     <div class="row">     
-        <div class="card product-detail-card-photos extra-margin-right col-12  mt-4 col-md-6 col-lg-6 shadow p-3 mb-3 rounded">
+        <div class="card product-detail-card-2-column extra-margin-right col-12  first-pd-card col-md-6 col-lg-6 shadow p-3 mb-3 rounded">
             <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                 <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
             </a>
@@ -274,7 +274,7 @@
                     <a href="{% url 'add_review' product.id %}" class="text-link"><i class="fas fa-plus"></i> Add review</a>
             </div>
         </div>
-        <div class="card product-detail-card-photos col-12  mt-3 col-md-6 col-lg-6 shadow p-3 mb-4 rounded text-center">
+        <div class="card product-detail-card-2-column col-12  mt-3 col-md-6 col-lg-6 shadow p-3 last-pd-card rounded text-center">
             <form method="POST" action="{% url 'add_to_basket' product.id %}">
                 {% csrf_token%}        
                 <div>

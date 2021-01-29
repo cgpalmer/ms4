@@ -63,6 +63,14 @@ a:hover {
 .main-section-container{
     min-height: 47vh;
 }
+
+.first-pd-card{
+    margin-top: 1.5rem;
+}
+
+.last-pd-card{
+    margin-bottom: 1.5rem;
+}
 /* Nav */
 
 .fa-user {
@@ -384,7 +392,18 @@ footer {
 	.buttonText {
 		display: inline-block;
     }
-    
+
+    .first-pd-card{
+    margin-top: 1rem;
+}
+
+.last-pd-card{
+    margin-bottom: 1rem;
+}
+ 
+.ipad-margin-level{
+    margin-bottom: 2rem;
+}
 /* Home */
     .home-image {
     background-image: url('../media/product-images/bratislava.webp');
@@ -512,7 +531,7 @@ footer {
     }
     
     
-	.product-detail-card-photos {
+	.product-detail-card-2-column {
 		flex: 0 0 48%;
         max-width: 48%;
     }
@@ -547,7 +566,7 @@ footer {
 	}
 
 	.main-section-container {
-		min-height: 73vh;
+		min-height: 75vh;
 	}
 
 /* Nav */
@@ -669,7 +688,7 @@ footer {
 		margin-left: 2rem;
 	}
 
-	.product-detail-card-photos {
+	.product-detail-card-2-column {
 		flex: 0 0 45%;
 		max-width: 45%;
 		margin-left: 2em;
@@ -721,9 +740,13 @@ footer {
 		margin-left: 2.25rem;
 		
     }
-.product-detail-card-photos {
+.product-detail-card-2-column {
 		
 		margin-left: 3em;
 		
-	}
+    }
+    
+.product-detail-card {
+    margin-left: 2rem;
+}
 }

@@ -142,7 +142,7 @@ The forms are validated to ensure that all the information that is needed for th
 #### Returning user
 
 1. As a returning user, I want to be able to log in easily.
-2. As a returning user, I want to be able to modify one of my delivery details.
+2. As a returning user, I want to be able to modify my delivery details.
 3. As a returning user, I want to be able to modify one of my reviews.
 4. As a returning user, I want to be able to delete one of my reviews.
 5. As a returning user, I want to be able to delete one of my reviews.
@@ -166,6 +166,7 @@ The forms are validated to ensure that all the information that is needed for th
 7. As a user, I want to be able to search for different products.
 8. As a user, I want to be able to easily see contact information.
 9. As a user, I want to be able to see a summary of my order before I place it.
+10. As a user, I want to be able to see full size photographs and the quality of them before purchase. 
 
 
 #### Retail assistant
@@ -218,7 +219,7 @@ All of the actions a user can take to personalise and modify their experience ta
 <span id="features"></span>
 ### Features
 
-Please see this link for a [Full list of features](static/files/UX/scope/feature_list.pdf)
+Please see this link for a [Full list of features](static/files/UX/Scope/feature_list.pdf)
 
 <span id="featuresLeftToImplement"></span>
 ### Features Left to Implement
