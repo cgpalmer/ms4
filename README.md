@@ -119,7 +119,9 @@ User wants to buy the photo and wants it in a container. User buys a frame, canv
 User wants to have their photo printer on a canvas, calendar or in a frame. (Photo will be printed to size automatically to match the container.) User uploads their photo and links it to a product. 
 
 I am aware that we should offer to print all photos in a variety of sizes and that is a future feature. 
+
 Strategy for the business
+
 There will be an admin section which allows admin staff to add, remove, edit products, and read orders to be fulfilled. There is also an admin link to the full Django admin site, which is only accessible to the superuser. I separated the two for a couple of reasons: 
 The staff structure at the business may want people to add products but not at able to access customer details. In addition, they may want some staff to see the most recent orders but not have access to them all. Finally, this separation can prevent some staff from editing special offers and other finance related possibilities.
 This all allows for full customisation of delegation tasks which allows managers and employees to smoothly work together throughout the day. 
@@ -183,7 +185,7 @@ Finally, when the mouse hovers over any of the categories on the products bar, a
 Other interaction design:
 All of the actions a user can take to personalise and modify their experience takes place within the profile page. This is separate from the main part of the website. Although, the user can still access their uploaded photos from the products detail pages, which makes a more intuitive experience for the user. 
 
-Full list of features
+Please see this link for a [Full list of features](static/files/UX/scope/feature_list.pdf)
 Breakdown the apps and pages
 Footer with email
 
@@ -192,7 +194,7 @@ Wireframes
 
 Whilst this isn't an exhaustive document of every page on each device, it showcases that there is responsive design within the site. These particular images focus on three main
 breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
-[Image a website on different devices.](static/files/testing/responsive_design.pdf)
+[Image a website on different devices.]()
 
 
 
@@ -224,11 +226,7 @@ Horizontal rules have been used across the website to highlight headers and to s
 I found these to be subtle and more flexible to use that a table. 
 
 
-### Wireframes
 
-Wireframes have been made using Balsamiq. 
-
-[Wireframes](static/files/wireframes/ms3-wireframes-with-notes.pdf)
 
 
 ___
