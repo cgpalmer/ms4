@@ -564,6 +564,7 @@ Then, head over to the ‘settings’ tab and click on the ‘reveal config vars
 - STRIPE_PUBLIC_KEY 
 - STRIPE_SECRET_KEY 
 - STRIPE_WH_SECRET
+
 Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
 
 EMAIL_HOST_PASSWORD Can be found in the security settings of your email host.
@@ -580,7 +581,10 @@ pip3 install psycopg2-binary
 ```
 
 At this point, you will need re-record all of your requirements by using the following command.
+
+```
 pip3 freeze --local > requirements.txt
+```
 
 Please note that you need to re-run the requirements command if you add any dependencies mid-project. Otherwise, Heroku will not deploy the app correctly.
 
@@ -636,9 +640,9 @@ $ git push -u Heroku master
 To run this project locally, please ensure you have an IDE installed on your computer. Popular ones are gitpod, Visual Studio or PyCharm (for python projects specifically).
 Regardless of which IDE you choose, you will also need the following installed.
 
-•	PIP – to install packages such as django
-•	Python3 – the project uses Python3 for the backend language – specially Python 3.8
-•	Git – for easy version control
+1. PIP – to install packages such as django
+2. Python3 – the project uses Python3 for the backend language – specially Python 3.8
+3. Git – for easy version control
 
 The next step is to access your github repository. Option 1 is to download a zip file.
 1.	On the GitHub project page, there is a ‘code’ tab which will dropdown to allow you to download a zip file.
