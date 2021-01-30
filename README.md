@@ -33,11 +33,6 @@ ___
 + <a href="#project">Project Evaluation</a>
    - <a href="#improvements">Improvements</a>
 
-
-
-
-
-
 ___
 
 <span id="rationale"></span>
@@ -74,15 +69,6 @@ In the past, I have used the bluetooth machines in shops to print my pictures an
 upload from your phone would go a long way. It would have the look and feel of uploading normal files to your computer, email etc. This made me feel like I could design a site
 where it was accessible to a wide range of people.
 
-
-
-#### Requesting information
-
-
-#### Design
-
-
-
 ___
 
 <span id="UX"></span>
@@ -107,17 +93,8 @@ With a mobile-first design, the website is easy to use straight from your mobile
 4. If the user wants to buy a photo have on their social media account, they can download it to their phone – which is the most likely place for them to use social media. 
 
 Unlike shops where users print their photographs, a user does not need to be familiar with Bluetooth or smartphones in order to get your photos. This, again, widens the demographic of clients. 
-Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For example:
+Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For examples, see user stories. 
 
-Table – scenario - action
-
-User wants a photo to use on digital products. Downloads digitally.
-User wants a photo to put in an existing frame. User have a photo delivered to the door. (Currently restricted to 1 size of 7” x 5”). 
-User has a photo but would like a frames. User buys a frame or canvas on the same website. 
-User wants to buy the photo and wants it in a container. User buys a frame, canvas or calendar and gets the photos printed on for free. 
-User wants to have their photo printer on a canvas, calendar or in a frame. (Photo will be printed to size automatically to match the container.) User uploads their photo and links it to a product. 
-
-I am aware that we should offer to print all photos in a variety of sizes and that is a future feature. 
 
 Strategy for the business
 
@@ -166,6 +143,11 @@ The forms are validated to ensure that all the information that is needed for th
 8. As a user, I want to be able to easily see contact information.
 9. As a user, I want to be able to see a summary of my order before I place it.
 10. As a user, I want to be able to see full size photographs and the quality of them before purchase. 
+11. As a user, I want digitally download my product.
+11. As a user, I want a photo to put in an existing frame. 
+11. As a user, I just want an accessory. 
+11. As a user, I want to buy the photo and have it in or on an accessory. 
+11. As a user, I want my photo printer on a canvas, calendar or in a frame. 
 
 
 #### Retail assistant
@@ -197,22 +179,27 @@ The forms are validated to ensure that all the information that is needed for th
 
 #### Interaction design
 
-
 Navbar	
+
 I have designed the navbar to read top-to-bottom of importance for mobile. On the mobile, I have attempted to space out the important parts so the user associated certain areas of the website with certain functions. 
 I have broken the nav down into two sections. Account and its accessories, including the basket, and the product menu. For both mobile and desktop, the account links are on top and the products nav are on the bottom. I have also included a different dropdown on the mobile, with a different icon to differentiate between the menus.
 I decided to keep the basket icon visible to users at all times. There is a flashing animation that occurs when a new product is added to the basket and, therefore, it would be redundant if it was hidden on mobile. It also keeps a running total for the basket sub-total so the user is aware of how much they are spending.
+
 Mobile specific:
+
 The account dropdown contains linked to the ‘profile, admin, login/logout and register’ pages depending on your status. The hierarchy is that useful links for profile come first, then login/logout, then register. This is because I believe those are visiting that part of the site are returning customers. Most who will sign up, will do it from the checkout link when making a purchase. 
 For the product menu, I have chosen this order: Home, All products, special offers, photograph, frames & canvases. I put the special offers near to the top to entice the users and the frames at the bottom as the main selling point of the website is the photographs. Within each category are the sub-categories, which as this point are random but could change with popularity in orders. 
 
 
 Desktop specific:
+
 With the desktop, I have the account on the left and the basket on the right as before. I have moved the search bar to be in the middle of the product links as a way of balancing the links. 
 It may be argued that the “All products” and “Special offers” should be on the left of the search bar as important reads from left to right. However, I have placed the “Special offers” underneath the basket, so that it is continuously seen every time a use is drawn to the basket’s “added product” animation. 
 Equally, I wanted the main products near to the search bar so should a user not find what they want in the search bar, the bulk of the filters are directly next to the search bar. It is my hope that the user will then start to look through “Photographs” and “Frames & Canvases” for the products they would like. 
 Finally, when the mouse hovers over any of the categories on the products bar, all of the menu opens. This serves as a reminder that there is lots to choose from and explore. The user can traverse across the sub-categories, without the menu hiding itself, providing a satisfying experience. 
+
 Other interaction design:
+
 All of the actions a user can take to personalise and modify their experience takes place within the profile page. This is separate from the main part of the website. Although, the user can still access their uploaded photos from the products detail pages, which makes a more intuitive experience for the user. 
 
 <span id="features"></span>
