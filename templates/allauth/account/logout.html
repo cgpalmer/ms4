@@ -10,13 +10,13 @@
     <div class="row mb-3">
         <div class="col-12 text-center extra-margin-top">
                 <hr>
-                <h2 class="logo-font mb-3">{% trans "Sign Out" %}</h2>
+                <h2 class="logo-font mb-3">{% trans "Log out" %}</h2>
                 <hr>
         </div>
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+            <p>{% trans 'Are you sure you want to log out?' %}</p>
         </div>
         <div class="col-12 col-xl-8 offset-xl-2">
             <form method="post" action="{% url 'account_logout' %}">
@@ -24,7 +24,7 @@
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                 {% endif %}
-                <button class="btn action-btn btn-lg rounded-0 mt-3 mb-3 col-12" type="submit">{% trans 'Sign Out' %}</button>
+                <button class="btn action-btn btn-lg rounded-0 mt-3 mb-3 col-12" type="submit">{% trans 'Log Out' %}</button>
             </form>
         </div>
     </div>
