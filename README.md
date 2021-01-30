@@ -1,7 +1,7 @@
 # Hidden Gems
 
 
-![Landing Image](static/files/wireframes/landing_image.png)
+![Landing Image](static/UX/Skeleton/files/wireframes/landing_image.png)
 ### [Live page](https://hidden-gems-cgpalmer91.herokuapp.com/)
 
 
@@ -73,7 +73,7 @@ ___
 
 <span id="UX"></span>
 ## UX - 5 planes
-
+<span id="fivePlanes"></span>
 ### Strategy
 
 
@@ -163,7 +163,7 @@ The forms are validated to ensure that all the information that is needed for th
 2. As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
 3. As a store owner, I want to be able to easily naviagte to the Django Admin panel.
 
-
+___
 #### Business objectives
 
 1. For people to use us to purchase frames, calendars and canvases.
@@ -442,6 +442,7 @@ Of course, a full list can be found at [requirements.](requirements.txt)
 
 Other
 + [Image Shack](https://imageshack.com/)
++ [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
 
 
 ___
@@ -464,7 +465,7 @@ It has been specifically designed for the following:
    + Laptop with MDPI screen
    + Laptop with HiDPI screen
 
-Please find examples of the sites responsive design [here](static/files/testing/performance_testing/responsive_design.pdf)
+Please find examples of the sites responsive design [here.](static/files/testing/performance_testing/responsive_design.pdf)
 
 
 There are a few major resposive choices, detailed below.

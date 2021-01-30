@@ -103,7 +103,6 @@ As a returning user, I want my personal details to be private. | I do not see an
 
 General User | Expected outcome | Actual outcome 
 --------- | --------------- | ---
-
 As a user, I want to access to all the appropriate features, regardless of what device I am on. | All the above actions can be done on mobile or desktop. | I can still access all the features on every screen. The most noticable is that the search bar and basket are always visible regardless of the screen size.
 As a user, I want to be able to explore the products immediately. | There is an easy way to see the products. | A 'shop now' button and a dedicated nav to the products, makes it very easy for me to find the products immediately.
 As a user, I want to be able to gather information about the products. |There is information ready avaiable for each product. | I found that each product has a summary of the information below the picture. When clicked on, each photo also had a breakdown of the reviews as well as all the previous information.
@@ -144,7 +143,7 @@ These are by design though and intenional.
 
 ### HTML
 My HTML has been checked on this website: https://validator.w3.org/
-I checked the HTML by inputting the address. Here is a photo of the [result](static/files/validation/html_validation.jpg)
+I checked the HTML by inputting the address. Here is a photo of the [result.](static/files/testing/validation/html_validation.jpg)
 
 ### Javascript
 My javascript has been checked at https://jshint.com/
@@ -183,8 +182,10 @@ I used Lighthouse on Google Chrome to test the performance of my website. There 
 and most of the seem around loading up the correct scripts as an when needed or image sizes.
 
 Originally, I used PageSpeed insights and received these scores:
-[Page speed initial mobile](PageSpeed_initial_mobile.pdf)
-[Page speed initial desktop](PageSpeed_initial_desktop.pdf)
+
+[Page speed initial mobile](static/files/testing/performance_testing/PageSpeed_initial_mobile.pdf)
+
+[Page speed initial desktop](static/files/testing/performance_testing/PageSpeed_initial_desktop.pdf)
 
 I then reduced the size of the images to fit the largest container (see also Image Presentation). I also made sure only
 the mobile sized images were loaded on the website and the larger images were available through "href".
@@ -193,7 +194,7 @@ I also created different base.html templates, some of which has more specific re
 the JS where necessary, I greatly sped up my mobile website and improved my desktop performance. 
 
 For comparison and future development, I also used Lighthouse in Chrome to test the performance of my site. I have included the [mobile test](PageSpeed_latest_mobile.pdf)
-and [desktop test](PageSpeed_latest_desktop.pdf)
+and [desktop test.](static/files/testing/performance_testing/PageSpeed_latest_desktop.pdf)
 
 Clearly the numbers are not green yet and there is still work to be done to make the experience optimal for users for the landing page. I tried to
 reduc the image size for the jumbotron but the lack of quality distorted the image and mde little difference in speed.
@@ -202,7 +203,10 @@ However, whilst the landing page still has some improvements, the actual loading
 image sizes and remove unnecessary cdn's has brought the products and product detail pages to a very high score. I also used lazy_loading() to really
 push the experience for the mobile user. The reports are available here:
 
-[Mobile products](Lighthouse_latest_mobile_products.pdf)
-[Mobile product details](Lighthouse_latest_mobile_product_detail.pdf)
-[Desktop products](Lighthouse_latest_desktop_product.pdf)
-[Desktop product details](Lighthouse_latest_desktop_product_detail.pdf)
+[Mobile products](static/files/testing/performance_testing/Lighthouse_latest_mobile_products.pdf)
+
+[Mobile product details](static/files/testing/performance_testing/Lighthouse_latest_mobile_product_detail.pdf)
+
+[Desktop products](static/files/testing/performance_testing/Lighthouse_latest_desktop_product.pdf)
+
+[Desktop product details](static/files/testing/performance_testing/Lighthouse_latest_desktop_product_detail.pdf)
