@@ -124,8 +124,11 @@ In addition, they may want some staff to see the most recent orders but not have
 Finally, this separation can prevent some staff from editing special offers and other finance related possibilities.
 This all allows for the full customisation of delegation tasks which allows managers and employees to smoothly work together throughout the day. 
 The forms are validated to ensure that all the information that is needed for the website to work is provided when adding or editing products. 
+___
 
 ### Scope
+
+___
 <span id="userStories"></span> 
 ### User Stories
 
@@ -135,7 +138,7 @@ The forms are validated to ensure that all the information that is needed for th
 2. As a first-time user, I want to be able to immediately see what the website is about.
 3. As a first-time user, I want to be able to create an account.
 4. As a first-time user, I want to be able to log in with my new account.
-5. As a first-time user, I want to be able to purchase something without having to create and account.
+5. As a first-time user, I want to be able to purchase something without having to create an account.
 
 #### Returning user
 
@@ -181,7 +184,7 @@ The forms are validated to ensure that all the information that is needed for th
 
 #### Store owner (super user)
 
-3. As a store owner, I want to be able to see all of the above.
+1. As a store owner, I want to be able to see all of the above.
 2. As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
 3. As a store owner, I want to be able to easily naviagte to the Django Admin panel.
 
