@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hidden-gems-cgpalmer91.herokuapp.com', 'localhost']
 
@@ -123,12 +123,6 @@ else:
         }
     }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Password validators
 AUTH_PASSWORD_VALIDATORS = [
