@@ -212,7 +212,9 @@ I have designed the navbar to read top-to-bottom of importance for mobile. On th
 I have broken the nav down into two sections. Account and its accessories, including the basket, and the product menu. 
 
 For both mobile and desktop, the account links are on top and the products nav are on the bottom. I have also included a different dropdown on the mobile, with a different icon to differentiate between the menus.
-I decided to keep the basket icon visible to users at all times. There is a flashing animation that occurs when a new product is added to the basket and, therefore, it would be redundant if it was hidden on mobile. It also keeps a running total for the basket sub-total so the user is aware of how much they are spending.
+I decided to keep the basket icon visible to users at all times. 
+
+There is a flashing animation that occurs when a new product is added to the basket and, therefore, it would be redundant if it was hidden on mobile. It also keeps a running total for the basket sub-total so the user is aware of how much they are spending.
 
 Mobile specific:
 
