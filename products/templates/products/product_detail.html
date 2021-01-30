@@ -28,9 +28,7 @@
                     
                     <div class="card-body product-detail-card-body  text-center">   
                         {% if product.special_offer.friendly_name != None %}
-                            <span class="badge  special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
-                        {% else %}
-                            <span class="badge "></span>
+                            <span class="badge  on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
                         {% endif %}
                         <h5 class="card-text">{{product.friendly_name}}</h5>
                         <p class="card-text">            
@@ -141,7 +139,9 @@
                         </form>
                     {% endif %}             
                 </div>
+            <!-- User is not authenticated -->
             {% else %}
+
                 <div class="card product-detail-card-2-column extra-margin-right col-12 first-pd-card col-md-6 col-lg-4 ipad-margin-level shadow p-3  rounded">
                     <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                         <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
@@ -151,9 +151,7 @@
                     </a>
                     <div class="card-body product-detail-card-body  text-center">   
                         {% if product.special_offer.friendly_name != None %}
-                            <span class="badge  special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>
-                        {% else %}
-                            <span class="badge "></span>
+                            <span class="badge  on-top-of-image special-offer-badge p-2">{{product.special_offer.friendly_name}}</span>       
                         {% endif %}
                         <h5 class="card-text">{{product.friendly_name}}</h5>
                         <p class="card-text">            
