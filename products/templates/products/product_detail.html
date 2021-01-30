@@ -14,10 +14,11 @@
                 </div>
             {% endif %}
         </div>
+
         {% if product_type_for_linking == "container" %}
             {% if request.user.is_authenticated %} 
       
-                <div class="card product-detail-card extra-margin-right col-12 first-pd-card col-md-6 col-lg-4 shadow p-3 mb-3 rounded">
+                <div class="card product-detail-card extra-margin-right col-12  first-pd-card col-md-6 order-md-1 col-lg-4 shadow p-3 mb-3 rounded">
                     <a class="d-md-none" href="{{product.image_url_desktop}}" target="_blank">
                         <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                     </a>
@@ -54,7 +55,7 @@
                 </div>
         
                 <!-- Form to handle item preferences such as quantity. -->
-                <div class="card product-detail-card  col-12  mt-3 order-md-2 col-md-6 col-lg-4 shadow p-3 mb-3 rounded text-center">
+                <div class="card product-detail-card  col-12  mt-3 col-md-6 order-md-2 col-lg-4 shadow p-3 mb-3 rounded text-center">
                     <form method="POST" action="{% url 'add_to_basket' product.id %}">
                         {% csrf_token%} 
 
@@ -119,7 +120,7 @@
                 </div>
                 
                 <!-- User image upload -->
-                <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 last-pd-card order-md-3 col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+                <div class="card  product-detail-card d-none d-lg-block col-12  mt-3 last-pd-card col-md-12 order-md-3 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                     <h4 class="my-3">Upload your own images to use!</h4>
                     {% if product_type_for_linking == "container" %}
                         <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
@@ -130,7 +131,7 @@
                     {% endif %}             
                 </div>
            
-                <div class="card col-12  d-block d-lg-none mt-3 last-pd-card ipad-margin-level col-md-12 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
+                <div class="card col-12  d-block d-lg-none mt-3 last-pd-card ipad-margin-level col-md-12 order-md-3 col-lg-4 extra-margin-bottom shadow p-3 rounded text-center">
                     <h4 class="my-3">Upload your own images to use!</h4>
                     {% if product_type_for_linking == "container" %}
                         <form method="POST" action="{% url 'image_upload' product.id %}" enctype="multipart/form-data">
@@ -237,7 +238,7 @@
      
         {% else %}
         <!-- Product detail page for Photographs -->
-        <div class="row">     
+        <div class="row w-100">     
             <div class="card product-detail-card-2-column extra-margin-right col-12  first-pd-card col-md-6 col-lg-6 shadow p-3 mb-3 rounded">
                 <a class="d-md-none" href="{{product.image_url_mobile}}" target="_blank">
                     <img src="{{product.image_url_mobile}}" class="card-img-top product-detail-main-image" alt="{{product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
