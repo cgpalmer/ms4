@@ -223,6 +223,7 @@ Please see this link for a [Full list of features](static/files/UX/Scope/feature
 11. Photos must be printed on all available sizes. Customers should be able to choose that size when adding to the basket.
 12. Better data integration for storing the linked products. 
 13. A modal to provide feedback when an image is uploading.
+14. Order history will be sorted by date like in the admin profile.
 
 
 ### Skeleton design
