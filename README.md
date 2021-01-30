@@ -688,81 +688,54 @@ ___
 <span id="credit"></span>
 ## Credit
 
+I'd like to thank Code Institute for a lot of what I have achieved with my project. The 'Boutique Ado' project gave me excellent example of
+best practise when it came to things like Stripe, User Profiles, setting up forms from a model. I have copied and used a lot of the code for 
+these sections as it was clearly best practice. 
+
+I felt it more pertinent that I build on those practices and personalise them to my website. I felt I did an excellent job at editing the
+code to suit my purpose. Furthermore, I felt I did an even better job of integrating my personal touches into the excellent code base.
+I have ensured I have left a comment on the models or views etc, if I have taken code from the project.
+
+
+
+I got my colour scheme from [Canvas](https://www.canva.com/colors/color-wheel/).
+
+
+The photographs all belong to myself or my partner. 
+
 <span id="tutorials"></span>
 <ins>Tutorials</ins>
 
 For all of the following tutorials, I have edited the code necessary for my project. 
 
-https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_address
-___
-
-https://stackoverflow.com/questions/46132857/allow-certain-group-and-admin-to-view-part-of-html-in-django
-https://stackoverflow.com/questions/44265564/django-registration-of-tag-library-not-working
-
-
-
-https://djangocentral.com/uploading-images-with-django/?fbclid=IwAR3mB4I-krN5zkLP9fqCiiCro8N3JgtrOy_KWGEoV_KilRhJO3FxGn6vaR4#:~:text=The%20image%20column%20is%20an,as%20read%20and%20write%20them.&text=Setting%20dynamic%20paths%20for%20the%20pictures%20is%20also%20possible.&text=Now%2C%20Install%20Pillow%20by%20running%20the%20following%20command%20in%20your%20shell
-https://www.anchorprint.co.uk/printing-products/calendar-printing/
-https://www.pngitem.com/so/landscape-canvas-blank/
-https://frame-company.co.uk/black-20x16-frame-with-white-mount-cut-for-image-size-a3-165x1175_16.html?gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-B6_kFkSbISrgxkqcT4Gt0Jw3nnxoGkkXB5xVpLBntA_ngVFYX39caAvm_EALw_wcB
-http://www.carouselcalendars.co.uk/product/landscapes-of-britain-a4-calendar1
-
-
-downloading files
-https://www.youtube.com/watch?v=qKAf5xF6nOE&t=112s
-
-pdf
-https://codeburst.io/django-render-html-to-pdf-41a2b9c41d16
-
-Cyclic imports
-https://stackoverflow.com/questions/62100550/django-importerror-cannot-import-name-reporterprofile-from-partially-initiali
-
-How to display a backup image
-https://gist.github.com/oscarmorrison/52f9d4b3dfce386c7b11b3fcbdd74dd4
-
-Help with a bug
-https://stackoverflow.com/questions/51380780/django-foreign-key-cannot-assign-must-be-a-instance
-Help updating a blog
-https://stackoverflow.com/questions/3681627/how-to-update-fields-in-a-model-without-creating-a-new-record-in-django
-
-Max value on integer fields
-https://stackoverflow.com/questions/30849862/django-max-length-for-integerfield/30850101#30850101
-
-For loop counter
-https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template
-
-https://www.freecodecamp.org/news/python-empty-list-tutorial-how-to-create-an-empty-list-in-python/
-
-javatpoint.com/python-program-to-print-the-duplicate-elements-of-an-array
-
-https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-in-a-django-queryset/
-
-https://stackoverflow.com/questions/13422689/django-how-to-limit-number-of-objects-returned-from-a-model
-
-https://bootsnipp.com/snippets/e3q3a
-
-https://stackoverflow.com/questions/51084909/how-can-i-use-a-catch-all-route-using-path-or-re-path-so-that-django-passes
-https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handler404-in-django
-https://stackoverflow.com/questions/34685233/css-badge-over-image-with-bootstrap
-
-https://www.canva.com/colors/color-wheel/ - color scheme
-
-https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
-
-https://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering#:~:text=While%20you%20can%20filter%20Models,filtering%20using%20the%20Q%20object.
-
-https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-in-non-debug-mode
-
-Catching broken images
-https://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images
-https://stackoverflow.com/questions/58088946/getting-uncaught-referenceerror-function-is-not-defined
-
-Remove colour from navbar toggler
-https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4
-
-https://stackoverflow.com/questions/16080952/django-cannot-convert-float-to-decimal-first-convert-the-float-to-a-string
-
-
+1. [Email address link](https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_address)
+2. [Allow groups different access - django](https://stackoverflow.com/questions/46132857/allow-certain-group-and-admin-to-view-part-of-html-in-django)
+3. [Registration of custom tags](https://stackoverflow.com/questions/44265564/django-registration-of-tag-library-not-working)
+4. [Pulling data manually from a form](http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.)
+5. [Uploading images with django](https://djangocentral.com/uploading-images-with-django/?fbclid=IwAR3mB4I-krN5zkLP9fqCiiCro8N3JgtrOy_KWGEoV_KilRhJO3FxGn6vaR4#:~:text=The%20image%20column%20is%20an,as%20read%20and%20write%20them.&text=Setting%20dynamic%20paths%20for%20the%20pictures%20is%20also%20possible.&text=Now%2C%20Install%20Pillow%20by%20running%20the%20following%20command%20in%20your%20shell)
+6. [Downloading files](https://www.youtube.com/watch?v=qKAf5xF6nOE&t=112s)
+7. [Dealing with cyclic imports](https://stackoverflow.com/questions/62100550/django-importerror-cannot-import-name-reporterprofile-from-partially-initiali)
+8. [How to display a backup image](https://gist.github.com/oscarmorrison/52f9d4b3dfce386c7b11b3fcbdd74dd4)
+9. [Help with foreign key issues](https://stackoverflow.com/questions/51380780/django-foreign-key-cannot-assign-must-be-a-instance)
+10. [Help updating a blog - this is no longer in the code but I still learnt from it.](https://stackoverflow.com/questions/3681627/how-to-update-fields-in-a-model-without-creating-a-new-record-in-django)
+11. [Max value on integer fields](https://stackoverflow.com/questions/30849862/django-max-length-for-integerfield/30850101#30850101)
+12. [For loop counter](https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template)
+13. [Creating empty list in python](https://www.freecodecamp.org/news/python-empty-list-tutorial-how-to-create-an-empty-list-in-python/)
+14. [Printing duplicate elements of an array](javatpoint.com/python-program-to-print-the-duplicate-elements-of-an-array)
+15. [Filtering null or empty values from a db query](https://chartio.com/resources/tutorials/how-to-filter-for-empty-or-null-values-in-a-django-queryset/)
+16. [Limiting a results from a db query](https://stackoverflow.com/questions/13422689/django-how-to-limit-number-of-objects-returned-from-a-model)
+17. [Catching a 404 in Django](https://stackoverflow.com/questions/51084909/how-can-i-use-a-catch-all-route-using-path-or-re-path-so-that-django-passes)
+18. [Creating a 404 page in Django](https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handler404-in-django)
+19. [Badge on top of an image](https://stackoverflow.com/questions/34685233/css-badge-over-image-with-bootstrap)
+20. [Using session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+21. [Querying a database to find everything except an certain attribute](https://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering#:~:text=While%20you%20can%20filter%20Models,filtering%20using%20the%20Q%20object.)
+22. [Whitenoise 500 error](https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-in-non-debug-mode)
+23. [Catching broken images - jquery](https://stackoverflow.com/questions/92720/jquery-javascript-to-replace-broken-images)
+24. [Catching function is not define](https://stackoverflow.com/questions/58088946/getting-uncaught-referenceerror-function-is-not-defined)
+25. [Remove colour from navbar toggler](https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4)
+26. [Adding a decimal to a float](https://stackoverflow.com/questions/16080952/django-cannot-convert-float-to-decimal-first-convert-the-float-to-a-string)
+27. This site helped me know which [Frames](https://www.frames.co.uk/picture-frames/popular-sizes) were the right size.
+28. This site helped me know which [Canvases](https://blog.365canvas.com/canvas-sizes/) were the right size.
 
 <span id="media"></span>
 <ins>Media</ins>
@@ -771,15 +744,20 @@ To generate my favicon, I used this website:
 
 https://favicon.io/emoji-favicons/gem-stone
 
-These ima 
+Below are linked to the images I used for accessory products:
+1. [Link to where I got my calendar pictures from](https://www.anchorprint.co.uk/printing-products/calendar-printing/)
+2. [Link to the A3 calendar link](http://www.carouselcalendars.co.uk/product/landscapes-of-britain-a4-calendar1)
+3. [Link to the website where I got the canvas pictures from](https://www.pngitem.com/so/landscape-canvas-blank/)
+4. [Link to the website where I got the photo frame picture from](https://frame-company.co.uk/black-20x16-frame-with-white-mount-cut-for-image-size-a3-165x1175_16.html?gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-B6_kFkSbISrgxkqcT4Gt0Jw3nnxoGkkXB5xVpLBntA_ngVFYX39caAvm_EALw_wcB)
 
-This site helped me know which [Frames](https://www.frames.co.uk/picture-frames/popular-sizes) were the right size.
-This site helped me know which [Canvases](https://blog.365canvas.com/canvas-sizes/) were the right size.
+
+
 
 <span id="acknowledgements"></span>
 <ins>Acknowledgements</ins>  
 
-Thank you to Asos and Topshop for providing different mobile experiences, which I used to help inform my own decisions. 
+I'd also like to give credit to Asos and Topshop - as their mobile designs gave me plenty of ideas and helped me to work through some of the more
+difficult navigation decisions.
 
 
 ___
