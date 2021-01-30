@@ -120,12 +120,12 @@ The forms are validated to ensure that all the information that is needed for th
 1. As a returning user, I want to be able to log in easily.
 2. As a returning user, I want to be able to modify my delivery details.
 3. As a returning user, I want to be able to modify one of my reviews.
-4. As a returning user, I want to be able to delete one of my reviews.
+4. As a returning user, I want to be able to add a review.
 5. As a returning user, I want to be able to delete one of my reviews.
 6. As a returning user, I want to be able to upload one of my own images to use.
 7. As a returning user, I want to be able to use a previous upload in a purchase.
 8. As a returning user, I want to be able to see my order history.
-9. As a returning user, I want to be able to see my previous products.
+9. As a returning user, I want to be able to see my previous purchases.
 10. As a returning user, I want to be able to download my digital purchase.
 11. As a returning user, I want to be able to change my password.
 12. As a returning user, I want to be able to log out when I am done.
@@ -143,17 +143,18 @@ The forms are validated to ensure that all the information that is needed for th
 8. As a user, I want to be able to easily see contact information.
 9. As a user, I want to be able to see a summary of my order before I place it.
 10. As a user, I want to be able to see full size photographs and the quality of them before purchase. 
-11. As a user, I want digitally download my product.
-12. As a user, I want a photo to put in an existing frame. 
-13. As a user, I just want an accessory. 
+11. As a user, I want digitally download my purchase.
+12. As a user, I want to print and have a photo delivered. 
+13. As a user, I just purchase want an accessory. 
 14. As a user, I want to buy the photo and have it in or on an accessory. 
-15. As a user, I want my photo printer on a canvas, calendar or in a frame. 
+15. As a user, I want my photo printed on a canvas, calendar or in a frame. 
 
 
 #### Retail assistant
 
 1. As a retail assistant, I want to be able to edit a product.
 2. As a retail assistant, I want to be able to add a product.
+2. As a retail assistant, I want to be able to delete a product.
 3. As a retail assistant, I want to be able to see the latest 5 orders.
 
 #### Store owner (super user)
