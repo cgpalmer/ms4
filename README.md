@@ -696,12 +696,17 @@ I felt it more pertinent that I build on those practices and personalise them to
 code to suit my purpose. Furthermore, I felt I did an even better job of integrating my personal touches into the excellent code base.
 I have ensured I have left a comment on the models or views etc, if I have taken code from the project.
 
-
-
-I got my colour scheme from [Canvas](https://www.canva.com/colors/color-wheel/).
-
-
-The photographs all belong to myself or my partner. 
+I also used the documentation for the following:
+- Bootstrap
+- jQuery
+- W3schools
+- Font Awesome
+- Django
+- Python 3
+- Whitenoise
+- Stripe
+- AWS
+- Heroku
 
 <span id="tutorials"></span>
 <ins>Tutorials</ins>
@@ -750,8 +755,9 @@ Below are linked to the images I used for accessory products:
 3. [Link to the website where I got the canvas pictures from](https://www.pngitem.com/so/landscape-canvas-blank/)
 4. [Link to the website where I got the photo frame picture from](https://frame-company.co.uk/black-20x16-frame-with-white-mount-cut-for-image-size-a3-165x1175_16.html?gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-B6_kFkSbISrgxkqcT4Gt0Jw3nnxoGkkXB5xVpLBntA_ngVFYX39caAvm_EALw_wcB)
 
+The photographs all belong to myself or my partner. 
 
-
+I got my colour scheme from [Canvas](https://www.canva.com/colors/color-wheel/).
 
 <span id="acknowledgements"></span>
 <ins>Acknowledgements</ins>  
