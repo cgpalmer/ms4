@@ -1,4 +1,4 @@
-# Report On Any Discrimination
+# Hidden Gems
 
 
 ![Landing Image](static/files/wireframes/landing_image.png)

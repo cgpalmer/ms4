@@ -31,6 +31,49 @@ User 3
 
 The active class for this item turned the color the same as the background, making it "disappear". I corrected the classes. 
 
+## Automated testing
+
+One improvement of my project is that I should applied the test driven development to automated tests and not just manipulate
+tests. As a result, I have done my automated testing at the end and it doesn't sufficiently cover the whole project.
+
+Despite this, I feel there has been more than enough thorough manual testing to ensure the website is fully functional.
+
+The tests I've carried out cover testing the views, models and forms. I have tried to test key segments of the project
+to ensure the website cannot be broken. For larger testing, I have split up the test.py into two files.
+
+Basket
+
+I have used this [tutorial](https://www.youtube.com/watch?v=0MrgsYswT1c&feature=youtu.be) to test the urls.
+
+Products
+
+I have split these files into test_forms.py and test_views_and_models. I have tested to make sure when a user adds a product, the minimum information is supplied for the code to work.
+I have also tested that the views return the correct url based on whether it is a get or post request.
+
+Reviews
+
+Again, this is split into forms and views. For the forms, I've added in checking the max score a review can get is 5 
+and the lowest is 0. This is an extra defensive design build into the model. I have also tested that the views are
+returning users to the correct page.
+
+#### Running the tests
+
+One thing I didn't manage to work out, was how to do the automated test as if I was logged in. Therefore, for now,
+when testing you will to remove the @login decorator on any views you are testing. This is not ideal and will be
+my main improvement in the future.
+
+To run the tests in each app, simply run:
+
+```
+python3 manage.py test "app name"
+```
+
+Or if there is more than one file:
+
+```
+python3 manage.py test app_name.test_file
+```
+
 ## User stories tests
 
 User Stories - first time users | Expected outcome | Actual outcome 
