@@ -144,10 +144,10 @@ The forms are validated to ensure that all the information that is needed for th
 9. As a user, I want to be able to see a summary of my order before I place it.
 10. As a user, I want to be able to see full size photographs and the quality of them before purchase. 
 11. As a user, I want digitally download my product.
-11. As a user, I want a photo to put in an existing frame. 
-11. As a user, I just want an accessory. 
-11. As a user, I want to buy the photo and have it in or on an accessory. 
-11. As a user, I want my photo printer on a canvas, calendar or in a frame. 
+12. As a user, I want a photo to put in an existing frame. 
+13. As a user, I just want an accessory. 
+14. As a user, I want to buy the photo and have it in or on an accessory. 
+15. As a user, I want my photo printer on a canvas, calendar or in a frame. 
 
 
 #### Retail assistant
