@@ -54,9 +54,9 @@
                                         </div>
                                         {% for lp in item.item.linked_products%}
                                             {% if lp != 'Not linked' %}
-                                                {% if lp g != 'Not available' %}
+                                                {% if lp != 'Not available' %}
                                                     <div class="col-6 col-lg-3 linked-products-div">
-                                                        <small>{{g|truncatechars:8}}</small>
+                                                        <small>{{lp|truncatechars:8}}</small>
                                                     </div>
                                                 {% endif %}
                                             {% endif %}
