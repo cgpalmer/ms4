@@ -25,9 +25,6 @@ def add_to_basket(request, item_id):
         # Retrieving form data
         quantity = int(request.POST.get('quantity'))
         digital_download = request.POST.get('digital_download')
-        print("Printing digital download " + str(digital_download))
-        print(type(digital_download))
-        print(digital_download)
         linked_products = [['Not linked']]  # Default setting
         product = get_object_or_404(Product, pk=item_id)
 
@@ -194,7 +191,6 @@ def edit_basket(request):
         item_number = item_number + 1
         if int(basket_item_id) == item['basket_item_id']:
             # Updating the quantity
-            print(item['quantity'])
             if int(updated_quantity) == 0:
                 del basket['items'][item_number]
             else:

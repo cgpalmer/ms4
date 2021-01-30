@@ -2,11 +2,11 @@ from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
-
 import json
 import time
 
 
+# This code has been copied directly from Boutique Ado - Code Institute
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -36,7 +36,6 @@ class StripeWH_Handler:
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
-            print(value)
             if value == "":
                 shipping_details.address[field] = None
         # Update profile information if save_info was checked
@@ -55,7 +54,6 @@ class StripeWH_Handler:
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
-        print(shipping_details.address[field])
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -76,17 +74,14 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-                print('been broken')
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            print('order exists db')
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
-            print('nothing found in database')
             order = None
             try:
                 order = Order.objects.create(

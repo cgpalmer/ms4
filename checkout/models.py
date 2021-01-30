@@ -5,12 +5,11 @@ from django.db.models import Sum
 from django.conf import settings
 from decimal import Decimal
 from django_countries.fields import CountryField
-
 from products.models import Product
-
 from profiles.models import UserProfile
 
 
+# This majority of this model is from Boutique Ado, with some small tweeks for my website.
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
@@ -71,6 +70,7 @@ class OrderLineItem(models.Model):
                                          null=False, blank=False, editable=False)
     digital_download = models.BooleanField(default=False)
 
+    # This code has been copied directly from Boutique Ado - Code Institute
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total

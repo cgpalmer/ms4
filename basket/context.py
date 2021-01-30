@@ -5,6 +5,7 @@ from products.models import Product
 from profiles.models import Image_upload
 
 
+# This code was initially copied from Boutique Ado but has been changed to suit my website.
 def basket_contents(request):
 
     basket_items = []

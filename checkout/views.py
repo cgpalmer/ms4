@@ -10,11 +10,11 @@ from profiles.forms import UserProfileForm
 from checkout.models import Linked_Product
 from basket.context import basket_contents
 from basket.views import emptyingBasket
-
 import stripe
 import json
 
 
+# This function has been copied directly from Boutique Ado - Code Institute
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -32,42 +32,44 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+''' This function checks to see if the user has created duplicate
+    items whilst editing the basket. It the removes the duplicates
+    and updates the quantity.
+'''
+
+
 def condensing_basket(request):
     basket = request.session.get('basket', {})
     if basket != {}:
         list_of_items_to_check = []
         duplicates_found = []
+
+        # Looping through the basket to form a list of items to check.
         for item in basket['items']:
 
             appending_item = [item['basket_item_id'], int(item['quantity']), [item['item_id'], item['digital_download'],
                               item['linked_products']]]
             list_of_items_to_check.append(appending_item)
 
+        # Finding the initial duplications
         for i in range(0, len(list_of_items_to_check)):
             for j in range(i+1, len(list_of_items_to_check)):
                 if list_of_items_to_check[i][2] == list_of_items_to_check[j][2]:
-                    print("duplicate found")
-                    print(list_of_items_to_check[j])
-                    print(list_of_items_to_check[i])
                     duplicates_found.append([list_of_items_to_check[i], list_of_items_to_check[j]])
-                    print(duplicates_found)
 
+        # Updating the quantity of the duplicates
         for k in range(len(duplicates_found)):
             for item in basket['items']:
                 if item['digital_download'] is None:
                     if item['basket_item_id'] == duplicates_found[k][0][0]:
                         item['quantity'] = item['quantity'] + duplicates_found[k][1][1]
                         request.session['basket'] = basket
-                        print("new item quantity")
-                        print(item['quantity'])
-        
 
+        # Deleting a duplicate
         for k in range(len(duplicates_found)):
-            print(len(duplicates_found))
             item_number = -1
             for item in basket['items']:
                 item_number = item_number + 1
-                print(item_number)
                 if item['basket_item_id'] == duplicates_found[k][1][0]:
                     del basket['items'][item_number]
                 request.session['basket'] = basket
@@ -77,8 +79,13 @@ def condensing_basket(request):
         return redirect('view_basket')
 
 
-def checkout(request):
+'''
+This majority of this function has been copied directly from
+Boutique Ado - Code Institute, with minor adjustments from me.
+'''
 
+
+def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -103,6 +110,7 @@ def checkout(request):
             order.original_basket = json.dumps(basket['items'])
             order.save()
 
+            # This checks the delivery method.
             for item in basket['items']:
                 if item['digital_download'] == 'on':
                     digital_download = True
@@ -211,8 +219,7 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    # This is where orders are stored for digital download
-
+    # This is where orders are stored for digital downloads.
     basket = request.session.get('basket', {})
     if basket != {}:
         for item in basket['items']:
@@ -221,8 +228,6 @@ def checkout_success(request, order_number):
             name = product.friendly_name
             if item['digital_download']:
                 user = request.user
-                # product_file_path = product.image_desktop
-        # Check what happens in the item line when someone orders two.
                 number_of_times_downloaded = 0
                 ContentReadyToDownload.objects.create(user=user, sku=sku, name=name, product=product,
                                                       number_of_times_downloaded=number_of_times_downloaded)

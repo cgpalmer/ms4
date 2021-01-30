@@ -2,6 +2,7 @@ from django import forms
 from .models import Order
 
 
+# This code has been copied directly from Boutique Ado - Code Institute
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -11,10 +12,6 @@ class OrderForm(forms.ModelForm):
                   'county',)
 
     def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
-        """
         super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
