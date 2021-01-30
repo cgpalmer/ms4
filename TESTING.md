@@ -35,53 +35,55 @@ The active class for this item turned the color the same as the background, maki
 
 User Stories - first time users | Expected outcome | Actual outcome 
 --------- | --------------- | ---
-As a first-time user, I want to easily navigate through the website be able to easily access all of its features. | I expect all of the links to be working and in an intuitive position| All the links take me to their destination and none are broken.
-As a first-time user, I want to be able to immediately see what the website is about.                             | I expect information about the website to be ready available on the landing page without needed to click a button | The purpose is very close to the top and the home page gives me all the information I need 
-As a first-time user, I want to be able to create an account.                                                     | I expect to be able to fill in the signup form and successfully create and account | I can fill out the form and submit it. I receive feedback if I make a mistake and when I am successful I am taken to my dashboard area. I know it has worked because on the dashboard I can see 'Welcome, (my name)'.
-As a first-time user, I want to be able to log in with my new account.                                            | I expect to be able to login to my new account immediately. | After I sign up, I am taken to the dashboard. If I log out I can immediately log in again.
-As a first time user, I want to be able to explore the dashboard immediately.                                     | I expect that when I signup, I am taken to the user area (dashboard) immediately. | The result is as expected. I can explore my reports and get into my settings.
-As a first time user, I want to be able to add a report regardless of whether I have created an account or not.   | I expect to be able to add a report even if I don't have an account by filling out the add report form. | If I add a report without creating an account, I am still successful. I receive feedback thanking me for my report and I am taken back to the 'add report' screen.
-As a first-time user, I want to be able to search reports.                                                        | I expect to click on the search report link and fill in the form to find reports.| I can get to the search page regardless of being a user or not. I can search by location, discrimination or reported reports and it will display my results in a pagination collapsible.
-As a first-time user, I want to be able to log out when I am done.                                                | I can click the logout link and no longer be logged in | After clicking the log out link, I am taking to the home page and the options to login or signup reappears on the nav.
-As a first-time user, I want my personal details to be private and kept away from the reports.                    | When I search the database for a report, I do expect there to be any of my login details on display | This is as expected - none of my details are on display.
+As a first-time user, I want to easily navigate through the website be able to easily access all of its features. | I expect all of the links to be working and in an intuitive position| All the links take me to their destination and none are broken. Both desktop and mobile screens have the same functionality.
+As a first-time user, I want to be able to immediately see what the website is about.                             | I expect information about the website to be ready available on the landing page without needed to click a button | The purpose is very clear in the middle of the jumbotron. There is a 'shop' now button to immediately get started.
+As a first-time user, I want to be able to create an account.                                                     | I expect to be able to fill in the signup form and successfully create and account |  I can fill out the form and submit it. I receive feedback if I make a mistake and when I am successful I sent a verification email, which allows me to verify the account.
+As a first-time user, I want to be able to log in with my new account.                                            | I expect to be able to login to my new account immediately. | Once my email is verified, I can log in using those details immediately.
+As a first-time user, I want to be able to purchase something without having to create and account. | I expect to be able to process a purchase without needing log in. | When I am not logged in, I can still see all of the products. The basket and checkout work and I told I will tell an emailed summary of my transaction.
+
  
 User Stories - returning users | Expected outcome | Actual outcome 
 --------- | --------------- | ---
-As a returning user, I want to be able to log in easily.                                                     | I expect to find the login button easily and be able to fill in the form to login.| I could find the login button easily in the nav bar and the form is very quick to fill in. Once I have logged in I am taken to the dashboard.
-As a returning user, I want to search through my own reports.                                                 | I expect to be able to search through my own reports. | I can intuitively search through my own reports in the dashboard over. The collapsible is already open to draw my attention. I filled out the form and I receive the results in the same style as searching the whole database.
-As a returning user, I want to be able to add a report and it go into my collection.                          | I expect to add a report and then find it in my results| I clicked the link to add a report in the dashboard and it took me to the same add report link as a new user. Once I had added the report, I could then find it by searching ym reports in the dashboard.
-As a returning user, I want to be able to modify one of my reports.                                          | I expect to be able to pick a report and update any of the elements | I could edit any of the reports after doing a search in the dashboard. I can then update any of the elements and, if untouched, the rest stay the same.
-As a returning user, I want to be able to delete one of my reports.                                          | I expect to pick a report, click delete and then confirm my delete | I can select any of my reports, click delete, view the report and confirm delete. I am then taken back to the dashboard and receive feedback that my report has been successfully deleted.
-As a returning user, I want to be able to change my preferred name.                                          | I expect to be able to changed my preferred name and receive feedback| I can change my preferred name in the settings page, which I can access intuitively from the dashboard. I am informed of my current preferred name before I change the name and then receive feedback once I have changed it to let me know I was successful.
-As a returning user, I want to be able to change my email.                                                   | I expect to be able to change the email address associate with my account | Like the password, I can change my email in the settings. When I change the email address, I get feedback to say I was successful. Also, all of my reports have been swapped over to my new email.
-As a returning user, I want to be able to change my password.                                                | I expect to be able to change my password securely | I can change my password int he settings page. If I input my old password correctly, I can change my password. I received feedback to let me know I was successful.
-As a returning user, I want to be able to delete my account.                                                  | I expect to be able to delete my account and have all my reports deleted with it| My account is deleted and if I search the database none of my reports are there.
+As a returning user, I want to be able to log in easily. | I can find the log in page and it is easy to log in. | The log in page is easily found in the account dropdown and the form is simple, with prompts if I get my details wrong.
+As a returning user, I want to be able to modify my delivery details.| There is a convenient place to change my details. | The profile page has a section labelled 'delivery information' and is a simple form to update. 
+As a returning user, I want to be able to modify one of my reviews.| There is a convenient place to edit my reviews. | On my profile page, there is a section for editing reviews. I can see all my reviews and choose which to edit, before being taken to a simple 'edit review' form.
+As a returning user, I want to be able to add a review.| There is an intuitive method of adding a review. | Below the product summary on the product details, there is a clear link to add a review. It takes me to a very simple form that is easy to use.
+As a returning user, I want to be able to delete one of my reviews.| There is a convenient place to edit my reviews. | On my profile page, there is a section for editing reviews. I can see all my reviews and choose which to delete. I receive a warning in case I have pressed delete by accident.
+As a returning user, I want to be able to upload one of my own images to use.| There is a convenient place to upload my own images. | I can do this when viewing an accessory product or on my profile page. 
+As a returning user, I want to be able to use a previous upload in a purchase.| I can easily choose my photos to be a linked product. | In the linked product select options, when buying an accessory, I can see my own photos above the store's.
+As a returning user, I want to be able to see my order history.| There is a convenient place to see my order history. |On my profile page, there is a section for editing reviews. I can see all my older orders. A link on each order will take me to a full summary.
+As a returning user, I want to be able to see my previous digital purchases.| There is a convenient place to see my previous digital purchases. |On my profile page, there is a section for purchased products, with a dropdown. There I can see the name of my previous digital downloads and the time they were downloaded.
+As a returning user, I want to be able to download my digital purchase.| There is a convenient place to see my digital purchases. |On my profile page, there is a section for purchased products. There I can click to download any of my purchased products. It takes me to a page which has very clear and easy instructions.
+As a returning user, I want to be able to change my password.| I can request to change my password. | On the log in page, there is a clear link to reset my password. I fill in my email details, receive a link, where I can simply reset the password. I get a message saying it is successful and I log in again.
+As a returning user, I want to be able to log out when I am done.| There is a quick and easy way for me to log out. | Whenever I am logged in, I can click the logout button in the account menu. This takes me to a confirmation page, where I just click "signout". 
+As a returning user, I want my personal details to be private. | I do not see any of my personal details after logging out. | All personal details such as basket items, photo lists, profile pages aren't available to me as soon as I log out.
 
 General User | Expected outcome | Actual outcome 
 --------- | --------------- | ---
 
-As a user, I want to access to all the appropriate features, regardless of what device I am on. 
-As a user, I want to be able to explore the products immediately.
-As a user, I want to be able to gather information about the products.
-As a user, I want to know when I have added something to my basket.
-As a user, I want to be able to modify my basket at any point. 
-As a user, I want to be able to view my basket at any moment.
-As a user, I want to be able to search for different products.
-As a user, I want to be able to easily see contact information.
-As a user, I want to be able to see a summary of my order before I place it.
-As a user, I want to be able to see full size photographs and the quality of them before purchase. 
+As a user, I want to access to all the appropriate features, regardless of what device I am on. | All the above actions can be done on mobile or desktop. | I can still access all the features on every screen. The most noticable is that the search bar and basket are always visible regardless of the screen size.
+As a user, I want to be able to explore the products immediately. | There is an easy way to see the products. | A 'shop now' button and a dedicated nav to the products, makes it very easy for me to find the products immediately.
+As a user, I want to be able to gather information about the products. |There is information ready avaiable for each product. | I found that each product has a summary of the information below the picture. When clicked on, each photo also had a breakdown of the reviews as well as all the previous information.
+As a user, I want to know when I have added something to my basket. | It is clear that I have successfully added something to my basket. | The basket icon turns flashes blue when an item is added and there is a message at the top of the screen showing success.
+As a user, I want to be able to modify my basket at any point. | I can reach my basket easily from anywhere and start editing. | The basket is always on show at the top of the screen. Once I click the icon, I am taken to the basket page where I can click one more button and start editing my order.
+As a user, I want to be able to view my basket at any moment. | I can reach my basket easily from anywhere and start editing. | The basket is always on show at the top of the screen. It has a summary of my sub-total. Once I click the icon, I am taken to the basket page.
+As a user, I want to be able to search for different products. | The search bar produces different results. | I can search at any time as the search bar is always visible. It tells me how many products it has returned, even if 0.
+As a user, I want to be able to easily see contact information. | There is an easy to find place with contact information on. | The footer is included in every page and has all the contact information on.
+As a user, I want to be able to see a summary of my order before I place it. | I can see all my items and how much it will cost. | On the checkout page, I can see a full order summary and cost, before getting to the payment section.
+As a user, I want to be able to see full size photographs and the quality of them before purchase. | I am able to access the full pictures that I am purchasing. | Nearly every image is clickable and takes me to another window where I can see a high quality image. There are sometimes prompts to remind me of this.
 
 Retail assistant | Expected outcome | Actual outcome 
 --------- | --------------- | ---
-As a retail assistant, I want to be able to edit a product.
-As a retail assistant, I want to be able to add a product.
-As a retail assistant, I want to be able to see the latest 5 orders.
+As a retail assistant, I want to be able to edit a product. | There is a convenient place to edit a product. | The admin page has a select where I choose a product by category. I can the click to edit individual products and fill out an easy form. 
+As a retail assistant, I want to be able to add a product. | There is a convenient place to add a product. | The admin page has a link to add a product. I can the click to and fill out an easy form. 
+As a retail assistant, I want to be able to see the latest 5 orders. | There is a convenient place to see the latest orders. | The admin page has a select where it shows the last 5 orders. There is a link to the order summary. 
+As a retail assistant, I want to be able to delete a product. | There is a convenient place to delete a product. | The admin page has a select where I choose a product by category. I can the click to delete individual products and receive a warning to ensure I want to delete. 
 
 Store Owner | Expected outcome | Actual outcome 
 --------- | --------------- | ---
-As a store owner, I want to be able to see all of the above.
-As a store owner, I want to be able to easily control and manipulate all the data associated with the website. 
-As a store owner, I want to be able to easily naviagte to the Django Admin panel.
+As a store owner, I want to be able to see all of the above. | I have access to all of the web pages. | I do have access to the admin profile page.
+As a store owner, I want to be able to easily control and manipulate all the data associated with the website. | I have the ability to edit the way my site works from one page. | Django's CMS covers everything and I have access to it as a Store Owner. 
+As a store owner, I want to be able to easily naviagte to the Django Admin panel. | There is an easy way to get to the Django CMS. | On the admin page there is a link to Django's CMS.
 
 
 ## Code validation

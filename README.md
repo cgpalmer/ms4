@@ -225,6 +225,8 @@ Please see this link for a [Full list of features](static/files/UX/Scope/feature
 12. Better data integration for storing the linked products. 
 13. A modal to provide feedback when an image is uploading.
 14. Order history will be sorted by date like in the admin profile.
+15. To have an image preview when editing, in the basket, linked products of an accessory.
+16. Warn users if they have repeated linked products on their calendars after they edit basket.
 
 
 ### Skeleton design
