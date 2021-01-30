@@ -89,7 +89,7 @@ As a store owner, I want to be able to easily naviagte to the Django Admin panel
 ### Python
 To check my python code validation, I have used a combination of 'cornflakes-linter 0.4.0' and http://pep8online.com/
 I have configured the cornflakes to accept a line length of 120 characters.
-Therefore, the only code issue that comes up on http://pep8online.com/ is that the lines are too long as it is set to 79 characters.
+I had have some warning or 'avoid using null' but each issue that is left is by design. 
 
 ### CSS
 CSS has been checked by this online validator: [Jigsaw](https://jigsaw.w3.org/css-validator/ )
@@ -99,6 +99,7 @@ These are by design though and intenional.
 
 ### HTML
 My HTML has been checked on this website: https://validator.w3.org/
+I checked the HTML by inputting the address. Here is a photo of the [result](static/files/validation/html_validation.jpg)
 
 ### Javascript
 My javascript has been checked at https://jshint.com/
