@@ -270,11 +270,11 @@ Wireframes
 Whilst this isn't an exhaustive document of every page on each device, it showcases that there is responsive design within the site. These particular images focus on three main
 breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
 
-[Wireframes](static/files/Skeleton/wireframes/wireframes_finished.pdf)
+[Wireframes](static/UX/files/Skeleton/wireframes/wireframes_finished.pdf)
 
-[Workflow - navigation](static/files/Skeleton/wireframes/workflow_for_navigation.pdf)
+[Workflow - navigation](static/UX/files/Skeleton/wireframes/workflow_for_navigation.pdf)
 
-[Image a website on different devices.](static/files/testing/performance_testing/responsive_design.pdf)
+[Image a website on different devices](static/files/testing/performance_testing/responsive_design.pdf)
 
 
 
