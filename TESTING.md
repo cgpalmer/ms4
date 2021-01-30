@@ -173,6 +173,7 @@ I specifically test the following things:
    + Do the collapsibles and their animations open?
    + Does the checkbox still work?
 I also tested my website across the different browsers to ensure the CSS and JS held up, which it does. 
+
 [Cross Browser Testing](static/files/testing/performance_testing/cross_browser_testing.pdf)
 
 
@@ -193,7 +194,7 @@ the mobile sized images were loaded on the website and the larger images were av
 I also created different base.html templates, some of which has more specific requirements such as the Stripe JS. By only including
 the JS where necessary, I greatly sped up my mobile website and improved my desktop performance. 
 
-For comparison and future development, I also used Lighthouse in Chrome to test the performance of my site. I have included the [mobile test](PageSpeed_latest_mobile.pdf)
+For comparison and future development, I also used Lighthouse in Chrome to test the performance of my site. I have included the [mobile test](static/files/testing/performance_testing/PageSpeed_latest_mobile.pdf)
 and [desktop test.](static/files/testing/performance_testing/PageSpeed_latest_desktop.pdf)
 
 Clearly the numbers are not green yet and there is still work to be done to make the experience optimal for users for the landing page. I tried to

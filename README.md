@@ -694,9 +694,11 @@ You will need the following for your code to run:
 The database URL is so you can run the postgres server than I am running. If you remove the DATABASE_URL from the env, the settings.py will default to a sqlite3 database. Regardless of which database you run, will need to create the databases using the following commands.
 Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
 
-EMAIL_HOST_PASSWORD Can be found in the security settings of your email host.
-The EMAIL_HOST_USER is simply the email address from which you want your emails to be sent from. 
+EMAIL_HOST_PASSWORD 
 
+Can be found in the security settings of your email host.
+
+The EMAIL_HOST_USER is simply the email address from which you want your emails to be sent from. 
 
 Before you can start the local server, you will need to make sure your models have been created in the database. Follow these commands: 
 ```
