@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
@@ -31,9 +32,7 @@ class Product(models.Model):
     image_mobile = models.ImageField(null=False, blank=True)
     image_desktop = models.ImageField(max_length=1024, null=False, blank=True)
     digital_download = models.BooleanField(default=False, null=True, blank=True)
-
     product_type = models.CharField(max_length=254, null=False, blank=True)
-    # check these as things will break if this is allowed to be null.
     number_of_pictures = models.IntegerField(default=0)
 
     def __str__(self):
@@ -47,6 +46,3 @@ class Special(models.Model):
 
     def __str__(self):
         return self.name
-
-
-

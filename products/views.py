@@ -10,10 +10,6 @@ from profiles.forms import Image_uploadForm
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-''' A view to show all the products and somewhere to search and sort by.'''
-
-
 def photo_products(request):
     products = Product.objects.filter(product_type="photo")
     context = {
@@ -30,6 +26,7 @@ def container_products(request):
     return render(request, 'products/products.html', context)
 
 
+# A view to show all the products and somewhere to search and sort by.
 def all_products(request):
     # Returning the products page
     products = Product.objects.all()
@@ -39,6 +36,7 @@ def all_products(request):
     sort = None
     direction = None
 
+    # Getting search queries from the URL
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -97,17 +95,21 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     linked_product = Product.objects.filter(product_type="photo")
     user_photos = Image_upload.objects.filter(user=request.user)
-    # change to id
     review = Review.objects.filter(product=product_id)
+
+    # Querying the type of product
     if product.product_type == "photo":
         product_type_for_linking = "photo"
     else:
         product_type_for_linking = "container"
+
     form = Image_uploadForm()
+
     number_of_pictures = product.number_of_pictures
     number_of_pictures_loop = []
     for n in range(number_of_pictures):
         number_of_pictures_loop.append(n)
+
     context = {
         'product': product,
         'review': review,
@@ -119,14 +121,14 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
+
 # @login_required
 def add_product(request):
     """ Add a product to the store """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            # question this - remove product from this line.
-            product = form.save()
+            form.save()
             # Retrieving the product, calculating the price and updating the discount price.
             sku = form.cleaned_data.get("sku")
             retrieve_product = get_object_or_404(Product, sku=sku)
@@ -134,7 +136,6 @@ def add_product(request):
             product_discount = 1 - retrieve_product.special_offer.discounts
             discount_price = product_price * product_discount
             retrieve_product.discount_price = discount_price
-            # http://www.learningaboutelectronics.com/Articles/How-to-retrieve-data-from-a-Django-form-Python.php#:~:text=Basically%20to%20extract%20data%20from,this%20function%20as%20a%20parameter.
             retrieve_product.save()
             return redirect(reverse('admin_profile_page'))
         else:
@@ -147,6 +148,7 @@ def add_product(request):
         'form': form,
     }
     return render(request, template, context)
+
 
 # @login_required
 def edit_product(request, product_id):
@@ -177,6 +179,7 @@ def edit_product(request, product_id):
     }
     return render(request, template, context)
 
+
 # @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
@@ -184,4 +187,3 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('admin_profile_page'))
-
