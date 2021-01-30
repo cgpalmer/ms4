@@ -45,9 +45,11 @@ Users will be able to select from a wide range of my own personal photographs an
 a variety of canvas sizes, frames or calendars. In addition, users can use their own unique photographs and have them printed in 
 the same way!
 
+Photos can be digitally downloaded, delivered or put in a frame, calendar or on a canvas.
+
 With no need for bluetooth or fancy smart phones, Hidden Gems is a one-stop shop for all of the users needs! 
 
-Photos can be digitally downloaded, delivered or put in a frame, calendar or on a canvas.
+
 
 
 ___
@@ -77,30 +79,50 @@ ___
 ### Strategy
 
 
-Design
-Simple and intuitive site that is easy enough for anyone to use, from mobile or desktop. No special features needed like Bluetooth or Account being made.  
+#### Design
 
-Business
+Simple and intuitive site that is easy enough for anyone to use, from mobile or desktop. No special features needed 
+like Bluetooth or having to make an account.  
+
+#### Business
 Make it easy for people to to buy photographs digitally or physically, with the option of having the in a frame, or printer to calendars or canvases. 
 
-Having a website interface is the most accessible design to reach the widest net of clients. This means that users of all ages are more likely to be comfortable on the platform. An app may be the more popular choice amongst younger user whereas the older generation are accustomed to websites – which are not subject to such quick change. In addition, whilst the younger generation may prefer an app, they are fully capable of searching for a website. The capabilities of using an app, or a smartphone over a computer, may be beyond the abilities of some demographics.
-In general, a website is much more accessible for those with accessibility issues, especially as more tools continue to come out to aid the process. Those with sight or mobility issues can still get the full experience through a website on any device.
+Having a website interface is the most accessible design to reach the widest net of clients. This means that users of 
+all ages are more likely to be comfortable on the platform. An app may be the more popular choice amongst younger 
+user whereas the older generation are accustomed to websites – which are not subject to such quick change. 
+
+In addition, whilst the younger generation may prefer an app, they are fully capable of searching for a website. 
+The capabilities of using an app, or a smartphone over a computer, may be beyond the abilities of some demographics.
+
+In general, a website is much more accessible for those with accessibility issues, especially as more tools 
+continue to come out to aid the process. Those with sight or mobility issues can still get the full experience through a website on any device.
+
 The site has been designed as mobile-first, which is particularly important for this project. Photos are becoming increasingly popular on mobile, as the cameras continue to get better. Fewer people have films cameras and it is now common practise to have digital photos printed instead.
-With a mobile-first design, the website is easy to use straight from your mobile – the place where most of the user’s excellent photos are stored. This has several benefits:
+With a mobile-first design, the website is easy to use straight from their mobile – the place where most of the user’s excellent photos are stored. This has several benefits:
+
 1. The user does not need to transfer photos between devices to order.
-2. The user can store the photos for a later time by uploading them from your mobile. You can then finish the order from any device. 
-3. The user can complete a transaction from start to finish on a mobile, means fewer users will be put of by the complexity of device switching and those who are impulse buying are satisfied quickly. 
+2. The user can store the photos for a later time by uploading them from their mobile. The user can then finish the order from any device. 
+3. The user can complete a transaction from start to finish on a mobile, which means fewer users will be put of by the complexity of device switching and those who are impulse buying are satisfied quickly. 
 4. If the user wants to buy a photo have on their social media account, they can download it to their phone – which is the most likely place for them to use social media. 
 
 Unlike shops where users print their photographs, a user does not need to be familiar with Bluetooth or smartphones in order to get your photos. This, again, widens the demographic of clients. 
-Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. For examples, see user stories. 
+Giving a user the option to download digitally or print a photograph covers all scenarios in which a user would like to purchase a photograph. 
+
+For examples, see user stories. 
 
 
-Strategy for the business
+#### Strategy for the business
 
-There will be an admin section which allows admin staff to add, remove, edit products, and read orders to be fulfilled. There is also an admin link to the full Django admin site, which is only accessible to the superuser. I separated the two for a couple of reasons: 
-The staff structure at the business may want people to add products but not at able to access customer details. In addition, they may want some staff to see the most recent orders but not have access to them all. Finally, this separation can prevent some staff from editing special offers and other finance related possibilities.
-This all allows for full customisation of delegation tasks which allows managers and employees to smoothly work together throughout the day. 
+There will be an admin section which allows admin staff to add, remove, edit products, and read orders to be fulfilled. 
+There is also an admin link to the full Django admin site, which is only accessible to the superuser. 
+
+I separated the two for a couple of reasons: 
+
+The staff structure at the business may want people to add products but not at able to access customer details.
+In addition, they may want some staff to see the most recent orders but not have access to them all. 
+
+Finally, this separation can prevent some staff from editing special offers and other finance related possibilities.
+This all allows for the full customisation of delegation tasks which allows managers and employees to smoothly work together throughout the day. 
 The forms are validated to ensure that all the information that is needed for the website to work is provided when adding or editing products. 
 
 ### Scope
