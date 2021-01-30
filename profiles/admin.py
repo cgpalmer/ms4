@@ -8,6 +8,7 @@ class ContentReadyToDownloadAdmin(admin.ModelAdmin):
         'sku'
     )
 
+
 class Image_uploadAdmin(admin.ModelAdmin):
     list_display = (
         'user',
@@ -16,6 +17,7 @@ class Image_uploadAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+
 
 admin.site.register(ContentReadyToDownload, ContentReadyToDownloadAdmin)
 admin.site.register(Image_upload, Image_uploadAdmin)

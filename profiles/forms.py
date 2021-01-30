@@ -2,6 +2,7 @@ from django import forms
 from .models import UserProfile, Image_upload
 
 
+# This function has been copied directly from Boutique Ado - Code Institute
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -34,10 +35,8 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
 
 
-
 class Image_uploadForm(forms.ModelForm):
     """Form for the image model"""
     class Meta:
         model = Image_upload
         fields = ('title', 'image')
-

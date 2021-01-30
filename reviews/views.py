@@ -5,8 +5,6 @@ from products.models import Product
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
 
 @login_required
 def add_review(request, product_id):
@@ -65,7 +63,7 @@ def edit_review(request, r_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES, instance=review)
         if form.is_valid():
-            # Get the product
+
             product_id = review.product.id
             retrieve_product = get_object_or_404(Product, pk=product_id)
 
@@ -95,9 +93,6 @@ def edit_review(request, r_id):
 
 @login_required
 def delete_review(request, r_id):
-
-    # Refactor the retrieving products code because there is unnecessary repetition.
-    """ Delete a product from the store """
     # retrieve the review and product to manipulate both
     review = get_object_or_404(Review, pk=r_id)
     product = get_object_or_404(Product, name=review.product)

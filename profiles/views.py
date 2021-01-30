@@ -9,6 +9,11 @@ from reviews.models import Review
 from django.contrib.auth.decorators import login_required
 import datetime
 
+''' Boutique Ado - Code Institute - helped me set up the profile
+part of the functions. I took that base and created the rest of the
+functions around them.
+'''
+
 
 # @login_required
 def admin_profile(request):
@@ -38,12 +43,16 @@ def profile(request):
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
     image_form = Image_uploadForm
-    # Downloading digital content
+
+    # Making digital purchase available for download
     digital_downloads_user = ContentReadyToDownload.objects.filter(user=request.user).exclude(
                             number_of_times_downloaded=True)
     digital_previous_downloads_user = ContentReadyToDownload.objects.filter(user=request.user).exclude(
                                       number_of_times_downloaded=False)
+
+    # Allowing users to upload their photographs
     user_photos = Image_upload.objects.filter(user=request.user)
+
     user_reviews = Review.objects.filter(user=request.user)
 
     template = 'profiles/profiles.html'
@@ -81,6 +90,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+# This function keeps a copy of any item and it's user, that has been marked for digital download.
 def counting_downloads(request, download_id):
     if request.method == "POST":
         download_file = get_object_or_404(ContentReadyToDownload, pk=download_id)
@@ -97,12 +107,10 @@ def counting_downloads(request, download_id):
 
 
 def delete_user_photo(request, photo_id):
-    # Use a filter here for user photos only
     user_photo = get_object_or_404(Image_upload, pk=photo_id)
     user_photo.delete()
     messages.success(request, 'Photo successfully deleted')
     return redirect(reverse('profile'))
-
 
 
 # @login_required
@@ -114,7 +122,6 @@ def image_upload(request, product_id):
             user = get_object_or_404(UserProfile, user=request.user)
             title = form.cleaned_data.get("title")
             image = form.cleaned_data.get("image")
-            print(image)
             Image_upload.objects.create(title=title, user=user, image=image)
             messages.success(request, 'Image uploaded! Find it in the dropdown menu or on your profile page.')
             return redirect(reverse('product_detail', args=[product_id]))

@@ -2,6 +2,7 @@ from django.test import TestCase
 from .models import Review
 from .forms import ReviewForm
 
+
 class TestReviewForm(TestCase):
     def test_review_rating_is_required(self):
         form = ReviewForm({'review_rating': ''})
