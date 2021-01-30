@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
+
                 {% for r in review %} 
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="text-center">
@@ -12,32 +13,32 @@
                             <p>  {{ r.review_content }}</p> 
                             <button type="button" class="btn second-btn mx-2 rounded-0" data-toggle="modal" data-target="#deleteReviewNumber{{r.id}}">
                                 <i class="fas fa-trash-alt d-md-none"></i>
-                               <span class="buttonText">  <i class="fas fa-trash-alt"></i> Delete</span>
+                                <span class="buttonText">  <i class="fas fa-trash-alt"></i> Delete</span>
                             </button>
                             <a class="btn action-btn rounded-0 mx-2" href="{% url 'edit_review' r.id %}"> <i class="fas fa-edit d-md-none"></i><span class="buttonText"><i class="fas fa-edit"></i> Edit</span></a>
-                            
                         </div>
                     </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteReviewNumber{{r.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewNumber{{r.id}}ModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteReviewNumber{{r.id}}Label">Are you sure you want to remove this?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
                     
-                            <div class="modal-footer">
-                                <button type="button" class="btn second-btn rounded-0 btn-lg" data-dismiss="modal">Close</button>
-                                <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn action-btn rounded-0 btn-lg">
-                                    <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                          
-                                </a>
+
+                    <!-- Delete warning Modal -->
+                    <div class="modal fade" id="deleteReviewNumber{{r.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewNumber{{r.id}}ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteReviewNumber{{r.id}}Label">Are you sure you want to remove this?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                        
+                                <div class="modal-footer">
+                                    <button type="button" class="btn second-btn rounded-0 btn-lg" data-dismiss="modal">Close</button>
+                                    <a id="checkoutButton" href="{% url 'delete_review' r.id %}" class="btn action-btn rounded-0 btn-lg">
+                                        <span class="">Delete Photo <i class="fas fa-chevron-right"></i></span>                          
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 
                 
@@ -57,8 +58,8 @@
                 {% endfor %}
               
             </div>
-                
         </div>
     </div>
+    
 
         

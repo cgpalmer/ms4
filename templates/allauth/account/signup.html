@@ -8,9 +8,9 @@
 <div class="container margin-header-wrapper main-section-container mb-3">
     <div class="row mb-3">
         <div class="col-12 text-center extra-margin-top">
-                <hr>
-                <h2 class="logo-font mb-3">{% trans "Sign Up" %}</h2>
-                <hr>
+            <hr>
+            <h2 class="logo-font mb-3">{% trans "Sign Up" %}</h2>
+            <hr>
         </div>
     </div>
     <div class="row">
@@ -21,9 +21,11 @@
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form|crispy }}
+
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
+            
             <button class="btn action-btn btn-lg signup-button rounded-0 col-12" type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
         </div>

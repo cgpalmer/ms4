@@ -26,19 +26,19 @@
     </div>
 </div>
 
-<!-- Mobile -->
+<!-- Mobile view-->
 {% if basket_items %}      
     {% for item in basket_items %}
     <div class="container basket-container  d-md-none">   
         <div class="row">
             <div class="col-12 mb-3">
                 {% if item.item.repeats_found == 'None' %}
-                 <p class="mb-0">{{ item.product.friendly_name}} </p>
-                 {{basket_item_id}}
+                    <p class="mb-0">{{ item.product.friendly_name}} </p>
+                    {{basket_item_id}}
                 {% else %}
-                 {{basket_item_id}}
-                  <p class="mb-0">{{ item.product.friendly_name}}</p>
-                  <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
+                    {{basket_item_id}}
+                    <p class="mb-0">{{ item.product.friendly_name}}</p>
+                    <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
                 {% endif %}
             </div> 
             <div class="col-10">
@@ -75,121 +75,111 @@
                         <p>Linked Products <br> Click image for full size.</p>
                     </div>
                     <div class="row">
-                            {% for image in item.item.linked_product_images_list %}
-                                {% if image != "Not linked" %}
+                        {% for image in item.item.linked_product_images_list %}
+                            {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
                                     <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                                     </a>
                                 </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-
+                            {% endif %}
+                         {% endfor %}
+                    </div>
                 </div>
-                {% endif %}
+            {% endif %}
         </div>
         <hr>
     </div>
-    <!-- Edit basket Modal -->
+
+    <!-- Edit basket Modal Mobile -->
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}S" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div id="editBasketHeader" class="modal-header editBasketBodyTrigger text-center">
-                <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
-            </div>
-            <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
-                <form method="POST" action="{%url 'edit_basket' %}">
-                {% csrf_token%}
-                <h3>Quantity</h3>
-                <div class="input-group mb-3">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="editBasketHeader" class="modal-header editBasketBodyTrigger text-center">
+                    <h3 class="modal-title w-100" id="exampleModalLabel">Edit Basket Item</h3>
+                </div>
+                <div id="editBasketModalBody" class="modal-body text-center pb-0 editBasketBody">
+                    <form method="POST" action="{%url 'edit_basket' %}">
+                        {% csrf_token%}
+                        <h3>Quantity</h3>
+                        <div class="input-group mb-3">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityS" onclick="decreaseBasketQuantity('descreaseQTY_S{{forloop.counter}}');">
+                                <span><i class="fas fa-minus fa-sm"></i></span>
+                            </div>  
+                            <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_S{{forloop.counter}}">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityS" onclick="increaseBasketQuantity('increaseQTY_S{{forloop.counter}}');">
+                                <span><i class="fas fa-plus fa-sm"></i></span>
+                            </div> 
+                        </div>
                     
-                    <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityS" onclick="decreaseBasketQuantity('descreaseQTY_S{{forloop.counter}}');">
-                            <span><i class="fas fa-minus fa-sm"></i></span>
-                        </div>  
-                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_S{{forloop.counter}}">
-                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityS" onclick="increaseBasketQuantity('increaseQTY_S{{forloop.counter}}');">
-                            <span><i class="fas fa-plus fa-sm"></i></span>
-                        </div> 
+                        {% if item.product.product_type == 'photo' %}
+                            {% if request.user.is_authenticated %}  
+                                <h3>Delivery Type</h3>
+                                <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control">
+                                    {% if item.digital_download == "on" %}
+                                        <option value="None">Delivery</option>
+                                        <option selected value="on">Digital Download</option>
+                                    {% else %}
+                                        <option selected value="None">Delivery</option>
+                                        <option value="True">Digital Download</option>
+                                    {% endif %}
+                                </select>
+                            {% endif %}
+                        {% endif %}
+            
+                        <div class="my-3">
+                            {% if item.product.product_type == 'container' %}
+                                <h3>Linked Products</h3>
+                                {% for image in item.item.linked_products %}
+                                    {% if item.product.product_type == 'container' %}                                      
+                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
+                                            <option value="Not linked|No id|No item">Not linked</option> 
+                                            <option value="" disabled>User Photos</option>
+                                            {% for photo in user_photos %}
+                                                {% if photo.sku == image %}
+                                                    <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                                                {% endif%} 
+                                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                                            {% endfor %}
+                                            <option value="" disabled>Hidden Gems' Photos</option>
+                                            {% for product in products %} 
+                                                {% if product.sku == image %}
+                                                    <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                                                {% endif%} 
+                                                <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                
+                        <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
+                        <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
+                    </form>
                 </div>
-                
-                
-                {% if item.product.product_type == 'photo' %}
-                  {% if request.user.is_authenticated %}  
-                <h3>Delivery Type</h3>
-                <select id="basket-item-delivery{{ forloop.counter0}}" name="basket_digital_download" class="form-control">
-                    {% if item.digital_download == "on" %}
-                    <option value="None">Delivery</option>
-                    <option selected value="on">Digital Download</option>
-                    {% else %}
-                    <option selected value="None">Delivery</option>
-                    <option value="True">Digital Download</option>
-                    {% endif %}
-                </select>
-                {% endif %}
-                {% endif %}
-         
-              
-                
-                <div class="my-3">
-                    {% if item.product.product_type == 'container' %}
-                    <h3>Linked Products</h3>
-                    {% for image in item.item.linked_products %}
-                    {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-product" class="w-100 py3 my-2">
-                        <option value="Not linked|No id|No item">Not linked</option> 
-                         <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
-                        
-                       <option value="" disabled>Hidden Gems' Photos</option>
-                        {% for product in products %} 
-                        
-                            {% if product.sku == image %}
-                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
-                            {% endif%} 
-                        
-                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
-                        {% endfor %}
-                       
-                    </select>
-                    {% endif %}
-                    {% endfor %}
-                     {% endif %}
+                <div class="mt-3 text-center col-12 mb-3">
+                    <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"> <i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
                 </div>
-               
-                <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
-                </form>
-            </div>
-            <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"> <i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-    
     {% endfor %}
 
-    <!-- iPad -->
+    <!-- iPad view -->
     {% for item in basket_items %}
     <div class="container basket-container d-none d-md-block d-lg-none">   
         <div class="row">
             <div class="col-md-12 mb-3">
-               
                 {% if item.item.repeats_found == 'None' %}
-                 <p class="mb-0">{{ item.product.friendly_name}} </p>
+                    <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
-                  <p class="mb-0">{{ item.product.friendly_name}}</p>
-                  <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
+                    <p class="mb-0">{{ item.product.friendly_name}}</p>
+                    <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
                 {% endif %}
             </div> 
             <div class="col-6">
@@ -232,113 +222,107 @@
                         <p>Linked Products - click image for full size.</p>
                     </div>
                     <div class="row">
-                            {% for image in item.item.linked_product_images_list %}
-                                {% if image != "Not linked" %}
+                        {% for image in item.item.linked_product_images_list %}
+                            {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
-                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                                        <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
                                     </a>
                                 </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
-                {% endif %}
+            {% endif %}
         </div>
         <hr>
     </div>
-    <!-- Edit basket Modal -->
+
+    <!-- Edit basket iPad Modal -->
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}M" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div id="editBasketHeaderM" class="modal-header editBasketBodyTrigger  text-center">
-                <h3 class="modal-title w-100"> Edit Basket Item</h3>
-            </div>
-            <div id="editBasketModalBodyM" class="modal-body text-center pb-0 editBasketBody">
-                <form method="POST" action="{%url 'edit_basket' %}">
-                {% csrf_token%}
-                <h3>Quantity</h3>
-                 <div class="input-group mb-3">
-                <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityM" onclick="decreaseBasketQuantity('descreaseQTY_M{{forloop.counter}}');">
-                            <span><i class="fas fa-minus fa-sm"></i></span>
-                        </div>  
-                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_M{{forloop.counter}}">
-                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityM" onclick="increaseBasketQuantity('increaseQTY_M{{forloop.counter}}');">
-                            <span><i class="fas fa-plus fa-sm"></i></span>
-                        </div> 
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="editBasketHeaderM" class="modal-header editBasketBodyTrigger  text-center">
+                    <h3 class="modal-title w-100"> Edit Basket Item</h3>
                 </div>
-                {% if item.product.product_type == 'photo' %}
-                  {% if request.user.is_authenticated %}  
-                <h3>Delivery Type</h3>
-                <select name="basket_digital_download" class="form-control">
-                    {% if item.digital_download == "on" %}
-                    <option value="None">Delivery</option>
-                    <option selected value="on">Digital Download</option>
-                    {% else %}
-                    <option selected value="None">Delivery</option>
-                    <option value="True">Digital Download</option>
-                    {% endif %}
-                </select>
-                {% endif %}
-                {% endif %}
-         
-              
+                <div id="editBasketModalBodyM" class="modal-body text-center pb-0 editBasketBody">
+                    <form method="POST" action="{%url 'edit_basket' %}">
+                        {% csrf_token%}
+                        <h3>Quantity</h3>
+                        <div class="input-group mb-3">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityM" onclick="decreaseBasketQuantity('descreaseQTY_M{{forloop.counter}}');">
+                                <span><i class="fas fa-minus fa-sm"></i></span>
+                            </div>  
+                            <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_M{{forloop.counter}}">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityM" onclick="increaseBasketQuantity('increaseQTY_M{{forloop.counter}}');">
+                                <span><i class="fas fa-plus fa-sm"></i></span>
+                            </div> 
+                        </div>
+                        {% if item.product.product_type == 'photo' %}
+                            {% if request.user.is_authenticated %}  
+                                <h3>Delivery Type</h3>
+                                <select name="basket_digital_download" class="form-control">
+                                    {% if item.digital_download == "on" %}
+                                        <option value="None">Delivery</option>
+                                        <option selected value="on">Digital Download</option>
+                                    {% else %}
+                                        <option selected value="None">Delivery</option>
+                                        <option value="True">Digital Download</option>
+                                    {% endif %}
+                                </select>
+                            {% endif %}
+                        {% endif %}
+            
+                        <div class="my-3">
+                            {% if item.product.product_type == 'container' %}
+                                <h3>Linked Products</h3>
+                                {% for image in item.item.linked_products %}
+                                    {% if item.product.product_type == 'container' %}                                      
+                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productM" class="w-100 py3 my-2">
+                                            <option value="Not linked|No id|No item">Not linked</option> 
+                                            <option value="" disabled>User Photos</option>
+                                            {% for photo in user_photos %}
+                                                {% if photo.sku == image %}
+                                                    <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                                                {% endif%} 
+                                                <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                                            {% endfor %}
+                                            <option value="" disabled>Hidden Gems' Photos</option>
+                                            {% for product in products %} 
+                                                {% if product.sku == image %}
+                                                    <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                                                {% endif%} 
+                                                <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                 
-                <div class="my-3">
-                    {% if item.product.product_type == 'container' %}
-                    <h3>Linked Products</h3>
-                    {% for image in item.item.linked_products %}
-                    {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productM" class="w-100 py3 my-2">
-                        <option value="Not linked|No id|No item">Not linked</option> 
-                         <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
-                        <option value="" disabled>Hidden Gems' Photos</option>
-                        {% for product in products %} 
-                        
-                            {% if product.sku == image %}
-                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
-                            {% endif%} 
-                        
-                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
-                        {% endfor %}
-                       
-                    </select>
-                    {% endif %}
-                    {% endfor %}
-                     {% endif %}
+                        <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
+                        <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
+                    </form>
                 </div>
-               
-                <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
-                </form>
-            </div>
-            <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <div class="mt-3 text-center col-12 mb-3">
+                    <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-     {% endfor %}
+    {% endfor %}
 
-    <!-- Desktop -->
+    <!-- Desktop view -->
     {% for item in basket_items %}
     <div class="container basket-container d-none d-md-none d-lg-block">
         <div class="row">
             <div class="col-md-12 mb-3">
-              
                 {% if item.item.repeats_found == 'None' %}
-                 <p class="mb-0">{{ item.product.friendly_name}} </p>
+                    <p class="mb-0">{{ item.product.friendly_name}} </p>
                 {% else %}
                   <p class="mb-0">{{ item.product.friendly_name}}</p>
                   <small><i class="fas fa-exclamation-triangle"></i> This products has repeated pictures associated with it.</small>
@@ -371,232 +355,207 @@
                 </div>
             </div>
                               
-            
             <div class="col-5">
-            {% if item.product.product_type == 'container' %}
-                
-                    <div class="col-12 px-0">
-                        
+                {% if item.product.product_type == 'container' %}
+                    <div class="col-12 px-0">     
                         <p class="px-0">Linked Products - click image for full size.</p>
                     </div>
-                   
-                   
+
                     <div class="container-fluid p-0">
                         <div class="row">
                             {% for image in item.item.linked_product_images_list %}
                                 {% if image != "Not linked" %}
                                 <div class="col-3 linked_product_image_wrapper" >
                                     <a href="{{image}}" target="_blank" alt="Image of {{item.product.friendly_name}}">
-                                    <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
-                                        </a>
+                                        <img class="linked_product_image_thumbnail" src="{{image}}" alt="Linked product image" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                                    </a>
                                 </div>
                                 {% endif %}
                             {% endfor %}
                         </div>
-                    </div>
-                    
-            {% endif %}
-             </div>
-                 <div class="col-1" >
-                    <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}L">
-                    <i class="fas fa-ellipsis-v"></i>
-                    </button>
-                </div> 
+                    </div>        
+                {% endif %}
+            </div>
+            <div class="col-1" >
+                <button type="button" class="btn second-btn" data-toggle="modal" data-target="#basketModal{{item.item.basket_item_id}}L">
+                <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div> 
         </div>
         <hr>
     </div>
     <!-- Edit basket Modal -->
     <div class="modal fade" id="basketModal{{item.item.basket_item_id}}L" tabindex="-1" role="dialog" aria-labelledby="basketModal{{item.item.basket_item_id}}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div id="editBasketHeaderL" class="modal-header editBasketBodyTrigger text-center">
-                <h3 class="modal-title w-100" id="editBasketLabelL">Edit Basket Item</h3>
-            </div>
-            <div id="editBasketModalBodyL" class="modal-body text-center pb-0 editBasketBody">
-                <form method="POST" action="{%url 'edit_basket' %}">
-                {% csrf_token%}
-                <h3>Quantity</h3>
-                <div class="input-group mb-3">
-                    
-               
-                        <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityL" onclick="decreaseBasketQuantity('descreaseQTY_L{{forloop.counter}}');">
-                            <span><i class="fas fa-minus fa-sm"></i></span>
-                        </div>  
-                        <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_L{{forloop.counter}}">
-                        <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityL" onclick="increaseBasketQuantity('increaseQTY_L{{forloop.counter}}');">
-                            <span><i class="fas fa-plus fa-sm"></i></span>
-                        </div>  
-                    </div>
-                
-                {% if item.product.product_type == 'photo' %}
-                  {% if request.user.is_authenticated %}  
-                <h3>Delivery Type</h3>
-                <select id="basket-item-deliveryL{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
-                    {% if item.digital_download == "on" %}
-                    <option value="None">Delivery</option>
-                    <option selected value="on">Digital Download</option>
-                    {% else %}
-                    <option selected value="None">Delivery</option>
-                    <option value="True">Digital Download</option>
-                    {% endif %}
-                </select>
-                {% endif %}
-                {% endif %}
-         
-              
-                
-                <div class="my-3">
-                    {% if item.product.product_type == 'container' %}
-                    <h3>Linked Products</h3>
-                    {% for image in item.item.linked_products %}
-                    {% if item.product.product_type == 'container' %}                                      
-                    <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productL" class="w-100 py3 my-2">
-                        <option value="Not linked|No id|No item">Not linked</option>
-                         <option value="" disabled>User Photos</option>
-                        {% for photo in user_photos %}
-                        {% if photo.sku == image %}
-                        <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
-                        {% endif%} 
-                        <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
-                        {% endfor %}
-                        <option value="" disabled>Hidden Gems' Photos</option>
-                        {% for product in products %} 
-                        
-                            {% if product.sku == image %}
-                            <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
-                            {% endif%} 
-                        
-                        <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
-                        {% endfor %}
-                       
-                    </select>
-                    {% endif %}
-                    {% endfor %}
-                     {% endif %}
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="editBasketHeaderL" class="modal-header editBasketBodyTrigger text-center">
+                    <h3 class="modal-title w-100" id="editBasketLabelL">Edit Basket Item</h3>
                 </div>
-               
-                <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
-                <input type="hidden" name="product_id" value="{{item.item.item_id}}">
-                <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
-                </form>
-            </div>
-            <div class="mt-3 text-center col-12 mb-3">
-                <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                <div id="editBasketModalBodyL" class="modal-body text-center pb-0 editBasketBody">
+                    <form method="POST" action="{%url 'edit_basket' %}">
+                        {% csrf_token%}
+                        <h3>Quantity</h3>
+                        <div class="input-group mb-3">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="decreaseProductDetailQuantityL" onclick="decreaseBasketQuantity('descreaseQTY_L{{forloop.counter}}');">
+                                <span><i class="fas fa-minus fa-sm"></i></span>
+                            </div>  
+                            <input class="form-control qty_input " type="number" name="basket_quantity" value="{{item.item.quantity}}" min="0" max="99" data-item_id="{{ product.id }}" id="productDetailQty_L{{forloop.counter}}">
+                            <div class="btn" data-item_id="{{ item.item_id }}" id="increaseProductDetailQuantityL" onclick="increaseBasketQuantity('increaseQTY_L{{forloop.counter}}');">
+                                <span><i class="fas fa-plus fa-sm"></i></span>
+                            </div>  
+                        </div>
+                        
+                        {% if item.product.product_type == 'photo' %}
+                            {% if request.user.is_authenticated %}  
+                            <h3>Delivery Type</h3>
+                            <select id="basket-item-deliveryL{{ forloop.counter0}}" name="basket_digital_download" class="form-control" >
+                                {% if item.digital_download == "on" %}
+                                    <option value="None">Delivery</option>
+                                    <option selected value="on">Digital Download</option>
+                                {% else %}
+                                    <option selected value="None">Delivery</option>
+                                    <option value="True">Digital Download</option>
+                                {% endif %}
+                            </select>
+                            {% endif %}
+                        {% endif %}
+
+                        <div class="my-3">
+                            {% if item.product.product_type == 'container' %}
+                                <h3>Linked Products</h3>
+                                {% for image in item.item.linked_products %}
+                                    {% if item.product.product_type == 'container' %}                                      
+                                        <select name="edit-linked-product{{forloop.counter0}}" id="basket-linked-productL" class="w-100 py3 my-2">
+                                            <option value="Not linked|No id|No item">Not linked</option>
+                                            <option value="" disabled>User Photos</option>
+                                            {% for photo in user_photos %}
+                                                {% if photo.sku == image %}
+                                                    <option value="{{photo.image}}|{{photo.id}}|upload" selected>Found upload</option>
+                                                {% endif%} 
+                                                    <option value="{{photo.image}}|{{photo.id}}|upload">{{photo.title}}</option>
+                                                {% endfor %}
+                                                <option value="" disabled>Hidden Gems' Photos</option>
+                                            {% for product in products %} 
+                                                {% if product.sku == image %}
+                                                <option value="{{product.image_url_mobile}}|{{product.id}}|inventory" selected>{{product.friendly_name}}</option> 
+                                                {% endif%}                       
+                                                <option value="{{product.image_url_mobile}}|{{product.id}}|inventory">{{product.friendly_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                
+                        <input type="hidden" name="basket_item_id" value="{{item.item.basket_item_id}}">
+                        <input type="hidden" name="product_id" value="{{item.item.item_id}}">
+                        <button type="submit" class="btn action-btn btn-lg col-12 rounded-0">Save changes</button>
+                    </form>
+                </div>
+                <div class="mt-3 text-center col-12 mb-3">
+                    <h5><a href="{% url 'delete_basket_item' item.item.basket_item_id %}" class=" col-12 btn-lg second-btn btn rounded-0"><i class="fas fa-trash-alt"></i> Delete Basket Item</a></h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn second-btn reset-modal-body rounded-0" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-
     {% endfor %}
-    <!-- missing div below I think  -->
-<div class="container">
-    <div class="row">
+   
+    <div class="container">
+        <div class="row">
          <div class="col-12 empty-basket-wrapper">
             <h4><a id="emptyBasket" class="text-link" href="{% url 'empty_basket' %}"><i class="fas fa-trash-alt"></i> Empty basket</a></h4>
             <hr>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 basket-summary-wrapper">
-            <h6>Savings: £{{money_saved}}</h6>
-            <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
-            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-            <h4 class=""><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
-            {% if free_delivery_deficit > 0 %}
-                <p class="mb-1 text-link">
-                    You could get free delivery by spending just <strong>£{{ free_delivery_deficit }}</strong> more!
-                </p>
-            {% endif %}
         </div>
-    </div>
-
-    <div class="row  extra-margin-bottom">
-            <div class="col-12 checkout-button-wrapper">
-                                    {% if are_all_items_linked == False %}
-                                    <button type="button" class="col-12 col-md-6 btn action-btn btn-lg rounded-0" data-toggle="modal" data-target="#checkProductsModal">
-                                    <span>Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </button>
-                                    {% else %}
-                                    <a id="checkoutButtonCondense" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn action-btn btn-lg rounded-0">
-                                        <span>Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                    
-                            
-                                    {% endif %}
-            </div>
-                                    <div class="col-12 checkout-button-wrapper">
-                                        <a href="{% url 'products' %}" class="col-12 col-md-6 btn second-btn rounded-0 btn-lg">
-                                    <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                             </span>
-                        <span>Keep Shopping</span>
-                                         </a>
-                        </div>
-                </div> 
-                </div>              
-                {% else %}
-                <div class="row text-center  extra-margin-bottom">
-                    <div class="col-12">
-                         <p class="lead mt-4 mb-5">Your bag is empty.</p>
-                    </div>
-                    <div class="col-12">
-                    <a href="{% url 'products' %}" class="btn second-btn rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span>Keep Shopping</span>
-                    </a>
-                    </div>
-                    
-                </div> 
-                   
+        <div class="row">
+            <div class="col-12 basket-summary-wrapper">
+                <h6>Savings: £{{money_saved}}</h6>
+                <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
+                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                <h4 class=""><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                {% if free_delivery_deficit > 0 %}
+                    <p class="mb-1 text-link">
+                        You could get free delivery by spending just <strong>£{{ free_delivery_deficit }}</strong> more!
+                    </p>
                 {% endif %}
-       
-    
+            </div>
+        </div>
 
-   
-
+        <div class="row  extra-margin-bottom">
+            <div class="col-12 checkout-button-wrapper">
+                {% if are_all_items_linked == False %}
+                    <button type="button" class="col-12 col-md-6 btn action-btn btn-lg rounded-0" data-toggle="modal" data-target="#checkProductsModal">
+                        <span>Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                {% else %}
+                    <a id="checkoutButtonCondense" href="{% url 'condensing_basket' %}" class="col-12 col-md-6 btn action-btn btn-lg rounded-0">
+                        <span>Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>      
+                {% endif %}
+            </div>
+            <div class="col-12 checkout-button-wrapper">
+                <a href="{% url 'products' %}" class="col-12 col-md-6 btn second-btn rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Keep Shopping</span>
+                </a>
+            </div>
+       </div> 
+    </div>              
+{% else %}
+    <div class="row text-center  extra-margin-bottom">
+        <div class="col-12">
+            <p class="lead mt-4 mb-5">Your bag is empty.</p>
+        </div>
+        <div class="col-12">
+            <a href="{% url 'products' %}" class="btn second-btn rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Keep Shopping</span>
+            </a>
+        </div>          
+    </div>                 
+{% endif %}
  
 <!-- Modal -->
-    <div class="modal fade" id="checkProductsModal" tabindex="-1" role="dialog" aria-labelledby="checkProductsModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="checkProductsModalLabel">Please check your products</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p class="check-product-paragraph">1 or more of your products does not have a linked photograph. </p>
-        <p>This means that if you have order a photo frame or canvas, it will arive blank. If it a calendar, then random pictures will be selected.   </p>
-        <p>If you wish to changes and order, please contact <a class="email" href="mailto:hiddengemsshoponline@gmail.com">hiddengemsshoponline@gmail.com</a>.</p>
-      
-      </div>
-      <div class="modal-footer text-center px-4">
-          <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn  mb-3 action-btn col-12 rounded-0 btn-lg">
-                                        <span>Continue To Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-        <button type="button" class="btn mb-3 second-btn col-12 rounded-0 btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
-    
-      </div>
+<div class="modal fade" id="checkProductsModal" tabindex="-1" role="dialog" aria-labelledby="checkProductsModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="checkProductsModalLabel">Please check your products</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="check-product-paragraph">1 or more of your products does not have a linked photograph. </p>
+                <p>This means that if you have order a photo frame or canvas, it will arive blank. If it a calendar, then random pictures will be selected.   </p>
+                <p>If you wish to changes and order, please contact <a class="email" href="mailto:hiddengemsshoponline@gmail.com">hiddengemsshoponline@gmail.com</a>.</p>
+            
+            </div>
+            <div class="modal-footer text-center px-4">
+                <a id="checkoutButton" href="{% url 'condensing_basket' %}" class="btn  mb-3 action-btn col-12 rounded-0 btn-lg">
+                    <span>Continue To Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+                <button type="button" class="btn mb-3 second-btn col-12 rounded-0 btn-lg" data-dismiss="modal"><i class="fas fa-chevron-left"></i> Return to basket</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 </main>
- {% include 'includes/footer.html' %}
-
-
+{% include 'includes/footer.html' %}
 {% endblock %}

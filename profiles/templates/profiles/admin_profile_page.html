@@ -24,11 +24,9 @@
             <h4>For full site admin, click here: <a class="text-link fw-600" href="/admin">Full admin</a></h4>
                 {% endif %}
         </div>
-     
     </div>
-
-    <div class="row">
-       
+    
+    <div class="row">    
         <div class="col-12 text-center">
               <hr>
             <h4 class="text-link fw-600"><i class="fas fa-plus-circle"></i><a href="{% url 'add_product' %}"> Add product</a></h4>
@@ -40,6 +38,7 @@
             <hr>
         </div>
     </div>
+
     <div class="row">
         <div class="col-12 adminCategoryWrapper text-center">
             <select class="stripe-style-input ipad-admin-cat rounded" id="adminProductManage">
@@ -50,10 +49,8 @@
             </select>
             <hr id="adminCategoryHR" class="hide">
             <div class="row">
-            {% for product in products %}  
-                
-                <div class="adminCategory{{product.category.name}} allProducts hide col-12 col-md-6 col-lg-4 text-center">
-                    
+                {% for product in products %}  
+                <div class="adminCategory{{product.category.name}} allProducts hide col-12 col-md-6 col-lg-4 text-center">                    
                     <p>Name: {{product.name}} </p>
                     <img class="img-fluid rounded thumbnail" src="{{ product.image_url_mobile }}" alt="Image of {{item.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';">
                     <p>SKU: {{product.sku}} </p>
@@ -66,14 +63,12 @@
                         </div>
                         <div class="col-6 col-md-6 col-lg-6 text-center">
                             <a class="btn action-btn btn-lg rounded-0" href="{% url 'edit_product' product.id %}"> <i class="fas fa-edit"></i><br class="d-none d-md-block "> Edit</a>
-                        </div>
-                       
-                    </div>
-                    
+                        </div>                       
+                    </div>   
                 <hr>
                 </div>
                
-                   <!-- Modal -->
+                <!-- Delete warning Modal -->
                 <div class="modal fade" id="deleteProductNumber{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteProductNumber{{product.id}}ModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -92,10 +87,8 @@
                         </div>
                     </div> 
                 </div>  
-                    
-            {% endfor %}
-            </div>  
-                
+                {% endfor %}
+            </div>          
         </div>
     </div>
 

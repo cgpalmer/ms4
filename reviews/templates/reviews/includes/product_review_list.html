@@ -1,20 +1,12 @@
 
 <p id="reviewTrigger" class="text-center">Read reviews <i class="fas fa-chevron-down"></i></p>
-
 <div id="reviewsWrapper" class="hide row">
- 
     {% for r in review %}                           
-          
-        
-            <div class="text-center col-12 col-lg-6">
-                 <hr>  
-                <p>@{{r.user}} - <i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
-                <p>  {{ r.review_content }}</p>
-             </div>       
-                         
-    {% endfor %}
-    
-  
-   
+        <div class="text-center col-12 col-lg-6">
+            <hr>  
+            <p>@{{r.user}} - <i class="fas fa-star"></i> {{ r.review_rating }}/5</p>
+            <p>  {{ r.review_content }}</p>
+        </div>                            
+    {% endfor %}   
 </div>
 

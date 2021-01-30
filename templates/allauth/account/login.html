@@ -9,18 +9,28 @@
 <div class="container margin-header-wrapper main-section-container mb-3">
     <div class="row">
         <div class="col-12 text-center extra-margin-top">
-                <hr>
-                <h2 class="logo-font mb-3">{% trans "Login" %}</h2>
-                <hr>
+            <div class="col-12">
+            {% if messages %}
+                <div class="message-container">
+                    {% for message in messages %}
+                        <p class="mb-0"><i class="far fa-check-circle"></i> {{message}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+            <hr>
+            <h2 class="logo-font mb-3">{% trans "Login" %}</h2>
+            <hr>
         </div>
     </div>
+
     <!-- Add messages container here!! -->
     <div class="row">
         <div class="col-12 text-center">
             <p>
                 {% blocktrans %}
                 If you have not created an account yet, then please
-                <a class="text-link" href="{{ signup_url }}">sign up</a> first.
+                    <a class="text-link" href="{{ signup_url }}">sign up</a> first.
                 {% endblocktrans %}
             </p>
         </div>

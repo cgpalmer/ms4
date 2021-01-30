@@ -5,38 +5,34 @@
     <div class="col-12">
         <div class="row">
             {% for download in digital_downloads_user %}
-                
-                    <div class="col-12 col-md-6 col-lg-4 p-0">
-                        <div class="downloadItem text-center">
-                            <p>{{download.name}}</p>
-                        </div>
-                        <div class="text-center mb-3">
-                            <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="{{download.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
-                        </div>
-                        <div class="mb-3">
-                        
-                               <form class="text-center" method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    <button class="btn action-btn rounded-0 btn-lg" type="submit" value="click">Download <i class="fas fa-download"></i></button>
-                                </form>
-                           
-                        </div>   
-                        <div class="col-12 d-md-none">
-                            <hr class="smaller-hr">
-                        </div>
-                    
+                <div class="col-12 col-md-6 col-lg-4 p-0">
+                    <div class="downloadItem text-center">
+                        <p>{{download.name}}</p>
                     </div>
-                    {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-md-block d-lg-none">
-                                <hr class="smaller-hr">
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block">
-                                <hr class="smaller-hr">
-                            </div>
-                        {% endif %}
-            
+                    <div class="text-center mb-3">
+                        <img class="download-image-preview" src="{{download.product.image_url_mobile}}" alt="{{download.product.friendly_name}}" onerror="this.onerror=null; this.src='/static/media/site_images/no_image.jpg';"/>
+                    </div>
+                    <div class="mb-3">
+                        <form class="text-center" method="POST" action="{% url 'counting_downloads' download.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <button class="btn action-btn rounded-0 btn-lg" type="submit" value="click">Download <i class="fas fa-download"></i></button>
+                        </form>
+                    </div>   
+                    <div class="col-12 d-md-none">
+                        <hr class="smaller-hr">
+                    </div>
+                
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-md-block d-lg-none">
+                        <hr class="smaller-hr">
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block">
+                    <hr class="smaller-hr">
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -52,19 +48,21 @@
         <div class="row">
             {% for accessed_download in digital_previous_downloads_user %}
                 
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <p>{{accessed_download.name}} <i class="far fa-check-circle"></i></p>
-                        <p>On: {{accessed_download.date}}</p>
-                    </div>    
+                <div class="col-12 col-md-6 col-lg-4">
+                    <p>{{accessed_download.name}} <i class="far fa-check-circle"></i></p>
+                    <p>On: {{accessed_download.date}}</p>
+                </div>    
                 
                 <div class="col-12 d-md-none">
                     <hr class="smaller-hr">
                 </div>
+
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="col-12 d-none d-md-block d-lg-none">
                         <hr class="smaller-hr">
                     </div>
                 {% endif %}
+                
                 {% if forloop.counter|divisibleby:3 %}
                     <div class="col-12 d-none d-lg-block">
                         <hr class="smaller-hr">

@@ -20,24 +20,23 @@
                     <label for="edit_review_rating" class=" requiredField">Rating / 5<span class="asteriskField">*</span> </label>
                     <div class="input-group mb-3">
                     
-                    <div class="btn" id="decreaseEditReviewQuantity">
-                            <span><i class="fas fa-minus fa-sm"></i></span>
+                        <div class="btn" id="decreaseEditReviewQuantity">
+                                <span><i class="fas fa-minus fa-sm"></i></span>
                         </div>  
-                       <input type="number" name="review_rating" value="{{r.review_rating}}" min="0" max="5" class="text-center numberinput form-control" required="" id="edit_review_rating">
+                        <input type="number" name="review_rating" value="{{r.review_rating}}" min="0" max="5" class="text-center numberinput form-control" required="" id="edit_review_rating">
                         <div class="btn" id="increaseEditReviewQuantity" >
                             <span><i class="fas fa-plus fa-sm"></i></span>
                         </div>
                     </div>
 
 
-                        <label for="id_review_content" class=" requiredField">                Review content<span class="asteriskField">*</span> </label>
-                                  <div class="input-group mb-3">
+                    <label for="id_review_content" class=" requiredField">Review content<span class="asteriskField">*</span> </label>
+                    <div class="input-group mb-3">
                         <textarea name="review_content" cols="40" rows="10" class="textarea form-control" required="" id="id_review_content" value="{{r.review_content}}">{{r.review_content}}</textarea>
-                     </div>
+                    </div>
                     
-                        <div class="text-center extra-margin-bottom extra-margin-top">
+                    <div class="text-center extra-margin-bottom extra-margin-top">
                         <div>
-                           
                             <button class="btn action-btn btn-lg rounded-0 mb-3 col-12" type="submit">Update Product <i class="fas fa-chevron-right"></i> </button>
                         </div>
                         <div>
@@ -49,4 +48,5 @@
         </div>
     </div>
     {% include 'includes/footer.html' %}
+    
 {% endblock %}

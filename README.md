@@ -295,9 +295,8 @@ ___
 ## Data Integration
 
 Throughout this project, I have Postgres and JSON files to store data. I have also used Whitenoise to hold my static file, 
-as Heroku doesn't support file uploads.
-
-Explain why white noise
+as Heroku doesn't support file uploads. I chose Whitenoise as an option for my project but I am aware that in production,
+you would normally pay for a cloud service such as AWS to allow for scaling. 
 
 Please find my [database table schema](static/files/data_integration/database_schema_tables.pdf) and my [database schema diagram](static/files/data_integration/database_schema_diagram.png)
 at their respective links.

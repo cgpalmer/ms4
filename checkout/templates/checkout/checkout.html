@@ -1,13 +1,14 @@
 {% extends "base_with_stripe.html" %}
 {% load static %}
-<!--  You need to include basket tools here. -->
+<!--  The majority of this code was initially copied from Boutique Ado - Code Institue
+      I have altered the colour scheme and included some of my features, plus altered the 
+      repsonsive design. -->
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block content %}
- 
     <div class="container main-section-container margin-header-wrapper ">
         <div class="row">
             <div class="col-12 extra-margin-top">
@@ -31,65 +32,54 @@
                         <p class="mb-1 mt-0 small">Subtotal</p>
                     </div>
                 
-                {% for item in basket_items %}
-              
-                    <div class="row checkout-item-wrapper">
-                        <div class="col-2  p-0 ">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image_url_mobile %}
+                    {% for item in basket_items %}
+                        <div class="row checkout-item-wrapper">
+                            <div class="col-2  p-0 ">
+                                <a href="{% url 'product_detail' item.product.id %}">
                                     <img class="w-100" src="{{ item.product.image_url_mobile}}" alt="{{ product.friendly_name }}">
-                                {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                {% endif %}
-                            </a>
-                        </div>
-                        <div class="col-7">
-                            <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
-                            <p class="my-0 small text-muted">Qty: {{ item.item.quantity }}</p>
-                            {% if item.item.digital_download %}
-                            <p class="my-0 small text-muted">Delivery : Digital</p>
-                            {% else %}
-                            <p class="my-0 small text-muted">Delivery : Delivery</p>
-                            {% endif %}
-                            <div class="row">
-                                {% if item.product.product_type == "container" %}
-                                <div class="col-12 p-0">
-                                    <p class="text-muted my-0 small">Linked Products</p>
-                                </div>
-                                  {%for g in item.item.linked_products%}
-                            {% if g != 'Not linked' %}
-                                {% if g != 'Not available' %}
-                                    <div class="col-6 col-lg-3 linked-products-div">
-                                        <small>{{g|truncatechars:8}}</small>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                        {% endif %}
+                                </a>
                             </div>
-                             
+                            <div class="col-7">
+                                <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
+                                <p class="my-0 small text-muted">Qty: {{ item.item.quantity }}</p>
+                                {% if item.item.digital_download %}
+                                    <p class="my-0 small text-muted">Delivery : Digital</p>
+                                {% else %}
+                                    <p class="my-0 small text-muted">Delivery : Delivery</p>
+                                {% endif %}
+                                <div class="row">
+                                    {% if item.product.product_type == "container" %}
+                                        <div class="col-12 p-0">
+                                            <p class="text-muted my-0 small">Linked Products</p>
+                                        </div>
+                                        {% for lp in item.item.linked_products%}
+                                            {% if lp != 'Not linked' %}
+                                                {% if lp g != 'Not available' %}
+                                                    <div class="col-6 col-lg-3 linked-products-div">
+                                                        <small>{{g|truncatechars:8}}</small>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div> 
+                            </div>
+                            <div class="col-3 text-right">
+                                <p class="my-0 small text-muted">£{{item.subtotal}}</p>
+                            </div>
                         </div>
-                        <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">£{{item.subtotal}}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                <hr class="my-0">
-                </div>
-                
+                    {% endfor %}
+                    <hr class="my-0">
+                </div>   
             </div>
-        
             <div class="col-12 col-lg-6">
                 <hr class="mt-0 d-lg-none">
                 <h4 class="text-center col-12">Price Summary</h4>
                 <div class="row checkout-summary-wrapper">
-                    
                     <div class="col-6 text-right p-0">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
-                        
-                        
                     </div>
                     <div class="col-6 text-left">
                         <p class="my-0">£{{ total | floatformat:2 }}</p>
@@ -142,51 +132,43 @@
                     </fieldset>
                     
                     <div class="row">
-                    <div class="submit-button text-center mt-2 mb-3 col-12"> 
-                        <button id="submit-button" type="submit" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
-							<span class="font-weight-bold">Complete Order</span>
-							<span class="icon">
-								<i class="fas fa-lock"></i>
-							</span>
-						</button>                   
-						<a href="{% url 'view_basket' %}" class="btn col-12 col-md-6  col-lg-7 col-xl-6 second-btn btn-lg extra-margin-bottom rounded-0">
-							<span class="icon">
-								<i class="fas fa-chevron-left"></i>
-							</span>
-							<span class="font-weight-bold">Adjust basket</span>
-						</a>
-						
-						
-                    </div>
+                        <div class="submit-button text-center mt-2 mb-3 col-12"> 
+                            <button id="submit-button" type="submit" class="btn rounded-0 action-btn mb-3 btn-lg col-12 col-md-6 col-lg-7 col-xl-6 extra-margin-bottom">
+                                <span class="font-weight-bold">Complete Order</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </button>                   
+                            <a href="{% url 'view_basket' %}" class="btn col-12 col-md-6  col-lg-7 col-xl-6 second-btn btn-lg extra-margin-bottom rounded-0">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="font-weight-bold">Adjust basket</span>
+                            </a>  
+                        </div>
                     </div>
                 </form>
             </div>
-            
         </div>
     </div>
 
-
-
-<!-- Modal -->
-<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header  text-center">
-        <h5 class="modal-title w-100" id="loadingModalLabel">Processing order!</h5>
-       
-      </div>
-      <div class="modal-body text-center">
-          <p> We are just checking everything is ready to go! </p>
-          <p> Please do not navigate from this page. You will be redirected shortly.</p>
-      
-      </div>
-      <div class="modal-footer">
-  
-      </div>
+    <!-- Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  text-center">
+                    <h5 class="modal-title w-100" id="loadingModalLabel">Processing order!</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p> We are just checking everything is ready to go! </p>
+                    <p> Please do not navigate from this page. You will be redirected shortly.</p>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-{% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block stripeJS %}
