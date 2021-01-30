@@ -2,6 +2,23 @@
 
 ## General testing
 
+### Remaining bugs
+
+I have one bug that is inconsistent. Having just re-tested it before submission, it wasn't working.
+Last night however, it was working fine. 
+
+When the user uploads their own photographs, they cannot then access it. For some
+reason the file path is broken. 
+
+This was brought up on Slack during peer code review and I acknowledged it and fixed it. I ensure that the path to 
+the media matched up and it worked. There will be a commit log for it too. 
+
+The tester also agreed that it was now working. 
+
+I haven't changed the code since, so I am unsure why it is an intermittent fault. It may well work when you use
+the app. 
+
+
 ### Basic test
 
 1. Nav has been fully tested
