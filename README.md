@@ -567,7 +567,10 @@ Then, head over to the ‘settings’ tab and click on the ‘reveal config vars
 
 Stripe keys can be found in your stripe account, which you will need to set up at [Stripe.](https://stripe.com/gb)
 
-EMAIL_HOST_PASSWORD Can be found in the security settings of your email host.
+EMAIL_HOST_PASSWORD 
+
+Can be found in the security settings of your email host.
+
 The EMAIL_HOST_USER is simply the email address from which you want your emails to be sent from. 
 
 DATABASE_URL can refer to whichever database system you have set up for your project. For this project, I used Postgres as it is the relational database I wanted and Heroku has a convenient package for it. Before you select the Postgres, you will need to install a couple of things on Github.
