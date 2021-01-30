@@ -27,6 +27,7 @@ def basket_contents(request):
 
             full_price_sub_total = product.price * item['quantity']
 
+            # Check delivery method
             if item['digital_download']:
                 digital_download = "on"
             else:
@@ -50,11 +51,13 @@ def basket_contents(request):
                 'digital_download': digital_download,
             })
 
+            # Checking that containers have a linked product and giving a warning if not
             list_of_linked_product_info = item['linked_products']
             for product_info in list_of_linked_product_info:
                 if product_info == 'Not linked' and product.number_of_pictures > 0:
                     are_all_items_linked = False
 
+    # Calculate if eligble for free delivery
     if delivery_total == 0 or total > settings.FREE_DELIVERY_AMOUNT:
         delivery = 0
         free_delivery_deficit = 0

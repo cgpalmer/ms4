@@ -45,7 +45,7 @@ def add_to_basket(request, item_id):
             for item in basket['items']:
                 basket_item_id = basket_item_id + 1
 
-            # This next function decides whether the product already exists in the basket. 
+            # This next function decides whether the product already exists in the basket.
             matching_items = []
             if linked_products[0] == "Not available":
                 for item in basket['items']:
@@ -117,7 +117,6 @@ def processing_linked_products_images_for_basket_preview(request, item_id):
             linked_product_details = request.POST.get('linked_product' + str(i))
             split_linked_product_details = linked_product_details.split("|")
 
-            linked_product_id = split_linked_product_details[1]
             linked_product_image = split_linked_product_details[0]
             linked_product_type = split_linked_product_details[2]
 
@@ -138,8 +137,6 @@ def processing_linked_products_images_for_basket_preview(request, item_id):
         linked_product_images_list = ['Not available']
     linked_product_images_list = linked_product_images_list
     return linked_product_images_list
-
-
 
 
 def processing_linked_products_for_checkout_summary(request, item_id):
@@ -188,6 +185,7 @@ def edit_basket(request):
     updated_quantity = request.POST.get('basket_quantity')
     updated_delivery = request.POST.get('basket_digital_download')
     basket_item_id = request.POST.get('basket_item_id')
+
     # Getting variables to set up editing the linked photos
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, pk=product_id)
@@ -211,6 +209,7 @@ def edit_basket(request):
                 else:
                     item['digital_download'] = None
 
+            # Checking if editing the basket had changed the linked products
             updated_linked_product_images_list = []
             updated_linked_products = []
             if product.number_of_pictures > 0:
@@ -236,7 +235,7 @@ def edit_basket(request):
                     else:
                         linked_product_object = get_object_or_404(Product, pk=linked_product_id)
                         linked_product = linked_product_object.sku
-                        # There are going to be issues with upload your own photos here
+
                     if updated_linked_products != []:
                         updated_linked_products.append(linked_product)
                     else:
@@ -246,9 +245,7 @@ def edit_basket(request):
                 updated_linked_product_images_list = ['Not available']
             item['linked_products'] = updated_linked_products
             item['linked_product_images_list'] = updated_linked_product_images_list
-    #     else:
-    #         # Find out what this does
-    #         return redirect('view_basket')
+
     request.session['basket'] = basket
     return redirect('view_basket')
 
