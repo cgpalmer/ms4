@@ -15,7 +15,7 @@ functions around them.
 '''
 
 
-# @login_required
+@login_required
 def admin_profile(request):
     products = Product.objects.all()
     categories = Category.objects.all()
@@ -113,7 +113,7 @@ def delete_user_photo(request, photo_id):
     return redirect(reverse('profile'))
 
 
-# @login_required
+@login_required
 def image_upload(request, product_id):
     """Process images uploaded by users"""
     if request.method == 'POST':
