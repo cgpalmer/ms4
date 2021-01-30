@@ -280,28 +280,40 @@ breakpoints - small, medium, extra large. Respectively, mobile, tablet, desktop.
 
 ### Surface design
 Buttons
+
 Action buttons also have a chevron pointing right, which is the logical symbol for “next”. All of the navigation buttons or cancel buttons have a chevron pointing left. This give the illusion that there is a certain way to navigate around the website, that discourages the users from click the browser “back” button. 
 
 Typography
-The same font is used across the website. The font-weight has been adjusted accordingly for the elements that need to stand out more or need to be more readable. For example: Where necessary, on the small “special offer” badge the font-weight is slightly less so it is more readable at a smaller font. 
+
+The same font is used across the website. The font-weight has been adjusted accordingly for the elements that need to stand out more or need to be more readable. 
+
+For example: Where necessary, on the small “special offer” badge the font-weight is slightly less so it is more readable at a smaller font. 
 I deliberately picked a clean, plain text font to maximise accessibility for the user. It does not use any cursive devices, nor is it italic. 
 
 Colour Scheme
+
 For my project, I knew which picture I wanted for my landing page. I decided that I would use a colour from the picture in order to replicate the feel of “nature” in colour scheme. As the majority of photographs on the site are animals or nature, I felt this fitted the website well. 
+
 Once I had my base green colour, I used [Canva](https://www.canva.com/colors/color-wheel/) as a tool for developing secondary colours. Using the “Complementary” section, I chose to pick the secondary as the dark blue you see on the screen. I used the chromatic and found it suggested slightly lighter colours. However, the base green I chose, I decided to keep as it was darker and the “white” text had a better contrast ratio and was much easier to read.
 Therefore, I made the hover functions, a slightly darker version of the two main “green” and “blue” colour.
+
 I did experiment with the the other colours on the tetradict pdf. However, they broke they didn’t seem to properly fit with my design. Any fourth colour looked out of place and complex. Therefore, I stuck with a 3-colour system of white, green and blue.
 Possibly the most important use of my colour scheme, aside from readability, is that I used it to reinforce the intuitive navigation and action around the website. All action buttons are blue. Whereas all cancel, navigation, delete buttons are green. As a general rule, the user will look for a blue button when they want to complete an action and will see a green button when they wish to return to a page. 
+
 In addition, I use the colour scheme to have alert the user to the status of certain features. For example, when an item is added to the basket, the basket icon in the nav glows blue. This is so the user knows it has been added successfully and is drawn to their current total so far.
 Another feature is the “profile” icon, which turns blue when a user is logged in. This is just visual feedback for the user, should they run into any issues. 
 
 Balance in the design
+
 I have made a significant effort to keep a balance on each webpage. Each has access to the header and foot, which are consistent in their sizes across the pages. Each page has a clear “section” in the middle that has an individual purpose. 
+
 Cards
+
 Each product has been placed on a card, with a photo at the top and text at the bottom. As these are white cards on a white background, I have added shadow to create a subtle 3D look.  The cards are consistent, with the images being of the same height and the text formatted in the same way below.
 On the product details, cards are also used to keep the design consistent.
 
 Horizontal rules
+
 Horizontal rules have been used across the website to highlight headers and to separate items. For instance, they are used to separate reviews from each other or items in the basket.
 I found these to be subtle and more flexible to use that a table. 
 
@@ -309,6 +321,7 @@ Image Presentation
 
 Image presentation was tricky for this project and I feel I got the balance just right. As anyone knows, the larger the images on website, the slower the page will load.*
 However, for a website that is selling products that have images printed onto products, printed out or digitally downloaded, I needed to make sure images looked good on the page.
+
 To achieve my balance, I restricted the image sizes to the largest sized image container on the website (300px height). This greatly reduce the amount of memory each photo was taking
 up. 
 
@@ -317,6 +330,7 @@ Image Shack. This way, I do not need to load the photo, just the link but the us
 
 I also left the width as unrestricted and object fit is set to contain. This has caused some images to sit differently in their containers but where possible they have all been aligned either at the bottom or top,
 depending on which suited the purpose better. My reasons for not controlling the width meant that some of the images became distorted or no longer had the main part of the picture visible.
+
 Again, I feel the images have the best compromise of responsive design, performance and quality. 
 
 *Please see my efforts to improve my websites performance on the [Testing page](TESTING.md) under the "performance section".
